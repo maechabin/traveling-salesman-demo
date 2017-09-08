@@ -3,4 +3,4 @@ export const demoReducer = (state = {}, action) => {
     default:
       return state;
   }
-}
+};
