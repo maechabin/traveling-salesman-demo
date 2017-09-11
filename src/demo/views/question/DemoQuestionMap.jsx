@@ -39,31 +39,35 @@ class DemoQuestionMap extends React.Component {
       position: { lat: -25.363, lng: 131.044 },
       map,
       title: 'Hello World!',
+      label: '出発地',
     });
     const arivalPoint = new this.props.google.maps.Marker({
       position: { lat: 25.33, lng: 133.044 },
       map,
       title: 'Hello World!',
+      label: '到着地',
     });
     const routes = [
-      { title: '秋葉原駅', lat: -34.397, lng: 11.044 },
-      { title: '文京区役所', lat: 11, lng: 14 },
-      { title: '明治大学', lat: 13, lng: 12 },
-      { title: '浜離宮', lat: -44.397, lng: 11.044 },
-      { title: '国会議事堂', lat: -54.397, lng: 11.044 },
+      { title: '秋葉原駅', lat: -34.397, lng: 11.044, label: '経路A' },
+      { title: '文京区役所', lat: 11, lng: 14, label: '経路B' },
+      { title: '明治大学', lat: 13, lng: 12, label: '経路C' },
+      { title: '浜離宮', lat: -44.397, lng: 11.044, label: '経路D' },
+      { title: '国会議事堂', lat: -54.397, lng: 11.044, label: '経路E' },
     ];
     routes.map((route) => {
       return new this.props.google.maps.Marker({
         position: { lat: route.lat, lng: route.lng },
         map,
         title: route.title,
+        icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+        label: route.label,
       });
     });
   }
 
   render() {
     return (
-      <div ref="DemoQuestionMap" className="DemoQuestionMap" style={{ width: '30vw', height: '100vh' }}>Map</div>
+      <div ref="DemoQuestionMap" className="DemoQuestionMap">Map</div>
     );
   }
 }
