@@ -2,7 +2,7 @@ import React from 'react';
 
 const DemoQuestionButton = (props) => {
   return (
-    <button>やり直す</button>
+    <button className="DemoQuestionButton">やり直す</button>
   );
 };
 

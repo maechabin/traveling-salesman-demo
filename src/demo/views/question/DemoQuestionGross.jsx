@@ -2,7 +2,7 @@ import React from 'react';
 
 const DemoQuestionGross = () => {
   return (
-    <div>
+    <div className="DemoQuestionGross">
       <p>総距離: 0km / 総時間: 0分</p>
     </div>
   );
