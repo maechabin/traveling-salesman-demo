@@ -1,0 +1,103 @@
+@charset "UTF-8";
+.DemoHeader {
+  margin: 0;
+  padding: 8px;
+  text-align: center;
+  background-color: #000;
+  color: #fff; }
+  .DemoHeader h1 {
+    font-size: 24px; }
+
+.DemoMain {
+  display: flex; }
+
+.DemoQuestion {
+  width: 50vw; }
+  .DemoQuestion h2 {
+    text-align: center;
+    background-color: #ccc;
+    padding: 8px;
+    margin: 0; }
+  .DemoQuestionMain {
+    display: flex; }
+  .DemoQuestionMap {
+    width: 30vw;
+    height: calc(100vh - 84.16px - 52px); }
+    .DemoQuestionMapArea {
+      position: relative; }
+  .DemoQuestionNavArea {
+    background-color: #FAFAFA;
+    padding: 16px;
+    text-align: left;
+    display: flex;
+    flex-direction: column; }
+  .DemoQuestionList ul {
+    list-style-type: none; }
+  .DemoQuestionListDeparture::after {
+    background-color: #fafafa;
+    text-align: center;
+    color: #000;
+    display: block;
+    content: "↓";
+    margin: 0 -8px;
+    line-height: 1.4; }
+  .DemoQuestionListDeparture, .DemoQuestionListArival {
+    margin: 0 0 1px;
+    color: #fff;
+    padding: 0 8px;
+    background-color: #f75c50;
+    line-height: 2; }
+  .DemoQuestionListRoutes {
+    margin: 0;
+    padding: 0; }
+    .DemoQuestionListRoutes li {
+      color: #fff;
+      background-color: #00e64d;
+      border-bottom: 1px solid #fff;
+      padding: 0 8px;
+      line-height: 2; }
+      .DemoQuestionListRoutes li::after {
+        background-color: #fafafa;
+        text-align: center;
+        color: #000;
+        display: block;
+        content: "↓";
+        margin: 0 -8px;
+        line-height: 1.4; }
+  .DemoQuestionGross {
+    position: absolute;
+    bottom: 0;
+    padding: 8px 16px;
+    border-radius: 0 4px 0 0;
+    opacity: .9;
+    background-color: orange; }
+    .DemoQuestionGross p {
+      margin: 0; }
+  .DemoQuestionButton {
+    cursor: pointer;
+    margin: 24px auto;
+    border: none;
+    border-radius: 2px;
+    padding: 8px;
+    font-size: 16px;
+    width: 160px;
+    color: #fff;
+    background-color: #90A4AE; }
+
+.DemoDescription {
+  width: 50vw;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+  .DemoDescriptionButton {
+    cursor: pointer;
+    margin-top: 40px;
+    border: none;
+    border-radius: 2px;
+    padding: 32px 16px;
+    font-size: 24px;
+    width: 320px;
+    color: #fff;
+    background-color: #1E88E5; }

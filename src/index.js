@@ -14,7 +14,7 @@ const store = configureStore(demoReducer, demoState);
 
 ReactDOM.render(
   <Provider store={store}>
-    <DemoContainer />
+    <DemoContainer google={window.google} />
   </Provider>,
   document.getElementById('root'),
 );

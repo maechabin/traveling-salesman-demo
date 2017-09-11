@@ -1,16 +1,25 @@
-import React, { Component } from 'react';
-import '../Demo.css';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class Demo extends Component {
-  render() {
-    return (
-      <div className="Demo">
-        <div>
-          <h1>巡回サラリーマン問題</h1>
-        </div>
-      </div>
-    );
-  }
-}
+import DemoHeader from './DemoHeader';
+import DemoQuestion from './question/DemoQuestion';
+import DemoDescription from './description/DemoDescription';
+import '../styles/Demo.css';
+
+const Demo = (props) => {
+  return (
+    <div className="Demo">
+      <DemoHeader />
+      <main className="DemoMain">
+        <DemoQuestion google={props.google} />
+        <DemoDescription />
+      </main>
+    </div>
+  );
+};
+
+Demo.propTypes = {
+  google: PropTypes.object,
+};
 
 export default Demo;

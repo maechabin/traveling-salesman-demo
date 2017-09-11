@@ -5,9 +5,13 @@ import { connect } from 'react-redux';
 import Demo from './views/Demo';
 
 class DemoContainer extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
-      <Demo />    
+      <Demo google={this.props.google} />    
     );
   }
 }
