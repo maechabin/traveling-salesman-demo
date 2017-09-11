@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import { configureStore } from './store';
+import configureStore from './store';
 import { demoReducer } from './demo/demoReducer';
-import { demoState } from './demo/demoState';
+import demoState from './demo/demoState';
 
 import './index.css';
 import DemoContainer from './demo/DemoContainer';
