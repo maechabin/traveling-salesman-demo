@@ -1,23 +1,37 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const DemoQuestionList = () => {
+const DemoQuestionList = (props) => {
+  const sortedList = props.routes.sort((a, b) => {
+    if (a.sortId > b.sortId) return -1;
+    if (a.sortId < b.sortId) return 1;
+    if (a.id < b.id) return -1;
+    if (a.id > b.id) return 1;
+    return 0;
+  });
+  const renderingList = sortedList.map((route) => {
+    const listClassName = route.sortId !== 0 ? 'DemoQuestionListSorted' : 'DemoQuestionListNotSorted';
+    return (
+      <li key={route.id} className={listClassName}>{route.label}: {route.title}</li>
+    );
+  });
   return (
     <div className="DemoQuestionList">
       <ul className="DemoQuestionListDeparture">
-        <li>出発地: 根津神社</li>
+        <li>{props.departure.label}: {props.departure.title}</li>
       </ul>
       <ul className="DemoQuestionListRoutes">
-        <li>経路A: 秋葉原駅</li>
-        <li>経路B: 文京区役所</li>
-        <li>経路C: 明治大学</li>
-        <li>経路D: 浜離宮</li>
-        <li>経路E: 国会議事堂</li>
+        {renderingList}
       </ul>
       <ul className="DemoQuestionListArival">
-        <li>到着地: 勝どき駅</li>
+        <li>{props.arival.label}: {props.arival.title}</li>
       </ul>
     </div>
   );
+};
+
+DemoQuestionList.propTypes = {
+
 };
 
 export default DemoQuestionList;

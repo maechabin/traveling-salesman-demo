@@ -13,12 +13,12 @@ const DemoQuestion = (props) => {
       <h2>問題</h2>
       <div className="DemoQuestionMain">
         <div className="DemoQuestionMapArea">
-          <DemoQuestionMap google={props.google} />
+          <DemoQuestionMap {...props} />
           <DemoQuestionGross />
         </div>
         <div className="DemoQuestionNavArea">
           <DemoQuestionOption />
-          <DemoQuestionList />
+          <DemoQuestionList {...props} />
           <DemoQuestionButton />
         </div>
       </div>

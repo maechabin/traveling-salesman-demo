@@ -11,7 +11,7 @@ const Demo = (props) => {
     <div className="Demo">
       <DemoHeader />
       <main className="DemoMain">
-        <DemoQuestion google={props.google} />
+        <DemoQuestion {...props} />
         <DemoDescription />
       </main>
     </div>
