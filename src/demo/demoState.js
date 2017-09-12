@@ -9,6 +9,9 @@ const demoState = {
     { id: 5, title: '国会議事堂', lat: 35.675888, lng: 139.74485800000002, label: '経路E', sortId: 0 },
   ],
   currentSortId: 5,
+  transport: 'car',
+  expressway: false,
+  traffic: 'standard',
 };
 
 export default demoState;

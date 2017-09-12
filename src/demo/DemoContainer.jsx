@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { sortList } from './demoAction';
+import { sortList, changeFormValue } from './demoAction';
 
 // viewファイルを追加
 import Demo from './views/Demo';
@@ -19,6 +19,9 @@ function mapStateToProps(state) {
     departure: state.departure,
     arival: state.arival,
     routes: state.routes,
+    transport: state.transport,
+    expressway: state.expressway,
+    traffic: state.traffic,
   };
 }
 
@@ -26,6 +29,9 @@ function mapDispatchToProps(dispatch) {
   return {
     handleMarkerClick(marker) {
       dispatch(sortList(marker));
+    },
+    handleFormChange(value) {
+      dispatch(changeFormValue(value));
     },
   };
 }
