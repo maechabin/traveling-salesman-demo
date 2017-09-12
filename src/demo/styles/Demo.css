@@ -52,7 +52,6 @@
     padding: 0; }
     .DemoQuestionListRoutes li {
       color: #fff;
-      background-color: #00e64d;
       border-bottom: 1px solid #fff;
       padding: 0 8px;
       line-height: 2; }
@@ -64,6 +63,10 @@
         content: "↓";
         margin: 0 -8px;
         line-height: 1.4; }
+  .DemoQuestionListNotSorted {
+    background-color: #00e64d; }
+  .DemoQuestionListSorted {
+    background-color: #6991fd; }
   .DemoQuestionGross {
     position: absolute;
     bottom: 0;

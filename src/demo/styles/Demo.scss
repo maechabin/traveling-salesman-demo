@@ -73,7 +73,6 @@
       padding: 0;
       li {
         color: #fff;
-        background-color: #00e64d;
         border-bottom: 1px solid #fff;
         padding: 0 8px;
         line-height: 2;
@@ -87,6 +86,13 @@
           line-height: 1.4;
         }
       }
+    }
+
+    &NotSorted {
+      background-color: #00e64d;
+    }
+    &Sorted {
+      background-color: #6991fd;
     }
     
   }
