@@ -61,7 +61,7 @@ class DemoQuestionMap extends React.Component {
       bounds.extend(marker.position);
       marker.addListener('click', () => {
         if (route.sortId === 0) {
-          return this.props.handleMarkerClick(route.id);
+          return this.props.handleMarkerClick(route.id, this.props.choosingRouteFlag);
         }
         return false;
       });
@@ -72,13 +72,11 @@ class DemoQuestionMap extends React.Component {
 
   // propsから出発地、到着地、経路、オプションを取得して、マーカーを結ぶ線（polyline）を地図に表示するメソッド
   renderRoute() {
-    console.log(new Date());
     const directionsService = new this.gm.DirectionsService();
     const directionsRenderer = new this.gm.DirectionsRenderer();
     const filteredRoutes = this.props.routes.filter(route => route.sortId !== 0);
     const wayPoints = filteredRoutes.map(route => ({ location: route.title }));
     const destination = filteredRoutes.length === this.props.routes.length ? this.props.arival.title : filteredRoutes[filteredRoutes.length - 1];
-
     // polylineをレンダリングする際のオプション
     directionsRenderer.setOptions({
       suppressMarkers: true, // マーカーを非表示にする場合はtrue
@@ -102,8 +100,6 @@ class DemoQuestionMap extends React.Component {
         trafficModel: this.props.traffic === 'standard' ? this.gm.TrafficModel.BEST_GUESS : this.props.traffic === 'optimistic' ? this.gm.TrafficModel.OPTIMISTIC : this.gm.TrafficModel.PESSIMISTIC,
       },
     }, (response, status) => {
-      console.log(response);
-      console.log(status);
       directionsRenderer.setDirections(response);
     });
     // polylineを地図に表示
@@ -131,6 +127,7 @@ DemoQuestionMap.propTypes = {
     label: PropTypes.string.isRequired,
   }).isRequired,
   handleMarkerClick: PropTypes.func.isRequired,
+  choosingRouteFlag: PropTypes.bool.isRequired,
 };
 
 export default DemoQuestionMap;

@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { sortList, changeFormValue } from './demoAction';
+import { sortList, disabledChooseOptions, changeFormValue } from './demoAction';
 
 // viewファイルを追加
 import Demo from './views/Demo';
 
-class DemoContainer extends React.Component {
+class DemoContainer extends React.PureComponent {
   render() {
     return (
-      <Demo {...this.props} />    
+      <Demo {...this.props} />
     );
   }
 }
@@ -22,13 +22,20 @@ function mapStateToProps(state) {
     transport: state.transport,
     expressway: state.expressway,
     traffic: state.traffic,
+    choosingRouteFlag: state.choosingRouteFlag,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    handleMarkerClick(marker) {
-      dispatch(sortList(marker));
+    handleMarkerClick(marker, choosingRouteFlag) {
+      const actionsArray = [sortList(marker)];
+      if (!choosingRouteFlag) {
+        actionsArray.push(disabledChooseOptions());
+      }
+      return actionsArray.map(
+        action => dispatch(action),
+      );
     },
     handleFormChange(value) {
       dispatch(changeFormValue(value));

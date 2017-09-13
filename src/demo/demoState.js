@@ -8,6 +8,7 @@ const demoState = {
     { id: 4, title: '浜離宮', lat: 35.6597374, lng: 139.76349249999998, label: '経路D', sortId: 0 },
     { id: 5, title: '国会議事堂', lat: 35.675888, lng: 139.74485800000002, label: '経路E', sortId: 0 },
   ],
+  choosingRouteFlag: false,
   currentSortId: 5,
   transport: 'car',
   expressway: 'no',
