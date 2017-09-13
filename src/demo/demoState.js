@@ -10,7 +10,7 @@ const demoState = {
   ],
   currentSortId: 5,
   transport: 'car',
-  expressway: false,
+  expressway: 'no',
   traffic: 'standard',
 };
 

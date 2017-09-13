@@ -22,7 +22,7 @@ const DemoQuestionOptions = (props) => {
       </dd>
       <dt>有料道路、高速道路</dt>
       <dd>
-        <input type="checkbox" value="false" name="expressway" checked={expressway} onChange={handleChange} id="expressway" />
+        <input type="checkbox" value={expressway === 'no' ? 'yes' : 'no'} name="expressway" checked={expressway === 'yes'} onChange={handleChange} id="expressway" />
         <label htmlFor="expressway">利用する</label>
       </dd>
       <dt>交通量の見積もり</dt>
@@ -40,7 +40,7 @@ const DemoQuestionOptions = (props) => {
 
 DemoQuestionOptions.propTypes = {
   transport: PropTypes.string.isRequired,
-  expressway: PropTypes.bool.isRequired,
+  expressway: PropTypes.string.isRequired,
   traffic: PropTypes.string.isRequired,
   handleFormChange: PropTypes.func.isRequired,
 };
