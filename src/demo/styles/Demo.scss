@@ -56,16 +56,18 @@
       &::after {
         background-color: #fafafa;
         text-align: center;
-        color: #000;
+        color: #5C6BC0;
         display: block;
-        content: "↓";
+        content: "⬇︎";
         margin: 0 -8px;
-        line-height: 1.4;
+        line-height: 1.2;
       }
     }
 
     &Departure,
     &Arival {
+      text-align: center;
+      font-size: 16px;
       margin: 0 0 1px;
       color: #fff;
       padding: 0 8px;
@@ -77,19 +79,12 @@
       margin: 0;
       padding: 0;
       li {
+        text-align: center;
+        font-size: 16px;
         color: #fff;
         border-bottom: 1px solid #fff;
         padding: 0 8px;
         line-height: 2;
-        &::after {
-          background-color: #fafafa;
-          text-align: center;
-          color: #000;
-          display: block;
-          content: "↓";
-          margin: 0 -8px;
-          line-height: 1.4;
-        }
       }
     }
 
@@ -98,6 +93,15 @@
     }
     &Sorted {
       background-color: #6991fd;
+      &::after {
+        background-color: #fafafa;
+        text-align: center;
+        color: #5C6BC0;
+        display: block;
+        content: '⬇︎';
+        margin: 0 -8px;
+        line-height: 1.2;
+      }
     }
     
   }
