@@ -31,6 +31,7 @@ class DemoQuestionMap extends React.Component {
     let marker;
     const bounds = new this.gm.LatLngBounds();
 
+    // 出発地のマーカーを地図に表示
     marker = new this.gm.Marker({
       position: { lat: this.props.departure.lat, lng: this.props.departure.lng },
       map: this.map,
@@ -39,6 +40,7 @@ class DemoQuestionMap extends React.Component {
     });
     bounds.extend(marker.position);
 
+    // 到着地のマーカーを地図に表示
     marker = new this.gm.Marker({
       position: { lat: this.props.arival.lat, lng: this.props.arival.lng },
       map: this.map,
@@ -47,6 +49,7 @@ class DemoQuestionMap extends React.Component {
     });
     bounds.extend(marker.position);
 
+    // 経路のマーカーを地図に表示
     this.props.routes.map((route) => {
       marker = new this.gm.Marker({
         position: { lat: route.lat, lng: route.lng },
@@ -69,6 +72,7 @@ class DemoQuestionMap extends React.Component {
 
   // propsから出発地、到着地、経路、オプションを取得して、マーカーを結ぶ線（polyline）を地図に表示するメソッド
   renderRoute() {
+    console.log(new Date());
     const directionsService = new this.gm.DirectionsService();
     const directionsRenderer = new this.gm.DirectionsRenderer();
     const filteredRoutes = this.props.routes.filter(route => route.sortId !== 0);
@@ -93,6 +97,10 @@ class DemoQuestionMap extends React.Component {
       travelMode: this.props.transport === 'car' ? this.gm.TravelMode.DRIVING : this.gm.TravelMode.WALKING, // 車(DRIVING) or 徒歩(WALKING)
       avoidHighways: this.props.expressway !== 'no', // 高速は利用しない場合はfalse
       optimizeWaypoints: false, // 最適化を有効にする場合はtrue
+      drivingOptions: {
+        departureTime: new Date(),
+        trafficModel: this.props.traffic === 'standard' ? this.gm.TrafficModel.BEST_GUESS : this.props.traffic === 'optimistic' ? this.gm.TrafficModel.OPTIMISTIC : this.gm.TrafficModel.PESSIMISTIC,
+      },
     }, (response, status) => {
       console.log(response);
       console.log(status);
