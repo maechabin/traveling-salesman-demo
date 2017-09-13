@@ -53,11 +53,14 @@ class DemoQuestionMap extends React.Component {
 
     // 経路のマーカーを地図に表示
     this.props.routes.map((route) => {
+      const image = route.sortId !== 0 ?
+        'https://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' :
+        'https://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-a.png';
       marker = new this.gm.Marker({
         position: { lat: route.lat, lng: route.lng },
         map: this.map,
         title: route.title,
-        icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+        icon: image,
         label: route.label,
       });
       bounds.extend(marker.position);
@@ -79,7 +82,6 @@ class DemoQuestionMap extends React.Component {
     const filteredRoutes = this.props.routes.filter(route => route.sortId !== 0);
     const wayPoints = filteredRoutes.map(route => ({ location: route.title }));
     const destination = filteredRoutes.length === this.props.routes.length ? this.props.arival.title : filteredRoutes[filteredRoutes.length - 1].title;
-    console.log(destination);
 
     // polylineをレンダリングする際のオプション
     directionsRenderer.setOptions({
@@ -118,6 +120,9 @@ class DemoQuestionMap extends React.Component {
 }
 
 DemoQuestionMap.propTypes = {
+  google: PropTypes.shape({
+    maps: PropTypes.object,
+  }).isRequired,
   departure: PropTypes.shape({
     title: PropTypes.string.isRequired,
     lat: PropTypes.number.isRequired,
@@ -132,6 +137,9 @@ DemoQuestionMap.propTypes = {
   }).isRequired,
   routes: PropTypes.arrayOf(React.PropTypes.object).isRequired,
   handleMarkerClick: PropTypes.func.isRequired,
+  transport: PropTypes.string,
+  expressway: PropTypes.string,
+  traffic: PropTypes.string,
   choosingRouteFlag: PropTypes.bool.isRequired,
 };
 
