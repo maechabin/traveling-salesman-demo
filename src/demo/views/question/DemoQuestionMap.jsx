@@ -21,9 +21,11 @@ class DemoQuestionMap extends React.Component {
   }
 
   componentDidUpdate() {
-    // this.map = new this.gm.Map(this.refs.DemoQuestionMap, this.mapOptions);
-    this.renderRoute();
-    this.displayMarker();
+    if (this.props.choosingRouteFlag) {
+      // this.map = new this.gm.Map(this.refs.DemoQuestionMap, this.mapOptions);
+      this.renderRoute();
+      this.displayMarker();
+    }
   }
 
   // propsから出発地、到着地、経路を取得して、地図にマーカーを表示するメソッド
@@ -76,7 +78,9 @@ class DemoQuestionMap extends React.Component {
     const directionsRenderer = new this.gm.DirectionsRenderer();
     const filteredRoutes = this.props.routes.filter(route => route.sortId !== 0);
     const wayPoints = filteredRoutes.map(route => ({ location: route.title }));
-    const destination = filteredRoutes.length === this.props.routes.length ? this.props.arival.title : filteredRoutes[filteredRoutes.length - 1];
+    const destination = filteredRoutes.length === this.props.routes.length ? this.props.arival.title : filteredRoutes[filteredRoutes.length - 1].title;
+    console.log(destination);
+
     // polylineをレンダリングする際のオプション
     directionsRenderer.setOptions({
       suppressMarkers: true, // マーカーを非表示にする場合はtrue
@@ -126,6 +130,7 @@ DemoQuestionMap.propTypes = {
     lng: PropTypes.number.isRequired,
     label: PropTypes.string.isRequired,
   }).isRequired,
+  routes: PropTypes.arrayOf(React.PropTypes.object).isRequired,
   handleMarkerClick: PropTypes.func.isRequired,
   choosingRouteFlag: PropTypes.bool.isRequired,
 };
