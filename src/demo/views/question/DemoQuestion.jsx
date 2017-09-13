@@ -8,6 +8,7 @@ import DemoQuestionOption from './DemoQuestionOptions';
 import DemoQuestionButton from './DemoQuestionButton';
 
 const DemoQuestion = (props) => {
+  const { google, ...rest } = props;
   return (
     <div className="DemoQuestion">
       <h2>問題</h2>
@@ -17,8 +18,8 @@ const DemoQuestion = (props) => {
           <DemoQuestionGross />
         </div>
         <div className="DemoQuestionNavArea">
-          <DemoQuestionOption />
-          <DemoQuestionList {...props} />
+          <DemoQuestionOption {...rest} />
+          <DemoQuestionList {...rest} />
           <DemoQuestionButton />
         </div>
       </div>
@@ -27,7 +28,7 @@ const DemoQuestion = (props) => {
 };
 
 DemoQuestion.propTypes = {
-  google: PropTypes.object,
+
 };
 
 export default DemoQuestion;
