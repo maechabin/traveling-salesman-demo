@@ -106,15 +106,24 @@ class DemoQuestionMap extends React.Component {
         trafficModel: this.props.traffic === 'standard' ? this.gm.TrafficModel.BEST_GUESS : this.props.traffic === 'optimistic' ? this.gm.TrafficModel.OPTIMISTIC : this.gm.TrafficModel.PESSIMISTIC,
       },
     }, (response, status) => {
-      let distance = 0;
-      let duration = 0;
-      directionsRenderer.setDirections(response);
-      response.routes[0].legs.map((item) => {
-        distance += item.distance.value;
-        duration += item.duration.value;
-        console.log(distance / 1000 + 'km');
-        console.log(duration / 60 + '分');
-      });
+      if (status === this.gm.DirectionsStatus.OK) {
+        // directions apiのレスポンスをセット
+        directionsRenderer.setDirections(response);
+
+        // 総距離、総時間を表示
+        let distance = 0;
+        let duration = 0;
+        return response.routes[0].legs.map((item) => {
+          distance += item.distance.value;
+          duration += item.duration.value;
+          const gross = {
+            distance: Math.floor((distance / 1000) * (10 ** 1)) / (10 ** 1), // 小数点第1位以下を切り捨て
+            duration: Math.floor((duration / 60) * (10 ** 1)) / (10 ** 1), // 小数点第1位以下を切り捨て
+          };
+          return this.props.handleUpdateGross(gross);
+        });
+      }
+      return `error: ${status}`;
     });
     // polylineを地図に表示
     directionsRenderer.setMap(this.map);
@@ -149,6 +158,7 @@ DemoQuestionMap.propTypes = {
   expressway: PropTypes.string,
   traffic: PropTypes.string,
   choosingRouteFlag: PropTypes.bool.isRequired,
+  handleUpdateGross: PropTypes.func.isRequired,
 };
 
 export default DemoQuestionMap;

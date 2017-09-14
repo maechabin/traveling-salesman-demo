@@ -1,3 +1,4 @@
+// 経路リストを並び替える
 // DemoQuestionListMapでマーカークリック時に呼び出される
 export const SORT_LIST = 'SORT_LIST';
 export function sortList(payload) {
@@ -7,11 +8,22 @@ export function sortList(payload) {
   };
 }
 
+// マーカー選択中としてフラグを更新
 // DemoQuestionListMapでマーカークリック時に呼び出される
 export const DISABLED_CHOOSE_OPTIONS = 'DISABLED_CHOOSE_OPTIONS';
 export function disabledChooseOptions() {
   return {
     type: DISABLED_CHOOSE_OPTIONS,
+  };
+}
+
+// 総距離、総時間を更新
+// DemoQuestionListMapでマーカークリック時に呼び出される
+export const UPDATE_GROSS = 'UPDATE_GROSS';
+export function updateGross(payload) {
+  return {
+    type: UPDATE_GROSS,
+    payload,
   };
 }
 

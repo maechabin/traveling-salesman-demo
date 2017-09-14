@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { sortList, disabledChooseOptions, changeFormValue } from './demoAction';
+import { sortList, updateGross, disabledChooseOptions, changeFormValue } from './demoAction';
 
 // viewファイルを追加
 import Demo from './views/Demo';
@@ -38,8 +38,11 @@ function mapDispatchToProps(dispatch) {
         action => dispatch(action),
       );
     },
+    handleUpdateGross(gross) {
+      return dispatch(updateGross(gross));
+    },
     handleFormChange(value) {
-      dispatch(changeFormValue(value));
+      return dispatch(changeFormValue(value));
     },
   };
 }
