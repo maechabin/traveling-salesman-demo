@@ -1,4 +1,4 @@
-import { SORT_LIST, CHANGE_FORM_VALUE } from './demoAction';
+import { SORT_LIST, DISABLED_CHOOSE_OPTIONS, CHANGE_FORM_VALUE } from './demoAction';
 
 const demoReducer = (state = {}, action) => {
   switch (action.type) {
@@ -15,6 +15,10 @@ const demoReducer = (state = {}, action) => {
         currentSortId: state.currentSortId - 1,
       });
     }
+    case DISABLED_CHOOSE_OPTIONS:
+      return Object.assign({}, state, {
+        choosingRouteFlag: true,
+      });
     case CHANGE_FORM_VALUE:
       return Object.assign({}, state, {
         [action.payload.name]: action.payload.value,

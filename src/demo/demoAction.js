@@ -1,9 +1,17 @@
-// DemoQuestionListMapで呼び出される
+// DemoQuestionListMapでマーカークリック時に呼び出される
 export const SORT_LIST = 'SORT_LIST';
 export function sortList(payload) {
   return {
     type: SORT_LIST,
     payload,
+  };
+}
+
+// DemoQuestionListMapでマーカークリック時に呼び出される
+export const DISABLED_CHOOSE_OPTIONS = 'DISABLED_CHOOSE_OPTIONS';
+export function disabledChooseOptions() {
+  return {
+    type: DISABLED_CHOOSE_OPTIONS,
   };
 }
 
