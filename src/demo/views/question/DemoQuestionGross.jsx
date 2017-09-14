@@ -1,11 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const DemoQuestionGross = () => {
-  return (
-    <div className="DemoQuestionGross">
-      <p>総距離: 0km / 総時間: 0分</p>
-    </div>
-  );
+const DemoQuestionGross = props => (
+  <div className="DemoQuestionGross">
+    <p>総距離: <span>{props.gross.distance}</span>km / 総時間: <span>{props.gross.duration}</span>分</p>
+  </div>
+);
+
+DemoQuestionGross.propTypes = {
+  gross: PropTypes.shape({
+    distance: PropTypes.number,
+    duration: PropTypes.number,
+  }).isRequired,
 };
 
 export default DemoQuestionGross;

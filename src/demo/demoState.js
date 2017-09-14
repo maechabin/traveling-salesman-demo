@@ -16,6 +16,10 @@ const demoState = {
   transport: 'car',
   expressway: 'no',
   traffic: 'standard',
+  gross: {
+    distance: 0,
+    duration: 0,
+  },
 };
 
 export default demoState;

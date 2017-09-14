@@ -8,14 +8,14 @@ import DemoQuestionOption from './DemoQuestionOptions';
 import DemoQuestionButton from './DemoQuestionButton';
 
 const DemoQuestion = (props) => {
-  const { google, ...rest } = props;
+  const { google, gross, ...rest } = props;
   return (
     <div className="DemoQuestion">
       <h2>問題</h2>
       <div className="DemoQuestionMain">
         <div className="DemoQuestionMapArea">
           <DemoQuestionMap {...props} />
-          <DemoQuestionGross />
+          <DemoQuestionGross gross={gross} />
         </div>
         <div className="DemoQuestionNavArea">
           <DemoQuestionOption {...rest} />
@@ -28,7 +28,13 @@ const DemoQuestion = (props) => {
 };
 
 DemoQuestion.propTypes = {
-
+  google: PropTypes.shape({
+    maps: PropTypes.object,
+  }).isRequired,
+  gross: PropTypes.shape({
+    distance: PropTypes.number,
+    duration: PropTypes.number,
+  }).isRequired,
 };
 
 export default DemoQuestion;

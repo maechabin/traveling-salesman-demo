@@ -1,25 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import DemoHeader from './DemoHeader';
 import DemoQuestion from './question/DemoQuestion';
 import DemoDescription from './description/DemoDescription';
 import '../styles/Demo.css';
 
-const Demo = (props) => {
-  return (
-    <div className="Demo">
-      <DemoHeader />
-      <main className="DemoMain">
-        <DemoQuestion {...props} />
-        <DemoDescription />
-      </main>
-    </div>
-  );
-};
-
-Demo.propTypes = {
-  google: PropTypes.object,
-};
+const Demo = props => (
+  <div className="Demo">
+    <DemoHeader />
+    <main className="DemoMain">
+      <DemoQuestion {...props} />
+      <DemoDescription />
+    </main>
+  </div>
+);
 
 export default Demo;

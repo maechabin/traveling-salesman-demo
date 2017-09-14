@@ -23,6 +23,7 @@ function mapStateToProps(state) {
     expressway: state.expressway,
     traffic: state.traffic,
     choosingRouteFlag: state.choosingRouteFlag,
+    gross: state.gross,
   };
 }
 
