@@ -19,7 +19,14 @@ class DemoQuestionMap extends React.PureComponent {
     this.init();
   }
 
-  componentDidUpdate() {
+  shouldComponentUpdate(nextProps) {
+    if (!nextProps.initialFlag) {
+      return (this.props.gross === nextProps.gross);
+    }
+    return true;
+  }
+
+  componentDidUpdate(prevProps) {
     if (this.props.choosingRouteFlag) {
       this.renderRoute();
       this.displayMarker();
@@ -119,17 +126,18 @@ class DemoQuestionMap extends React.PureComponent {
         directionsRenderer.setDirections(response);
 
         // 総距離、総時間を表示
+        let gross = {};
         let distance = 0;
         let duration = 0;
-        return response.routes[0].legs.map((item) => {
+        response.routes[0].legs.forEach((item) => {
           distance += item.distance.value;
           duration += item.duration.value;
-          const gross = {
+          gross = {
             distance: Math.floor((distance / 1000) * (10 ** 1)) / (10 ** 1), // 小数点第1位以下を切り捨て
-            duration: Math.floor((duration / 60) * (10 ** 1)) / (10 ** 1), // 小数点第1位以下を切り捨て
+            duration: Math.floor((duration / 60) * (10 ** 1)) / (10 ** 1), // // 小数点第1位以下を切り捨て
           };
-          return this.props.handleUpdateGross(gross);
         });
+        return this.props.handleUpdateGross(gross);
       }
       return `error: ${status}`;
     });
