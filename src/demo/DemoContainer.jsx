@@ -1,7 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { sortList, updateGross, disabledChooseOptions, changeFormValue } from './demoAction';
+import {
+  sortList,
+  updateGross,
+  disabledChooseOptions,
+  changeFormValue,
+  resetDemo,
+  changeInitflagToFalse,
+} from './demoAction';
 
 // viewファイルを追加
 import Demo from './views/Demo';
@@ -22,6 +29,7 @@ function mapStateToProps(state) {
     transport: state.transport,
     expressway: state.expressway,
     traffic: state.traffic,
+    initialFlag: state.initialFlag,
     choosingRouteFlag: state.choosingRouteFlag,
     gross: state.gross,
   };
@@ -44,6 +52,12 @@ function mapDispatchToProps(dispatch) {
     handleFormChange(value) {
       return dispatch(changeFormValue(value));
     },
+    handleResetClick() {
+      return dispatch(resetDemo());
+    },
+    handleInit() {
+      return dispatch(changeInitflagToFalse());
+    }
   };
 }
 

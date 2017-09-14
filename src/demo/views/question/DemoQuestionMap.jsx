@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class DemoQuestionMap extends React.Component {
+class DemoQuestionMap extends React.PureComponent {
   constructor(props) {
     super(props);
     // 地図を表示する際のオプション
@@ -16,16 +16,24 @@ class DemoQuestionMap extends React.Component {
   }
 
   componentDidMount() {
-    this.map = new this.gm.Map(this.refs.DemoQuestionMap, this.mapOptions);
-    this.displayMarker();
+    this.init();
   }
 
   componentDidUpdate() {
     if (this.props.choosingRouteFlag) {
-      // this.map = new this.gm.Map(this.refs.DemoQuestionMap, this.mapOptions);
       this.renderRoute();
       this.displayMarker();
     }
+    if (this.props.initialFlag) {
+      this.init();
+    }
+  }
+
+  // 初期化
+  init() {
+    this.map = new this.gm.Map(this.refs.DemoQuestionMap, this.mapOptions);
+    this.displayMarker();
+    this.props.handleInit();
   }
 
   // propsから出発地、到着地、経路を取得して、地図にマーカーを表示するメソッド
@@ -157,8 +165,10 @@ DemoQuestionMap.propTypes = {
   transport: PropTypes.string,
   expressway: PropTypes.string,
   traffic: PropTypes.string,
+  initialFlag: PropTypes.bool.isRequired,
   choosingRouteFlag: PropTypes.bool.isRequired,
   handleUpdateGross: PropTypes.func.isRequired,
+  handleInit: PropTypes.func.isRequired,
 };
 
 export default DemoQuestionMap;

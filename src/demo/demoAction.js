@@ -35,3 +35,17 @@ export function changeFormValue(payload) {
     payload,
   };
 }
+
+export const RESET_DEMO = 'RESET_DEMO';
+export function resetDemo() {
+  return {
+    type: RESET_DEMO,
+  };
+}
+
+export const CHANGE_INITFLAG_TO_FALSE = 'CHANGE_INITFLAG_TO_FALSE';
+export function changeInitflagToFalse() {
+  return {
+    type: CHANGE_INITFLAG_TO_FALSE,
+  };
+}

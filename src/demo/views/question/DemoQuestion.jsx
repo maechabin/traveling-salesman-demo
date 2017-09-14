@@ -8,7 +8,7 @@ import DemoQuestionOption from './DemoQuestionOptions';
 import DemoQuestionButton from './DemoQuestionButton';
 
 const DemoQuestion = (props) => {
-  const { google, gross, ...rest } = props;
+  const { google, gross, handleResetClick, ...rest } = props;
   return (
     <div className="DemoQuestion">
       <h2>問題</h2>
@@ -20,7 +20,7 @@ const DemoQuestion = (props) => {
         <div className="DemoQuestionNavArea">
           <DemoQuestionOption {...rest} />
           <DemoQuestionList {...rest} />
-          <DemoQuestionButton />
+          <DemoQuestionButton handleResetClick={handleResetClick} />
         </div>
       </div>
     </div>
@@ -35,6 +35,7 @@ DemoQuestion.propTypes = {
     distance: PropTypes.number,
     duration: PropTypes.number,
   }).isRequired,
+  handleResetClick: PropTypes.func.isRequired,
 };
 
 export default DemoQuestion;

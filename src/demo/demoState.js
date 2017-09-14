@@ -11,6 +11,7 @@ const demoState = {
     { id: 7, title: '上野動物園', lat: 35.7164535, lng: 139.77131770000005, label: '経路G', sortId: 0 },
     { id: 8, title: '東京駅', lat: 35.6811673, lng: 139.76705160000006, label: '経路H', sortId: 0 },
   ],
+  initialFlag: true,
   choosingRouteFlag: false,
   currentSortId: 8, // routesの要素の数
   transport: 'car',
