@@ -106,7 +106,15 @@ class DemoQuestionMap extends React.Component {
         trafficModel: this.props.traffic === 'standard' ? this.gm.TrafficModel.BEST_GUESS : this.props.traffic === 'optimistic' ? this.gm.TrafficModel.OPTIMISTIC : this.gm.TrafficModel.PESSIMISTIC,
       },
     }, (response, status) => {
+      let distance = 0;
+      let duration = 0;
       directionsRenderer.setDirections(response);
+      response.routes[0].legs.map((item) => {
+        distance += item.distance.value;
+        duration += item.duration.value;
+        console.log(distance / 1000 + 'km');
+        console.log(duration / 60 + '分');
+      });
     });
     // polylineを地図に表示
     directionsRenderer.setMap(this.map);
