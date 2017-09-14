@@ -22,7 +22,7 @@
   .DemoQuestionMain {
     display: flex; }
   .DemoQuestionMap {
-    width: 30vw;
+    width: 32vw;
     height: calc(100vh - 84.16px - 52px); }
     .DemoQuestionMapArea {
       position: relative; }
@@ -94,12 +94,16 @@
   .DemoQuestionGross {
     position: absolute;
     bottom: 0;
-    padding: 8px 16px;
+    padding: 16px;
     border-radius: 0 4px 0 0;
     opacity: .9;
-    background-color: orange; }
+    background-color: orange;
+    width: 360px;
+    text-align: center; }
     .DemoQuestionGross p {
       margin: 0; }
+      .DemoQuestionGross p span {
+        font-size: 24px; }
   .DemoQuestionButton {
     cursor: pointer;
     margin: 24px auto;

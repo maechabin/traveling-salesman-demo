@@ -31,7 +31,7 @@
     display: flex;
   }
   &Map {
-    width: 30vw;
+    width: 32vw;
     height: calc(100vh - 84.16px - 52px );
     &Area {
       position: relative;
@@ -136,12 +136,18 @@
   &Gross {
     position: absolute;
     bottom: 0;
-    padding: 8px 16px;
+    padding: 16px;
     border-radius: 0 4px 0 0;
     opacity: .9;
     background-color: orange;
+    width: 360px;
+    text-align: center;
+
     p {
       margin: 0;
+      span {
+        font-size: 24px;
+      }
     }
   }
 
