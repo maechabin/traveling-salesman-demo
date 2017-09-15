@@ -15,13 +15,17 @@ const demoState = {
   choosingRouteStartFlag: false,
   choosingRouteFinishFlag: false,
   viewAnswerFlag: false,
-  currentSortId: 8, // routesの要素の数
+  currentSortId: 8, // routes（経路）の要素数を指定する
   transport: 'car',
   expressway: 'no',
   traffic: 'standard',
   gross: {
-    distance: 0,
-    duration: 0,
+    distance: 0, // 総距離
+    duration: 0, // 総時間
+  },
+  answerGross: {
+    distance: 0, // 正解の総距離
+    duration: 0, // 正解の総時間
   },
 };
 

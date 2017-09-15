@@ -110,7 +110,7 @@ class DemoAnswerMap extends React.PureComponent {
             duration: Math.floor((duration / 60) * (10 ** 1)) / (10 ** 1), // // 小数点第1位以下を切り捨て
           };
         });
-        return this.props.handleUpdateGross(gross);
+        return this.props.handleUpdateGross(gross, true);
       }
       return `error: ${status}`;
     });
@@ -142,6 +142,7 @@ DemoAnswerMap.propTypes = {
     label: PropTypes.string.isRequired,
   }).isRequired,
   routes: PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  handleUpdateGross: PropTypes.func.isRequired,
 };
 
 export default DemoAnswerMap;

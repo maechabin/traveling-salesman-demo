@@ -27,6 +27,14 @@ export function updateGross(payload) {
   };
 }
 
+export const UPDATE_ANSWER_GROSS = 'UPDATE_ANSWER_GROSS';
+export function updateAnswerGross(payload) {
+  return {
+    type: UPDATE_ANSWER_GROSS,
+    payload,
+  };
+}
+
 // DemoQuestionListFormで呼び出される
 export const CHANGE_FORM_VALUE = 'CHANGE_FORM_VALUE';
 export function changeFormValue(payload) {

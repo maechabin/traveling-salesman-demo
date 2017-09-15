@@ -10,14 +10,14 @@ import DemoAnswerMark from './DemoAnswerMark';
 import '../../styles/DemoAnswer.css';
 
 const DemoAnswer = (props) => {
-  const { google, gross, handleResetClick, ...rest } = props;
+  const { google, answerGross, handleResetClick, ...rest } = props;
   return (
     <div className="DemoAnswer">
       <h2>正解</h2>
       <div className="DemoAnswerMain">
         <div className="DemoAnswerMapArea">
           <DemoAnswerMap {...props} />
-          <DemoAnswerGross gross={gross} />
+          <DemoAnswerGross answerGross={answerGross} />
         </div>
         <div className="DemoAnswerNavArea">
           <DemoAnswerMark {...rest} />
@@ -33,7 +33,7 @@ DemoAnswer.propTypes = {
   google: PropTypes.shape({
     maps: PropTypes.object,
   }).isRequired,
-  gross: PropTypes.shape({
+  answerGross: PropTypes.shape({
     distance: PropTypes.number,
     duration: PropTypes.number,
   }).isRequired,
