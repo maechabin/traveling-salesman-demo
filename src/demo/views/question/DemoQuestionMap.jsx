@@ -27,7 +27,7 @@ class DemoQuestionMap extends React.PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.choosingRouteFlag) {
+    if (this.props.choosingRouteStartFlag) {
       this.renderRoute();
       this.displayMarker();
     }
@@ -81,7 +81,7 @@ class DemoQuestionMap extends React.PureComponent {
       bounds.extend(marker.position);
       marker.addListener('click', () => {
         if (route.sortId === 0) {
-          return this.props.handleMarkerClick(route.id, this.props.choosingRouteFlag);
+          return this.props.handleMarkerClick(route.id, this.props.choosingRouteStartFlag, this.props.currentSortId);
         }
         return false;
       });
@@ -169,12 +169,13 @@ DemoQuestionMap.propTypes = {
     label: PropTypes.string.isRequired,
   }).isRequired,
   routes: PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  currentSortId: PropTypes.number.isRequired,
   handleMarkerClick: PropTypes.func.isRequired,
   transport: PropTypes.string,
   expressway: PropTypes.string,
   traffic: PropTypes.string,
   initialFlag: PropTypes.bool.isRequired,
-  choosingRouteFlag: PropTypes.bool.isRequired,
+  choosingRouteStartFlag: PropTypes.bool.isRequired,
   handleUpdateGross: PropTypes.func.isRequired,
   handleInit: PropTypes.func.isRequired,
 };

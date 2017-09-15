@@ -12,7 +12,9 @@ const demoState = {
     { id: 8, title: '東京駅', lat: 35.6811673, lng: 139.76705160000006, label: '経路H', sortId: 0 },
   ],
   initialFlag: true,
-  choosingRouteFlag: false,
+  choosingRouteStartFlag: false,
+  choosingRouteFinishFlag: false,
+  viewAnswerFlag: false,
   currentSortId: 8, // routesの要素の数
   transport: 'car',
   expressway: 'no',

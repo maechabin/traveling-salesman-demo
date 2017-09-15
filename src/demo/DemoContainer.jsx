@@ -8,6 +8,8 @@ import {
   changeFormValue,
   resetDemo,
   changeInitflagToFalse,
+  changeViewanswerflagToTrue,
+  changeChoosingrouteFinishflagToTure,
 } from './demoAction';
 
 // viewファイルを追加
@@ -26,21 +28,27 @@ function mapStateToProps(state) {
     departure: state.departure,
     arival: state.arival,
     routes: state.routes,
+    currentSortId: state.currentSortId,
     transport: state.transport,
     expressway: state.expressway,
     traffic: state.traffic,
     initialFlag: state.initialFlag,
-    choosingRouteFlag: state.choosingRouteFlag,
+    choosingRouteStartFlag: state.choosingRouteStartFlag,
+    choosingRouteFinishFlag: state.choosingRouteFinishFlag,
+    viewAnswerFlag: state.viewAnswerFlag,
     gross: state.gross,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    handleMarkerClick(marker, choosingRouteFlag) {
+    handleMarkerClick(marker, choosingRouteStartFlag, currentSortId) {
       const actionsArray = [sortList(marker)];
-      if (!choosingRouteFlag) {
+      if (!choosingRouteStartFlag) {
         actionsArray.push(disabledChooseOptions());
+      }
+      if (currentSortId === 1) {
+        actionsArray.push(changeChoosingrouteFinishflagToTure());
       }
       return actionsArray.map(
         action => dispatch(action),
@@ -57,7 +65,10 @@ function mapDispatchToProps(dispatch) {
     },
     handleInit() {
       return dispatch(changeInitflagToFalse());
-    }
+    },
+    handleAnswerButtonClick() {
+      return dispatch(changeViewanswerflagToTrue());
+    },
   };
 }
 

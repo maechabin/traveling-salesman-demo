@@ -5,6 +5,8 @@ import {
   CHANGE_FORM_VALUE,
   RESET_DEMO,
   CHANGE_INITFLAG_TO_FALSE,
+  CHANGE_VIEWANSWERFLAG_TO_TRUE,
+  CHANGE_CHOOSINGROUTE_FINISHFLAG_TO_TURE,
 } from './demoAction';
 
 const demoReducer = (state = {}, action) => {
@@ -28,7 +30,7 @@ const demoReducer = (state = {}, action) => {
       });
     case DISABLED_CHOOSE_OPTIONS:
       return Object.assign({}, state, {
-        choosingRouteFlag: true,
+        choosingRouteStartFlag: true,
       });
     case CHANGE_FORM_VALUE:
       return Object.assign({}, state, {
@@ -49,7 +51,8 @@ const demoReducer = (state = {}, action) => {
           { id: 8, title: '東京駅', lat: 35.6811673, lng: 139.76705160000006, label: '経路H', sortId: 0 },
         ],
         initialFlag: true,
-        choosingRouteFlag: false,
+        choosingRouteStartFlag: false,
+        choosingRouteFinishFlag: false,
         currentSortId: 8, // routesの要素の数
         transport: 'car',
         expressway: 'no',
@@ -62,6 +65,14 @@ const demoReducer = (state = {}, action) => {
     case CHANGE_INITFLAG_TO_FALSE:
       return Object.assign({}, state, {
         initialFlag: false,
+      });
+    case CHANGE_VIEWANSWERFLAG_TO_TRUE:
+      return Object.assign({}, state, {
+        viewAnswerFlag: true,
+      });
+    case CHANGE_CHOOSINGROUTE_FINISHFLAG_TO_TURE:
+      return Object.assign({}, state, {
+        choosingRouteFinishFlag: true,
       });
     default:
       return state;

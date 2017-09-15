@@ -49,3 +49,17 @@ export function changeInitflagToFalse() {
     type: CHANGE_INITFLAG_TO_FALSE,
   };
 }
+
+export const CHANGE_VIEWANSWERFLAG_TO_TRUE = 'CHANGE_VIEWANSWERFLAG_TO_TRUE';
+export function changeViewanswerflagToTrue() {
+  return {
+    type: CHANGE_VIEWANSWERFLAG_TO_TRUE,
+  };
+}
+
+export const CHANGE_CHOOSINGROUTE_FINISHFLAG_TO_TURE = 'CHANGE_CHOOSINGROUTE_FINISHFLAG_TO_TURE';
+export function changeChoosingrouteFinishflagToTure() {
+  return {
+    type: CHANGE_CHOOSINGROUTE_FINISHFLAG_TO_TURE,
+  };
+}
