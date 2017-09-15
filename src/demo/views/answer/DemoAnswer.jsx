@@ -21,7 +21,12 @@ const DemoAnswer = (props) => {
         </div>
         <div className="DemoAnswerNavArea">
           <DemoAnswerMark {...rest} />
-          <DemoAnswerList {...rest} />
+          <DemoAnswerList
+            departure={props.departure}
+            arival={props.arival}
+            routes={props.routes}
+            answerWaypointOrder={props.answerWaypointOrder}
+          />
           <DemoAnswerButton handleResetClick={handleResetClick} />
         </div>
       </div>
@@ -37,6 +42,10 @@ DemoAnswer.propTypes = {
     distance: PropTypes.number,
     duration: PropTypes.number,
   }).isRequired,
+  routes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  departure: PropTypes.object.isRequired,
+  arival: PropTypes.object.isRequired,
+  answerWaypointOrder: PropTypes.arrayOf(PropTypes.number).isRequired,
   handleResetClick: PropTypes.func.isRequired,
 };
 

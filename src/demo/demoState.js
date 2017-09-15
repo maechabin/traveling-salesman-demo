@@ -27,6 +27,7 @@ const demoState = {
     distance: 0, // 正解の総距離
     duration: 0, // 正解の総時間
   },
+  answerWaypointOrder: [], // 正解の経路の表示順
 };
 
 export default demoState;

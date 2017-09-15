@@ -27,10 +27,10 @@ export function updateGross(payload) {
   };
 }
 
-export const UPDATE_ANSWER_GROSS = 'UPDATE_ANSWER_GROSS';
-export function updateAnswerGross(payload) {
+export const UPDATE_ANSWER_DATA = 'UPDATE_ANSWER_DATA';
+export function updateAnswerData(payload) {
   return {
-    type: UPDATE_ANSWER_GROSS,
+    type: UPDATE_ANSWER_DATA,
     payload,
   };
 }

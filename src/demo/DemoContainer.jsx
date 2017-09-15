@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {
   sortList,
   updateGross,
-  updateAnswerGross,
+  updateAnswerData,
   disabledChooseOptions,
   changeFormValue,
   resetDemo,
@@ -39,6 +39,7 @@ function mapStateToProps(state) {
     viewAnswerFlag: state.viewAnswerFlag,
     gross: state.gross,
     answerGross: state.answerGross,
+    answerWaypointOrder: state.answerWaypointOrder,
   };
 }
 
@@ -56,11 +57,15 @@ function mapDispatchToProps(dispatch) {
         action => dispatch(action),
       );
     },
-    handleUpdateGross(gross, answer = false) {
-      if (answer) {
-        return dispatch(updateAnswerGross(gross));
-      }
+    handleUpdateGross(gross) {
       return dispatch(updateGross(gross));
+    },
+    handleUpdateAnswerData(gross, waypointOrder) {
+      const data = {
+        gross,
+        waypointOrder,
+      };
+      return dispatch(updateAnswerData(data));
     },
     handleFormChange(value) {
       return dispatch(changeFormValue(value));

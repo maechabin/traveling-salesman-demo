@@ -1,7 +1,7 @@
 import {
   SORT_LIST,
   UPDATE_GROSS,
-  UPDATE_ANSWER_GROSS,
+  UPDATE_ANSWER_DATA,
   DISABLED_CHOOSE_OPTIONS,
   CHANGE_FORM_VALUE,
   RESET_DEMO,
@@ -29,9 +29,10 @@ const demoReducer = (state = {}, action) => {
       return Object.assign({}, state, {
         gross: action.payload,
       });
-    case UPDATE_ANSWER_GROSS:
+    case UPDATE_ANSWER_DATA:
       return Object.assign({}, state, {
-        answerGross: action.payload,
+        answerGross: action.payload.gross,
+        answerWaypointOrder: action.payload.waypointOrder,
       });
     case DISABLED_CHOOSE_OPTIONS:
       return Object.assign({}, state, {
