@@ -10,7 +10,7 @@ import DemoAnswerMark from './DemoAnswerMark';
 import '../../styles/DemoAnswer.css';
 
 const DemoAnswer = (props) => {
-  const { google, answerGross, handleResetClick, ...rest } = props;
+  const { gross, answerGross, handleResetClick } = props;
   return (
     <div className="DemoAnswer">
       <h2>正解</h2>
@@ -20,7 +20,10 @@ const DemoAnswer = (props) => {
           <DemoAnswerGross answerGross={answerGross} />
         </div>
         <div className="DemoAnswerNavArea">
-          <DemoAnswerMark {...rest} />
+          <DemoAnswerMark
+            gross={gross}
+            answerGross={answerGross}
+          />
           <DemoAnswerList
             departure={props.departure}
             arival={props.arival}
@@ -35,8 +38,9 @@ const DemoAnswer = (props) => {
 };
 
 DemoAnswer.propTypes = {
-  google: PropTypes.shape({
-    maps: PropTypes.object,
+  gross: PropTypes.shape({
+    distance: PropTypes.number,
+    duration: PropTypes.number,
   }).isRequired,
   answerGross: PropTypes.shape({
     distance: PropTypes.number,

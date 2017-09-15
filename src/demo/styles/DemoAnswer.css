@@ -87,3 +87,10 @@
     .DemoAnswerButton:disabled {
       cursor: not-allowed;
       background-color: rgba(0, 0, 0, 0.2); }
+  .DemoAnswerMark {
+    text-align: center;
+    padding: 0 16px;
+    font-weight: bold;
+    font-size: 80px;
+    color: #e53935;
+    line-height: 179px; }

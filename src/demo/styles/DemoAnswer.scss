@@ -17,4 +17,12 @@
   &Button {
     @include Button();
   }
+  &Mark {
+    text-align: center;
+    padding: 0 16px;
+    font-weight: bold;
+    font-size: 80px;
+    color: #e53935;
+    line-height: 179px;
+  }
 }
