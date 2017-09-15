@@ -59,7 +59,8 @@ const demoReducer = (state = {}, action) => {
         initialFlag: true,
         choosingRouteStartFlag: false,
         choosingRouteFinishFlag: false,
-        currentSortId: 8, // routesの要素の数
+        viewAnswerFlag: false,
+        currentSortId: 8, // routes（経路）の要素数を指定する
         transport: 'car',
         expressway: 'no',
         traffic: 'standard',
