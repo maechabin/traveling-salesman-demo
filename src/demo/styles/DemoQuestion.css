@@ -1,0 +1,107 @@
+@charset "UTF-8";
+.DemoQuestion {
+  width: 50vw;
+  box-sizing: border-box; }
+  .DemoQuestion h2 {
+    text-align: center;
+    background-color: #ccc;
+    padding: 8px;
+    margin: 0; }
+  .DemoQuestionMain {
+    display: flex; }
+  .DemoQuestionMap {
+    width: 32vw;
+    height: calc(100vh - 84.16px - 52px); }
+    .DemoQuestionMapArea {
+      position: relative; }
+  .DemoQuestionNavArea {
+    width: 100%;
+    background-color: #FAFAFA;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box; }
+  .DemoQuestionList ul {
+    list-style-type: none; }
+  .DemoQuestionListDeparture::after {
+    background-color: #fafafa;
+    text-align: center;
+    color: #5C6BC0;
+    display: block;
+    content: "⬇︎";
+    margin: 0 -8px;
+    line-height: 1.2; }
+  .DemoQuestionListDeparture, .DemoQuestionListArival {
+    text-align: center;
+    font-size: 16px;
+    margin: 0 0 1px;
+    color: #fff;
+    padding: 0 8px;
+    background-color: #f75c50;
+    line-height: 2; }
+  .DemoQuestionListRoutes {
+    margin: 0;
+    padding: 0; }
+    .DemoQuestionListRoutes li {
+      text-align: center;
+      font-size: 16px;
+      color: #fff;
+      border-bottom: 1px solid #fff;
+      padding: 0 8px;
+      line-height: 2; }
+  .DemoQuestionListNotSorted {
+    background-color: #7ac23a; }
+  .DemoQuestionListSorted {
+    background-color: #6991fd; }
+    .DemoQuestionListSorted::after {
+      background-color: #fafafa;
+      text-align: center;
+      color: #5C6BC0;
+      display: block;
+      content: '⬇︎';
+      margin: 0 -8px;
+      line-height: 1.2; }
+  .DemoQuestionOptions {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto 16px;
+    padding: 8px;
+    border-top: 2px solid #424242;
+    border-bottom: 2px solid #424242; }
+    .DemoQuestionOptions input,
+    .DemoQuestionOptions label {
+      cursor: pointer; }
+    .DemoQuestionOptions label {
+      margin-right: 16px; }
+    .DemoQuestionOptions label:last-child {
+      margin-right: 0; }
+    .DemoQuestionOptions dt {
+      font-weight: bold; }
+    .DemoQuestionOptions dd {
+      margin-left: 0; }
+  .DemoQuestionGross {
+    position: absolute;
+    bottom: 0;
+    padding: 16px;
+    border-radius: 0 4px 0 0;
+    opacity: .9;
+    background-color: orange;
+    width: 360px;
+    text-align: center; }
+    .DemoQuestionGross p {
+      margin: 0; }
+      .DemoQuestionGross p span {
+        font-size: 24px; }
+  .DemoQuestionButton {
+    cursor: pointer;
+    margin: 24px auto;
+    border: none;
+    border-radius: 2px;
+    padding: 8px;
+    font-size: 16px;
+    width: 160px;
+    color: #fff;
+    background-color: #90A4AE; }
+    .DemoQuestionButton:disabled {
+      cursor: not-allowed;
+      background-color: rgba(0, 0, 0, 0.2); }
