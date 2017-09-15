@@ -1,0 +1,89 @@
+@charset "UTF-8";
+.DemoAnswer {
+  width: 50vw;
+  box-sizing: border-box; }
+  .DemoAnswer h2 {
+    text-align: center;
+    background-color: #ccc;
+    padding: 8px;
+    margin: 0; }
+  .DemoAnswerMain {
+    display: flex; }
+  .DemoAnswerMap {
+    width: 32vw;
+    height: calc(100vh - 84.16px - 52px); }
+    .DemoAnswerMapArea {
+      position: relative; }
+  .DemoAnswerNavArea {
+    width: 100%;
+    background-color: #FAFAFA;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box; }
+  .DemoAnswerList ul {
+    list-style-type: none; }
+  .DemoAnswerListDeparture::after {
+    background-color: #fafafa;
+    text-align: center;
+    color: #5C6BC0;
+    display: block;
+    content: "⬇︎";
+    margin: 0 -8px;
+    line-height: 1.2; }
+  .DemoAnswerListDeparture, .DemoAnswerListArival {
+    text-align: center;
+    font-size: 16px;
+    margin: 0 0 1px;
+    color: #fff;
+    padding: 0 8px;
+    background-color: #f75c50;
+    line-height: 2; }
+  .DemoAnswerListRoutes {
+    margin: 0;
+    padding: 0; }
+    .DemoAnswerListRoutes li {
+      text-align: center;
+      font-size: 16px;
+      color: #fff;
+      border-bottom: 1px solid #fff;
+      padding: 0 8px;
+      line-height: 2; }
+  .DemoAnswerListNotSorted {
+    background-color: #7ac23a; }
+  .DemoAnswerListSorted {
+    background-color: #6991fd; }
+    .DemoAnswerListSorted::after {
+      background-color: #fafafa;
+      text-align: center;
+      color: #5C6BC0;
+      display: block;
+      content: '⬇︎';
+      margin: 0 -8px;
+      line-height: 1.2; }
+  .DemoAnswerGross {
+    position: absolute;
+    bottom: 0;
+    padding: 16px;
+    border-radius: 0 4px 0 0;
+    opacity: .9;
+    background-color: orange;
+    width: 360px;
+    text-align: center; }
+    .DemoAnswerGross p {
+      margin: 0; }
+      .DemoAnswerGross p span {
+        font-size: 24px; }
+  .DemoAnswerButton {
+    cursor: pointer;
+    margin: 24px auto;
+    border: none;
+    border-radius: 2px;
+    padding: 8px;
+    font-size: 16px;
+    width: 160px;
+    color: #fff;
+    background-color: #90A4AE; }
+    .DemoAnswerButton:disabled {
+      cursor: not-allowed;
+      background-color: rgba(0, 0, 0, 0.2); }

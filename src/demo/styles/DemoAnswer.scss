@@ -1,3 +1,20 @@
-.DemoAnswer {
+@import "./mixin.scss";
 
+.DemoAnswer {
+  @include layout();
+  &Map {
+    @include Map();
+  }
+  &Nav {
+    @include Nav();
+  }
+  &List {
+    @include List();
+  }
+  &Gross {
+    @include Gross();
+  }
+  &Button {
+    @include Button();
+  }
 }
