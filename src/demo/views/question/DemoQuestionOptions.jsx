@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import demoType from '../../demoType';
+
 const DemoQuestionOptions = (props) => {
   const { transport, expressway, traffic, choosingRouteStartFlag, handleFormChange } = props;
 
@@ -39,10 +41,10 @@ const DemoQuestionOptions = (props) => {
 };
 
 DemoQuestionOptions.propTypes = {
-  transport: PropTypes.string.isRequired,
-  expressway: PropTypes.string.isRequired,
-  traffic: PropTypes.string.isRequired,
-  choosingRouteStartFlag: PropTypes.bool.isRequired,
+  transport: demoType.transport.isRequired,
+  expressway: demoType.expressway.isRequired,
+  traffic: demoType.traffic.isRequired,
+  choosingRouteStartFlag: demoType.choosingRouteStartFlag.isRequired,
   handleFormChange: PropTypes.func.isRequired,
 };
 

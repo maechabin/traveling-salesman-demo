@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import demoType from '../../demoType';
+
 class DemoQuestionMap extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -26,7 +28,7 @@ class DemoQuestionMap extends React.PureComponent {
     return true;
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate() {
     if (this.props.choosingRouteStartFlag) {
       this.renderRoute();
       this.displayMarker();
@@ -38,7 +40,7 @@ class DemoQuestionMap extends React.PureComponent {
 
   // 初期化
   init() {
-    this.map = new this.gm.Map(this.refs.DemoQuestionMap, this.mapOptions);
+    this.map = new this.gm.Map(this.DemoQuestionMap, this.mapOptions);
     this.displayMarker();
     this.props.handleInit();
   }
@@ -147,7 +149,12 @@ class DemoQuestionMap extends React.PureComponent {
 
   render() {
     return (
-      <div ref="DemoQuestionMap" className="DemoQuestionMap">Map</div>
+      <div
+        ref={(div) => { this.DemoQuestionMap = div; }}
+        className="DemoQuestionMap"
+      >
+        Map
+      </div>
     );
   }
 }
@@ -156,28 +163,19 @@ DemoQuestionMap.propTypes = {
   google: PropTypes.shape({
     maps: PropTypes.object,
   }).isRequired,
-  departure: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    lat: PropTypes.number.isRequired,
-    lng: PropTypes.number.isRequired,
-    label: PropTypes.string.isRequired,
-  }).isRequired,
-  arival: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    lat: PropTypes.number.isRequired,
-    lng: PropTypes.number.isRequired,
-    label: PropTypes.string.isRequired,
-  }).isRequired,
-  routes: PropTypes.arrayOf(React.PropTypes.object).isRequired,
-  currentSortId: PropTypes.number.isRequired,
   handleMarkerClick: PropTypes.func.isRequired,
-  transport: PropTypes.string,
-  expressway: PropTypes.string,
-  traffic: PropTypes.string,
-  initialFlag: PropTypes.bool.isRequired,
-  choosingRouteStartFlag: PropTypes.bool.isRequired,
   handleUpdateGross: PropTypes.func.isRequired,
   handleInit: PropTypes.func.isRequired,
+  gross: demoType.gross.isRequired,
+  departure: demoType.departure.isRequired,
+  arival: demoType.arival.isRequired,
+  routes: demoType.routes.isRequired,
+  currentSortId: demoType.currentSortId.isRequired,
+  transport: demoType.transport.isRequired,
+  expressway: demoType.expressway.isRequired,
+  traffic: demoType.traffic.isRequired,
+  initialFlag: demoType.initialFlag.isRequired,
+  choosingRouteStartFlag: demoType.choosingRouteStartFlag.isRequired,
 };
 
 export default DemoQuestionMap;

@@ -6,6 +6,7 @@ import DemoQuestion from './question/DemoQuestion';
 import DemoDescription from './description/DemoDescription';
 import DemoAnswer from './answer/DemoAnswer';
 
+import demoType from '../demoType';
 import '../styles/Demo.css';
 
 const Demo = (props) => {
@@ -24,8 +25,10 @@ const Demo = (props) => {
 };
 
 Demo.propTypes = {
-  google: PropTypes.object.isRequired,
-  viewAnswerFlag: PropTypes.bool.isRequired,
+  google: PropTypes.shape({
+    maps: PropTypes.object,
+  }).isRequired,
+  viewAnswerFlag: demoType.viewAnswerFlag.isRequired,
 };
 
 export default Demo;

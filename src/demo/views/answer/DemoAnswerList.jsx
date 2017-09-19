@@ -1,10 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+import demoType from '../../demoType';
 
 const DemoAnswerList = (props) => {
   const { routes, answerWaypointOrder } = props;
   const renderingList = answerWaypointOrder.map(
-    order => <li key={routes[order].id} className="DemoQuestionListSorted">{routes[order].label}: {routes[order].title}</li>,
+    order => (<li key={routes[order].id} className="DemoQuestionListSorted">
+      {routes[order].label}: {routes[order].title}
+    </li>),
   );
   return (
     <div className="DemoAnswerList">
@@ -22,16 +25,10 @@ const DemoAnswerList = (props) => {
 };
 
 DemoAnswerList.propTypes = {
-  routes: PropTypes.arrayOf(PropTypes.object).isRequired,
-  answerWaypointOrder: PropTypes.arrayOf(PropTypes.number).isRequired,
-  departure: PropTypes.shape({
-    label: PropTypes.string,
-    title: PropTypes.string,
-  }).isRequired,
-  arival: PropTypes.shape({
-    label: PropTypes.string,
-    title: PropTypes.string,
-  }).isRequired,
+  routes: demoType.routes.isRequired,
+  answerWaypointOrder: demoType.answerWaypointOrder.isRequired,
+  departure: demoType.departure.isRequired,
+  arival: demoType.arival.isRequired,
 };
 
 export default DemoAnswerList;

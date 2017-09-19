@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+import demoType from '../../demoType';
 
 const DemoAnswerMark = (props) => {
   let answer = '';
@@ -13,14 +14,8 @@ const DemoAnswerMark = (props) => {
 };
 
 DemoAnswerMark.propTypes = {
-  gross: PropTypes.shape({
-    distance: PropTypes.number,
-    duration: PropTypes.number,
-  }).isRequired,
-  answerGross: PropTypes.shape({
-    distance: PropTypes.number,
-    duration: PropTypes.number,
-  }).isRequired,
+  gross: demoType.gross.isRequired,
+  answerGross: demoType.answerGross.isRequired,
 };
 
 export default DemoAnswerMark;

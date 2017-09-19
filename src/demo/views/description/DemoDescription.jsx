@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import demoType from '../../demoType';
+
 import DemoDescriptionText from './DemoDescriptionText';
 import DemoDescriptionButton from './DemoDescriptionButton';
 
@@ -18,7 +20,7 @@ const DemoDescription = props => (
 
 DemoDescription.propTypes = {
   handleAnswerButtonClick: PropTypes.func.isRequired,
-  choosingRouteFinishFlag: PropTypes.bool.isRequired,
+  choosingRouteFinishFlag: demoType.choosingRouteFinishFlag.isRequired,
 };
 
 export default DemoDescription;

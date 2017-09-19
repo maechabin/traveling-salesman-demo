@@ -7,6 +7,7 @@ import DemoAnswerList from './DemoAnswerList';
 import DemoAnswerMap from './DemoAnswerMap';
 import DemoAnswerMark from './DemoAnswerMark';
 
+import demoType from '../../demoType';
 import '../../styles/DemoAnswer.css';
 
 const DemoAnswer = (props) => {
@@ -38,18 +39,12 @@ const DemoAnswer = (props) => {
 };
 
 DemoAnswer.propTypes = {
-  gross: PropTypes.shape({
-    distance: PropTypes.number,
-    duration: PropTypes.number,
-  }).isRequired,
-  answerGross: PropTypes.shape({
-    distance: PropTypes.number,
-    duration: PropTypes.number,
-  }).isRequired,
-  routes: PropTypes.arrayOf(PropTypes.object).isRequired,
-  departure: PropTypes.object.isRequired,
-  arival: PropTypes.object.isRequired,
-  answerWaypointOrder: PropTypes.arrayOf(PropTypes.number).isRequired,
+  gross: demoType.gross.isRequired,
+  answerGross: demoType.answerGross.isRequired,
+  routes: demoType.routes.isRequired,
+  departure: demoType.departure.isRequired,
+  arival: demoType.arival.isRequired,
+  answerWaypointOrder: demoType.answerWaypointOrder.isRequired,
   handleResetClick: PropTypes.func.isRequired,
 };
 

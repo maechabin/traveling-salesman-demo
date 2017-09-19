@@ -7,6 +7,7 @@ import DemoQuestionList from './DemoQuestionList';
 import DemoQuestionOption from './DemoQuestionOptions';
 import DemoQuestionButton from './DemoQuestionButton';
 
+import demoType from '../../demoType';
 import '../../styles/DemoQuestion.css';
 
 const DemoQuestion = (props) => {
@@ -36,12 +37,9 @@ DemoQuestion.propTypes = {
   google: PropTypes.shape({
     maps: PropTypes.object,
   }).isRequired,
-  gross: PropTypes.shape({
-    distance: PropTypes.number,
-    duration: PropTypes.number,
-  }).isRequired,
   handleResetClick: PropTypes.func.isRequired,
-  viewAnswerFlag: PropTypes.bool.isRequired,
+  gross: demoType.gross.isRequired,
+  viewAnswerFlag: demoType.viewAnswerFlag.isRequired,
 };
 
 export default DemoQuestion;
