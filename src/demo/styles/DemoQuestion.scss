@@ -1,6 +1,7 @@
 @import "./mixin.scss";
 
 .DemoQuestion {
+  border-right: 2px solid #ccc;
   @include layout();
   &Map {
     @include Map();
@@ -16,14 +17,16 @@
   &Options {
     box-sizing: border-box;
     width: 100%;
-    margin: 0 auto 16px;
+    margin: 0 auto;
     padding: 8px;
-    border-top: 2px solid #424242;
-    border-bottom: 2px solid #424242;
+    background-color: #ECEFF1;
 
     input,
     label {
       cursor: pointer;
+      &:disabled {
+        cursor: not-allowed;
+      }
     }
     label {
       margin-right: 16px;
@@ -33,9 +36,11 @@
     }
 
     dt {
+      color: #263238;
       font-weight: bold;
     }
     dd {
+      color: #37474F;
       margin-left: 0;
     }
   }

@@ -8,17 +8,30 @@
 
   &Button {
     cursor: pointer;
+    outline: none;
     margin-top: 40px;
     border: none;
-    border-radius: 2px;
-    padding: 32px 16px;
+    border-radius: 4px;
+    padding: 56px 16px;
     font-size: 24px;
-    width: 320px;
+    font-weight: bold;
+    width: 400px;
     color: #fff;
     background-color: #1E88E5;
+    transition: .3s;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0, .12),0 1px 1px 0 rgba(0,0,0, .24);
+    &:hover,
+    &:focus {
+      background: darken(#1E88E5, 10%);
+    }
+    &:active {
+      box-shadow: 0 0 4px rgba(0,0,0, .14),0 4px 8px rgba(0,0,0, .28);
+    }
     &:disabled {
       cursor: not-allowed;
-      background-color: adjust-color(#000, $alpha: -0.8);
+      box-shadow: none;
+      color: adjust-color(#000, $alpha: -0.7);
+      background: adjust-color(#000, $alpha: -0.8);
     }
   }
 }

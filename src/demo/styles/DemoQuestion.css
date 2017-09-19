@@ -1,19 +1,25 @@
 @charset "UTF-8";
 .DemoQuestion {
+  border-right: 2px solid #ccc;
   width: 50vw;
   box-sizing: border-box; }
   .DemoQuestion h2 {
+    font-size: 32px;
+    font-weight: normal;
     text-align: center;
-    background-color: #ccc;
+    background-color: #fff;
+    color: #7fbc39;
+    box-sizing: border-box;
     padding: 8px;
     margin: 0; }
   .DemoQuestionMain {
     display: flex; }
   .DemoQuestionMap {
-    width: 32vw;
-    height: calc(100vh - 84.16px - 52px); }
+    width: 36vw;
+    height: 100%; }
     .DemoQuestionMapArea {
-      position: relative; }
+      position: relative;
+      height: calc(100vh - 84px - 65px); }
   .DemoQuestionNavArea {
     width: 100%;
     background-color: #FAFAFA;
@@ -64,44 +70,59 @@
   .DemoQuestionOptions {
     box-sizing: border-box;
     width: 100%;
-    margin: 0 auto 16px;
+    margin: 0 auto;
     padding: 8px;
-    border-top: 2px solid #424242;
-    border-bottom: 2px solid #424242; }
+    background-color: #ECEFF1; }
     .DemoQuestionOptions input,
     .DemoQuestionOptions label {
       cursor: pointer; }
+      .DemoQuestionOptions input:disabled,
+      .DemoQuestionOptions label:disabled {
+        cursor: not-allowed; }
     .DemoQuestionOptions label {
       margin-right: 16px; }
     .DemoQuestionOptions label:last-child {
       margin-right: 0; }
     .DemoQuestionOptions dt {
+      color: #263238;
       font-weight: bold; }
     .DemoQuestionOptions dd {
+      color: #37474F;
       margin-left: 0; }
   .DemoQuestionGross {
-    position: absolute;
-    bottom: 0;
-    padding: 16px;
-    border-radius: 0 4px 0 0;
-    opacity: .9;
-    background-color: orange;
-    width: 360px;
-    text-align: center; }
+    position: relative; }
     .DemoQuestionGross p {
-      margin: 0; }
+      margin: 0;
+      position: absolute;
+      bottom: 0;
+      padding: 16px;
+      border-radius: 0 4px 0 0;
+      opacity: .9;
+      background-color: #FFC107;
+      width: 480px;
+      text-align: center;
+      font-size: 16px; }
       .DemoQuestionGross p span {
-        font-size: 24px; }
+        font-size: 32px; }
   .DemoQuestionButton {
     cursor: pointer;
+    outline: none;
     margin: 24px auto;
     border: none;
     border-radius: 2px;
-    padding: 8px;
+    padding: 16px;
     font-size: 16px;
-    width: 160px;
+    width: 240px;
     color: #fff;
-    background-color: #90A4AE; }
+    background-color: #90A4AE;
+    transition: .3s;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+    .DemoQuestionButton:hover, .DemoQuestionButton:focus {
+      background: #738c98; }
+    .DemoQuestionButton:active {
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28); }
     .DemoQuestionButton:disabled {
       cursor: not-allowed;
-      background-color: rgba(0, 0, 0, 0.2); }
+      box-shadow: none;
+      color: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.2); }

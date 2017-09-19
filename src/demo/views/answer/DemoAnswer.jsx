@@ -13,7 +13,7 @@ const DemoAnswer = (props) => {
   const { gross, answerGross, handleResetClick } = props;
   return (
     <div className="DemoAnswer">
-      <h2>正解</h2>
+      <h2>正 解</h2>
       <div className="DemoAnswerMain">
         <div className="DemoAnswerMapArea">
           <DemoAnswerMap {...props} />
