@@ -68,6 +68,11 @@ const demoReducer = (state = {}, action) => {
           distance: 0,
           duration: 0,
         },
+        answerGross: {
+          distance: 0, // 正解の総距離
+          duration: 0, // 正解の総時間
+        },
+        answerWaypointOrder: [], // 正解の経路の表示順
       });
     case CHANGE_INITFLAG_TO_FALSE:
       return Object.assign({}, state, {
