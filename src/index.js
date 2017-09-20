@@ -10,7 +10,6 @@ import demoState from './demo/demoState';
 
 import './index.css';
 import DemoContainer from './demo/DemoContainer';
-import registerServiceWorker from './registerServiceWorker';
 
 const middleware = () => applyMiddleware(thunk);
 
@@ -22,4 +21,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'),
 );
-registerServiceWorker();
