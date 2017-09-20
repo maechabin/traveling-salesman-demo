@@ -1,3 +1,4 @@
+import demoState from './demoState';
 import {
   SORT_LIST,
   UPDATE_GROSS,
@@ -10,7 +11,9 @@ import {
   CHANGE_CHOOSINGROUTE_FINISHFLAG_TO_TURE,
 } from './demoAction';
 
-const demoReducer = (state = {}, action) => {
+const initialState = demoState;
+
+const demoReducer = (state = initialState, action) => {
   switch (action.type) {
     case SORT_LIST: {
       const routeList = state.routes.map((route) => {
