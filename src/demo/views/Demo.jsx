@@ -11,7 +11,8 @@ import '../styles/Demo.css';
 
 const Demo = (props) => {
   const { google, ...rest } = props;
-  const rightComponent = props.viewAnswerFlag ? <DemoAnswer {...props} /> : <DemoDescription {...rest} />;
+  const rightComponent
+    = props.viewAnswerFlag ? <DemoAnswer {...props} /> : <DemoDescription {...rest} />;
 
   return (
     <div className="Demo">
