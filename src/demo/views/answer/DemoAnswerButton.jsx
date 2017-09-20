@@ -7,7 +7,7 @@ const DemoAnswerButton = (props) => {
     props.handleResetClick();
   }
   return (
-    <button className="DemoAnswerButton" onClick={handleClick}>やり直す</button>
+    <button className="DemoAnswerButton" onClick={handleClick} disabled={false}>やり直す</button>
   );
 };
 
