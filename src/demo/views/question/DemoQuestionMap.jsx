@@ -13,6 +13,7 @@ class DemoQuestionMap extends React.PureComponent {
       mapTypeId: this.props.google.maps.MapTypeId.ROADMAP,
     };
     this.map = '';
+    this.date = new Date('Thu Oct 13 2017 16:12:53 GMT+0900 (JST)');
     // Google Maps API本体
     this.gm = this.props.google.maps;
   }
@@ -97,7 +98,11 @@ class DemoQuestionMap extends React.PureComponent {
     const directionsService = new this.gm.DirectionsService();
     const directionsRenderer = new this.gm.DirectionsRenderer();
     const filteredRoutes = this.props.routes.filter(route => route.sortId !== 0);
-    const wayPoints = filteredRoutes.map(route => ({ location: route.title }));
+
+    // 経路
+    const wayPoints = filteredRoutes.map(route => ({ location: route.title, stopover: this.props.traffic === 'standard' }));
+
+    // 到着地
     const destination = filteredRoutes.length === this.props.routes.length ? this.props.arival.title : filteredRoutes[filteredRoutes.length - 1].title;
 
     // polylineをレンダリングする際のオプション
@@ -112,15 +117,16 @@ class DemoQuestionMap extends React.PureComponent {
     });
     // directions apiへのリクエスト
     directionsService.route({
-      origin: this.props.departure.title, // 出発地
+      // origin: this.props.departure.title, // 出発地
+      origin: this.props.departure.title,
       waypoints: wayPoints, // 経路（配列）
       destination, // 到着地
       travelMode: this.props.transport === 'car' ? this.gm.TravelMode.DRIVING : this.gm.TravelMode.WALKING, // 車(DRIVING) or 徒歩(WALKING)
       avoidHighways: this.props.expressway !== 'no', // 高速は利用しない場合はfalse
       optimizeWaypoints: false, // 最適化を有効にする場合はtrue
       drivingOptions: {
-        departureTime: new Date(),
-        trafficModel: this.props.traffic === 'standard' ? this.gm.TrafficModel.BEST_GUESS : this.props.traffic === 'optimistic' ? this.gm.TrafficModel.OPTIMISTIC : this.gm.TrafficModel.PESSIMISTIC,
+        departureTime: this.date,
+        trafficModel: this.props.traffic === 'bestguess' ? this.gm.TrafficModel.BEST_GUESS : this.props.traffic === 'optimistic' ? this.gm.TrafficModel.OPTIMISTIC : this.gm.TrafficModel.PESSIMISTIC,
       },
     }, (response, status) => {
       if (status === this.gm.DirectionsStatus.OK) {
@@ -133,7 +139,7 @@ class DemoQuestionMap extends React.PureComponent {
         let duration = 0;
         response.routes[0].legs.forEach((item) => {
           distance += item.distance.value;
-          duration += item.duration.value;
+          duration += this.props.transport === 'car' && this.props.traffic !== 'standard' ? item.duration_in_traffic.value : item.duration.value;
           gross = {
             distance: Math.floor((distance / 1000) * (10 ** 1)) / (10 ** 1), // 小数点第1位以下を切り捨て
             duration: Math.floor((duration / 60) * (10 ** 1)) / (10 ** 1), // // 小数点第1位以下を切り捨て
