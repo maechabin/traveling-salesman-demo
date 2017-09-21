@@ -24,17 +24,19 @@ const DemoQuestionOptions = (props) => {
       </dd>
       <dt>有料道路、高速道路</dt>
       <dd>
-        <input type="checkbox" value={expressway === 'no' ? 'yes' : 'no'} name="expressway" checked={expressway === 'yes'} onChange={handleChange} id="expressway" disabled={choosingRouteStartFlag} />
+        <input type="checkbox" value={expressway === 'no' ? 'yes' : 'no'} name="expressway" checked={expressway === 'yes' && transport === 'car'} onChange={handleChange} id="expressway" disabled={choosingRouteStartFlag || transport === 'walk'} />
         <label htmlFor="expressway">利用する</label>
       </dd>
-      <dt>交通量の見積もり</dt>
+      <dt>3日後の交通量で見積もる</dt>
       <dd>
-        <input type="radio" value="standard" name="traffic" checked={traffic === 'standard'} onChange={handleChange} id="traffic-standard" disabled={choosingRouteStartFlag} />
-        <label htmlFor="traffic-standard">通常</label>
-        <input type="radio" value="optimistic" name="traffic" checked={traffic === 'optimistic'} onChange={handleChange} id="traffic-optimistic" disabled={choosingRouteStartFlag} />
-        <label htmlFor="traffic-optimistic">楽観的</label>
-        <input type="radio" value="pessimistic" name="traffic" checked={traffic === 'pessimistic'} onChange={handleChange} id="traffic-pessimistic" disabled={choosingRouteStartFlag} />
-        <label htmlFor="traffic-pessimistic">悲観的</label>
+        <input type="radio" value="standard" name="traffic" checked={traffic === 'standard' || transport === 'walk'} onChange={handleChange} id="traffic-standard" disabled={choosingRouteStartFlag || transport === 'walk'} />
+        <label htmlFor="traffic-standard">しない</label>
+        <input type="radio" value="bestguess" name="traffic" checked={traffic === 'bestguess' && transport === 'car'} onChange={handleChange} id="traffic-bestguess" disabled={choosingRouteStartFlag || transport === 'walk'} />
+        <label htmlFor="traffic-bestguess">正確に</label>
+        <input type="radio" value="optimistic" name="traffic" checked={traffic === 'optimistic' && transport === 'car'} onChange={handleChange} id="traffic-optimistic" disabled={choosingRouteStartFlag || transport === 'walk'} />
+        <label htmlFor="traffic-optimistic">楽観的に</label>
+        <input type="radio" value="pessimistic" name="traffic" checked={traffic === 'pessimistic' && transport === 'car'} onChange={handleChange} id="traffic-pessimistic" disabled={choosingRouteStartFlag || transport === 'walk'} />
+        <label htmlFor="traffic-pessimistic">悲観的に</label>
       </dd>
     </dl>
   );
