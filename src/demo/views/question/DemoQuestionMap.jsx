@@ -40,7 +40,6 @@ class DemoQuestionMap extends React.PureComponent {
 
   // 初期化
   init() {
-    console.log(this.props.departureTime);
     this.map = new this.gm.Map(this.DemoQuestionMap, this.mapOptions);
     this.displayMarker();
     this.props.handleInit();
@@ -117,17 +116,18 @@ class DemoQuestionMap extends React.PureComponent {
     });
     // directions apiへのリクエスト
     directionsService.route({
-      // origin: this.props.departure.title, // 出発地
-      origin: this.props.departure.title,
+      origin: this.props.departure.title, // 出発地
       waypoints: wayPoints, // 経路（配列）
       destination, // 到着地
       travelMode: this.props.transport === 'car' ? this.gm.TravelMode.DRIVING : this.gm.TravelMode.WALKING, // 車(DRIVING) or 徒歩(WALKING)
-      avoidHighways: this.props.expressway !== 'no', // 高速は利用しない場合はfalse
+      provideRouteAlternatives: false, // 複数の代替ルートをレスポンスに返す場合はtrue
+      avoidHighways: this.props.expressway === 'no', // 高速道路を利用しない場合はtrue
+      avoidTolls: this.props.expressway === 'no', // 有料道路を利用しない場合はtrue
       optimizeWaypoints: false, // 最適化を有効にする場合はtrue
       drivingOptions: {
         departureTime: this.props.departureTime,
         trafficModel: this.props.traffic === 'bestguess' ? this.gm.TrafficModel.BEST_GUESS : this.props.traffic === 'optimistic' ? this.gm.TrafficModel.OPTIMISTIC : this.gm.TrafficModel.PESSIMISTIC,
-      },
+      }, // 交通量を見積もる場合のオプション
     }, (response, status) => {
       if (status === this.gm.DirectionsStatus.OK) {
         // directions apiのレスポンスをセット
@@ -144,12 +144,13 @@ class DemoQuestionMap extends React.PureComponent {
           distance: Math.floor((distance / 1000) * (10 ** 1)) / (10 ** 1), // 小数点第1位以下を切り捨て
           duration: Math.floor((duration / 60) * (10 ** 1)) / (10 ** 1), // // 小数点第1位以下を切り捨て
         };
-        return this.props.handleUpdateGross(gross);
+        return [
+          directionsRenderer.setMap(this.map), // polylineを地図に表示
+          this.props.handleUpdateGross(gross),
+        ];
       }
       return `error: ${status}`;
     });
-    // polylineを地図に表示
-    directionsRenderer.setMap(this.map);
   }
 
   render() {
