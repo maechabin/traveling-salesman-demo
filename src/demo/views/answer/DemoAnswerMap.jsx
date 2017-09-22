@@ -13,8 +13,6 @@ class DemoAnswerMap extends React.PureComponent {
       mapTypeId: this.props.google.maps.MapTypeId.ROADMAP,
     };
     this.map = '';
-    // this.date = new Date(Date.now());
-    this.date = new Date('Thu Oct 14 2017 16:12:53 GMT+0900 (JST)');
     // Google Maps API本体
     this.gm = this.props.google.maps;
   }
@@ -92,7 +90,7 @@ class DemoAnswerMap extends React.PureComponent {
       origin: this.props.departure.title, // 出発地
       destination: this.props.arival.title, // 到着地
       drivingOptions: {
-        departureTime: this.date,
+        departureTime: this.props.departureTime,
         trafficModel: this.props.traffic === 'bestguess' ? this.gm.TrafficModel.BEST_GUESS : this.props.traffic === 'optimistic' ? this.gm.TrafficModel.OPTIMISTIC : this.gm.TrafficModel.PESSIMISTIC,
       },
       optimizeWaypoints: true, // 最適化を有効にする場合はtrue
@@ -128,9 +126,7 @@ class DemoAnswerMap extends React.PureComponent {
       <div
         ref={(div) => { this.DemoAnswerMap = div; }}
         className="DemoAnswerMap"
-      >
-        DemoAnswerMap
-      </div>
+      />
     );
   }
 }
@@ -140,6 +136,7 @@ DemoAnswerMap.propTypes = {
     maps: PropTypes.object,
   }).isRequired,
   departure: demoType.departure.isRequired,
+  departureTime: demoType.departureTime.isRequired,
   arival: demoType.arival.isRequired,
   routes: demoType.routes.isRequired,
   transport: demoType.transport.isRequired,

@@ -27,6 +27,7 @@ class DemoContainer extends React.PureComponent {
 function mapStateToProps(state) {
   return {
     departure: state.departure,
+    departureTime: state.departureTime,
     arival: state.arival,
     routes: state.routes,
     currentSortId: state.currentSortId,

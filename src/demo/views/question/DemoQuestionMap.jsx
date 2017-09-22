@@ -13,7 +13,6 @@ class DemoQuestionMap extends React.PureComponent {
       mapTypeId: this.props.google.maps.MapTypeId.ROADMAP,
     };
     this.map = '';
-    this.date = new Date('Thu Oct 14 2017 16:12:53 GMT+0900 (JST)');
     // Google Maps API本体
     this.gm = this.props.google.maps;
   }
@@ -41,6 +40,7 @@ class DemoQuestionMap extends React.PureComponent {
 
   // 初期化
   init() {
+    console.log(this.props.departureTime);
     this.map = new this.gm.Map(this.DemoQuestionMap, this.mapOptions);
     this.displayMarker();
     this.props.handleInit();
@@ -125,7 +125,7 @@ class DemoQuestionMap extends React.PureComponent {
       avoidHighways: this.props.expressway !== 'no', // 高速は利用しない場合はfalse
       optimizeWaypoints: false, // 最適化を有効にする場合はtrue
       drivingOptions: {
-        departureTime: this.date,
+        departureTime: this.props.departureTime,
         trafficModel: this.props.traffic === 'bestguess' ? this.gm.TrafficModel.BEST_GUESS : this.props.traffic === 'optimistic' ? this.gm.TrafficModel.OPTIMISTIC : this.gm.TrafficModel.PESSIMISTIC,
       },
     }, (response, status) => {
@@ -157,9 +157,7 @@ class DemoQuestionMap extends React.PureComponent {
       <div
         ref={(div) => { this.DemoQuestionMap = div; }}
         className="DemoQuestionMap"
-      >
-        Map
-      </div>
+      />
     );
   }
 }
@@ -179,6 +177,7 @@ DemoQuestionMap.propTypes = {
   transport: demoType.transport.isRequired,
   expressway: demoType.expressway.isRequired,
   traffic: demoType.traffic.isRequired,
+  departureTime: demoType.departureTime.isRequired,
   initialFlag: demoType.initialFlag.isRequired,
   choosingRouteStartFlag: demoType.choosingRouteStartFlag.isRequired,
 };

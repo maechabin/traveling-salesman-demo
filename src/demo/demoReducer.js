@@ -67,6 +67,7 @@ const demoReducer = (state = initialState, action) => {
         transport: 'car',
         expressway: 'no',
         traffic: 'standard',
+        departureTime: new Date(Date.now() + (1000 * 60 * 60 * 24 * 3)),
         gross: {
           distance: 0,
           duration: 0,

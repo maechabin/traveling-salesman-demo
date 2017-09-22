@@ -29,6 +29,7 @@ const demoState = {
   transport: PropTypes.string,
   expressway: PropTypes.string,
   traffic: PropTypes.string,
+  departureTime: PropTypes.object,
   gross: PropTypes.shape({
     distance: PropTypes.number, // 総距離
     duration: PropTypes.number, // 総時間

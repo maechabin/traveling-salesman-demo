@@ -19,6 +19,7 @@ const demoState = {
   transport: 'car',
   expressway: 'no',
   traffic: 'standard',
+  departureTime: new Date(Date.now() + (1000 * 60 * 60 * 24 * 3)),
   gross: {
     distance: 0, // 総距離
     duration: 0, // 総時間
