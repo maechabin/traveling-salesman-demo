@@ -6,19 +6,19 @@ const DemoAnswerList = (props) => {
   const { routes, answerWaypointOrder } = props;
   const renderingList = answerWaypointOrder.map(
     order => (<li key={routes[order].id} className="DemoQuestionListSorted">
-      {routes[order].label}: {routes[order].title}
+      <span>{routes[order].label}:</span>{routes[order].title}
     </li>),
   );
   return (
     <div className="DemoAnswerList">
       <ul className="DemoAnswerListDeparture">
-        <li>{props.departure.label}: {props.departure.title}</li>
+        <li><span>{props.departure.label}:</span>{props.departure.title}</li>
       </ul>
       <ul className="DemoAnswerListRoutes">
         {renderingList}
       </ul>
       <ul className="DemoAnswerListArival">
-        <li>{props.arival.label}: {props.arival.title}</li>
+        <li><span>{props.arival.label}:</span>{props.arival.title}</li>
       </ul>
     </div>
   );

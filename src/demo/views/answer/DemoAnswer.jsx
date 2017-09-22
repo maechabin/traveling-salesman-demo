@@ -14,12 +14,8 @@ const DemoAnswer = (props) => {
   const { answerGross, answerWaypointOrder, routes, handleResetClick } = props;
   return (
     <div className="DemoAnswer">
-      <h2>正 解</h2>
+      <h2>Google Mapsが選んだ経路</h2>
       <div className="DemoAnswerMain">
-        <div className="DemoAnswerMapArea">
-          <DemoAnswerMap {...props} />
-          <DemoAnswerGross answerGross={answerGross} />
-        </div>
         <div className="DemoAnswerNavArea">
           <DemoAnswerMark
             answerWaypointOrder={answerWaypointOrder}
@@ -32,6 +28,10 @@ const DemoAnswer = (props) => {
             answerWaypointOrder={answerWaypointOrder}
           />
           <DemoAnswerButton handleResetClick={handleResetClick} />
+        </div>
+        <div className="DemoAnswerMapArea">
+          <DemoAnswerMap {...props} />
+          <DemoAnswerGross answerGross={answerGross} />
         </div>
       </div>
     </div>

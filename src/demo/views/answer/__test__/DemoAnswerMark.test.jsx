@@ -12,14 +12,14 @@ describe('<DemoAnswerMark />', () => {
 
   it('answerWaypointOrderの値が[0, 1, 2, 3, 4, 5, 6, 7]の場合、「正解」と表示されること', () => {
     const answerWaypointOrder = [0, 1, 2, 3, 4, 5, 6, 7];
-    const display = '◎ 正解';
+    const display = '😃正解';
     const wrapper = shallow(<DemoAnswerMark answerWaypointOrder={answerWaypointOrder} />);
     expect(wrapper.find('.DemoAnswerMark').text()).toEqual(display);
   });
 
-  it('answerWaypointOrderの値が[0, 1, 2, 3, 4, 5, 6, 7]でない場合、「不正解」と表示されること', () => {
+  it('answerWaypointOrderの値が[0, 1, 2, 3, 4, 5, 6, 7]でない場合、「残念」と表示されること', () => {
     const answerWaypointOrder = [1, 0, 3, 4, 7, 2, 5, 6];
-    const display = '× 不正解';
+    const display = '😣残念';
     const wrapper = shallow(<DemoAnswerMark answerWaypointOrder={answerWaypointOrder} />);
     expect(wrapper.find('.DemoAnswerMark').text()).toEqual(display);
   });

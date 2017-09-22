@@ -18,18 +18,20 @@
     height: 100%; }
     .DemoAnswerMapArea {
       position: relative;
-      height: calc(100vh - 84px - 65px); }
+      height: calc(100vh - 84px - 64px); }
   .DemoAnswerNavArea {
+    overflow: scroll;
     width: 100%;
-    background-color: #FAFAFA;
+    background-color: #eee;
     text-align: left;
     display: flex;
     flex-direction: column;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    padding: 0 8px; }
   .DemoAnswerList ul {
     list-style-type: none; }
   .DemoAnswerListDeparture::after {
-    background-color: #fafafa;
+    background-color: #eee;
     text-align: center;
     color: #5C6BC0;
     display: block;
@@ -37,35 +39,49 @@
     margin: 0 -8px;
     line-height: 1.2; }
   .DemoAnswerListDeparture, .DemoAnswerListArival {
-    text-align: center;
-    font-size: 16px;
-    margin: 0 0 1px;
-    color: #fff;
-    padding: 0 8px;
-    background-color: #f75c50;
-    line-height: 2; }
+    margin: 0;
+    padding: 0; }
+    .DemoAnswerListDeparture li, .DemoAnswerListArival li {
+      text-align: center;
+      font-size: 16px;
+      color: #fff;
+      padding: 0 8px;
+      background-color: #f75c50;
+      line-height: 2;
+      position: relative; }
+      .DemoAnswerListDeparture li span, .DemoAnswerListArival li span {
+        position: absolute;
+        left: 8px; }
   .DemoAnswerListRoutes {
     margin: 0;
     padding: 0; }
     .DemoAnswerListRoutes li {
       text-align: center;
       font-size: 16px;
-      color: #fff;
-      border-bottom: 1px solid #fff;
+      border-bottom: 1px solid #eee;
       padding: 0 8px;
-      line-height: 2; }
+      line-height: 2;
+      position: relative; }
+      .DemoAnswerListRoutes li span {
+        position: absolute;
+        left: 8px; }
   .DemoAnswerListNotSorted {
+    color: #fff;
     background-color: #7ac23a; }
   .DemoAnswerListSorted {
+    color: #fff;
     background-color: #6991fd; }
     .DemoAnswerListSorted::after {
-      background-color: #fafafa;
+      background-color: #eee;
       text-align: center;
       color: #5C6BC0;
       display: block;
       content: '⬇︎';
       margin: 0 -8px;
       line-height: 1.2; }
+  .DemoAnswerListMistake {
+    background-color: #ffcdd2;
+    color: #b71c1c; }
   .DemoAnswerGross {
     position: relative; }
     .DemoAnswerGross p {
@@ -76,7 +92,8 @@
       border-radius: 0 4px 0 0;
       opacity: .9;
       background-color: #FFC107;
-      width: 480px;
+      max-width: 440px;
+      width: 100%;
       text-align: center;
       font-size: 16px; }
       .DemoAnswerGross p span {
@@ -89,7 +106,8 @@
     border-radius: 2px;
     padding: 16px;
     font-size: 16px;
-    width: 240px;
+    max-width: 240px;
+    width: 100%;
     color: #fff;
     background-color: #90A4AE;
     transition: .3s;
@@ -104,10 +122,15 @@
       color: rgba(0, 0, 0, 0.3);
       background: rgba(0, 0, 0, 0.2); }
   .DemoAnswerMark {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    /* 縦方向の中央揃え */
+    justify-content: center;
+    /* 横方向の中央揃え */
+    box-sizing: border-box;
     padding: 0 16px;
     font-weight: bold;
-    font-size: 80px;
-    color: #FB8C00;
-    height: 196px;
-    line-height: 196px; }
+    font-size: 72px;
+    color: #263238;
+    height: 240px;
+    margin-bottom: 8px; }

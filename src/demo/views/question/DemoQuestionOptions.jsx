@@ -30,7 +30,8 @@ const DemoQuestionOptions = (props) => {
       <dt>3日後の交通量で見積もる（参考）</dt>
       <dd>
         <input type="radio" value="standard" name="traffic" checked={traffic === 'standard' || transport === 'walk'} onChange={handleChange} id="traffic-standard" disabled={choosingRouteStartFlag || transport === 'walk'} />
-        <label htmlFor="traffic-standard">しない</label>
+        <label htmlFor="traffic-standard">見積もらない</label>
+        <br />
         <input type="radio" value="bestguess" name="traffic" checked={traffic === 'bestguess' && transport === 'car'} onChange={handleChange} id="traffic-bestguess" disabled={choosingRouteStartFlag || transport === 'walk'} />
         <label htmlFor="traffic-bestguess">正確に</label>
         <input type="radio" value="optimistic" name="traffic" checked={traffic === 'optimistic' && transport === 'car'} onChange={handleChange} id="traffic-optimistic" disabled={choosingRouteStartFlag || transport === 'walk'} />

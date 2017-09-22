@@ -15,11 +15,15 @@
   }
 
   &Options {
+    display: flex;
+    justify-content: center; /* 横方向の中央揃え */
+    flex-direction: column;
     box-sizing: border-box;
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 8px;
     padding: 8px;
-    background-color: #ECEFF1;
+    background-color: #eee;
+    height: 240px;
 
     input,
     label {

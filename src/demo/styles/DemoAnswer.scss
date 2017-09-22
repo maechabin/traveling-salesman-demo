@@ -18,12 +18,15 @@
     @include Button();
   }
   &Mark {
-    text-align: center;
+    display: flex;
+    align-items: center; /* 縦方向の中央揃え */
+    justify-content: center; /* 横方向の中央揃え */
+    box-sizing: border-box;
     padding: 0 16px;
     font-weight: bold;
-    font-size: 80px;
-    color: #FB8C00;
-    height: 196px;
-    line-height: 196px;
+    font-size: 72px;
+    color: #263238;
+    height: 240px;
+    margin-bottom: 8px;
   }
 }
