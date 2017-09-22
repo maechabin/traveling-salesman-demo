@@ -11,7 +11,7 @@ import demoType from '../../demoType';
 import '../../styles/DemoAnswer.css';
 
 const DemoAnswer = (props) => {
-  const { gross, answerGross, handleResetClick } = props;
+  const { answerGross, answerWaypointOrder, routes, handleResetClick } = props;
   return (
     <div className="DemoAnswer">
       <h2>正 解</h2>
@@ -22,14 +22,14 @@ const DemoAnswer = (props) => {
         </div>
         <div className="DemoAnswerNavArea">
           <DemoAnswerMark
-            gross={gross}
-            answerGross={answerGross}
+            answerWaypointOrder={answerWaypointOrder}
+            routes={routes}
           />
           <DemoAnswerList
             departure={props.departure}
             arival={props.arival}
-            routes={props.routes}
-            answerWaypointOrder={props.answerWaypointOrder}
+            routes={routes}
+            answerWaypointOrder={answerWaypointOrder}
           />
           <DemoAnswerButton handleResetClick={handleResetClick} />
         </div>
@@ -39,7 +39,6 @@ const DemoAnswer = (props) => {
 };
 
 DemoAnswer.propTypes = {
-  gross: demoType.gross.isRequired,
   answerGross: demoType.answerGross.isRequired,
   routes: demoType.routes.isRequired,
   departure: demoType.departure.isRequired,

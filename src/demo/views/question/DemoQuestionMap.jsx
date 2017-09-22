@@ -13,7 +13,7 @@ class DemoQuestionMap extends React.PureComponent {
       mapTypeId: this.props.google.maps.MapTypeId.ROADMAP,
     };
     this.map = '';
-    this.date = new Date('Thu Oct 13 2017 16:12:53 GMT+0900 (JST)');
+    this.date = new Date('Thu Oct 14 2017 16:12:53 GMT+0900 (JST)');
     // Google Maps API本体
     this.gm = this.props.google.maps;
   }
@@ -134,17 +134,16 @@ class DemoQuestionMap extends React.PureComponent {
         directionsRenderer.setDirections(response);
 
         // 総距離、総時間を表示
-        let gross = {};
         let distance = 0;
         let duration = 0;
         response.routes[0].legs.forEach((item) => {
           distance += item.distance.value;
           duration += this.props.transport === 'car' && this.props.traffic !== 'standard' ? item.duration_in_traffic.value : item.duration.value;
-          gross = {
-            distance: Math.floor((distance / 1000) * (10 ** 1)) / (10 ** 1), // 小数点第1位以下を切り捨て
-            duration: Math.floor((duration / 60) * (10 ** 1)) / (10 ** 1), // // 小数点第1位以下を切り捨て
-          };
         });
+        const gross = {
+          distance: Math.floor((distance / 1000) * (10 ** 1)) / (10 ** 1), // 小数点第1位以下を切り捨て
+          duration: Math.floor((duration / 60) * (10 ** 1)) / (10 ** 1), // // 小数点第1位以下を切り捨て
+        };
         return this.props.handleUpdateGross(gross);
       }
       return `error: ${status}`;

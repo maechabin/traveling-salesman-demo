@@ -13,6 +13,8 @@ class DemoAnswerMap extends React.PureComponent {
       mapTypeId: this.props.google.maps.MapTypeId.ROADMAP,
     };
     this.map = '';
+    // this.date = new Date(Date.now());
+    this.date = new Date('Thu Oct 14 2017 16:12:53 GMT+0900 (JST)');
     // Google Maps API本体
     this.gm = this.props.google.maps;
   }
@@ -71,7 +73,9 @@ class DemoAnswerMap extends React.PureComponent {
   renderRoute() {
     const directionsService = new this.gm.DirectionsService();
     const directionsRenderer = new this.gm.DirectionsRenderer();
-    const wayPoints = this.props.routes.map(route => ({ location: route.title }));
+
+    // 経路
+    const wayPoints = this.props.routes.map(route => ({ location: route.title, stopover: true }));
 
     // polylineをレンダリングする際のオプション
     directionsRenderer.setOptions({
@@ -86,32 +90,31 @@ class DemoAnswerMap extends React.PureComponent {
     // directions apiへのリクエスト
     directionsService.route({
       origin: this.props.departure.title, // 出発地
-      waypoints: wayPoints, // 経路（配列）
       destination: this.props.arival.title, // 到着地
+      drivingOptions: {
+        departureTime: this.date,
+        trafficModel: this.props.traffic === 'bestguess' ? this.gm.TrafficModel.BEST_GUESS : this.props.traffic === 'optimistic' ? this.gm.TrafficModel.OPTIMISTIC : this.gm.TrafficModel.PESSIMISTIC,
+      },
+      optimizeWaypoints: true, // 最適化を有効にする場合はtrue
+      waypoints: wayPoints, // 経路（配列）
       travelMode: this.props.transport === 'car' ? this.gm.TravelMode.DRIVING : this.gm.TravelMode.WALKING, // 車(DRIVING) or 徒歩(WALKING)
       avoidHighways: this.props.expressway !== 'no', // 高速は利用しない場合はfalse
-      optimizeWaypoints: true, // 最適化を有効にする場合はtrue
-      drivingOptions: {
-        departureTime: new Date(),
-        trafficModel: this.props.traffic === 'standard' ? this.gm.TrafficModel.BEST_GUESS : this.props.traffic === 'optimistic' ? this.gm.TrafficModel.OPTIMISTIC : this.gm.TrafficModel.PESSIMISTIC,
-      },
     }, (response, status) => {
       if (status === this.gm.DirectionsStatus.OK) {
         // directions apiのレスポンスをセット
         directionsRenderer.setDirections(response);
 
         // 総距離、総時間を表示
-        let gross = {};
         let distance = 0;
         let duration = 0;
         response.routes[0].legs.forEach((item) => {
           distance += item.distance.value;
           duration += item.duration.value;
-          gross = {
-            distance: Math.floor((distance / 1000) * (10 ** 1)) / (10 ** 1), // 小数点第1位以下を切り捨て
-            duration: Math.floor((duration / 60) * (10 ** 1)) / (10 ** 1), // // 小数点第1位以下を切り捨て
-          };
         });
+        const gross = {
+          distance: Math.floor((distance / 1000) * (10 ** 1)) / (10 ** 1), // 小数点第1位以下を切り捨て
+          duration: Math.floor((duration / 60) * (10 ** 1)) / (10 ** 1), // // 小数点第1位以下を切り捨て
+        };
         return this.props.handleUpdateAnswerData(gross, response.routes[0].waypoint_order);
       }
       return `error: ${status}`;
@@ -141,6 +144,7 @@ DemoAnswerMap.propTypes = {
   routes: demoType.routes.isRequired,
   transport: demoType.transport.isRequired,
   expressway: demoType.expressway.isRequired,
+  traffic: demoType.traffic.isRequired,
   handleUpdateAnswerData: PropTypes.func.isRequired,
 };
 

@@ -4,8 +4,8 @@ import demoType from '../../demoType';
 
 const DemoAnswerMark = (props) => {
   let answer = '';
-  if (props.answerGross.duration > 0) {
-    answer = props.gross.duration === props.answerGross.duration ? '◎ 正解' : '× 不正解';
+  if (props.answerWaypointOrder.length > 0) {
+    answer = props.answerWaypointOrder.toString() === [0, 1, 2, 3, 4, 5, 6, 7].toString() ? '◎ 正解' : '× 不正解';
   }
 
   return (
@@ -14,8 +14,7 @@ const DemoAnswerMark = (props) => {
 };
 
 DemoAnswerMark.propTypes = {
-  gross: demoType.gross.isRequired,
-  answerGross: demoType.answerGross.isRequired,
+  answerWaypointOrder: demoType.answerWaypointOrder.isRequired,
 };
 
 export default DemoAnswerMark;
