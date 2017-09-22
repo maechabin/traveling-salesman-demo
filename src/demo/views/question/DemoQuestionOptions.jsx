@@ -27,7 +27,7 @@ const DemoQuestionOptions = (props) => {
         <input type="checkbox" value={expressway === 'no' ? 'yes' : 'no'} name="expressway" checked={expressway === 'yes' && transport === 'car'} onChange={handleChange} id="expressway" disabled={choosingRouteStartFlag || transport === 'walk'} />
         <label htmlFor="expressway">利用する</label>
       </dd>
-      <dt>3日後の交通量で見積もる</dt>
+      <dt>3日後の交通量で見積もる（参考）</dt>
       <dd>
         <input type="radio" value="standard" name="traffic" checked={traffic === 'standard' || transport === 'walk'} onChange={handleChange} id="traffic-standard" disabled={choosingRouteStartFlag || transport === 'walk'} />
         <label htmlFor="traffic-standard">しない</label>
