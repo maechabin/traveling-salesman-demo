@@ -18,8 +18,14 @@ describe('<DemoQuestionList />', () => {
       { id: 7, title: '上野動物園', lat: 35.7164535, lng: 139.77131770000005, label: '経路G', sortId: 0 },
       { id: 8, title: '東京駅', lat: 35.6811673, lng: 139.76705160000006, label: '経路H', sortId: 0 },
     ];
+    const answerWaypointOrder = [];
     const wrapper = shallow(
-      <DemoQuestionList routes={list} departure={departure} arival={arival} />,
+      <DemoQuestionList
+        routes={list}
+        departure={departure}
+        arival={arival} 
+        answerWaypointOrder={answerWaypointOrder}
+      />,
     );
     expect(wrapper.find('.DemoQuestionListRoutes').children().length).toBe(8);
   });
@@ -35,8 +41,14 @@ describe('<DemoQuestionList />', () => {
       { id: 7, title: '上野動物園', lat: 35.7164535, lng: 139.77131770000005, label: '経路G', sortId: 7 },
       { id: 8, title: '東京駅', lat: 35.6811673, lng: 139.76705160000006, label: '経路H', sortId: 6 },
     ];
+    const answerWaypointOrder = [];
     const wrapper = shallow(
-      <DemoQuestionList routes={list} departure={departure} arival={arival} />,
+      <DemoQuestionList
+        routes={list}
+        departure={departure}
+        arival={arival}
+        answerWaypointOrder={answerWaypointOrder}
+      />,
     );
     expect(wrapper.find('.DemoQuestionListNotSorted').length).toBe(5);
     expect(wrapper.find('.DemoQuestionListSorted').length).toBe(3);
@@ -53,10 +65,16 @@ describe('<DemoQuestionList />', () => {
       { id: 7, title: '上野動物園', lat: 35.7164535, lng: 139.77131770000005, label: '経路G', sortId: 0 },
       { id: 8, title: '東京駅', lat: 35.6811673, lng: 139.76705160000006, label: '経路H', sortId: 0 },
     ];
+    const answerWaypointOrder = [];
     const wrapper = shallow(
-      <DemoQuestionList routes={list} departure={departure} arival={arival} />,
+      <DemoQuestionList
+        routes={list}
+        departure={departure}
+        arival={arival}
+        answerWaypointOrder={answerWaypointOrder}
+      />,
     );
-    expect(wrapper.find('.DemoQuestionListRoutes').text()).toBe('経路A: 秋葉原駅経路B: 文京区役所経路C: 明治大学経路D: 浜離宮経路E: 国会議事堂経路F: 東京タワー経路G: 上野動物園経路H: 東京駅');
+    expect(wrapper.find('.DemoQuestionListRoutes').text()).toBe('経路A:秋葉原駅経路B:文京区役所経路C:明治大学経路D:浜離宮経路E:国会議事堂経路F:東京タワー経路G:上野動物園経路H:東京駅');
   });
 
   it('経路リストにsortIdが付与されていた場合、sortId順（降順）に表示されること', () => {
@@ -70,10 +88,16 @@ describe('<DemoQuestionList />', () => {
       { id: 7, title: '上野動物園', lat: 35.7164535, lng: 139.77131770000005, label: '経路G', sortId: 7 },
       { id: 8, title: '東京駅', lat: 35.6811673, lng: 139.76705160000006, label: '経路H', sortId: 6 },
     ];
+    const answerWaypointOrder = [];
     const wrapper = shallow(
-      <DemoQuestionList routes={list} departure={departure} arival={arival} />,
+      <DemoQuestionList
+        routes={list}
+        departure={departure}
+        arival={arival}
+        answerWaypointOrder={answerWaypointOrder}
+      />,
     );
-    expect(wrapper.find('.DemoQuestionListRoutes').text()).toBe('経路E: 国会議事堂経路G: 上野動物園経路H: 東京駅経路A: 秋葉原駅経路B: 文京区役所経路F: 東京タワー経路D: 浜離宮経路C: 明治大学');
+    expect(wrapper.find('.DemoQuestionListRoutes').text()).toBe('経路E:国会議事堂経路G:上野動物園経路H:東京駅経路A:秋葉原駅経路B:文京区役所経路F:東京タワー経路D:浜離宮経路C:明治大学');
   });
 
   it('sortIdが0以上であった場合、sortIdが優先してソートされること', () => {
@@ -87,9 +111,15 @@ describe('<DemoQuestionList />', () => {
       { id: 7, title: '上野動物園', lat: 35.7164535, lng: 139.77131770000005, label: '経路G', sortId: 7 },
       { id: 8, title: '東京駅', lat: 35.6811673, lng: 139.76705160000006, label: '経路H', sortId: 6 },
     ];
+    const answerWaypointOrder = [];
     const wrapper = shallow(
-      <DemoQuestionList routes={list} departure={departure} arival={arival} />,
+      <DemoQuestionList
+        routes={list}
+        departure={departure}
+        arival={arival}
+        answerWaypointOrder={answerWaypointOrder}
+      />,
     );
-    expect(wrapper.find('.DemoQuestionListRoutes').text()).toBe('経路E: 国会議事堂経路G: 上野動物園経路H: 東京駅経路A: 秋葉原駅経路B: 文京区役所経路C: 明治大学経路D: 浜離宮経路F: 東京タワー');
+    expect(wrapper.find('.DemoQuestionListRoutes').text()).toBe('経路E:国会議事堂経路G:上野動物園経路H:東京駅経路A:秋葉原駅経路B:文京区役所経路C:明治大学経路D:浜離宮経路F:東京タワー');
   });
 });
