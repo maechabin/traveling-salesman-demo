@@ -79,6 +79,9 @@ describe('<DemoQuestionOptions />', () => {
     expect(wrapper.find('#traffic-standard').props().checked).toEqual(true);
     expect(handleFormChangeSpy.called).toEqual(false);
 
+    wrapper.find('#traffic-bestguess').simulate('change', event);
+    expect(handleFormChangeSpy.called).toEqual(true);
+
     wrapper.find('#traffic-optimistic').simulate('change', event);
     expect(handleFormChangeSpy.called).toEqual(true);
 
@@ -89,7 +92,7 @@ describe('<DemoQuestionOptions />', () => {
     expect(handleFormChangeSpy.called).toEqual(true);
   });
 
-  it('choosingRouteStartFlagaがtrueの場合、全ての選択肢が選択可能であること', () => {
+  it('choosingRouteStartFlagaがfalseかつtransportがcarの場合、全ての選択肢が選択可能であること', () => {
     const handleFormChangeSpy = sinon.spy();
     const choosingRouteStartFlag = false;
     const wrapper = shallow(
@@ -105,8 +108,28 @@ describe('<DemoQuestionOptions />', () => {
     expect(wrapper.find('#transport-walk').props().disabled).toEqual(false);
     expect(wrapper.find('#expressway').props().disabled).toEqual(false);
     expect(wrapper.find('#traffic-standard').props().disabled).toEqual(false);
+    expect(wrapper.find('#traffic-bestguess').props().disabled).toEqual(false);
     expect(wrapper.find('#traffic-optimistic').props().disabled).toEqual(false);
     expect(wrapper.find('#traffic-pessimistic').props().disabled).toEqual(false);
+  });
+
+  it('choosingRouteStartFlagaがfalseかつtransportがwalkの場合、expresswayとtrafficの選択肢がdisabledであること', () => {
+    const handleFormChangeSpy = sinon.spy();
+    const choosingRouteStartFlag = false;
+    const wrapper = shallow(
+      <DemoQuestionOptions
+        handleFormChange={handleFormChangeSpy}
+        transport="walk"
+        expressway="no"
+        traffic="standard"
+        choosingRouteStartFlag={choosingRouteStartFlag}
+      />,
+    );
+    expect(wrapper.find('#expressway').props().disabled).toEqual(true);
+    expect(wrapper.find('#traffic-standard').props().disabled).toEqual(true);
+    expect(wrapper.find('#traffic-bestguess').props().disabled).toEqual(true);
+    expect(wrapper.find('#traffic-optimistic').props().disabled).toEqual(true);
+    expect(wrapper.find('#traffic-pessimistic').props().disabled).toEqual(true);
   });
 
   it('choosingRouteStartFlagaがtrueの場合、全ての選択肢がdisabledであること', () => {
@@ -125,7 +148,38 @@ describe('<DemoQuestionOptions />', () => {
     expect(wrapper.find('#transport-walk').props().disabled).toEqual(true);
     expect(wrapper.find('#expressway').props().disabled).toEqual(true);
     expect(wrapper.find('#traffic-standard').props().disabled).toEqual(true);
+    expect(wrapper.find('#traffic-bestguess').props().disabled).toEqual(true);
     expect(wrapper.find('#traffic-optimistic').props().disabled).toEqual(true);
     expect(wrapper.find('#traffic-pessimistic').props().disabled).toEqual(true);
+  });
+
+  it('transportがwalkの場合、expresswayのチェックが外れていること', () => {
+    const handleFormChangeSpy = sinon.spy();
+    const choosingRouteStartFlag = false;
+    const wrapper = shallow(
+      <DemoQuestionOptions
+        handleFormChange={handleFormChangeSpy}
+        transport="walk"
+        expressway="yes"
+        traffic="standard"
+        choosingRouteStartFlag={choosingRouteStartFlag}
+      />,
+    );
+    expect(wrapper.find('#expressway').props().checked).toEqual(false);
+  });
+
+  it('transportがwalkの場合、trafficは「しない」を選択していること', () => {
+    const handleFormChangeSpy = sinon.spy();
+    const choosingRouteStartFlag = false;
+    const wrapper = shallow(
+      <DemoQuestionOptions
+        handleFormChange={handleFormChangeSpy}
+        transport="walk"
+        expressway="yes"
+        traffic="bestguess"
+        choosingRouteStartFlag={choosingRouteStartFlag}
+      />,
+    );
+    expect(wrapper.find('#traffic-standard').props().checked).toEqual(true);
   });
 });

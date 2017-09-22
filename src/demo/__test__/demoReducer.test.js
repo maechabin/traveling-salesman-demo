@@ -125,6 +125,16 @@ describe('demoReducer', () => {
       type: actions.CHANGE_FORM_VALUE,
       payload: {
         name: 'traffic',
+        value: 'bestguess',
+      },
+    })).toEqual({
+      traffic: 'bestguess',
+    });
+
+    expect(reducer({}, {
+      type: actions.CHANGE_FORM_VALUE,
+      payload: {
+        name: 'traffic',
         value: 'optimistic',
       },
     })).toEqual({
@@ -166,6 +176,7 @@ describe('demoReducer', () => {
       transport: 'car',
       expressway: 'no',
       traffic: 'standard',
+      departureTime: new Date(Date.now() + (1000 * 60 * 60 * 24 * 3)),
       gross: {
         distance: 0,
         duration: 0,
