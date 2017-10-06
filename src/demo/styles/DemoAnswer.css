@@ -14,7 +14,7 @@
   .DemoAnswerMain {
     display: flex; }
   .DemoAnswerMap {
-    width: 36vw;
+    width: 34vw;
     height: 100%; }
     .DemoAnswerMapArea {
       position: relative;
@@ -87,7 +87,7 @@
     .DemoAnswerGross p {
       margin: 0;
       position: absolute;
-      bottom: 0;
+      bottom: 32px;
       padding: 16px;
       border-radius: 0 4px 0 0;
       opacity: .9;
