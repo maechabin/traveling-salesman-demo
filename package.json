@@ -2,6 +2,7 @@
   "name": "maps-demo",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "enzyme": "^2.9.1",
     "jest-enzyme": "^3.8.2",
