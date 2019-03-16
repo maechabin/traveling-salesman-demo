@@ -1,15 +1,19 @@
 import React from 'react';
+import { Gross } from '../../../state.model';
 
-import demoType from '../../demoType';
-
-const DemoAnswerGross = props => (
-  <div className="DemoQuestionGross">
-    <p>総距離: <span>{props.answerGross.distance}</span>km / 総時間: <span>{props.answerGross.duration}</span>分</p>
-  </div>
-);
-
-DemoAnswerGross.propTypes = {
-  answerGross: demoType.answerGross.isRequired,
+type PropsType = {
+  answerGross: Gross;
 };
+
+function DemoAnswerGross({ answerGross }: PropsType): JSX.Element {
+  return (
+    <div className="DemoQuestionGross">
+      <p>
+        総距離: <span>{answerGross.distance}</span>km / 総時間: <span>{answerGross.duration}</span>
+        分
+      </p>
+    </div>
+  );
+}
 
 export default DemoAnswerGross;

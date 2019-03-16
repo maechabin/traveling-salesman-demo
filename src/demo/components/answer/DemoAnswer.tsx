@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { State } from '../../../state.model';
+import { Dispatches } from '../../demo.model';
 
 import DemoAnswerButton from './DemoAnswerButton';
 import DemoAnswerGross from './DemoAnswerGross';
@@ -7,17 +8,16 @@ import DemoAnswerList from './DemoAnswerList';
 import DemoAnswerMap from './DemoAnswerMap';
 import DemoAnswerMark from './DemoAnswerMark';
 
-import demoType from '../../demoType';
 import '../../styles/DemoAnswer.css';
 
-const DemoAnswer = props => {
+function DemoAnswer(props: State & Dispatches): JSX.Element {
   const { answerGross, answerWaypointOrder, routes, handleResetClick } = props;
   return (
     <div className="DemoAnswer">
       <h2>Google Mapsが選んだ経路</h2>
       <div className="DemoAnswerMain">
         <div className="DemoAnswerNavArea">
-          <DemoAnswerMark answerWaypointOrder={answerWaypointOrder} routes={routes} />
+          <DemoAnswerMark answerWaypointOrder={answerWaypointOrder} />
           <DemoAnswerList
             departure={props.departure}
             arrival={props.arrival}
@@ -33,15 +33,6 @@ const DemoAnswer = props => {
       </div>
     </div>
   );
-};
-
-DemoAnswer.propTypes = {
-  answerGross: demoType.answerGross.isRequired,
-  routes: demoType.routes.isRequired,
-  departure: demoType.departure.isRequired,
-  arrival: demoType.arrival.isRequired,
-  answerWaypointOrder: demoType.answerWaypointOrder.isRequired,
-  handleResetClick: PropTypes.func.isRequired,
-};
+}
 
 export default DemoAnswer;

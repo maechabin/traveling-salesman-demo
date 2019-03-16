@@ -1,18 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Action } from 'redux';
 
-const DemoAnswerButton = (props) => {
-  function handleClick(e) {
-    e.preventDefault();
-    props.handleResetClick();
+type PropsType = {
+  handleResetClick: () => Action;
+};
+
+function DemoAnswerButton({ handleResetClick }: PropsType): JSX.Element {
+  function handleClick() {
+    handleResetClick();
   }
   return (
-    <button className="DemoAnswerButton" onClick={handleClick} disabled={false}>やり直す</button>
+    <button className="DemoAnswerButton" onClick={handleClick} disabled={false}>
+      やり直す
+    </button>
   );
-};
-
-DemoAnswerButton.propTypes = {
-  handleResetClick: PropTypes.func.isRequired,
-};
+}
 
 export default DemoAnswerButton;

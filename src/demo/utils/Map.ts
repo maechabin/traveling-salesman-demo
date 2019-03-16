@@ -25,6 +25,17 @@ type PolilineProps = {
   handleUpdateGross: (gross: Gross) => Action;
 };
 
+type AnswerPolilineProps = {
+  routes: Route[];
+  traffic: Traffic;
+  transport: Transport;
+  departure: Position;
+  arrival: Position;
+  expressway: Expressway;
+  departureTime: Date;
+  handleUpdateAnswerData: (gross: Gross, waypointOrder: number[]) => Action;
+};
+
 class Maps {
   map!: google.maps.Map;
 
@@ -222,6 +233,86 @@ class Maps {
           return [
             directionsRenderer.setMap(this.map), // polylineを地図に表示
             handleUpdateGross(gross),
+          ];
+        }
+        return `error: ${status}`;
+      },
+    );
+  }
+
+  /**
+   * propsから出発地、到着地、経路、オプションを取得して、マーカーを結ぶ線（polyline）を地図に表示する
+   */
+  public initAnswerPolyLine(props: AnswerPolilineProps): void {
+    const {
+      routes,
+      traffic,
+      transport,
+      departure,
+      arrival,
+      expressway,
+      departureTime,
+      handleUpdateAnswerData,
+    } = props;
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+
+    // 経路
+    const wayPoints = routes.map(route => ({ location: route.title, stopover: true }));
+
+    // polylineをレンダリングする際のオプション
+    directionsRenderer.setOptions({
+      suppressMarkers: true, // マーカーを非表示にする場合はtrue
+      preserveViewport: true, // zoomさせないようにする場合はtrue
+      polylineOptions: {
+        strokeOpacity: 1.0, // polylineの透明度0.0~1.0
+        strokeWeight: 6, // polylineの幅（ピクセル）
+        strokeColor: '#6991fd', // polylineの色
+      },
+    });
+    // directions apiへのリクエスト
+    directionsService.route(
+      {
+        origin: departure.title, // 出発地
+        destination: arrival.title, // 到着地
+        drivingOptions: {
+          departureTime: departureTime,
+          trafficModel:
+            traffic === Traffic.Bestguess
+              ? google.maps.TrafficModel.BEST_GUESS
+              : traffic === Traffic.Optimistic
+              ? google.maps.TrafficModel.OPTIMISTIC
+              : google.maps.TrafficModel.PESSIMISTIC,
+        }, // 交通量を見積もる場合のオプション
+        optimizeWaypoints: true, // 最適化を有効にする場合はtrue
+        waypoints: wayPoints, // 経路（配列）
+        travelMode:
+          transport === Transport.Car
+            ? google.maps.TravelMode.DRIVING
+            : google.maps.TravelMode.WALKING, // 車(DRIVING) or 徒歩(WALKING)
+        provideRouteAlternatives: false, // 複数の代替ルートをレスポンスに返す場合はtrue
+        avoidHighways: expressway === Expressway.No, // 高速道路を利用しない場合はtrue
+        avoidTolls: expressway === Expressway.No, // 有料道路を利用しない場合はtrue
+      },
+      (response, status) => {
+        if (status === google.maps.DirectionsStatus.OK) {
+          // directions apiのレスポンスをセット
+          directionsRenderer.setDirections(response);
+
+          // 総距離、総時間を表示
+          let distance = 0;
+          let duration = 0;
+          response.routes[0].legs.forEach(item => {
+            distance += item.distance.value;
+            duration += item.duration.value;
+          });
+          const gross = {
+            distance: Math.floor((distance / 1000) * 10 ** 1) / 10 ** 1, // 小数点第1位以下を切り捨て
+            duration: Math.floor((duration / 60) * 10 ** 1) / 10 ** 1, // // 小数点第1位以下を切り捨て
+          };
+          return [
+            directionsRenderer.setMap(this.map), // polylineを地図に表示
+            handleUpdateAnswerData(gross, response.routes[0].waypoint_order),
           ];
         }
         return `error: ${status}`;
