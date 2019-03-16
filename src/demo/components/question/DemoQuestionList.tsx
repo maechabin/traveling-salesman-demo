@@ -1,6 +1,5 @@
 import React from 'react';
 
-import demoType from '../../demoType';
 
 const DemoQuestionList = (props) => {
   const sortedList = props.routes.sort((a, b) => {
@@ -32,13 +31,6 @@ const DemoQuestionList = (props) => {
       </ul>
     </div>
   );
-};
-
-DemoQuestionList.propTypes = {
-  answerWaypointOrder: demoType.answerWaypointOrder.isRequired,
-  routes: demoType.routes.isRequired,
-  departure: demoType.departure.isRequired,
-  arival: demoType.arival.isRequired,
 };
 
 export default DemoQuestionList;

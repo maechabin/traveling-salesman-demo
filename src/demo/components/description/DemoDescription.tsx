@@ -5,13 +5,15 @@ import DemoDescriptionButton from './DemoDescriptionButton';
 
 import '../../styles/DemoDescription.css';
 
-type propsType = {
+type PropsType = {
   handleAnswerButtonClick: () => void;
   choosingRouteFinishFlag: boolean;
 };
 
-function DemoDescription(props: propsType): JSX.Element {
-  const { handleAnswerButtonClick, choosingRouteFinishFlag } = props;
+function DemoDescription({
+  handleAnswerButtonClick,
+  choosingRouteFinishFlag,
+}: PropsType): JSX.Element {
   return (
     <div className="DemoDescription">
       <DemoDescriptionText />

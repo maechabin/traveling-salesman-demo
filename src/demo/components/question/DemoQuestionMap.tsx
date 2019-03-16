@@ -1,7 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-import demoType from '../../demoType';
 
 class DemoQuestionMap extends React.PureComponent {
   constructor(props) {
@@ -187,25 +184,5 @@ class DemoQuestionMap extends React.PureComponent {
     );
   }
 }
-
-DemoQuestionMap.propTypes = {
-  google: PropTypes.shape({
-    maps: PropTypes.object,
-  }).isRequired,
-  handleMarkerClick: PropTypes.func.isRequired,
-  handleUpdateGross: PropTypes.func.isRequired,
-  handleInit: PropTypes.func.isRequired,
-  gross: demoType.gross.isRequired,
-  departure: demoType.departure.isRequired,
-  arival: demoType.arival.isRequired,
-  routes: demoType.routes.isRequired,
-  currentSortId: demoType.currentSortId.isRequired,
-  transport: demoType.transport.isRequired,
-  expressway: demoType.expressway.isRequired,
-  traffic: demoType.traffic.isRequired,
-  departureTime: demoType.departureTime.isRequired,
-  initialFlag: demoType.initialFlag.isRequired,
-  choosingRouteStartFlag: demoType.choosingRouteStartFlag.isRequired,
-};
 
 export default DemoQuestionMap;

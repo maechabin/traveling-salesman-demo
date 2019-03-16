@@ -1,12 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import demoType from '../../demoType';
-
-const DemoQuestionOptions = props => {
-  const { transport, expressway, traffic, choosingRouteStartFlag, handleFormChange } = props;
+type PropsType = {
+  transport: Transport;
+  expressway: Expressway;
+  traffic: Traffic;
+  choosingRouteStartFlag: boolean;
+  handleFormChange: (value: { name: string; value: string }) => Action;
+};
 
   function handleChange(e) {
+function DemoQuestionOptions({
+  transport,
+  expressway,
+  traffic,
+  choosingRouteStartFlag,
+  handleFormChange,
+}: PropsType): JSX.Element {
     handleFormChange({
       name: e.target.name,
       value: e.target.value,

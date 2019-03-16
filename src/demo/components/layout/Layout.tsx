@@ -1,12 +1,11 @@
 import React from 'react';
 import Header from './Header';
 
-type propsType = {
+type PropsType = {
   children: JSX.Element | JSX.Element[];
 };
 
-function Layout(props: propsType): JSX.Element {
-  const { children } = props;
+function Layout({ children }: PropsType): JSX.Element {
   return (
     <div className="Demo">
       <Header />

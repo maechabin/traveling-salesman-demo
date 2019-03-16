@@ -1,12 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Action } from 'redux';
 
-import demoType from '../../demoType';
+type PropsType = {
+  handleResetClick: () => Action;
+  viewAnswerFlag: boolean;
+};
 
-const DemoQuestionButton = (props) => {
   function handleClick(e) {
     e.preventDefault();
     props.handleResetClick();
+function DemoQuestionButton({ handleResetClick, viewAnswerFlag }: PropsType): JSX.Element {
   }
   return (
     <button
@@ -17,11 +20,6 @@ const DemoQuestionButton = (props) => {
       やり直す
     </button>
   );
-};
-
-DemoQuestionButton.propTypes = {
-  handleResetClick: PropTypes.func.isRequired,
-  viewAnswerFlag: demoType.viewAnswerFlag.isRequired,
-};
+}
 
 export default DemoQuestionButton;

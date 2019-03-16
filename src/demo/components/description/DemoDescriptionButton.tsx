@@ -1,11 +1,11 @@
 import React from 'react';
 
-type propsType = {
+type PropsType = {
   handleAnswerButtonClick: () => void;
   choosingRouteFinishFlag: boolean;
 };
 
-function DemoDescriptionButton(props: propsType): JSX.Element {
+function DemoDescriptionButton(props: PropsType): JSX.Element {
   const { handleAnswerButtonClick, choosingRouteFinishFlag } = props;
   function handleClick(): void {
     handleAnswerButtonClick();
