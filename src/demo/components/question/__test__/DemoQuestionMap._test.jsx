@@ -9,7 +9,7 @@ describe('<DemoQuestionMap />', () => {
   const restProps = {
     google: {
       maps: {
-        LatLngBounds: function () {
+        LatLngBounds: function() {
           return {
             extend: jest.fn(),
           };
@@ -19,7 +19,7 @@ describe('<DemoQuestionMap />', () => {
           ROADMAP: '',
         },
         Map: jest.fn(),
-        Marker: function () {
+        Marker: {
           addListener: jest.fn(),
         },
       },
@@ -30,13 +30,7 @@ describe('<DemoQuestionMap />', () => {
   };
   it('componentDidMountを呼び出すこと', () => {
     sinon.spy(DemoQuestionMap.prototype, 'componentDidMount');
-    const wrapper = mount(
-      <DemoQuestionMap
-        {...demoState}
-        {...restProps}
-      />,
-    );
+    const wrapper = mount(<DemoQuestionMap {...demoState} {...restProps} />);
     expect(DemoQuestionMap.prototype.componentDidMount.callOnce).toEqual(true);
   });
 });
-

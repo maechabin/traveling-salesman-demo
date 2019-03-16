@@ -17,7 +17,7 @@ import {
 } from './demoAction';
 
 // viewファイルを追加
-import Demo from './views/Demo';
+import Demo from './components/Demo';
 
 function DemoContainer(props: any) {
   return <Demo {...props} />;
