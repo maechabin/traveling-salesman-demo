@@ -10,17 +10,14 @@ import DemoAnswerMark from './DemoAnswerMark';
 import demoType from '../../demoType';
 import '../../styles/DemoAnswer.css';
 
-const DemoAnswer = (props) => {
+const DemoAnswer = props => {
   const { answerGross, answerWaypointOrder, routes, handleResetClick } = props;
   return (
     <div className="DemoAnswer">
       <h2>Google Mapsが選んだ経路</h2>
       <div className="DemoAnswerMain">
         <div className="DemoAnswerNavArea">
-          <DemoAnswerMark
-            answerWaypointOrder={answerWaypointOrder}
-            routes={routes}
-          />
+          <DemoAnswerMark answerWaypointOrder={answerWaypointOrder} routes={routes} />
           <DemoAnswerList
             departure={props.departure}
             arrival={props.arrival}

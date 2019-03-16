@@ -2,20 +2,21 @@ import React from 'react';
 
 import demoType from '../../demoType';
 
-const DemoAnswerList = (props) => {
+const DemoAnswerList = props => {
   const { routes, answerWaypointOrder } = props;
-  const renderingList = answerWaypointOrder.map(
-    order => (<li key={routes[order].id} className="DemoQuestionListSorted">
-      <span>{routes[order].label}:</span>{routes[order].title}
-    </li>),
-  );
+  const renderingList = answerWaypointOrder.map(order => (
+    <li key={routes[order].id} className="DemoQuestionListSorted">
+      <span>{routes[order].label}:</span>
+      {routes[order].title}
+    </li>
+  ));
   return (
     <div className="DemoAnswerList">
       <ul className="DemoAnswerListDeparture">
-        <li><span>{props.departure.label}:</span>{props.departure.title}</li>
-      </ul>
-      <ul className="DemoAnswerListRoutes">
-        {renderingList}
+        <li>
+          <span>{props.departure.label}:</span>
+          {props.departure.title}
+        </li>
       </ul>
       <ul className="DemoAnswerListRoutes">{renderingList}</ul>
       <ul className="DemoAnswerListarrival">

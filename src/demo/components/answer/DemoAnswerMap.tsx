@@ -52,8 +52,9 @@ class DemoAnswerMap extends React.PureComponent {
     bounds.extend(marker.position);
 
     // 経路のマーカーを地図に表示
-    this.props.routes.map((route) => {
-      const image = 'https://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png';
+    this.props.routes.map(route => {
+      const image =
+        'https://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png';
       marker = new this.gm.Marker({
         position: { lat: route.lat, lng: route.lng },
         map: this.map,
@@ -86,48 +87,59 @@ class DemoAnswerMap extends React.PureComponent {
       },
     });
     // directions apiへのリクエスト
-    directionsService.route({
-      origin: this.props.departure.title, // 出発地
-      destination: this.props.arival.title, // 到着地
-      drivingOptions: {
-        departureTime: this.props.departureTime,
-        trafficModel: this.props.traffic === 'bestguess' ? this.gm.TrafficModel.BEST_GUESS : this.props.traffic === 'optimistic' ? this.gm.TrafficModel.OPTIMISTIC : this.gm.TrafficModel.PESSIMISTIC,
-      }, // 交通量を見積もる場合のオプション
-      optimizeWaypoints: true, // 最適化を有効にする場合はtrue
-      waypoints: wayPoints, // 経路（配列）
-      travelMode: this.props.transport === 'car' ? this.gm.TravelMode.DRIVING : this.gm.TravelMode.WALKING, // 車(DRIVING) or 徒歩(WALKING)
-      provideRouteAlternatives: false, // 複数の代替ルートをレスポンスに返す場合はtrue
-      avoidHighways: this.props.expressway === 'no', // 高速道路を利用しない場合はtrue
-      avoidTolls: this.props.expressway === 'no', // 有料道路を利用しない場合はtrue
-    }, (response, status) => {
-      if (status === this.gm.DirectionsStatus.OK) {
-        // directions apiのレスポンスをセット
-        directionsRenderer.setDirections(response);
+    directionsService.route(
+      {
+        origin: this.props.departure.title, // 出発地
+        destination: this.props.arrival.title, // 到着地
+        drivingOptions: {
+          departureTime: this.props.departureTime,
+          trafficModel:
+            this.props.traffic === 'bestguess'
+              ? this.gm.TrafficModel.BEST_GUESS
+              : this.props.traffic === 'optimistic'
+              ? this.gm.TrafficModel.OPTIMISTIC
+              : this.gm.TrafficModel.PESSIMISTIC,
+        }, // 交通量を見積もる場合のオプション
+        optimizeWaypoints: true, // 最適化を有効にする場合はtrue
+        waypoints: wayPoints, // 経路（配列）
+        travelMode:
+          this.props.transport === 'car' ? this.gm.TravelMode.DRIVING : this.gm.TravelMode.WALKING, // 車(DRIVING) or 徒歩(WALKING)
+        provideRouteAlternatives: false, // 複数の代替ルートをレスポンスに返す場合はtrue
+        avoidHighways: this.props.expressway === 'no', // 高速道路を利用しない場合はtrue
+        avoidTolls: this.props.expressway === 'no', // 有料道路を利用しない場合はtrue
+      },
+      (response, status) => {
+        if (status === this.gm.DirectionsStatus.OK) {
+          // directions apiのレスポンスをセット
+          directionsRenderer.setDirections(response);
 
-        // 総距離、総時間を表示
-        let distance = 0;
-        let duration = 0;
-        response.routes[0].legs.forEach((item) => {
-          distance += item.distance.value;
-          duration += item.duration.value;
-        });
-        const gross = {
-          distance: Math.floor((distance / 1000) * (10 ** 1)) / (10 ** 1), // 小数点第1位以下を切り捨て
-          duration: Math.floor((duration / 60) * (10 ** 1)) / (10 ** 1), // // 小数点第1位以下を切り捨て
-        };
-        return [
-          directionsRenderer.setMap(this.map), // polylineを地図に表示
-          this.props.handleUpdateAnswerData(gross, response.routes[0].waypoint_order),
-        ];
-      }
-      return `error: ${status}`;
-    });
+          // 総距離、総時間を表示
+          let distance = 0;
+          let duration = 0;
+          response.routes[0].legs.forEach(item => {
+            distance += item.distance.value;
+            duration += item.duration.value;
+          });
+          const gross = {
+            distance: Math.floor((distance / 1000) * 10 ** 1) / 10 ** 1, // 小数点第1位以下を切り捨て
+            duration: Math.floor((duration / 60) * 10 ** 1) / 10 ** 1, // // 小数点第1位以下を切り捨て
+          };
+          return [
+            directionsRenderer.setMap(this.map), // polylineを地図に表示
+            this.props.handleUpdateAnswerData(gross, response.routes[0].waypoint_order),
+          ];
+        }
+        return `error: ${status}`;
+      },
+    );
   }
 
   render() {
     return (
       <div
-        ref={(div) => { this.DemoAnswerMap = div; }}
+        ref={div => {
+          this.DemoAnswerMap = div;
+        }}
         className="DemoAnswerMap"
       />
     );
