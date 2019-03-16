@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import DemoQuestionMap from './DemoQuestionMap';
 import DemoQuestionGross from './DemoQuestionGross';
@@ -7,11 +6,10 @@ import DemoQuestionList from './DemoQuestionList';
 import DemoQuestionOption from './DemoQuestionOptions';
 import DemoQuestionButton from './DemoQuestionButton';
 
-import demoType from '../../demoType';
 import '../../styles/DemoQuestion.css';
 
-const DemoQuestion = (props) => {
-  const { google, gross, handleResetClick, ...rest } = props;
+function DemoQuestion(props: any) {
+  const { gross, handleResetClick, ...rest } = props;
   return (
     <div className="DemoQuestion">
       <h2>あなたが選んだ経路</h2>
@@ -31,15 +29,6 @@ const DemoQuestion = (props) => {
       </div>
     </div>
   );
-};
-
-DemoQuestion.propTypes = {
-  google: PropTypes.shape({
-    maps: PropTypes.object,
-  }).isRequired,
-  handleResetClick: PropTypes.func.isRequired,
-  gross: demoType.gross.isRequired,
-  viewAnswerFlag: demoType.viewAnswerFlag.isRequired,
-};
+}
 
 export default DemoQuestion;

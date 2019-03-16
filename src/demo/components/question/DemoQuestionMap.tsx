@@ -23,7 +23,7 @@ class DemoQuestionMap extends React.PureComponent {
 
   shouldComponentUpdate(nextProps) {
     if (!nextProps.initialFlag) {
-      return (this.props.gross === nextProps.gross);
+      return this.props.gross === nextProps.gross;
     }
     return true;
   }
@@ -69,10 +69,11 @@ class DemoQuestionMap extends React.PureComponent {
     bounds.extend(marker.position);
 
     // 経路のマーカーを地図に表示
-    this.props.routes.map((route) => {
-      const image = route.sortId !== 0 ?
-        'https://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' :
-        'https://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-a.png';
+    this.props.routes.map(route => {
+      const image =
+        route.sortId !== 0
+          ? 'https://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png'
+          : 'https://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-a.png';
       marker = new this.gm.Marker({
         position: { lat: route.lat, lng: route.lng },
         map: this.map,
@@ -83,7 +84,11 @@ class DemoQuestionMap extends React.PureComponent {
       bounds.extend(marker.position);
       marker.addListener('click', () => {
         if (route.sortId === 0) {
-          return this.props.handleMarkerClick(route.id, this.props.choosingRouteStartFlag, this.props.currentSortId);
+          return this.props.handleMarkerClick(
+            route.id,
+            this.props.choosingRouteStartFlag,
+            this.props.currentSortId,
+          );
         }
         return false;
       });
@@ -99,10 +104,16 @@ class DemoQuestionMap extends React.PureComponent {
     const filteredRoutes = this.props.routes.filter(route => route.sortId !== 0);
 
     // 経路
-    const wayPoints = filteredRoutes.map(route => ({ location: route.title, stopover: this.props.traffic === 'standard' }));
+    const wayPoints = filteredRoutes.map(route => ({
+      location: route.title,
+      stopover: this.props.traffic === 'standard',
+    }));
 
     // 到着地
-    const destination = filteredRoutes.length === this.props.routes.length ? this.props.arival.title : filteredRoutes[filteredRoutes.length - 1].title;
+    const destination =
+      filteredRoutes.length === this.props.routes.length
+        ? this.props.arival.title
+        : filteredRoutes[filteredRoutes.length - 1].title;
 
     // polylineをレンダリングする際のオプション
     directionsRenderer.setOptions({
@@ -115,48 +126,62 @@ class DemoQuestionMap extends React.PureComponent {
       },
     });
     // directions apiへのリクエスト
-    directionsService.route({
-      origin: this.props.departure.title, // 出発地
-      waypoints: wayPoints, // 経路（配列）
-      destination, // 到着地
-      travelMode: this.props.transport === 'car' ? this.gm.TravelMode.DRIVING : this.gm.TravelMode.WALKING, // 車(DRIVING) or 徒歩(WALKING)
-      provideRouteAlternatives: false, // 複数の代替ルートをレスポンスに返す場合はtrue
-      avoidHighways: this.props.expressway === 'no', // 高速道路を利用しない場合はtrue
-      avoidTolls: this.props.expressway === 'no', // 有料道路を利用しない場合はtrue
-      optimizeWaypoints: false, // 最適化を有効にする場合はtrue
-      drivingOptions: {
-        departureTime: this.props.departureTime,
-        trafficModel: this.props.traffic === 'bestguess' ? this.gm.TrafficModel.BEST_GUESS : this.props.traffic === 'optimistic' ? this.gm.TrafficModel.OPTIMISTIC : this.gm.TrafficModel.PESSIMISTIC,
-      }, // 交通量を見積もる場合のオプション
-    }, (response, status) => {
-      if (status === this.gm.DirectionsStatus.OK) {
-        // directions apiのレスポンスをセット
-        directionsRenderer.setDirections(response);
+    directionsService.route(
+      {
+        origin: this.props.departure.title, // 出発地
+        waypoints: wayPoints, // 経路（配列）
+        destination, // 到着地
+        travelMode:
+          this.props.transport === 'car' ? this.gm.TravelMode.DRIVING : this.gm.TravelMode.WALKING, // 車(DRIVING) or 徒歩(WALKING)
+        provideRouteAlternatives: false, // 複数の代替ルートをレスポンスに返す場合はtrue
+        avoidHighways: this.props.expressway === 'no', // 高速道路を利用しない場合はtrue
+        avoidTolls: this.props.expressway === 'no', // 有料道路を利用しない場合はtrue
+        optimizeWaypoints: false, // 最適化を有効にする場合はtrue
+        drivingOptions: {
+          departureTime: this.props.departureTime,
+          trafficModel:
+            this.props.traffic === 'bestguess'
+              ? this.gm.TrafficModel.BEST_GUESS
+              : this.props.traffic === 'optimistic'
+              ? this.gm.TrafficModel.OPTIMISTIC
+              : this.gm.TrafficModel.PESSIMISTIC,
+        }, // 交通量を見積もる場合のオプション
+      },
+      (response, status) => {
+        if (status === this.gm.DirectionsStatus.OK) {
+          // directions apiのレスポンスをセット
+          directionsRenderer.setDirections(response);
 
-        // 総距離、総時間を表示
-        let distance = 0;
-        let duration = 0;
-        response.routes[0].legs.forEach((item) => {
-          distance += item.distance.value;
-          duration += this.props.transport === 'car' && this.props.traffic !== 'standard' ? item.duration_in_traffic.value : item.duration.value;
-        });
-        const gross = {
-          distance: Math.floor((distance / 1000) * (10 ** 1)) / (10 ** 1), // 小数点第1位以下を切り捨て
-          duration: Math.floor((duration / 60) * (10 ** 1)) / (10 ** 1), // // 小数点第1位以下を切り捨て
-        };
-        return [
-          directionsRenderer.setMap(this.map), // polylineを地図に表示
-          this.props.handleUpdateGross(gross),
-        ];
-      }
-      return `error: ${status}`;
-    });
+          // 総距離、総時間を表示
+          let distance = 0;
+          let duration = 0;
+          response.routes[0].legs.forEach(item => {
+            distance += item.distance.value;
+            duration +=
+              this.props.transport === 'car' && this.props.traffic !== 'standard'
+                ? item.duration_in_traffic.value
+                : item.duration.value;
+          });
+          const gross = {
+            distance: Math.floor((distance / 1000) * 10 ** 1) / 10 ** 1, // 小数点第1位以下を切り捨て
+            duration: Math.floor((duration / 60) * 10 ** 1) / 10 ** 1, // // 小数点第1位以下を切り捨て
+          };
+          return [
+            directionsRenderer.setMap(this.map), // polylineを地図に表示
+            this.props.handleUpdateGross(gross),
+          ];
+        }
+        return `error: ${status}`;
+      },
+    );
   }
 
   render() {
     return (
       <div
-        ref={(div) => { this.DemoQuestionMap = div; }}
+        ref={div => {
+          this.DemoQuestionMap = div;
+        }}
         className="DemoQuestionMap"
       />
     );
