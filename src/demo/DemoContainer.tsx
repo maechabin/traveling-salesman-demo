@@ -1,5 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Dispatch, Action } from 'redux';
+
+import { State, Gross } from '../state.model';
 
 import {
   sortList,
@@ -16,59 +19,37 @@ import {
 // viewファイルを追加
 import Demo from './views/Demo';
 
-class DemoContainer extends React.PureComponent {
-  render() {
-    return (
-      <Demo {...this.props} />
-    );
-  }
+function DemoContainer(props: any) {
+  return <Demo {...props} />;
 }
 
-function mapStateToProps(state) {
-  return {
-    departure: state.departure,
-    departureTime: state.departureTime,
-    arival: state.arival,
-    routes: state.routes,
-    currentSortId: state.currentSortId,
-    transport: state.transport,
-    expressway: state.expressway,
-    traffic: state.traffic,
-    initialFlag: state.initialFlag,
-    choosingRouteStartFlag: state.choosingRouteStartFlag,
-    choosingRouteFinishFlag: state.choosingRouteFinishFlag,
-    viewAnswerFlag: state.viewAnswerFlag,
-    gross: state.gross,
-    answerGross: state.answerGross,
-    answerWaypointOrder: state.answerWaypointOrder,
-  };
+function mapStateToProps(state: State) {
+  return state;
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: Dispatch) {
   return {
-    handleMarkerClick(marker, choosingRouteStartFlag, currentSortId) {
-      const actionsArray = [sortList(marker)];
+    handleMarkerClick(routeId: number, choosingRouteStartFlag: boolean, currentSortId: number) {
+      const actionsArray = [sortList(routeId)];
       if (!choosingRouteStartFlag) {
         actionsArray.push(disabledChooseOptions());
       }
       if (currentSortId === 1) {
         actionsArray.push(changeChoosingrouteFinishflagToTure());
       }
-      return actionsArray.map(
-        action => dispatch(action),
-      );
+      return actionsArray.map(action => dispatch(action));
     },
-    handleUpdateGross(gross) {
+    handleUpdateGross(gross: Gross) {
       return dispatch(updateGross(gross));
     },
-    handleUpdateAnswerData(gross, waypointOrder) {
+    handleUpdateAnswerData(gross: Gross, waypointOrder: number[]) {
       const data = {
         gross,
         waypointOrder,
       };
       return dispatch(updateAnswerData(data));
     },
-    handleFormChange(value) {
+    handleFormChange(value: { name: string; value: string }) {
       return dispatch(changeFormValue(value));
     },
     handleResetClick() {
