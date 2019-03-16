@@ -1,18 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { State } from '../../state.model';
+import { Dispatches } from '../demo.model';
 
 import Layout from './layout/Layout';
 import DemoQuestion from './question/DemoQuestion';
 import DemoDescription from './description/DemoDescription';
 import DemoAnswer from './answer/DemoAnswer';
 
-import demoType from '../demoType';
 import '../styles/Demo.css';
 
-const Demo = (props) => {
-  const { google, ...rest } = props;
-  const rightComponent
-    = props.viewAnswerFlag ? <DemoAnswer {...props} /> : <DemoDescription {...rest} />;
+function Demo(props: State & Dispatches): JSX.Element {
+  const { viewAnswerFlag } = props;
+  const rightComponent = viewAnswerFlag ? (
+    <DemoAnswer {...props} />
+  ) : (
+    <DemoDescription {...props} />
+  );
 
   return (
     <Layout>
@@ -22,13 +25,6 @@ const Demo = (props) => {
       </main>
     </Layout>
   );
-};
-
-Demo.propTypes = {
-  google: PropTypes.shape({
-    maps: PropTypes.object,
-  }).isRequired,
-  viewAnswerFlag: demoType.viewAnswerFlag.isRequired,
-};
+}
 
 export default Demo;

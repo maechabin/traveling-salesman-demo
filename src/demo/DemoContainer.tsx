@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch, Action } from 'redux';
+import { Dispatches } from './demo.model';
 
 import { State, Gross } from '../state.model';
 
@@ -19,17 +20,21 @@ import {
 // viewファイルを追加
 import Demo from './components/Demo';
 
-function DemoContainer(props: any) {
+function DemoContainer(props: State & Dispatches): JSX.Element {
   return <Demo {...props} />;
 }
 
-function mapStateToProps(state: State) {
+function mapStateToProps(state: State): State {
   return state;
 }
 
-function mapDispatchToProps(dispatch: Dispatch) {
+function mapDispatchToProps(dispatch: Dispatch): Dispatches {
   return {
-    handleMarkerClick(routeId: number, choosingRouteStartFlag: boolean, currentSortId: number) {
+    handleMarkerClick(
+      routeId: number,
+      choosingRouteStartFlag: boolean,
+      currentSortId: number,
+    ): Action[] {
       const actionsArray = [sortList(routeId)];
       if (!choosingRouteStartFlag) {
         actionsArray.push(disabledChooseOptions());
@@ -39,26 +44,26 @@ function mapDispatchToProps(dispatch: Dispatch) {
       }
       return actionsArray.map(action => dispatch(action));
     },
-    handleUpdateGross(gross: Gross) {
+    handleUpdateGross(gross: Gross): Action {
       return dispatch(updateGross(gross));
     },
-    handleUpdateAnswerData(gross: Gross, waypointOrder: number[]) {
+    handleUpdateAnswerData(gross: Gross, waypointOrder: number[]): Action {
       const data = {
         gross,
         waypointOrder,
       };
       return dispatch(updateAnswerData(data));
     },
-    handleFormChange(value: { name: string; value: string }) {
+    handleFormChange(value: { name: string; value: string }): Action {
       return dispatch(changeFormValue(value));
     },
-    handleResetClick() {
+    handleResetClick(): Action {
       return dispatch(resetDemo());
     },
-    handleInit() {
+    handleInit(): Action {
       return dispatch(changeInitflagToFalse());
     },
-    handleAnswerButtonClick() {
+    handleAnswerButtonClick(): Action {
       return dispatch(changeViewanswerflagToTrue());
     },
   };
