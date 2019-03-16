@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import DemoHeader from './DemoHeader';
+import Layout from './layout/Layout';
 import DemoQuestion from './question/DemoQuestion';
 import DemoDescription from './description/DemoDescription';
 import DemoAnswer from './answer/DemoAnswer';
@@ -15,13 +15,12 @@ const Demo = (props) => {
     = props.viewAnswerFlag ? <DemoAnswer {...props} /> : <DemoDescription {...rest} />;
 
   return (
-    <div className="Demo">
-      <DemoHeader />
+    <Layout>
       <main className="DemoMain">
         <DemoQuestion {...props} />
         {rightComponent}
       </main>
-    </div>
+    </Layout>
   );
 };
 
