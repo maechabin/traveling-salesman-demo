@@ -13,7 +13,11 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "types": ["googlemaps", "node"]
+    "types": [
+      "googlemaps",
+      "node"
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }
