@@ -6,17 +6,12 @@ type PropsType = {
   viewAnswerFlag: boolean;
 };
 
-  function handleClick(e) {
-    e.preventDefault();
-    props.handleResetClick();
 function DemoQuestionButton({ handleResetClick, viewAnswerFlag }: PropsType): JSX.Element {
+  function handleClick() {
+    handleResetClick();
   }
   return (
-    <button
-      className="DemoQuestionButton"
-      onClick={handleClick}
-      disabled={props.viewAnswerFlag}
-    >
+    <button className="DemoQuestionButton" onClick={handleClick} disabled={viewAnswerFlag}>
       やり直す
     </button>
   );

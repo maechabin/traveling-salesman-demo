@@ -1,4 +1,6 @@
 import React from 'react';
+import { Action } from 'redux';
+import { Expressway, Traffic, Transport } from '../../../state.model';
 
 type PropsType = {
   transport: Transport;
@@ -8,7 +10,6 @@ type PropsType = {
   handleFormChange: (value: { name: string; value: string }) => Action;
 };
 
-  function handleChange(e) {
 function DemoQuestionOptions({
   transport,
   expressway,
@@ -16,9 +17,10 @@ function DemoQuestionOptions({
   choosingRouteStartFlag,
   handleFormChange,
 }: PropsType): JSX.Element {
+  function handleChange(event: React.FormEvent<HTMLInputElement>): void {
     handleFormChange({
-      name: e.target.name,
-      value: e.target.value,
+      name: event.currentTarget.name,
+      value: event.currentTarget.value,
     });
   }
 
@@ -30,7 +32,7 @@ function DemoQuestionOptions({
           type="radio"
           value="car"
           name="transport"
-          checked={transport === 'car'}
+          checked={transport === Transport.Car}
           onChange={handleChange}
           id="transport-car"
           disabled={choosingRouteStartFlag}
@@ -40,7 +42,7 @@ function DemoQuestionOptions({
           type="radio"
           value="walk"
           name="transport"
-          checked={transport === 'walk'}
+          checked={transport === Transport.Walk}
           onChange={handleChange}
           id="transport-walk"
           disabled={choosingRouteStartFlag}
@@ -51,12 +53,12 @@ function DemoQuestionOptions({
       <dd>
         <input
           type="checkbox"
-          value={expressway === 'no' ? 'yes' : 'no'}
+          value={expressway === Expressway.No ? Expressway.Yes : Expressway.No}
           name="expressway"
-          checked={expressway === 'yes' && transport === 'car'}
+          checked={expressway === Expressway.Yes && transport === Transport.Car}
           onChange={handleChange}
           id="expressway"
-          disabled={choosingRouteStartFlag || transport === 'walk'}
+          disabled={choosingRouteStartFlag || transport === Transport.Walk}
         />
         <label htmlFor="expressway">利用する</label>
       </dd>
@@ -66,10 +68,10 @@ function DemoQuestionOptions({
           type="radio"
           value="standard"
           name="traffic"
-          checked={traffic === 'standard' || transport === 'walk'}
+          checked={traffic === Traffic.Standard || transport === Transport.Walk}
           onChange={handleChange}
           id="traffic-standard"
-          disabled={choosingRouteStartFlag || transport === 'walk'}
+          disabled={choosingRouteStartFlag || transport === Transport.Walk}
         />
         <label htmlFor="traffic-standard">見積もらない</label>
         <br />
@@ -77,43 +79,35 @@ function DemoQuestionOptions({
           type="radio"
           value="bestguess"
           name="traffic"
-          checked={traffic === 'bestguess' && transport === 'car'}
+          checked={traffic === Traffic.Bestguess && transport === Transport.Car}
           onChange={handleChange}
           id="traffic-bestguess"
-          disabled={choosingRouteStartFlag || transport === 'walk'}
+          disabled={choosingRouteStartFlag || transport === Transport.Walk}
         />
         <label htmlFor="traffic-bestguess">正確に</label>
         <input
           type="radio"
           value="optimistic"
           name="traffic"
-          checked={traffic === 'optimistic' && transport === 'car'}
+          checked={traffic === Traffic.Optimistic && transport === Transport.Car}
           onChange={handleChange}
           id="traffic-optimistic"
-          disabled={choosingRouteStartFlag || transport === 'walk'}
+          disabled={choosingRouteStartFlag || transport === Transport.Walk}
         />
         <label htmlFor="traffic-optimistic">楽観的に</label>
         <input
           type="radio"
           value="pessimistic"
           name="traffic"
-          checked={traffic === 'pessimistic' && transport === 'car'}
+          checked={traffic === Traffic.Pessimistic && transport === Transport.Car}
           onChange={handleChange}
           id="traffic-pessimistic"
-          disabled={choosingRouteStartFlag || transport === 'walk'}
+          disabled={choosingRouteStartFlag || transport === Transport.Walk}
         />
         <label htmlFor="traffic-pessimistic">悲観的に</label>
       </dd>
     </dl>
   );
-};
-
-DemoQuestionOptions.propTypes = {
-  transport: demoType.transport.isRequired,
-  expressway: demoType.expressway.isRequired,
-  traffic: demoType.traffic.isRequired,
-  choosingRouteStartFlag: demoType.choosingRouteStartFlag.isRequired,
-  handleFormChange: PropTypes.func.isRequired,
-};
+}
 
 export default DemoQuestionOptions;

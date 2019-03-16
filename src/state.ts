@@ -1,4 +1,4 @@
-import { State } from './state.model';
+import { State, Transport, Traffic, Expressway } from './state.model';
 
 const state: State = {
   departure: {
@@ -84,9 +84,9 @@ const state: State = {
   choosingRouteFinishFlag: false,
   viewAnswerFlag: false,
   currentSortId: 8, // routes（経路）の要素数を指定する
-  transport: 'car',
-  expressway: 'no',
-  traffic: 'standard',
+  transport: Transport.Car,
+  expressway: Expressway.No,
+  traffic: Traffic.Standard,
   departureTime: new Date(Date.now() + 1000 * 60 * 60 * 24 * 3),
   gross: {
     distance: 0, // 総距離

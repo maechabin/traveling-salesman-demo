@@ -12,9 +12,10 @@ export interface State {
   choosingRouteFinishFlag: boolean;
   viewAnswerFlag: boolean;
   currentSortId: number; // routes（経路）の要素数を指定する
-  transport: string;
-  expressway: string;
-  traffic: string;
+  /** 移動手段 */
+  transport: Transport;
+  expressway: Expressway;
+  traffic: Traffic;
   departureTime: Date;
   /** 回答の総距離 */
   gross: Gross;
@@ -45,4 +46,24 @@ export interface Route {
 export interface Gross {
   distance: number;
   duration: number;
+}
+
+/** 移動手段 */
+export enum Transport {
+  Car = 'car',
+  Walk = 'walk',
+}
+
+/** 有料道路 */
+export enum Expressway {
+  Yes = 'yes',
+  No = 'no',
+}
+
+/** 交通量 */
+export enum Traffic {
+  Standard = 'standard',
+  Bestguess = 'bestguess',
+  Optimistic = 'optimistic',
+  Pessimistic = 'pessimistic',
 }

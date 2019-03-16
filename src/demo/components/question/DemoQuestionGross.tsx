@@ -6,4 +6,13 @@ type PropsType = {
 };
 
 function DemoQuestionGross({ gross }: PropsType): JSX.Element {
+  return (
+    <div className="DemoQuestionGross">
+      <p>
+        総距離: <span>{gross.distance}</span>km / 総時間: <span>{gross.duration}</span>分
+      </p>
+    </div>
+  );
+}
+
 export default DemoQuestionGross;

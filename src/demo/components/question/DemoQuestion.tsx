@@ -1,4 +1,6 @@
 import React from 'react';
+import { State } from '../../../state.model';
+import { Dispatches } from '../../demo.model';
 
 import DemoQuestionMap from './DemoQuestionMap';
 import DemoQuestionGross from './DemoQuestionGross';
@@ -8,7 +10,7 @@ import DemoQuestionButton from './DemoQuestionButton';
 
 import '../../styles/DemoQuestion.css';
 
-function DemoQuestion(props: any) {
+function DemoQuestion(props: State & Dispatches) {
   const { gross, handleResetClick, ...rest } = props;
   return (
     <div className="DemoQuestion">
