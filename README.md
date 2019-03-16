@@ -1,4 +1,4 @@
-# 展示会用 Google Maps デモ
+# traveling-salesman-demo
 
 ## Available Scripts
 
