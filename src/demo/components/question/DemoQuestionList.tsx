@@ -26,8 +26,12 @@ const DemoQuestionList = (props) => {
       <ul className="DemoQuestionListRoutes">
         {renderingList}
       </ul>
-      <ul className="DemoQuestionListArival">
-        <li><span>{props.arival.label}:</span>{props.arival.title}</li>
+      <ul className="DemoQuestionListRoutes">{renderingList}</ul>
+      <ul className="DemoQuestionListArrival">
+        <li>
+          <span>{arrival.label}:</span>
+          {arrival.title}
+        </li>
       </ul>
     </div>
   );

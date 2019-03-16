@@ -44,10 +44,10 @@ class DemoAnswerMap extends React.PureComponent {
 
     // 到着地のマーカーを地図に表示
     marker = new this.gm.Marker({
-      position: { lat: this.props.arival.lat, lng: this.props.arival.lng },
+      position: { lat: this.props.arrival.lat, lng: this.props.arrival.lng },
       map: this.map,
-      title: this.props.arival.title,
-      label: this.props.arival.label,
+      title: this.props.arrival.title,
+      label: this.props.arrival.label,
     });
     bounds.extend(marker.position);
 
@@ -140,7 +140,7 @@ DemoAnswerMap.propTypes = {
   }).isRequired,
   departure: demoType.departure.isRequired,
   departureTime: demoType.departureTime.isRequired,
-  arival: demoType.arival.isRequired,
+  arrival: demoType.arrival.isRequired,
   routes: demoType.routes.isRequired,
   transport: demoType.transport.isRequired,
   expressway: demoType.expressway.isRequired,

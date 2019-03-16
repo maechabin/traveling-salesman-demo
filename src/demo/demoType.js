@@ -7,7 +7,7 @@ const demoState = {
     lng: PropTypes.number,
     label: PropTypes.string,
   }),
-  arival: PropTypes.shape({
+  arrival: PropTypes.shape({
     title: PropTypes.string,
     lat: PropTypes.number,
     lng: PropTypes.number,

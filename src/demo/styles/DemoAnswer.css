@@ -38,10 +38,10 @@
     content: "⬇︎";
     margin: 0 -8px;
     line-height: 1.2; }
-  .DemoAnswerListDeparture, .DemoAnswerListArival {
+  .DemoAnswerListDeparture, .DemoAnswerListArrival {
     margin: 0;
     padding: 0; }
-    .DemoAnswerListDeparture li, .DemoAnswerListArival li {
+    .DemoAnswerListDeparture li, .DemoAnswerListArrival li {
       text-align: center;
       font-size: 16px;
       color: #fff;
@@ -49,7 +49,7 @@
       background-color: #f75c50;
       line-height: 2;
       position: relative; }
-      .DemoAnswerListDeparture li span, .DemoAnswerListArival li span {
+      .DemoAnswerListDeparture li span, .DemoAnswerListArrival li span {
         position: absolute;
         left: 8px; }
   .DemoAnswerListRoutes {

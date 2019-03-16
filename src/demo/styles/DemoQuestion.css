@@ -39,10 +39,10 @@
     content: "⬇︎";
     margin: 0 -8px;
     line-height: 1.2; }
-  .DemoQuestionListDeparture, .DemoQuestionListArival {
+  .DemoQuestionListDeparture, .DemoQuestionListArrival {
     margin: 0;
     padding: 0; }
-    .DemoQuestionListDeparture li, .DemoQuestionListArival li {
+    .DemoQuestionListDeparture li, .DemoQuestionListArrival li {
       text-align: center;
       font-size: 16px;
       color: #fff;
@@ -50,7 +50,7 @@
       background-color: #f75c50;
       line-height: 2;
       position: relative; }
-      .DemoQuestionListDeparture li span, .DemoQuestionListArival li span {
+      .DemoQuestionListDeparture li span, .DemoQuestionListArrival li span {
         position: absolute;
         left: 8px; }
   .DemoQuestionListRoutes {

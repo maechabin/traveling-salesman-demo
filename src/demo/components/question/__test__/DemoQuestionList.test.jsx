@@ -5,7 +5,7 @@ import DemoQuestionList from '../DemoQuestionList';
 
 describe('<DemoQuestionList />', () => {
   const departure = { title: '根津神社', lat: 35.7202332, lng: 139.76073810000003, label: '出発地' };
-  const arival = { title: '勝どき駅', lat: 35.6589788, lng: 139.77714949999995, label: '到着地' };
+  const arrival = { title: '勝どき駅', lat: 35.6589788, lng: 139.77714949999995, label: '到着地' };
 
   it('経路リストの要素が全て表示されること', () => {
     const list = [
@@ -23,7 +23,7 @@ describe('<DemoQuestionList />', () => {
       <DemoQuestionList
         routes={list}
         departure={departure}
-        arival={arival}
+        arrival={arrival}
         answerWaypointOrder={answerWaypointOrder}
       />,
     );
@@ -46,7 +46,7 @@ describe('<DemoQuestionList />', () => {
       <DemoQuestionList
         routes={list}
         departure={departure}
-        arival={arival}
+        arrival={arrival}
         answerWaypointOrder={answerWaypointOrder}
       />,
     );
@@ -70,7 +70,7 @@ describe('<DemoQuestionList />', () => {
       <DemoQuestionList
         routes={list}
         departure={departure}
-        arival={arival}
+        arrival={arrival}
         answerWaypointOrder={answerWaypointOrder}
       />,
     );
@@ -93,7 +93,7 @@ describe('<DemoQuestionList />', () => {
       <DemoQuestionList
         routes={list}
         departure={departure}
-        arival={arival}
+        arrival={arrival}
         answerWaypointOrder={answerWaypointOrder}
       />,
     );
@@ -116,7 +116,7 @@ describe('<DemoQuestionList />', () => {
       <DemoQuestionList
         routes={list}
         departure={departure}
-        arival={arival}
+        arrival={arrival}
         answerWaypointOrder={answerWaypointOrder}
       />,
     );
@@ -139,7 +139,7 @@ describe('<DemoQuestionList />', () => {
       <DemoQuestionList
         routes={list}
         departure={departure}
-        arival={arival}
+        arrival={arrival}
         answerWaypointOrder={answerWaypointOrder}
       />,
     );
@@ -165,7 +165,7 @@ describe('<DemoQuestionList />', () => {
       <DemoQuestionList
         routes={list}
         departure={departure}
-        arival={arival}
+        arrival={arrival}
         answerWaypointOrder={answerWaypointOrder}
       />,
     );

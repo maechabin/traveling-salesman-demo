@@ -23,7 +23,7 @@ const DemoAnswer = (props) => {
           />
           <DemoAnswerList
             departure={props.departure}
-            arival={props.arival}
+            arrival={props.arrival}
             routes={routes}
             answerWaypointOrder={answerWaypointOrder}
           />
@@ -42,7 +42,7 @@ DemoAnswer.propTypes = {
   answerGross: demoType.answerGross.isRequired,
   routes: demoType.routes.isRequired,
   departure: demoType.departure.isRequired,
-  arival: demoType.arival.isRequired,
+  arrival: demoType.arrival.isRequired,
   answerWaypointOrder: demoType.answerWaypointOrder.isRequired,
   handleResetClick: PropTypes.func.isRequired,
 };

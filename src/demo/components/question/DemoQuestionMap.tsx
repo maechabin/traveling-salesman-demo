@@ -60,8 +60,8 @@ class DemoQuestionMap extends React.PureComponent {
     marker = new this.gm.Marker({
       position: { lat: this.props.arival.lat, lng: this.props.arival.lng },
       map: this.map,
-      title: this.props.arival.title,
-      label: this.props.arival.label,
+      title: this.props.arrival.title,
+      label: this.props.arrival.label,
     });
     bounds.extend(marker.position);
 
@@ -109,7 +109,7 @@ class DemoQuestionMap extends React.PureComponent {
     // 到着地
     const destination =
       filteredRoutes.length === this.props.routes.length
-        ? this.props.arival.title
+        ? this.props.arrival.title
         : filteredRoutes[filteredRoutes.length - 1].title;
 
     // polylineをレンダリングする際のオプション

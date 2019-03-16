@@ -7,7 +7,7 @@ const state: State = {
     lng: 139.7407961,
     label: '発',
   },
-  arival: {
+  arrival: {
     title: '六本木ヒルズ森タワー',
     lat: 35.6604638,
     lng: 139.72924869999997,

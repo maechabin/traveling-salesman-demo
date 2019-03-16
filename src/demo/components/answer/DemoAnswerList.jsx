@@ -17,8 +17,12 @@ const DemoAnswerList = (props) => {
       <ul className="DemoAnswerListRoutes">
         {renderingList}
       </ul>
-      <ul className="DemoAnswerListArival">
-        <li><span>{props.arival.label}:</span>{props.arival.title}</li>
+      <ul className="DemoAnswerListRoutes">{renderingList}</ul>
+      <ul className="DemoAnswerListarrival">
+        <li>
+          <span>{props.arrival.label}:</span>
+          {props.arrival.title}
+        </li>
       </ul>
     </div>
   );
@@ -28,7 +32,7 @@ DemoAnswerList.propTypes = {
   routes: demoType.routes.isRequired,
   answerWaypointOrder: demoType.answerWaypointOrder.isRequired,
   departure: demoType.departure.isRequired,
-  arival: demoType.arival.isRequired,
+  arrival: demoType.arrival.isRequired,
 };
 
 export default DemoAnswerList;

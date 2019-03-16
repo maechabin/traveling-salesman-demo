@@ -4,7 +4,7 @@ export interface State {
   /** 出発地点 */
   departure: Position;
   /** 到着地点 */
-  arival: Position;
+  arrival: Position;
   /** 中継地点 */
   routes: Route[];
   initialFlag: boolean;
