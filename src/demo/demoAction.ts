@@ -15,7 +15,7 @@ export function sortList(payload: number): Action<number> {
 /**
  * マーカー選択中としてフラグを更新する
  */
-export function disabledChooseOptions(): Action {
+export function disabledChooseOptions(): Action<never> {
   return {
     type: ActionType.DISABLED_CHOOSE_OPTIONS,
   };
@@ -57,7 +57,7 @@ export function changeFormValue(payload: SelectedFormValue): Action<SelectedForm
 /**
  * デモをリセットする
  */
-export function resetDemo(): Action {
+export function resetDemo(): Action<never> {
   return {
     type: ActionType.RESET_DEMO,
   };
@@ -66,7 +66,7 @@ export function resetDemo(): Action {
 /**
  * 初期状態フラグをfalseに変更する
  */
-export function changeInitflagToFalse(): Action {
+export function changeInitflagToFalse(): Action<never> {
   return {
     type: ActionType.CHANGE_INITFLAG_TO_FALSE,
   };
@@ -75,7 +75,7 @@ export function changeInitflagToFalse(): Action {
 /**
  * 回答画面表示フラグをtrueにする
  */
-export function changeViewanswerflagToTrue(): Action {
+export function changeViewanswerflagToTrue(): Action<never> {
   return {
     type: ActionType.CHANGE_VIEWANSWERFLAG_TO_TRUE,
   };
@@ -84,7 +84,7 @@ export function changeViewanswerflagToTrue(): Action {
 /**
  * ルート選択可能フラグをtrueにする
  */
-export function changeChoosingrouteFinishflagToTure(): Action {
+export function changeChoosingrouteFinishflagToTure(): Action<never> {
   return {
     type: ActionType.CHANGE_CHOOSINGROUTE_FINISHFLAG_TO_TURE,
   };
