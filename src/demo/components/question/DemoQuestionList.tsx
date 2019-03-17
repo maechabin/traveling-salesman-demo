@@ -8,7 +8,12 @@ type PropsType = {
   answerWaypointOrder: number[];
 };
 
-function DemoQuestionList({ routes, departure, arrival, answerWaypointOrder }: PropsType) {
+function DemoQuestionList({
+  routes,
+  departure,
+  arrival,
+  answerWaypointOrder,
+}: PropsType): JSX.Element {
   const sortedList = routes.sort((routeA: Route, routeB: Route) => {
     if (routeA.sortId > routeB.sortId) return -1;
     if (routeA.sortId < routeB.sortId) return 1;

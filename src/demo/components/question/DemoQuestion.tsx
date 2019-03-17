@@ -10,7 +10,7 @@ import DemoQuestionButton from './DemoQuestionButton';
 
 import '../../styles/DemoQuestion.css';
 
-function DemoQuestion(props: State & Dispatches) {
+function DemoQuestion(props: State & Dispatches): JSX.Element {
   const { gross, handleResetClick, ...rest } = props;
   return (
     <div className="DemoQuestion">
