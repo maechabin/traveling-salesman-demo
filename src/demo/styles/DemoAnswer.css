@@ -33,9 +33,9 @@
   .DemoAnswerListDeparture::after {
     background-color: #eee;
     text-align: center;
-    color: #5C6BC0;
+    color: #5c6bc0;
     display: block;
-    content: "⬇︎";
+    content: '⬇︎';
     margin: 0 -8px;
     line-height: 1.2; }
   .DemoAnswerListDeparture, .DemoAnswerListArrival {
@@ -74,7 +74,7 @@
     .DemoAnswerListSorted::after {
       background-color: #eee;
       text-align: center;
-      color: #5C6BC0;
+      color: #5c6bc0;
       display: block;
       content: '⬇︎';
       margin: 0 -8px;
@@ -90,8 +90,8 @@
       bottom: 32px;
       padding: 16px;
       border-radius: 0 4px 0 0;
-      opacity: .9;
-      background-color: #FFC107;
+      opacity: 0.9;
+      background-color: #ffc107;
       max-width: 440px;
       width: 100%;
       text-align: center;
@@ -109,8 +109,8 @@
     max-width: 240px;
     width: 100%;
     color: #fff;
-    background-color: #90A4AE;
-    transition: .3s;
+    background-color: #90a4ae;
+    transition: 0.3s;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
     .DemoAnswerButton:hover, .DemoAnswerButton:focus {
       background: #738c98; }
