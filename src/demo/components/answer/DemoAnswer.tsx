@@ -2,11 +2,11 @@ import React from 'react';
 import { State } from '../../../state.model';
 import { Dispatches } from '../../demo.model';
 
-import DemoAnswerButton from './DemoAnswerButton';
 import DemoAnswerGross from './DemoAnswerGross';
 import DemoAnswerList from './DemoAnswerList';
 import DemoAnswerMap from './DemoAnswerMap';
 import DemoAnswerMark from './DemoAnswerMark';
+import DemoButton from '../common/DemoButton';
 
 import '../../styles/DemoAnswer.css';
 
@@ -24,7 +24,7 @@ function DemoAnswer(props: State & Dispatches): JSX.Element {
             routes={routes}
             answerWaypointOrder={answerWaypointOrder}
           />
-          <DemoAnswerButton handleResetClick={handleResetClick} />
+          <DemoButton handleResetClick={handleResetClick} />
         </div>
         <div className="DemoAnswerMapArea">
           <DemoAnswerMap {...props} />

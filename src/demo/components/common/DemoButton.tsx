@@ -3,10 +3,10 @@ import { Action } from 'redux';
 
 type PropsType = {
   handleResetClick: () => Action;
-  viewAnswerFlag: boolean;
+  viewAnswerFlag?: boolean;
 };
 
-function DemoQuestionButton({ handleResetClick, viewAnswerFlag }: PropsType): JSX.Element {
+function DemoButton({ handleResetClick, viewAnswerFlag = false }: PropsType): JSX.Element {
   function handleClick() {
     handleResetClick();
   }
@@ -17,4 +17,4 @@ function DemoQuestionButton({ handleResetClick, viewAnswerFlag }: PropsType): JS
   );
 }
 
-export default DemoQuestionButton;
+export default DemoButton;

@@ -6,7 +6,7 @@ import DemoQuestionMap from './DemoQuestionMap';
 import DemoQuestionGross from './DemoQuestionGross';
 import DemoQuestionList from './DemoQuestionList';
 import DemoQuestionOption from './DemoQuestionOptions';
-import DemoQuestionButton from './DemoQuestionButton';
+import DemoButton from '../common/DemoButton';
 
 import '../../styles/DemoQuestion.css';
 
@@ -23,10 +23,7 @@ function DemoQuestion(props: State & Dispatches): JSX.Element {
         <div className="DemoQuestionNavArea">
           <DemoQuestionOption {...rest} />
           <DemoQuestionList {...rest} />
-          <DemoQuestionButton
-            handleResetClick={handleResetClick}
-            viewAnswerFlag={props.viewAnswerFlag}
-          />
+          <DemoButton handleResetClick={handleResetClick} viewAnswerFlag={props.viewAnswerFlag} />
         </div>
       </div>
     </div>
