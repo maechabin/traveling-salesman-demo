@@ -3,9 +3,9 @@ import { State } from '../../../state.model';
 import { Dispatches } from '../../demo.model';
 
 import DemoQuestionMap from './DemoQuestionMap';
-import DemoQuestionGross from './DemoQuestionGross';
 import DemoQuestionList from './DemoQuestionList';
 import DemoQuestionOption from './DemoQuestionOptions';
+import DemoGross from '../common/DemoGross';
 import DemoButton from '../common/DemoButton';
 
 import '../../styles/DemoQuestion.css';
@@ -18,7 +18,7 @@ function DemoQuestion(props: State & Dispatches): JSX.Element {
       <div className="DemoQuestionMain">
         <div className="DemoQuestionMapArea">
           <DemoQuestionMap {...props} />
-          <DemoQuestionGross gross={gross} />
+          <DemoGross gross={gross} />
         </div>
         <div className="DemoQuestionNavArea">
           <DemoQuestionOption {...rest} />

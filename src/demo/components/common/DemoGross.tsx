@@ -5,7 +5,7 @@ type PropsType = {
   gross: Gross;
 };
 
-function DemoQuestionGross({ gross }: PropsType): JSX.Element {
+function DemoGross({ gross }: PropsType): JSX.Element {
   return (
     <div className="DemoQuestionGross">
       <p>
@@ -15,4 +15,4 @@ function DemoQuestionGross({ gross }: PropsType): JSX.Element {
   );
 }
 
-export default DemoQuestionGross;
+export default DemoGross;

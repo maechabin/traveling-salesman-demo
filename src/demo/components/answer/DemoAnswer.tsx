@@ -2,10 +2,10 @@ import React from 'react';
 import { State } from '../../../state.model';
 import { Dispatches } from '../../demo.model';
 
-import DemoAnswerGross from './DemoAnswerGross';
 import DemoAnswerList from './DemoAnswerList';
 import DemoAnswerMap from './DemoAnswerMap';
 import DemoAnswerMark from './DemoAnswerMark';
+import DemoGross from '../common/DemoGross';
 import DemoButton from '../common/DemoButton';
 
 import '../../styles/DemoAnswer.css';
@@ -28,7 +28,7 @@ function DemoAnswer(props: State & Dispatches): JSX.Element {
         </div>
         <div className="DemoAnswerMapArea">
           <DemoAnswerMap {...props} />
-          <DemoAnswerGross answerGross={answerGross} />
+          <DemoGross gross={answerGross} />
         </div>
       </div>
     </div>
