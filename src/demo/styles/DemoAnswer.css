@@ -3,13 +3,13 @@
   width: 50vw;
   box-sizing: border-box; }
   .DemoAnswer h2 {
-    font-size: 32px;
+    font-size: 16px;
     font-weight: normal;
     text-align: center;
     background-color: #fff;
     color: #7fbc39;
     box-sizing: border-box;
-    padding: 8px;
+    line-height: 32px;
     margin: 0; }
   .DemoAnswerMain {
     display: flex; }
@@ -18,10 +18,11 @@
     height: 100%; }
     .DemoAnswerMapArea {
       position: relative;
-      height: calc(100vh - 84px - 64px); }
+      height: calc(100vh - 72px); }
   .DemoAnswerNavArea {
     overflow: scroll;
     width: 100%;
+    height: calc(100vh - 72px);
     background-color: #eee;
     text-align: left;
     display: flex;
@@ -88,16 +89,16 @@
       margin: 0;
       position: absolute;
       bottom: 32px;
-      padding: 16px;
+      padding: 8px;
       border-radius: 0 4px 0 0;
-      opacity: 0.9;
+      opacity: 0.8;
       background-color: #ffc107;
-      max-width: 440px;
+      max-width: 320px;
       width: 100%;
       text-align: center;
-      font-size: 16px; }
+      font-size: 14px; }
       .DemoAnswerGross p span {
-        font-size: 32px; }
+        font-size: 22px; }
   .DemoAnswerButton {
     cursor: pointer;
     outline: none;

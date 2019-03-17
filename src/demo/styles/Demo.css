@@ -1,15 +1,6 @@
 @charset "UTF-8";
 .Demo {
-  font-family: "SF Pro JP","SF Pro Display","SF Pro Icons","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","メイリオ","Meiryo","ＭＳ Ｐゴシック","Helvetica Neue","Helvetica","Arial",sans-serif; }
-
-.DemoHeader {
-  margin: 0;
-  padding: 8px;
-  text-align: center;
-  background-color: #7fbc39;
-  color: #fff; }
-  .DemoHeader h1 {
-    font-size: 24px; }
+  font-family: 'SF Pro JP', 'SF Pro Display', 'SF Pro Icons', 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; }
 
 .DemoMain {
   display: flex; }
