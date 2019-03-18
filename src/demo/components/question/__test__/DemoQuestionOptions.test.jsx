@@ -20,7 +20,7 @@ describe('<DemoQuestionOptions />', () => {
         transport={transport}
         expressway="no"
         traffic="standard"
-        choosingRouteStartFlag={false}
+        isSelecting={false}
       />,
     );
     expect(wrapper.find('#transport-car').props().checked).toEqual(true);
@@ -48,7 +48,7 @@ describe('<DemoQuestionOptions />', () => {
         transport="car"
         expressway={expressway}
         traffic="standard"
-        choosingRouteStartFlag={false}
+        isSelecting={false}
       />,
     );
     expect(wrapper.find('#expressway').props().checked).toEqual(false);
@@ -73,7 +73,7 @@ describe('<DemoQuestionOptions />', () => {
         transport="car"
         expressway="no"
         traffic={traffic}
-        choosingRouteStartFlag={false}
+        isSelecting={false}
       />,
     );
     expect(wrapper.find('#traffic-standard').props().checked).toEqual(true);
@@ -92,16 +92,16 @@ describe('<DemoQuestionOptions />', () => {
     expect(handleFormChangeSpy.called).toEqual(true);
   });
 
-  it('choosingRouteStartFlagaがfalseかつtransportがcarの場合、全ての選択肢が選択可能であること', () => {
+  it('isSelectingaがfalseかつtransportがcarの場合、全ての選択肢が選択可能であること', () => {
     const handleFormChangeSpy = sinon.spy();
-    const choosingRouteStartFlag = false;
+    const isSelecting = false;
     const wrapper = shallow(
       <DemoQuestionOptions
         handleFormChange={handleFormChangeSpy}
         transport="car"
         expressway="no"
         traffic="standard"
-        choosingRouteStartFlag={choosingRouteStartFlag}
+        isSelecting={isSelecting}
       />,
     );
     expect(wrapper.find('#transport-car').props().disabled).toEqual(false);
@@ -113,16 +113,16 @@ describe('<DemoQuestionOptions />', () => {
     expect(wrapper.find('#traffic-pessimistic').props().disabled).toEqual(false);
   });
 
-  it('choosingRouteStartFlagaがfalseかつtransportがwalkの場合、expresswayとtrafficの選択肢がdisabledであること', () => {
+  it('isSelectingaがfalseかつtransportがwalkの場合、expresswayとtrafficの選択肢がdisabledであること', () => {
     const handleFormChangeSpy = sinon.spy();
-    const choosingRouteStartFlag = false;
+    const isSelecting = false;
     const wrapper = shallow(
       <DemoQuestionOptions
         handleFormChange={handleFormChangeSpy}
         transport="walk"
         expressway="no"
         traffic="standard"
-        choosingRouteStartFlag={choosingRouteStartFlag}
+        isSelecting={isSelecting}
       />,
     );
     expect(wrapper.find('#expressway').props().disabled).toEqual(true);
@@ -132,16 +132,16 @@ describe('<DemoQuestionOptions />', () => {
     expect(wrapper.find('#traffic-pessimistic').props().disabled).toEqual(true);
   });
 
-  it('choosingRouteStartFlagaがtrueの場合、全ての選択肢がdisabledであること', () => {
+  it('isSelectingaがtrueの場合、全ての選択肢がdisabledであること', () => {
     const handleFormChangeSpy = sinon.spy();
-    const choosingRouteStartFlag = true;
+    const isSelecting = true;
     const wrapper = shallow(
       <DemoQuestionOptions
         handleFormChange={handleFormChangeSpy}
         transport="car"
         expressway="no"
         traffic="standard"
-        choosingRouteStartFlag={choosingRouteStartFlag}
+        isSelecting={isSelecting}
       />,
     );
     expect(wrapper.find('#transport-car').props().disabled).toEqual(true);
@@ -155,14 +155,14 @@ describe('<DemoQuestionOptions />', () => {
 
   it('transportがwalkの場合、expresswayのチェックが外れていること', () => {
     const handleFormChangeSpy = sinon.spy();
-    const choosingRouteStartFlag = false;
+    const isSelecting = false;
     const wrapper = shallow(
       <DemoQuestionOptions
         handleFormChange={handleFormChangeSpy}
         transport="walk"
         expressway="yes"
         traffic="standard"
-        choosingRouteStartFlag={choosingRouteStartFlag}
+        isSelecting={isSelecting}
       />,
     );
     expect(wrapper.find('#expressway').props().checked).toEqual(false);
@@ -170,14 +170,14 @@ describe('<DemoQuestionOptions />', () => {
 
   it('transportがwalkの場合、trafficは「しない」を選択していること', () => {
     const handleFormChangeSpy = sinon.spy();
-    const choosingRouteStartFlag = false;
+    const isSelecting = false;
     const wrapper = shallow(
       <DemoQuestionOptions
         handleFormChange={handleFormChangeSpy}
         transport="walk"
         expressway="yes"
         traffic="bestguess"
-        choosingRouteStartFlag={choosingRouteStartFlag}
+        isSelecting={isSelecting}
       />,
     );
     expect(wrapper.find('#traffic-standard').props().checked).toEqual(true);

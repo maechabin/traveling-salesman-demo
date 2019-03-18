@@ -7,20 +7,29 @@ export interface State {
   arrival: Position;
   /** 中継地点 */
   routes: Route[];
-  initialFlag: boolean;
-  choosingRouteStartFlag: boolean;
-  choosingRouteFinishFlag: boolean;
-  viewAnswerFlag: boolean;
-  currentSortId: number; // routes（経路）の要素数を指定する
+  /** 問題が初期状態かどうか */
+  isInitialState: boolean;
+  /** ルート選択中かどうか */
+  isSelecting: boolean;
+  /** ルート選択が終わったかどうか */
+  isOver: boolean;
+  /** 正解画面かどうか */
+  isAnswerSide: boolean;
+  /** 現在選択中の要素ID */
+  currentSortId: number;
   /** 移動手段 */
   transport: Transport;
+  /** 有料道路の使用 */
   expressway: Expressway;
+  /** 交通量の見積もり */
   traffic: Traffic;
+  /** 出発日時 */
   departureTime: Date;
   /** 回答の総距離 */
   gross: Gross;
   /** 正解の総距離 */
   answerGross: Gross;
+  /** 正解の道順 */
   answerWaypointOrder: number[];
 }
 

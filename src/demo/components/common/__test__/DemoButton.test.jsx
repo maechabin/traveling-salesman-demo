@@ -2,33 +2,28 @@ import React from 'react';
 import sinon from 'sinon';
 import { shallow } from 'enzyme';
 
-import DemoQuestionButton from '../DemoQuestionButton';
+import DemoButton from '../DemoButton';
 
-describe('<DemoQuestionbutton />', () => {
+describe('<Demobutton />', () => {
   const handleResetClickSpy = sinon.spy();
 
-  test('viewAnswerFlagの値がtrue/falseの時に、buttonが押せるか押せないか', () => {
-    const viewAnswerFlag = true;
+  test('isAnswerSideの値がtrue/falseの時に、buttonが押せるか押せないか', () => {
+    const isAnswerSide = true;
     const wrapper = shallow(
-      <DemoQuestionButton
-        viewAnswerFlag={viewAnswerFlag}
-        handleResetClick={handleResetClickSpy}
-      />,
+      <DemoButton isAnswerSide={isAnswerSide} handleResetClick={handleResetClickSpy} />,
     );
     expect(wrapper.find('button').props().disabled).toBe(true);
 
-    wrapper.setProps({ viewAnswerFlag: false });
+    wrapper.setProps({ isAnswerSide: false });
     expect(wrapper.find('button').props().disabled).toBe(false);
   });
 
-  it('viewAnswerFlagがfalseの場合、buttonクリック時にprops.handleResetClickが呼び出されること', () => {
-    const viewAnswerFlag = false;
+  it('isAnswerSideがfalseの場合、buttonクリック時にprops.handleResetClickが呼び出されること', () => {
+    const isAnswerSide = false;
     const event = { preventDefault: () => console.log('preventDefault') };
     const wrapper = shallow(
-      <DemoQuestionButton
-        viewAnswerFlag={viewAnswerFlag}
-        handleResetClick={handleResetClickSpy}
-      />);
+      <DemoButton isAnswerSide={isAnswerSide} handleResetClick={handleResetClickSpy} />,
+    );
     wrapper.find('button').simulate('click', event);
     expect(handleResetClickSpy.calledOnce).toBe(true);
   });

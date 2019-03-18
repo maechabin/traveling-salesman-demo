@@ -13,8 +13,8 @@ import {
   changeFormValue,
   resetDemo,
   changeInitflagToFalse,
-  changeViewanswerflagToTrue,
-  changeChoosingrouteFinishflagToTure,
+  changeisAnswerSideToTrue,
+  changeisOverToTure,
 } from './demoAction';
 
 // viewファイルを追加
@@ -30,17 +30,13 @@ function mapStateToProps(state: State): State {
 
 function mapDispatchToProps(dispatch: Dispatch): Dispatches {
   return {
-    handleMarkerClick(
-      routeId: number,
-      choosingRouteStartFlag: boolean,
-      currentSortId: number,
-    ): Action[] {
+    handleMarkerClick(routeId: number, isSelecting: boolean, currentSortId: number): Action[] {
       const actionsArray = [sortList(routeId)];
-      if (!choosingRouteStartFlag) {
+      if (!isSelecting) {
         actionsArray.push(disabledChooseOptions());
       }
       if (currentSortId === 1) {
-        actionsArray.push(changeChoosingrouteFinishflagToTure());
+        actionsArray.push(changeisOverToTure());
       }
       return actionsArray.map(action => dispatch(action));
     },
@@ -64,7 +60,7 @@ function mapDispatchToProps(dispatch: Dispatch): Dispatches {
       return dispatch(changeInitflagToFalse());
     },
     handleAnswerButtonClick(): Action {
-      return dispatch(changeViewanswerflagToTrue());
+      return dispatch(changeisAnswerSideToTrue());
     },
   };
 }

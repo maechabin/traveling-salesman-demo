@@ -10,8 +10,8 @@ import DemoAnswer from './answer/DemoAnswer';
 import '../styles/Demo.css';
 
 function Demo(props: State & Dispatches): JSX.Element {
-  const { viewAnswerFlag } = props;
-  const rightComponent = viewAnswerFlag ? (
+  const { isAnswerSide } = props;
+  const rightComponent = isAnswerSide ? (
     <DemoAnswer {...props} />
   ) : (
     <DemoDescription {...props} />

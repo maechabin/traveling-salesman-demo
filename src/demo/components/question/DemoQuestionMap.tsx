@@ -16,18 +16,18 @@ class DemoQuestionMap extends React.PureComponent<State & Dispatches, never> {
   }
 
   shouldComponentUpdate(nextProps: State & Dispatches) {
-    if (!nextProps.initialFlag) {
+    if (!nextProps.isInitialState) {
       return this.props.gross === nextProps.gross;
     }
     return true;
   }
 
   componentDidUpdate() {
-    if (this.props.choosingRouteStartFlag) {
+    if (this.props.isSelecting) {
       this.map.initPolyLine(this.props);
       this.map.initMarker(this.props);
     }
-    if (this.props.initialFlag) {
+    if (this.props.isInitialState) {
       this.init();
     }
   }

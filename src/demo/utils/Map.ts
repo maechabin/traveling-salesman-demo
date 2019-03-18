@@ -5,11 +5,11 @@ type MarkerProps = {
   departure: Position;
   arrival: Position;
   routes: Route[];
-  choosingRouteStartFlag: boolean;
+  isSelecting: boolean;
   currentSortId: number;
   handleMarkerClick: (
     routeid: number,
-    choosingRouteStartFlag: boolean,
+    isSelecting: boolean,
     currentSortId: number,
   ) => Action[];
 };
@@ -70,7 +70,7 @@ class Maps {
       departure,
       arrival,
       routes,
-      choosingRouteStartFlag,
+      isSelecting,
       currentSortId,
       handleMarkerClick,
     } = props;
@@ -128,7 +128,7 @@ class Maps {
       /** クリック時の処理（吹き出し表示） */
       marker.addListener('click', () => {
         if (route.sortId === 0) {
-          handleMarkerClick(route.id, choosingRouteStartFlag, currentSortId);
+          handleMarkerClick(route.id, isSelecting, currentSortId);
         }
       });
       return marker;

@@ -75,16 +75,16 @@ export function changeInitflagToFalse(): Action<never> {
 /**
  * 回答画面表示フラグをtrueにする
  */
-export function changeViewanswerflagToTrue(): Action<never> {
+export function changeisAnswerSideToTrue(): Action<never> {
   return {
-    type: ActionType.CHANGE_VIEWANSWERFLAG_TO_TRUE,
+    type: ActionType.CHANGE_isAnswerSide_TO_TRUE,
   };
 }
 
 /**
  * ルート選択可能フラグをtrueにする
  */
-export function changeChoosingrouteFinishflagToTure(): Action<never> {
+export function changeisOverToTure(): Action<never> {
   return {
     type: ActionType.CHANGE_CHOOSINGROUTE_FINISHFLAG_TO_TURE,
   };

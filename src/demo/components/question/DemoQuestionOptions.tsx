@@ -6,7 +6,7 @@ type PropsType = {
   transport: Transport;
   expressway: Expressway;
   traffic: Traffic;
-  choosingRouteStartFlag: boolean;
+  isSelecting: boolean;
   handleFormChange: (value: { name: string; value: string }) => Action;
 };
 
@@ -14,7 +14,7 @@ function DemoQuestionOptions({
   transport,
   expressway,
   traffic,
-  choosingRouteStartFlag,
+  isSelecting,
   handleFormChange,
 }: PropsType): JSX.Element {
   function handleChange(event: React.FormEvent<HTMLInputElement>): void {
@@ -35,7 +35,7 @@ function DemoQuestionOptions({
           checked={transport === Transport.Car}
           onChange={handleChange}
           id="transport-car"
-          disabled={choosingRouteStartFlag}
+          disabled={isSelecting}
         />
         <label htmlFor="transport-car">車</label>
         <input
@@ -45,7 +45,7 @@ function DemoQuestionOptions({
           checked={transport === Transport.Walk}
           onChange={handleChange}
           id="transport-walk"
-          disabled={choosingRouteStartFlag}
+          disabled={isSelecting}
         />
         <label htmlFor="transport-walk">徒歩</label>
       </dd>
@@ -58,7 +58,7 @@ function DemoQuestionOptions({
           checked={expressway === Expressway.Yes && transport === Transport.Car}
           onChange={handleChange}
           id="expressway"
-          disabled={choosingRouteStartFlag || transport === Transport.Walk}
+          disabled={isSelecting || transport === Transport.Walk}
         />
         <label htmlFor="expressway">利用する</label>
       </dd>
@@ -71,7 +71,7 @@ function DemoQuestionOptions({
           checked={traffic === Traffic.Standard || transport === Transport.Walk}
           onChange={handleChange}
           id="traffic-standard"
-          disabled={choosingRouteStartFlag || transport === Transport.Walk}
+          disabled={isSelecting || transport === Transport.Walk}
         />
         <label htmlFor="traffic-standard">見積もらない</label>
         <br />
@@ -82,7 +82,7 @@ function DemoQuestionOptions({
           checked={traffic === Traffic.Bestguess && transport === Transport.Car}
           onChange={handleChange}
           id="traffic-bestguess"
-          disabled={choosingRouteStartFlag || transport === Transport.Walk}
+          disabled={isSelecting || transport === Transport.Walk}
         />
         <label htmlFor="traffic-bestguess">正確に</label>
         <input
@@ -92,7 +92,7 @@ function DemoQuestionOptions({
           checked={traffic === Traffic.Optimistic && transport === Transport.Car}
           onChange={handleChange}
           id="traffic-optimistic"
-          disabled={choosingRouteStartFlag || transport === Transport.Walk}
+          disabled={isSelecting || transport === Transport.Walk}
         />
         <label htmlFor="traffic-optimistic">楽観的に</label>
         <input
@@ -102,7 +102,7 @@ function DemoQuestionOptions({
           checked={traffic === Traffic.Pessimistic && transport === Transport.Car}
           onChange={handleChange}
           id="traffic-pessimistic"
-          disabled={choosingRouteStartFlag || transport === Transport.Walk}
+          disabled={isSelecting || transport === Transport.Walk}
         />
         <label htmlFor="traffic-pessimistic">悲観的に</label>
       </dd>

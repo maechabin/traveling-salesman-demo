@@ -10,23 +10,23 @@ describe('<Demo />', () => {
     handleResetClick: jest.fn(),
     handleAnswerButtonClick: jest.fn(),
   };
-  it('props.viewAnswerFlagがtrueの場合、<DemoAnswer />がレンダリングされること', () => {
+  it('props.isAnswerSideがtrueの場合、<DemoAnswer />がレンダリングされること', () => {
     const wrapper = shallow(
       <Demo
         {...demoState}
         {...rest}
-        viewAnswerFlag
+        isAnswerSide
       />,
     );
     expect(wrapper.find('DemoAnswer').length).toBe(1);
   });
 
-  it('props.viewAnswerFlagがfalseの場合、<DemoDescription />がレンダリングされること', () => {
+  it('props.isAnswerSideがfalseの場合、<DemoDescription />がレンダリングされること', () => {
     const wrapper = shallow(
       <Demo
         {...demoState}
         {...rest}
-        viewAnswerFlag={false}
+        isAnswerSide={false}
       />,
     );
     expect(wrapper.find('DemoDescription').length).toBe(1);

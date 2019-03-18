@@ -4,7 +4,7 @@ import { Gross } from '../state.model';
 export interface Dispatches {
   handleMarkerClick(
     routeId: number,
-    choosingRouteStartFlag: boolean,
+    isSelecting: boolean,
     currentSortId: number,
   ): Action[];
   handleUpdateGross(gross: Gross): Action;

@@ -23,7 +23,7 @@ function DemoQuestion(props: State & Dispatches): JSX.Element {
         <div className="DemoQuestionNavArea">
           <DemoQuestionOption {...rest} />
           <DemoQuestionList {...rest} />
-          <DemoButton handleResetClick={handleResetClick} viewAnswerFlag={props.viewAnswerFlag} />
+          <DemoButton handleResetClick={handleResetClick} isAnswerSide={props.isAnswerSide} />
         </div>
       </div>
     </div>

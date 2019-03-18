@@ -70,17 +70,17 @@ describe('actions', () => {
     expect(actions.changeInitflagToFalse()).toEqual(expectedAction);
   });
 
-  it('changeViewanswerflagをtrueに変更するためのactionを作ること', () => {
+  it('changeisAnswerSideをtrueに変更するためのactionを作ること', () => {
     const expectedAction = {
-      type: actions.CHANGE_VIEWANSWERFLAG_TO_TRUE,
+      type: actions.CHANGE_isAnswerSide_TO_TRUE,
     };
-    expect(actions.changeViewanswerflagToTrue()).toEqual(expectedAction);
+    expect(actions.changeisAnswerSideToTrue()).toEqual(expectedAction);
   });
 
-  it('changeChoosingrouteFinishflagをtrueに変更するためのactionを作ること', () => {
+  it('changeisOverをtrueに変更するためのactionを作ること', () => {
     const expectedAction = {
       type: actions.CHANGE_CHOOSINGROUTE_FINISHFLAG_TO_TURE,
     };
-    expect(actions.changeChoosingrouteFinishflagToTure()).toEqual(expectedAction);
+    expect(actions.changeisOverToTure()).toEqual(expectedAction);
   });
 });

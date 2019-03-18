@@ -34,7 +34,7 @@ const demoReducer = (state: State = initialState, action: Action): State => {
     case ActionType.DISABLED_CHOOSE_OPTIONS:
       return {
         ...state,
-        choosingRouteStartFlag: true,
+        isSelecting: true,
       };
     case ActionType.CHANGE_FORM_VALUE:
       return {
@@ -123,10 +123,10 @@ const demoReducer = (state: State = initialState, action: Action): State => {
             sortId: 0,
           },
         ],
-        initialFlag: true,
-        choosingRouteStartFlag: false,
-        choosingRouteFinishFlag: false,
-        viewAnswerFlag: false,
+        isInitialState: true,
+        isSelecting: false,
+        isOver: false,
+        isAnswerSide: false,
         currentSortId: 8, // routes（経路）の要素数を指定する
         transport: Transport.Car,
         expressway: Expressway.No,
@@ -145,17 +145,17 @@ const demoReducer = (state: State = initialState, action: Action): State => {
     case ActionType.CHANGE_INITFLAG_TO_FALSE:
       return {
         ...state,
-        initialFlag: false,
+        isInitialState: false,
       };
-    case ActionType.CHANGE_VIEWANSWERFLAG_TO_TRUE:
+    case ActionType.CHANGE_isAnswerSide_TO_TRUE:
       return {
         ...state,
-        viewAnswerFlag: true,
+        isAnswerSide: true,
       };
     case ActionType.CHANGE_CHOOSINGROUTE_FINISHFLAG_TO_TURE:
       return {
         ...state,
-        choosingRouteFinishFlag: true,
+        isOver: true,
       };
     default:
       return state;

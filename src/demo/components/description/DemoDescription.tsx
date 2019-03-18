@@ -7,20 +7,14 @@ import '../../styles/DemoDescription.css';
 
 type PropsType = {
   handleAnswerButtonClick: () => void;
-  choosingRouteFinishFlag: boolean;
+  isOver: boolean;
 };
 
-function DemoDescription({
-  handleAnswerButtonClick,
-  choosingRouteFinishFlag,
-}: PropsType): JSX.Element {
+function DemoDescription({ handleAnswerButtonClick, isOver }: PropsType): JSX.Element {
   return (
     <div className="DemoDescription">
       <DemoDescriptionText />
-      <DemoDescriptionButton
-        handleAnswerButtonClick={handleAnswerButtonClick}
-        choosingRouteFinishFlag={choosingRouteFinishFlag}
-      />
+      <DemoDescriptionButton handleAnswerButtonClick={handleAnswerButtonClick} isOver={isOver} />
     </div>
   );
 }
