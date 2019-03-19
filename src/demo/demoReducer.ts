@@ -31,6 +31,21 @@ const demoReducer = (state: State = initialState, action: Action): State => {
         answerGross: action.payload.gross,
         answerWaypointOrder: action.payload.waypointOrder,
       };
+    case ActionType.UPDATE_DEPARTURE:
+      return {
+        ...state,
+        departure: action.payload,
+      };
+    case ActionType.UPDATE_ARRIVAL:
+      return {
+        ...state,
+        arrival: action.payload,
+      };
+    case ActionType.UPDATE_ROUTES:
+      return {
+        ...state,
+        routes: action.payload,
+      };
     case ActionType.DISABLED_CHOOSE_OPTIONS:
       return {
         ...state,

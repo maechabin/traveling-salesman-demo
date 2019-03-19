@@ -3,12 +3,15 @@ import { connect } from 'react-redux';
 import { Dispatch, Action } from 'redux';
 import { Dispatches } from './demo.model';
 
-import { State, Gross } from '../state.model';
+import { State, Gross, Position, Route } from '../state.model';
 
 import {
   sortList,
   updateGross,
   updateAnswerData,
+  updateDeparture,
+  updateArrival,
+  updateRoutes,
   disabledChooseOptions,
   changeFormValue,
   resetDemo,
@@ -49,6 +52,15 @@ function mapDispatchToProps(dispatch: Dispatch): Dispatches {
         waypointOrder,
       };
       return dispatch(updateAnswerData(data));
+    },
+    handleUpdateDeparture(data: Position): Action {
+      return dispatch(updateDeparture(data));
+    },
+    handleUpdateArrival(data: Position): Action {
+      return dispatch(updateArrival(data));
+    },
+    handleUpdateRoutes(data: Route[]): Action {
+      return dispatch(updateRoutes(data));
     },
     handleFormChange(value: { name: string; value: string }): Action {
       return dispatch(changeFormValue(value));

@@ -1,4 +1,4 @@
-import { Gross } from '../state.model';
+import { Gross, Position, Route } from '../state.model';
 import { Action, ActionType, AnswerData, SelectedFormValue } from './demoAction.model';
 
 /**
@@ -39,6 +39,39 @@ export function updateGross(payload: Gross): Action<Gross> {
 export function updateAnswerData(payload: AnswerData): Action<AnswerData> {
   return {
     type: ActionType.UPDATE_ANSWER_DATA,
+    payload,
+  };
+}
+
+/**
+ * 出発地を更新する
+ * @param payload 出発地
+ */
+export function updateDeparture(payload: Position): Action<Position> {
+  return {
+    type: ActionType.UPDATE_DEPARTURE,
+    payload,
+  };
+}
+
+/**
+ * 到着地を更新する
+ * @param payload 到着地
+ */
+export function updateArrival(payload: Position): Action<Position> {
+  return {
+    type: ActionType.UPDATE_ARRIVAL,
+    payload,
+  };
+}
+
+/**
+ * 中継地を更新する
+ * @param payload 中継地
+ */
+export function updateRoutes(payload: Route[]): Action<Route[]> {
+  return {
+    type: ActionType.UPDATE_ROUTES,
     payload,
   };
 }
