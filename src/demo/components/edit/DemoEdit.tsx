@@ -16,7 +16,10 @@ function reducer(state: Route, action: { type: ActionType; payload?: any }) {
 }
 
 async function fetchLatLng(address: string) {
-  const latlng = await fetch('');
+  const latlng = await fetch(
+    `https://us-central1-maps-functions-6b26b.cloudfunctions.net/geocoding?address=${address}`,
+  );
+  console.log(latlng.json());
 }
 
 function DemoEdit(props: State & Dispatches): JSX.Element {
@@ -58,7 +61,11 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     setRoute(a);
   }
 
-  function handleClick() {}
+  function handleClick() {
+    props.routes.map(route => {
+      fetchLatLng(route.title);
+    });
+  }
 
   return (
     <div style={style.demoEdit}>
