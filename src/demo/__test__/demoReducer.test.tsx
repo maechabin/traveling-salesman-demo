@@ -1,6 +1,6 @@
 import reducer from '../demoReducer';
 import * as actions from '../demoAction';
-import demoState from '../demoState';
+import demoState from '../../state';
 
 describe('demoReducer', () => {
   const initialState = demoState;
