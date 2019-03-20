@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { State, Route } from '../../../state.model';
 import { Dispatches } from '../../demo.model';
 
@@ -15,19 +15,18 @@ function reducer(state: Route, action: { type: ActionType; payload?: any }) {
   }
 }
 
-async function fetchLatLng(address: string) {
-  const latlng = await fetch(
+async function fetchLatLng(address: string): Promise<{ lat: number; lng: number }> {
+  const res = await fetch(
     `https://us-central1-maps-functions-6b26b.cloudfunctions.net/geocoding?address=${address}`,
   );
-  console.log(latlng.json());
+  const latlng = await res.json();
+  return latlng.results[0].geometry.location;
 }
 
 function DemoEdit(props: State & Dispatches): JSX.Element {
   const [departure, setDeparture] = useState(props.departure);
   const [arrival, setArrival] = useState(props.arrival);
-  const [route, setRoute] = useState(props.routes);
-
-  const r = [...route];
+  const [routes, setRoutes] = useState([...props.routes]);
 
   const style = {
     demoEdit: {
@@ -38,44 +37,51 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     } as React.CSSProperties,
   };
 
-  const routes = props.routes.map((route: Route, index: number) => {
+  const lists = routes.map((route: Route, index: number) => {
     return (
       <li>
-        <input
-          defaultValue={route.title}
-          className={route.id.toString()}
-          id={index.toString()}
-          onChange={handleChange}
-        />
+        <input defaultValue={route.title} onChange={event => handleChange(event, index)} />
       </li>
     );
   });
 
-  function handleChange(event: React.FormEvent<HTMLInputElement>) {
-    const a = route.map(r => {
-      if (r.id - 1 === Number(event.currentTarget.id)) {
-        return { ...r, title: event.currentTarget.value };
-      }
-      return r;
-    });
-    setRoute(a);
+  function handleChange(event: React.FormEvent<HTMLInputElement>, index: number): void {
+    const target = event.currentTarget;
+    const newRoutes = routes.map(
+      (route: Route): Route => {
+        if (route.id - 1 === index) {
+          return { ...route, title: target.value };
+        }
+        return route;
+      },
+    );
+    setRoutes(newRoutes);
   }
 
-  function handleClick() {
-    props.routes.map(route => {
-      fetchLatLng(route.title);
-    });
+  const callback = useCallback((route: Route) => {}, routes);
+
+  async function handleClick() {
+    const newRoutes = await Promise.all(
+      routes.map(async (route: Route, i: number) => {
+        if (props.routes[i].title !== route.title) {
+          const latlng = await fetchLatLng(route.title);
+          return { ...route, lat: latlng.lat, lng: latlng.lng };
+        }
+        return route;
+      }),
+    );
+    props.handleUpdateRoutes(newRoutes);
   }
 
   return (
     <div style={style.demoEdit}>
       <ul>
         <li>
-          <input defaultValue={props.departure.title} onChange={handleChange} />
+          <input defaultValue={props.departure.title} onChange={event => handleChange(event, 1)} />
         </li>
-        {routes}
+        {lists}
         <li>
-          <input defaultValue={props.arrival.title} onChange={handleChange} />
+          <input defaultValue={props.arrival.title} onChange={event => handleChange(event, 1)} />
         </li>
       </ul>
       <button onClick={handleClick}>設定する</button>
