@@ -53,14 +53,14 @@ function mapDispatchToProps(dispatch: Dispatch): Dispatches {
       };
       return dispatch(updateAnswerData(data));
     },
-    handleUpdateDeparture(data: Position): Action {
-      return dispatch(updateDeparture(data));
+    handleUpdateDeparture(departure: Position): Action {
+      return dispatch(updateDeparture(departure));
     },
-    handleUpdateArrival(data: Position): Action {
-      return dispatch(updateArrival(data));
+    handleUpdateArrival(arrival: Position): Action {
+      return dispatch(updateArrival(arrival));
     },
-    handleUpdateRoutes(data: Route[]): Action {
-      return dispatch(updateRoutes(data));
+    handleUpdateRoutes(routes: Route[]): Action {
+      return dispatch(updateRoutes(routes));
     },
     handleFormChange(value: { name: string; value: string }): Action {
       return dispatch(changeFormValue(value));

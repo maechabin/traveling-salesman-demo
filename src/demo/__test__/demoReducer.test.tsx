@@ -1,9 +1,9 @@
 import reducer from '../demoReducer';
 import * as actions from '../demoAction';
-import demoState from '../../state';
+import { state } from '../../state';
 
 describe('demoReducer', () => {
-  const initialState = demoState;
+  const initialState = state;
 
   it('初期stateを返すこと', () => {
     expect(reducer(undefined, {})).toEqual(initialState);

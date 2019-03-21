@@ -1,4 +1,4 @@
-import states from '../state';
+import { state } from '../state';
 import { State, Traffic, Transport, Expressway } from '../state.model';
 import { ActionType, Action } from './demoAction.model';
 

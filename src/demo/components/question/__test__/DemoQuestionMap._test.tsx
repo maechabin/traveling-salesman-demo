@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import { shallow, mount } from 'enzyme';
 
 import DemoQuestionMap from '../DemoQuestionMap';
-import demoState from '../../../../state';
+import { state } from '../../../../state';
 
 describe('<DemoQuestionMap />', () => {
   const restProps = {
@@ -30,7 +30,7 @@ describe('<DemoQuestionMap />', () => {
   } as any;
   it('componentDidMountを呼び出すこと', () => {
     sinon.spy(DemoQuestionMap.prototype, 'componentDidMount');
-    const wrapper = mount(<DemoQuestionMap {...demoState} {...restProps} />);
+    const wrapper = mount(<DemoQuestionMap {...state} {...restProps} />);
     expect(DemoQuestionMap.prototype.componentDidMount).toHaveBeenCalled();
   });
 });

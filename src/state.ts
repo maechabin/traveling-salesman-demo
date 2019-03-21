@@ -1,6 +1,73 @@
-import { State, Transport, Traffic, Expressway } from './state.model';
+import { State, Route, Step, Transport, Traffic, Expressway } from './state.model';
 
-const state: State = {
+export const defaultRoute: Route[] = [
+  {
+    id: 1,
+    title: 'Wコンフォートタワーズ EAST',
+    lat: 35.6471312,
+    lng: 139.80113460000007,
+    label: 'A',
+    sortId: 0,
+  },
+  {
+    id: 2,
+    title: 'セルリアンタワー',
+    lat: 35.656325,
+    lng: 139.699608,
+    label: 'B',
+    sortId: 0,
+  },
+  {
+    id: 3,
+    title: '新宿センタービル',
+    lat: 35.6917502,
+    lng: 139.6955153,
+    label: 'C',
+    sortId: 0,
+  },
+  {
+    id: 4,
+    title: 'JPタワー',
+    lat: 35.679799,
+    lng: 139.764545,
+    label: 'D',
+    sortId: 0,
+  },
+  {
+    id: 5,
+    title: '新宿パークタワー',
+    lat: 35.68564,
+    lng: 139.69094999999993,
+    label: 'E',
+    sortId: 0,
+  },
+  {
+    id: 6,
+    title: '住友不動産新宿グランドタワー',
+    lat: 35.6957954,
+    lng: 139.69038920000003,
+    label: 'F',
+    sortId: 0,
+  },
+  {
+    id: 7,
+    title: '勝どきビュータワー',
+    lat: 35.6595554,
+    lng: 139.77651500000002,
+    label: 'G',
+    sortId: 0,
+  },
+  {
+    id: 8,
+    title: 'サンシャイン６０',
+    lat: 35.7291213,
+    lng: 139.7191322,
+    label: 'H',
+    sortId: 0,
+  },
+];
+
+export const state: State = {
   departure: {
     title: '山王パークタワー',
     lat: 35.6731652,
@@ -13,73 +80,10 @@ const state: State = {
     lng: 139.72924869999997,
     label: '着',
   },
-  routes: [
-    {
-      id: 1,
-      title: 'Wコンフォートタワーズ EAST',
-      lat: 35.6471312,
-      lng: 139.80113460000007,
-      label: 'A',
-      sortId: 0,
-    },
-    {
-      id: 2,
-      title: 'セルリアンタワー',
-      lat: 35.656325,
-      lng: 139.699608,
-      label: 'B',
-      sortId: 0,
-    },
-    {
-      id: 3,
-      title: '新宿センタービル',
-      lat: 35.6917502,
-      lng: 139.6955153,
-      label: 'C',
-      sortId: 0,
-    },
-    {
-      id: 4,
-      title: 'JPタワー',
-      lat: 35.679799,
-      lng: 139.764545,
-      label: 'D',
-      sortId: 0,
-    },
-    {
-      id: 5,
-      title: '新宿パークタワー',
-      lat: 35.68564,
-      lng: 139.69094999999993,
-      label: 'E',
-      sortId: 0,
-    },
-    {
-      id: 6,
-      title: '住友不動産新宿グランドタワー',
-      lat: 35.6957954,
-      lng: 139.69038920000003,
-      label: 'F',
-      sortId: 0,
-    },
-    {
-      id: 7,
-      title: '勝どきビュータワー',
-      lat: 35.6595554,
-      lng: 139.77651500000002,
-      label: 'G',
-      sortId: 0,
-    },
-    {
-      id: 8,
-      title: 'サンシャイン６０',
-      lat: 35.7291213,
-      lng: 139.7191322,
-      label: 'H',
-      sortId: 0,
-    },
-  ],
+  routes: [...defaultRoute],
+  questionStep: Step.Initial,
   isInitialState: true,
+  isEditing: false,
   isSelecting: false,
   isOver: false,
   isAnswerSide: false,
@@ -98,5 +102,3 @@ const state: State = {
   },
   answerWaypointOrder: [], // 正解の経路の表示順
 };
-
-export default state;
