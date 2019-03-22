@@ -1,4 +1,4 @@
-import { State, Route, Step, Transport, Traffic, Expressway } from './state.model';
+import { State, Position, Route, Step, Transport, Traffic, Expressway } from './state.model';
 
 export const defaultRoute: Route[] = [
   {
@@ -82,11 +82,6 @@ export const state: State = {
   },
   routes: [...defaultRoute],
   questionStep: Step.Initial,
-  isInitialState: true,
-  isEditing: false,
-  isSelecting: false,
-  isOver: false,
-  isAnswerSide: false,
   currentSortId: 8, // routes（経路）の要素数を指定する
   transport: Transport.Car,
   expressway: Expressway.No,

@@ -1,17 +1,18 @@
 import React from 'react';
 import { Action } from 'redux';
+import { Step } from '../../../state.model';
 
 type PropsType = {
   handleResetClick: () => Action;
-  isAnswerSide?: boolean;
+  isDisabled: boolean;
 };
 
-function DemoButton({ handleResetClick, isAnswerSide = false }: PropsType): JSX.Element {
+function DemoButton({ handleResetClick, isDisabled }: PropsType): JSX.Element {
   function handleClick() {
     handleResetClick();
   }
   return (
-    <button className="DemoQuestionButton" onClick={handleClick} disabled={isAnswerSide}>
+    <button className="DemoQuestionButton" onClick={handleClick} disabled={isDisabled}>
       やり直す
     </button>
   );

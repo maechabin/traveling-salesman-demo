@@ -1,5 +1,5 @@
 import { state } from '../state';
-import { State, Traffic, Transport, Expressway } from '../state.model';
+import { State, Route, Step, Traffic, Transport, Expressway } from '../state.model';
 import { ActionType, Action } from './demoAction.model';
 
 const initialState: State = { ...states };
@@ -46,10 +46,10 @@ const demoReducer = (state: State = initialState, action: Action): State => {
         ...state,
         routes: action.payload,
       };
-    case ActionType.DISABLED_CHOOSE_OPTIONS:
+    case ActionType.CHANGE_QUESTION_STEP:
       return {
         ...state,
-        isSelecting: true,
+        questionStep: action.payload,
       };
     case ActionType.CHANGE_FORM_VALUE:
       return {
@@ -142,6 +142,7 @@ const demoReducer = (state: State = initialState, action: Action): State => {
         isSelecting: false,
         isOver: false,
         isAnswerSide: false,
+        questionStep: Step.Initial,
         currentSortId: 8, // routes（経路）の要素数を指定する
         transport: Transport.Car,
         expressway: Expressway.No,
@@ -156,21 +157,6 @@ const demoReducer = (state: State = initialState, action: Action): State => {
           duration: 0, // 正解の総時間
         },
         answerWaypointOrder: [], // 正解の経路の表示順
-      };
-    case ActionType.CHANGE_INITFLAG_TO_FALSE:
-      return {
-        ...state,
-        isInitialState: false,
-      };
-    case ActionType.CHANGE_isAnswerSide_TO_TRUE:
-      return {
-        ...state,
-        isAnswerSide: true,
-      };
-    case ActionType.CHANGE_CHOOSINGROUTE_FINISHFLAG_TO_TURE:
-      return {
-        ...state,
-        isOver: true,
       };
     default:
       return state;

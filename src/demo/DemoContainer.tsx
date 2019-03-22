@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Dispatch, Action } from 'redux';
 import { Dispatches } from './demo.model';
 
-import { State, Gross, Position, Route } from '../state.model';
+import { State, Gross, Position, Route, Step } from '../state.model';
 
 import {
   sortList,
@@ -12,12 +12,9 @@ import {
   updateDeparture,
   updateArrival,
   updateRoutes,
-  disabledChooseOptions,
   changeFormValue,
   resetDemo,
-  changeInitflagToFalse,
-  changeisAnswerSideToTrue,
-  changeisOverToTure,
+  changeQuestionStep,
 } from './demoAction';
 
 // viewファイルを追加
@@ -33,13 +30,13 @@ function mapStateToProps(state: State): State {
 
 function mapDispatchToProps(dispatch: Dispatch): Dispatches {
   return {
-    handleMarkerClick(routeId: number, isSelecting: boolean, currentSortId: number): Action[] {
+    handleMarkerClick(routeId: number, questionStep: Step, currentSortId: number): Action[] {
       const actionsArray = [sortList(routeId)];
-      if (!isSelecting) {
-        actionsArray.push(disabledChooseOptions());
+      if (questionStep === Step.Initial) {
+        actionsArray.push(changeQuestionStep(Step.Select));
       }
       if (currentSortId === 1) {
-        actionsArray.push(changeisOverToTure());
+        actionsArray.push(changeQuestionStep(Step.Over));
       }
       return actionsArray.map(action => dispatch(action));
     },
@@ -65,14 +62,11 @@ function mapDispatchToProps(dispatch: Dispatch): Dispatches {
     handleFormChange(value: { name: string; value: string }): Action {
       return dispatch(changeFormValue(value));
     },
+    handleChangeQuestionStep(step: Step): Action {
+      return dispatch(changeQuestionStep(step));
+    },
     handleResetClick(): Action {
       return dispatch(resetDemo());
-    },
-    handleInit(): Action {
-      return dispatch(changeInitflagToFalse());
-    },
-    handleAnswerButtonClick(): Action {
-      return dispatch(changeisAnswerSideToTrue());
     },
   };
 }

@@ -1,5 +1,3 @@
-import { number } from 'prop-types';
-
 export interface State {
   /** 出発地点 */
   departure: Position;
@@ -7,14 +5,6 @@ export interface State {
   arrival: Position;
   /** 中継地点 */
   routes: Route[];
-  /** 問題が初期状態かどうか */
-  isInitialState: boolean;
-  /** ルート選択中かどうか */
-  isSelecting: boolean;
-  /** ルート選択が終わったかどうか */
-  isOver: boolean;
-  /** 正解画面かどうか */
-  isAnswerSide: boolean;
   /** 現在選択中の要素ID */
   currentSortId: number;
   /** 移動手段 */
@@ -49,6 +39,22 @@ export interface Route {
   lng: number;
   label: string;
   sortId: number;
+}
+
+/** クイズの各ステップ */
+export enum Step {
+  /** 初期状態 */
+  Initial,
+  /** 初期表示後からルート選択までの状態 */
+  Start,
+  /** ルートを編集中の状態 */
+  Edit,
+  /** ルート選択中の状態 */
+  Select,
+  /** ルート選択が終わった状態 */
+  Over,
+  /** 正解を表示中の状態 */
+  Answer,
 }
 
 /** 総距離/総時間の合計 */

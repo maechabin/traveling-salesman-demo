@@ -9,7 +9,6 @@ export interface Action<T = any> {
 /** Actiion Type */
 export enum ActionType {
   SORT_LIST,
-  DISABLED_CHOOSE_OPTIONS,
   UPDATE_GROSS,
   UPDATE_ANSWER_DATA,
   UPDATE_DEPARTURE,
@@ -17,9 +16,7 @@ export enum ActionType {
   UPDATE_ROUTES,
   CHANGE_FORM_VALUE,
   RESET_DEMO,
-  CHANGE_INITFLAG_TO_FALSE,
-  CHANGE_isAnswerSide_TO_TRUE,
-  CHANGE_CHOOSINGROUTE_FINISHFLAG_TO_TURE,
+  CHANGE_QUESTION_STEP,
 }
 
 /** 答えのデータ */

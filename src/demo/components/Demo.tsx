@@ -1,5 +1,5 @@
 import React from 'react';
-import { State } from '../../state.model';
+import { State, Step } from '../../state.model';
 import { Dispatches } from '../demo.model';
 
 import Layout from './layout/Layout';
@@ -11,15 +11,15 @@ import DemoAnswer from './answer/DemoAnswer';
 import '../styles/Demo.css';
 
 function Demo(props: State & Dispatches): JSX.Element {
-  const { isAnswerSide } = props;
-  const isEditing = true;
-  const rightComponent = isAnswerSide ? (
-    <DemoAnswer {...props} />
-  ) : isEditing ? (
-    <DemoEdit {...props} />
-  ) : (
-    <DemoDescription {...props} />
-  );
+  const { questionStep } = props;
+  const rightComponent =
+    questionStep === Step.Answer ? (
+      <DemoAnswer {...props} />
+    ) : questionStep === Step.Edit ? (
+      <DemoEdit {...props} />
+    ) : (
+      <DemoDescription {...props} />
+    );
 
   return (
     <Layout>

@@ -1,17 +1,22 @@
 import React from 'react';
+import { Step } from '../../../state.model';
+import { Action } from '../../demoAction.model';
 
 type PropsType = {
-  handleAnswerButtonClick: () => void;
-  isOver: boolean;
+  handleChangeQuestionStep: (step: Step) => Action;
+  questionStep: Step;
 };
 
 function DemoDescriptionButton(props: PropsType): JSX.Element {
-  const { handleAnswerButtonClick, isOver } = props;
+  const { handleChangeQuestionStep, questionStep } = props;
   function handleClick(): void {
-    handleAnswerButtonClick();
+    handleChangeQuestionStep(Step.Answer);
   }
   return (
-    <button className="DemoDescriptionButton" onClick={handleClick} disabled={!isOver}>
+    <button
+      className="DemoDescriptionButton"
+      onClick={handleClick}
+      disabled={questionStep !== Step.Over}>
       正解（最短経路）を見る
     </button>
   );

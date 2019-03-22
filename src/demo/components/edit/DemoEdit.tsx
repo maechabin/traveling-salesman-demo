@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { State, Route } from '../../../state.model';
+import { State, Route, Step } from '../../../state.model';
 import { Dispatches } from '../../demo.model';
 
 enum ActionType {
@@ -71,6 +71,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
       }),
     );
     props.handleUpdateRoutes(newRoutes);
+    props.handleChangeQuestionStep(Step.Initial);
   }
 
   return (

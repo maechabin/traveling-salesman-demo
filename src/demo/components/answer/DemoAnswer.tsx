@@ -1,5 +1,5 @@
 import React from 'react';
-import { State } from '../../../state.model';
+import { State, Step } from '../../../state.model';
 import { Dispatches } from '../../demo.model';
 
 import DemoAnswerList from './DemoAnswerList';
@@ -11,7 +11,7 @@ import DemoButton from '../common/DemoButton';
 import '../../styles/DemoAnswer.css';
 
 function DemoAnswer(props: State & Dispatches): JSX.Element {
-  const { answerGross, answerWaypointOrder, routes, handleResetClick } = props;
+  const { answerGross, answerWaypointOrder, routes, handleResetClick, questionStep } = props;
   return (
     <div className="DemoAnswer">
       <h2>Google Mapsが選んだ経路</h2>
@@ -24,7 +24,10 @@ function DemoAnswer(props: State & Dispatches): JSX.Element {
             routes={routes}
             answerWaypointOrder={answerWaypointOrder}
           />
-          <DemoButton handleResetClick={handleResetClick} />
+          <DemoButton
+            handleResetClick={handleResetClick}
+            isDisabled={props.questionStep !== Step.Answer}
+          />
         </div>
         <div className="DemoAnswerMapArea">
           <DemoAnswerMap {...props} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { State } from '../../../state.model';
+import { State, Step } from '../../../state.model';
 import { Dispatches } from '../../demo.model';
 
 import DemoQuestionMap from './DemoQuestionMap';
@@ -23,7 +23,9 @@ function DemoQuestion(props: State & Dispatches): JSX.Element {
         <div className="DemoQuestionNavArea">
           <DemoQuestionOption {...rest} />
           <DemoQuestionList {...rest} />
-          <DemoButton handleResetClick={handleResetClick} isAnswerSide={props.isAnswerSide} />
+          <DemoButton
+            isDisabled={props.questionStep === Step.Answer}
+          />
         </div>
       </div>
     </div>

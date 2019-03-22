@@ -1,4 +1,4 @@
-import { Gross, Position, Route } from '../state.model';
+import { Gross, Position, Route, Step } from '../state.model';
 import { Action, ActionType, AnswerData, SelectedFormValue } from './demoAction.model';
 
 /**
@@ -9,15 +9,6 @@ export function sortList(payload: number): Action<number> {
   return {
     type: ActionType.SORT_LIST,
     payload,
-  };
-}
-
-/**
- * マーカー選択中としてフラグを更新する
- */
-export function disabledChooseOptions(): Action<never> {
-  return {
-    type: ActionType.DISABLED_CHOOSE_OPTIONS,
   };
 }
 
@@ -97,28 +88,12 @@ export function resetDemo(): Action<never> {
 }
 
 /**
- * 初期状態フラグをfalseに変更する
+ * クイズのステップを変更する
+ * @param payload ステップ名
  */
-export function changeInitflagToFalse(): Action<never> {
+export function changeQuestionStep(payload: Step): Action<Step> {
   return {
-    type: ActionType.CHANGE_INITFLAG_TO_FALSE,
-  };
-}
-
-/**
- * 回答画面表示フラグをtrueにする
- */
-export function changeisAnswerSideToTrue(): Action<never> {
-  return {
-    type: ActionType.CHANGE_isAnswerSide_TO_TRUE,
-  };
-}
-
-/**
- * ルート選択可能フラグをtrueにする
- */
-export function changeisOverToTure(): Action<never> {
-  return {
-    type: ActionType.CHANGE_CHOOSINGROUTE_FINISHFLAG_TO_TURE,
+    type: ActionType.CHANGE_QUESTION_STEP,
+    payload,
   };
 }

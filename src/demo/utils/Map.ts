@@ -1,17 +1,13 @@
-import { Gross, Position, Route, Traffic, Transport, Expressway } from '../../state.model';
+import { Gross, Position, Route, Traffic, Transport, Expressway, Step } from '../../state.model';
 import { Action } from '../demoAction.model';
 
 type MarkerProps = {
   departure: Position;
   arrival: Position;
   routes: Route[];
-  isSelecting: boolean;
+  questionStep: Step;
   currentSortId: number;
-  handleMarkerClick: (
-    routeid: number,
-    isSelecting: boolean,
-    currentSortId: number,
-  ) => Action[];
+  handleMarkerClick: (routeid: number, questionStep: Step, currentSortId: number) => Action[];
 };
 
 type PolilineProps = {
@@ -66,14 +62,7 @@ class Maps {
    * Map上にマーカーを表示する
    */
   public initMarker(props: MarkerProps): void {
-    const {
-      departure,
-      arrival,
-      routes,
-      isSelecting,
-      currentSortId,
-      handleMarkerClick,
-    } = props;
+    const { departure, arrival, routes, questionStep, currentSortId, handleMarkerClick } = props;
     let marker;
     /** 範囲（境界）のインスタンスを作成するクラス */
     const bounds = new google.maps.LatLngBounds();
@@ -128,7 +117,7 @@ class Maps {
       /** クリック時の処理（吹き出し表示） */
       marker.addListener('click', () => {
         if (route.sortId === 0) {
-          handleMarkerClick(route.id, isSelecting, currentSortId);
+          handleMarkerClick(route.id, questionStep, currentSortId);
         }
       });
       return marker;
