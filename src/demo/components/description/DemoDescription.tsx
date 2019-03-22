@@ -24,6 +24,7 @@ function DemoDescription({
       <DemoEditButton
         handleChangeQuestionStep={handleChangeQuestionStep}
         handleResetClick={handleResetClick}
+        questionStep={questionStep}
       />
       <DemoDescriptionText />
       <DemoDescriptionButton
