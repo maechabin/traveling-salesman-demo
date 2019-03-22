@@ -39,7 +39,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "eslint-config-airbnb": "^15.1.0"
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-react-hooks": "^1.6.0"
   },
   "browserslist": [
     ">0.2%",
