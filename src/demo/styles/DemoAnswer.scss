@@ -1,4 +1,4 @@
-@import "./mixin.scss";
+@import './mixin.scss';
 
 .DemoAnswer {
   @include layout();
@@ -21,6 +21,7 @@
     display: flex;
     align-items: center; /* 縦方向の中央揃え */
     justify-content: center; /* 横方向の中央揃え */
+    flex-direction: column;
     box-sizing: border-box;
     padding: 0 16px;
     font-weight: bold;
@@ -28,5 +29,8 @@
     color: #263238;
     height: 240px;
     margin-bottom: 8px;
+    span {
+      font-size: 40px;
+    }
   }
 }
