@@ -56,8 +56,8 @@ function mapDispatchToProps(dispatch: Dispatch): Dispatches {
     handleUpdateArrival(arrival: Position): Action {
       return dispatch(updateArrival(arrival));
     },
-    handleUpdateRoutes(routes: Route[]): Action {
-      return dispatch(updateRoutes(routes));
+    handleUpdateRoutes(departure: Position, arrival: Position, routes: Route[]): Action {
+      return dispatch(updateRoutes({ departure, arrival, routes }));
     },
     handleFormChange(value: { name: string; value: string }): Action {
       return dispatch(changeFormValue(value));

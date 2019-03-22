@@ -141,6 +141,7 @@ class Maps {
       departureTime,
       handleUpdateGross,
     } = props;
+
     /**
      * 既存のポリラインを削除
      * https://developers.google.com/maps/documentation/javascript/examples/polyline-remove

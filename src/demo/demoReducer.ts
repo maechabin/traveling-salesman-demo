@@ -45,8 +45,10 @@ const demoReducer = (state: State = initialState, action: Action): State => {
     case ActionType.UPDATE_ROUTES:
       return {
         ...state,
-        routes: action.payload,
-        routesCache: getRoutesCache(action.payload),
+        departure: JSON.parse(JSON.stringify(action.payload.departure)),
+        arrival: JSON.parse(JSON.stringify(action.payload.arrival)),
+        routes: action.payload.routes,
+        routesCache: getRoutesCache(action.payload.routes),
       };
     case ActionType.CHANGE_QUESTION_STEP:
       return {
@@ -59,21 +61,10 @@ const demoReducer = (state: State = initialState, action: Action): State => {
         [action.payload.name]: action.payload.value,
       };
     case ActionType.RESET_DEMO:
-      console.log(state.routesCache);
       return {
         ...state,
-        departure: {
-          title: '山王パークタワー',
-          lat: 35.6731652,
-          lng: 139.7407961,
-          label: '発',
-        },
-        arrival: {
-          title: '六本木ヒルズ森タワー',
-          lat: 35.6604638,
-          lng: 139.72924869999997,
-          label: '着',
-        },
+        departure: JSON.parse(JSON.stringify(state.departure)),
+        arrival: JSON.parse(JSON.stringify(state.arrival)),
         routes: getRoutesCache(state.routesCache),
         questionStep: Step.Initial,
         currentSortId: 8, // routes（経路）の要素数を指定する

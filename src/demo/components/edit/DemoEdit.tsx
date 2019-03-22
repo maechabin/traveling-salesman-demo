@@ -11,8 +11,8 @@ async function fetchLatLng(address: string): Promise<{ lat: number; lng: number 
 }
 
 function DemoEdit(props: State & Dispatches): JSX.Element {
-  const [departure, setDeparture] = useState(props.departureCache);
-  const [arrival, setArrival] = useState(props.arrivalCache);
+  const [departure, setDeparture] = useState(props.departure);
+  const [arrival, setArrival] = useState(props.arrival);
   const [routes, setRoutes] = useState([...props.routesCache]);
 
   const style = {
@@ -24,56 +24,86 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     } as React.CSSProperties,
   };
 
-  const lists = routes.map((route: Route, index: number) => {
-    return (
-      <li>
-        <input defaultValue={route.title} onChange={event => handleChange(event, index)} />
-      </li>
-    );
-  });
-
   function handleChange(event: React.FormEvent<HTMLInputElement>, index: number): void {
     const target = event.currentTarget;
-    const newRoutes = routes.map(
-      (route: Route): Route => {
-        if (route.id - 1 === index) {
-          return {
-            ...route,
-            title: target.value,
-            sortId: 0,
-          };
-        }
-        return { ...route, sortId: 0 };
-      },
-    );
-    setRoutes(newRoutes);
+    switch (index) {
+      case 0:
+        setDeparture({ ...departure, title: target.value });
+        break;
+      case 9:
+        setArrival({ ...arrival, title: target.value });
+        break;
+      default:
+        const newRoutes = routes.map(
+          (route: Route): Route => {
+            if (route.id === index) {
+              return {
+                ...route,
+                title: target.value,
+                sortId: 0,
+              };
+            }
+            return { ...route, sortId: 0 };
+          },
+        );
+        setRoutes(newRoutes);
+        break;
+    }
   }
 
-  const callback = useCallback((route: Route) => {}, routes);
+  const callback = useCallback((position: any) => {
+    setDeparture(position);
+  }, []);
 
   async function handleClick() {
+    let newDeparture = departure;
+    if (props.departure.title !== departure.title) {
+      const departureLatlng = await fetchLatLng(departure.title);
+      newDeparture = {
+        ...departure,
+        ...departureLatlng,
+      };
+    }
+
+    let newArrival = arrival;
+    if (props.arrival.title !== arrival.title) {
+      const arrivalLatlng = await fetchLatLng(arrival.title);
+      newArrival = {
+        ...arrival,
+        ...arrivalLatlng,
+      };
+    }
+
     const newRoutes = await Promise.all(
       routes.map(async (route: Route, i: number) => {
-        if (props.routes[i].title !== route.title) {
+        if (props.routesCache[i].title !== route.title) {
           const latlng = await fetchLatLng(route.title);
           return { ...route, lat: latlng.lat, lng: latlng.lng };
         }
         return route;
       }),
     );
-    props.handleUpdateRoutes(newRoutes);
-    props.handleChangeQuestionStep(Step.Initial);
+    await props.handleUpdateRoutes(newDeparture, newArrival, newRoutes);
+    await props.handleChangeQuestionStep(Step.Initial);
   }
+
+  const lists = routes.map((route: Route, index: number) => {
+    return (
+      <li>
+        <input defaultValue={route.title} onChange={event => handleChange(event, index + 1)} />
+      </li>
+    );
+  });
 
   return (
     <div style={style.demoEdit}>
       <ul>
         <li>
-          <input defaultValue={props.departure.title} onChange={event => handleChange(event, 1)} />
+          <input defaultValue={props.departure.title} onChange={event => handleChange(event, 0)} />
         </li>
         {lists}
         <li>
-          <input defaultValue={props.arrival.title} onChange={event => handleChange(event, 1)} />
+          <input defaultValue={props.arrival.title} onChange={event => handleChange(event, 9)} />
         </li>
       </ul>
       <button onClick={handleClick}>設定する</button>

@@ -60,7 +60,15 @@ export function updateArrival(payload: Position): Action<Position> {
  * 中継地を更新する
  * @param payload 中継地
  */
-export function updateRoutes(payload: Route[]): Action<Route[]> {
+export function updateRoutes(payload: {
+  departure: Position;
+  arrival: Position;
+  routes: Route[];
+}): Action<{
+  departure: Position;
+  arrival: Position;
+  routes: Route[];
+}> {
   return {
     type: ActionType.UPDATE_ROUTES,
     payload,

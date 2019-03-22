@@ -7,7 +7,7 @@ export interface Dispatches {
   handleUpdateAnswerData(gross: Gross, waypointOrder: number[]): Action;
   handleUpdateDeparture(departure: Position): Action;
   handleUpdateArrival(arrival: Position): Action;
-  handleUpdateRoutes(routes: Route[]): Action;
+  handleUpdateRoutes(departure: Position, arrival: Position, routes: Route[]): Action;
   handleFormChange(value: { name: string; value: string }): Action;
   handleChangeQuestionStep(step: Step): Action;
   handleResetClick(): Action;
