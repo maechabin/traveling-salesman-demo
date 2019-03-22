@@ -1,11 +1,26 @@
 import { State, Position, Route, Step, Transport, Traffic, Expressway } from './state.model';
+import { getRoutesCache } from './demo/utils/utils';
 
-export const defaultRoute: Route[] = [
+const departure: Position = {
+  title: '山王パークタワー',
+  lat: 35.6731652,
+  lng: 139.7407961,
+  label: '発',
+};
+
+const arrival: Position = {
+  title: '六本木ヒルズ森タワー',
+  lat: 35.6604638,
+  lng: 139.72924869999997,
+  label: '着',
+};
+
+const defaultRoute: Route[] = [
   {
     id: 1,
-    title: 'Wコンフォートタワーズ EAST',
-    lat: 35.6471312,
-    lng: 139.80113460000007,
+    title: '虎ノ門ヒルズ',
+    lat: 35.6668951,
+    lng: 139.7495927,
     label: 'A',
     sortId: 0,
   },
@@ -68,19 +83,12 @@ export const defaultRoute: Route[] = [
 ];
 
 export const state: State = {
-  departure: {
-    title: '山王パークタワー',
-    lat: 35.6731652,
-    lng: 139.7407961,
-    label: '発',
-  },
-  arrival: {
-    title: '六本木ヒルズ森タワー',
-    lat: 35.6604638,
-    lng: 139.72924869999997,
-    label: '着',
-  },
-  routes: [...defaultRoute],
+  departure: { ...departure },
+  arrival: { ...arrival },
+  routes: getRoutesCache(defaultRoute.concat()),
+  departureCache: { ...departure },
+  arrivalCache: { ...arrival },
+  routesCache: getRoutesCache(defaultRoute.concat()),
   questionStep: Step.Initial,
   currentSortId: 8, // routes（経路）の要素数を指定する
   transport: Transport.Car,

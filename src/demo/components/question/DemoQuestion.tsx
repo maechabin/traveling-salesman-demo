@@ -24,6 +24,7 @@ function DemoQuestion(props: State & Dispatches): JSX.Element {
           <DemoQuestionOption {...rest} />
           <DemoQuestionList {...rest} />
           <DemoButton
+            handleResetClick={handleResetClick}
             isDisabled={props.questionStep === Step.Answer}
           />
         </div>

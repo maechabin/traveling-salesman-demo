@@ -10,17 +10,20 @@ import { Action } from '../../demoAction.model';
 
 type PropsType = {
   handleChangeQuestionStep: (step: Step) => Action;
+  handleResetClick: () => Action;
   questionStep: Step;
 };
 
 function DemoDescription({
   handleChangeQuestionStep,
+  handleResetClick,
   questionStep,
 }: PropsType): JSX.Element {
   return (
     <div className="DemoDescription">
       <DemoEditButton
         handleChangeQuestionStep={handleChangeQuestionStep}
+        handleResetClick={handleResetClick}
       />
       <DemoDescriptionText />
       <DemoDescriptionButton

@@ -1,8 +1,9 @@
 import { state } from '../state';
 import { State, Route, Step, Traffic, Transport, Expressway } from '../state.model';
 import { ActionType, Action } from './demoAction.model';
+import { getRoutesCache } from '../demo/utils/utils';
 
-const initialState: State = { ...states };
+const initialState: State = { ...state };
 
 const demoReducer = (state: State = initialState, action: Action): State => {
   switch (action.type) {
@@ -45,6 +46,7 @@ const demoReducer = (state: State = initialState, action: Action): State => {
       return {
         ...state,
         routes: action.payload,
+        routesCache: getRoutesCache(action.payload),
       };
     case ActionType.CHANGE_QUESTION_STEP:
       return {
@@ -57,7 +59,7 @@ const demoReducer = (state: State = initialState, action: Action): State => {
         [action.payload.name]: action.payload.value,
       };
     case ActionType.RESET_DEMO:
-      console.log(initialState);
+      console.log(state.routesCache);
       return {
         ...state,
         departure: {
@@ -72,76 +74,7 @@ const demoReducer = (state: State = initialState, action: Action): State => {
           lng: 139.72924869999997,
           label: '着',
         },
-        routes: [
-          {
-            id: 1,
-            title: 'Wコンフォートタワーズ EAST',
-            lat: 35.6471312,
-            lng: 139.80113460000007,
-            label: 'A',
-            sortId: 0,
-          },
-          {
-            id: 2,
-            title: 'セルリアンタワー',
-            lat: 35.656325,
-            lng: 139.699608,
-            label: 'B',
-            sortId: 0,
-          },
-          {
-            id: 3,
-            title: '新宿センタービル',
-            lat: 35.6917502,
-            lng: 139.6955153,
-            label: 'C',
-            sortId: 0,
-          },
-          {
-            id: 4,
-            title: 'JPタワー',
-            lat: 35.679799,
-            lng: 139.764545,
-            label: 'D',
-            sortId: 0,
-          },
-          {
-            id: 5,
-            title: '新宿パークタワー',
-            lat: 35.68564,
-            lng: 139.69094999999993,
-            label: 'E',
-            sortId: 0,
-          },
-          {
-            id: 6,
-            title: '住友不動産新宿グランドタワー',
-            lat: 35.6957954,
-            lng: 139.69038920000003,
-            label: 'F',
-            sortId: 0,
-          },
-          {
-            id: 7,
-            title: '勝どきビュータワー',
-            lat: 35.6595554,
-            lng: 139.77651500000002,
-            label: 'G',
-            sortId: 0,
-          },
-          {
-            id: 8,
-            title: 'サンシャイン６０',
-            lat: 35.7291213,
-            lng: 139.7191322,
-            label: 'H',
-            sortId: 0,
-          },
-        ],
-        isInitialState: true,
-        isSelecting: false,
-        isOver: false,
-        isAnswerSide: false,
+        routes: getRoutesCache(state.routesCache),
         questionStep: Step.Initial,
         currentSortId: 8, // routes（経路）の要素数を指定する
         transport: Transport.Car,

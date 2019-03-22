@@ -2,19 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { State, Route, Step } from '../../../state.model';
 import { Dispatches } from '../../demo.model';
 
-enum ActionType {
-  Route,
-}
-
-function reducer(state: Route, action: { type: ActionType; payload?: any }) {
-  switch (action.type) {
-    case ActionType.Route:
-      return state;
-    default:
-      return state;
-  }
-}
-
 async function fetchLatLng(address: string): Promise<{ lat: number; lng: number }> {
   const res = await fetch(
     `https://us-central1-maps-functions-6b26b.cloudfunctions.net/geocoding?address=${address}`,
@@ -24,9 +11,9 @@ async function fetchLatLng(address: string): Promise<{ lat: number; lng: number 
 }
 
 function DemoEdit(props: State & Dispatches): JSX.Element {
-  const [departure, setDeparture] = useState(props.departure);
-  const [arrival, setArrival] = useState(props.arrival);
-  const [routes, setRoutes] = useState([...props.routes]);
+  const [departure, setDeparture] = useState(props.departureCache);
+  const [arrival, setArrival] = useState(props.arrivalCache);
+  const [routes, setRoutes] = useState([...props.routesCache]);
 
   const style = {
     demoEdit: {
@@ -50,9 +37,13 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     const newRoutes = routes.map(
       (route: Route): Route => {
         if (route.id - 1 === index) {
-          return { ...route, title: target.value };
+          return {
+            ...route,
+            title: target.value,
+            sortId: 0,
+          };
         }
-        return route;
+        return { ...route, sortId: 0 };
       },
     );
     setRoutes(newRoutes);

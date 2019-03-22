@@ -5,6 +5,14 @@ export interface State {
   arrival: Position;
   /** 中継地点 */
   routes: Route[];
+  /** 出発地点キャッシュ */
+  departureCache: Position;
+  /** 到着地点キャッシュ */
+  arrivalCache: Position;
+  /** 中継地点キャッシュ */
+  routesCache: Route[];
+  /** クイズのステップ */
+  questionStep: Step;
   /** 現在選択中の要素ID */
   currentSortId: number;
   /** 移動手段 */

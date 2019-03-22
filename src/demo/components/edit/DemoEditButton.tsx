@@ -1,14 +1,16 @@
 import React from 'react';
 
-function DemoEditButton(): JSX.Element {
 import { Step } from '../../../state.model';
 import { Action } from '../../demoAction.model';
 
 type PropsType = {
   handleChangeQuestionStep: (step: Step) => Action;
+  handleResetClick: () => Action;
 };
 
+function DemoEditButton({ handleChangeQuestionStep, handleResetClick }: PropsType): JSX.Element {
   function handleClick() {
+    handleResetClick();
     handleChangeQuestionStep(Step.Edit);
   }
   return (
