@@ -124,7 +124,7 @@ class Maps {
     });
 
     /** すべてのMarkerを地図に収める */
-    if (currentSortId === 0 || currentSortId === 8) {
+    if (currentSortId === 0 || currentSortId === routes.length) {
       this.map.fitBounds(bounds);
     }
   }

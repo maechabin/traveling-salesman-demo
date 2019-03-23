@@ -88,7 +88,7 @@ export const state: State = {
   routes: getRoutesCache(defaultRoute.concat()),
   routesCache: getRoutesCache(defaultRoute.concat()),
   questionStep: Step.Initial,
-  currentSortId: 8, // routes（経路）の要素数を指定する
+  currentSortId: defaultRoute.length, // routes（経路）の要素数を指定する
   transport: Transport.Car,
   expressway: Expressway.No,
   traffic: Traffic.Standard,

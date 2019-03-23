@@ -49,6 +49,7 @@ const demoReducer = (state: State = initialState, action: Action): State => {
         arrival: JSON.parse(JSON.stringify(action.payload.arrival)),
         routes: action.payload.routes,
         routesCache: getRoutesCache(action.payload.routes),
+        currentSortId: action.payload.routes.length,
       };
     case ActionType.CHANGE_QUESTION_STEP:
       return {
@@ -67,7 +68,7 @@ const demoReducer = (state: State = initialState, action: Action): State => {
         arrival: JSON.parse(JSON.stringify(state.arrival)),
         routes: getRoutesCache(state.routesCache),
         questionStep: Step.Initial,
-        currentSortId: 8, // routes（経路）の要素数を指定する
+        currentSortId: state.routesCache.length, // routes（経路）の要素数を指定する
         transport: Transport.Car,
         expressway: Expressway.No,
         traffic: Traffic.Standard,
