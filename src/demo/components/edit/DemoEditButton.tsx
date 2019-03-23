@@ -14,13 +14,12 @@ function DemoEditButton({
   handleResetClick,
   questionStep,
 }: PropsType): JSX.Element {
-  const isDisabled = questionStep === Step.Select || questionStep === Step.Over;
   function handleClick() {
     handleResetClick();
     handleChangeQuestionStep(Step.Edit);
   }
   return (
-    <button className="DemoEditButton" disabled={isDisabled} onClick={handleClick}>
+    <button className="DemoEditButton" disabled={questionStep >= Step.Select} onClick={handleClick}>
       ルートを編集する
     </button>
   );

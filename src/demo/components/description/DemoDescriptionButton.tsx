@@ -7,8 +7,7 @@ type PropsType = {
   questionStep: Step;
 };
 
-function DemoDescriptionButton(props: PropsType): JSX.Element {
-  const { handleChangeQuestionStep, questionStep } = props;
+function DemoDescriptionButton({ handleChangeQuestionStep, questionStep }: PropsType): JSX.Element {
   function handleClick(): void {
     handleChangeQuestionStep(Step.Answer);
   }
@@ -16,7 +15,7 @@ function DemoDescriptionButton(props: PropsType): JSX.Element {
     <button
       className="DemoDescriptionButton"
       onClick={handleClick}
-      disabled={questionStep !== Step.Over}>
+      disabled={questionStep < Step.Over}>
       正解（最短経路）を見る
     </button>
   );

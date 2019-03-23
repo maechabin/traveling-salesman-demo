@@ -48,17 +48,17 @@ export interface Route {
 /** クイズの各ステップ */
 export enum Step {
   /** 初期状態 */
-  Initial,
+  Initial = 0,
   /** 初期表示後からルート選択までの状態 */
-  Start,
+  Start = 1,
   /** ルートを編集中の状態 */
-  Edit,
+  Edit = 2,
   /** ルート選択中の状態 */
-  Select,
+  Select = 3,
   /** ルート選択が終わった状態 */
-  Over,
+  Over = 4,
   /** 正解を表示中の状態 */
-  Answer,
+  Answer = 5,
 }
 
 /** 総距離/総時間の合計 */
