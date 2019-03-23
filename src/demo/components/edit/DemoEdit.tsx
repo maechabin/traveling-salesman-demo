@@ -38,7 +38,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
   const ROUTE_LENGTH: number = 8;
   const [departure, setDeparture] = useState(props.departure);
   const [arrival, setArrival] = useState(props.arrival);
-  const [routes, setRoutes] = useState([...props.routesCache]);
+  const [routes, setRoutes] = useState(props.routesCache);
   useEffect(() => {
     if (routes.length < ROUTE_LENGTH) {
       const addedRoutes: Route[] = Array(ROUTE_LENGTH - routes.length)
@@ -124,26 +124,42 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
       };
     }
 
-    const newRoutes = await Promise.all(
-      routes
-        .filter((route: Route) => {
-          return route.title === '' ? false : true;
-        })
-        .map(async (route: Route, i: number) => {
-          if (props.routesCache[i].title !== route.title) {
+    const updatedLatLngRoutes = await Promise.all(
+      routes.map(async (route: Route, i: number) => {
+        if (
+          route.title != null &&
+          route.title !== '' &&
+          (props.routesCache[i] == null || route.title !== props.routesCache[i].title)
+        ) {
+          try {
             const latlng = await fetchLatLng(route.title);
             return {
               ...route,
-              id: i + 1,
-              lat: latlng.lat,
-              lng: latlng.lng,
-              label: ALPHABETS[i],
-              sortId: 0,
+              ...latlng,
+            };
+          } catch (e) {
+            return {
+              ...route,
+              title: '',
             };
           }
-          return { ...route, id: i + 1, label: ALPHABETS[i], sortId: 0 };
-        }),
+        }
+        return route;
+      }),
     );
+
+    const newRoutes = updatedLatLngRoutes
+      .filter((route: Route) => {
+        return route.title === '' ? false : true;
+      })
+      .map((route: Route, i: number) => {
+        return {
+          ...route,
+          id: i + 1,
+          label: ALPHABETS[i],
+          sortId: 0,
+        };
+      });
 
     props.handleUpdateRoutes(newDeparture, newArrival, newRoutes);
     props.handleChangeQuestionStep(Step.Initial);
