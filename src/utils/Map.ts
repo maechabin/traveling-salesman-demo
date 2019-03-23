@@ -1,5 +1,5 @@
-import { Gross, Position, Route, Traffic, Transport, Expressway, Step } from '../../state.model';
-import { Action } from '../demoAction.model';
+import { Gross, Position, Route, Traffic, Transport, Expressway, Step } from '../state.model';
+import { Action } from '../demo/demoAction.model';
 
 type MarkerProps = {
   departure: Position;

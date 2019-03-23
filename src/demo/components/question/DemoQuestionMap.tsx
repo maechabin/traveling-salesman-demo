@@ -1,10 +1,10 @@
 import React from 'react';
-import Map from '../../utils/Map';
+import Map from '../../../utils/Map';
 
 import { State, Step } from '../../../state.model';
 import { Dispatches } from '../../demo.model';
 
-class DemoQuestionMap extends React.PureComponent<State & Dispatches, never> {
+class DemoQuestionMap extends React.Component<State & Dispatches, never> {
   /** mapを表示する要素 */
   readonly gmapsRef = React.createRef<HTMLDivElement>();
 

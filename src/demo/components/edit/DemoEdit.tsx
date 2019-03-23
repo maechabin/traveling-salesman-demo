@@ -1,14 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { State, Route, Step } from '../../../state.model';
+import { State, Route, Position, Step } from '../../../state.model';
 import { Dispatches } from '../../demo.model';
-
-async function fetchLatLng(address: string): Promise<{ lat: number; lng: number }> {
-  const res = await fetch(
-    `https://us-central1-maps-functions-6b26b.cloudfunctions.net/geocoding?address=${address}`,
-  );
-  const latlng = await res.json();
-  return latlng.results[0].geometry.location;
-}
+import { fetchLatLng } from '../../../utils/functions';
 
 function DemoEdit(props: State & Dispatches): JSX.Element {
   const [departure, setDeparture] = useState(props.departure);
@@ -28,10 +21,14 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     const target = event.currentTarget;
     switch (index) {
       case 0:
-        setDeparture({ ...departure, title: target.value });
+        if (target.value !== '') {
+          setDeparture({ ...departure, title: target.value });
+        }
         break;
       case 9:
-        setArrival({ ...arrival, title: target.value });
+        if (target.value !== '') {
+          setArrival({ ...arrival, title: target.value });
+        }
         break;
       default:
         const newRoutes = routes.map(
@@ -40,10 +37,9 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
               return {
                 ...route,
                 title: target.value,
-                sortId: 0,
               };
             }
-            return { ...route, sortId: 0 };
+            return route;
           },
         );
         setRoutes(newRoutes);
@@ -51,9 +47,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     }
   }
 
-  const callback = useCallback((position: any) => {
-    setDeparture(position);
-  }, []);
+  const callback = useCallback((position: Position) => {}, []);
 
   async function handleClick() {
     let newDeparture = departure;
@@ -78,18 +72,19 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
       routes.map(async (route: Route, i: number) => {
         if (props.routesCache[i].title !== route.title) {
           const latlng = await fetchLatLng(route.title);
-          return { ...route, lat: latlng.lat, lng: latlng.lng };
+          return { ...route, lat: latlng.lat, lng: latlng.lng, sortId: 0 };
         }
-        return route;
+        return { ...route, sortId: 0 };
       }),
     );
-    await props.handleUpdateRoutes(newDeparture, newArrival, newRoutes);
-    await props.handleChangeQuestionStep(Step.Initial);
+
+    props.handleUpdateRoutes(newDeparture, newArrival, newRoutes);
+    props.handleChangeQuestionStep(Step.Initial);
   }
 
   const lists = routes.map((route: Route, index: number) => {
     return (
-      <li>
+      <li key={route.title}>
         <input defaultValue={route.title} onChange={event => handleChange(event, index + 1)} />
       </li>
     );

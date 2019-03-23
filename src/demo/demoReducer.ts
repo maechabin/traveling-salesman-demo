@@ -1,7 +1,7 @@
 import { state } from '../state';
 import { State, Route, Step, Traffic, Transport, Expressway } from '../state.model';
 import { ActionType, Action } from './demoAction.model';
-import { getRoutesCache } from '../demo/utils/utils';
+import { getRoutesCache } from '../utils/functions';
 
 const initialState: State = { ...state };
 

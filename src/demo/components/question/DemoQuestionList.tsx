@@ -37,14 +37,14 @@ function DemoQuestionList({
   return (
     <div className="DemoQuestionList">
       <ul className="DemoQuestionListDeparture">
-        <li>
+        <li key={departure.title}>
           <span>{departure.label}:</span>
           {departure.title}
         </li>
       </ul>
       <ul className="DemoQuestionListRoutes">{renderingList}</ul>
       <ul className="DemoQuestionListArrival">
-        <li>
+        <li key={arrival.title}>
           <span>{arrival.label}:</span>
           {arrival.title}
         </li>

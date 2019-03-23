@@ -1,5 +1,5 @@
 import { State, Position, Route, Step, Transport, Traffic, Expressway } from './state.model';
-import { getRoutesCache } from './demo/utils/utils';
+import { getRoutesCache } from './utils/functions';
 
 const departure: Position = {
   title: '山王パークタワー',
