@@ -1,6 +1,7 @@
 import React from 'react';
 import { State, Step } from '../../../state.model';
 import { Dispatches, DisplaySide } from '../../demo.model';
+import * as ButtonLabel from '../../../constants/button';
 
 import DemoAnswerMap from './DemoAnswerMap';
 import DemoAnswerMark from './DemoAnswerMark';
@@ -28,7 +29,7 @@ function DemoAnswer(props: State & Dispatches): JSX.Element {
             callback={props.dispatchInitializeDemo}
             isDisabled={props.questionStep !== Step.Answer}
             classname={'DemoQuestionButton'}
-            label={'やり直す'}
+            label={ButtonLabel.START_OVER}
           />
         </div>
         <div className="DemoAnswerMapArea">

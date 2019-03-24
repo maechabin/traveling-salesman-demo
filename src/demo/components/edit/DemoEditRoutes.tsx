@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from '../../../state.model';
+import * as RouteConst from '../../../constants/route';
 
 type PropsTypes = {
   routes: Route[];
@@ -48,7 +49,7 @@ function DemoEditRoutes({ routes, callback }: PropsTypes): JSX.Element {
 
   return (
     <ul style={style.ul}>
-      <label style={{ ...style.label, backgroundColor: '#7fbc39' }}>ルート</label>
+      <label style={{ ...style.label, backgroundColor: RouteConst.ROUTES_COLOR }}>ルート</label>
       {lists}
     </ul>
   );

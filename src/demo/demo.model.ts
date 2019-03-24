@@ -15,3 +15,8 @@ export enum DisplaySide {
   Question,
   Answer,
 }
+
+export enum RouteLabel {
+  Departure = 0,
+  Arrival = 9,
+}

@@ -1,11 +1,12 @@
 import React from 'react';
 import { Step } from '../../../state.model';
+import { Action } from '../../demoAction.model';
+import * as ButtonLabel from '../../../constants/button';
 
 import DemoDescriptionText from './DemoDescriptionText';
 import DemoButton from '../common/DemoButton';
 
 import '../../styles/DemoDescription.css';
-import { Action } from '../../demoAction.model';
 
 type PropsType = {
   dispatchUpdateQuestionStep: (step: Step) => Action;
@@ -28,14 +29,14 @@ function DemoDescription({
         callback={handleClick}
         isDisabled={questionStep >= Step.Select}
         classname={'DemoEditButton'}
-        label={'ルートを編集する'}
+        label={ButtonLabel.EDIT_ROUTES}
       />
       <DemoDescriptionText />
       <DemoButton
         callback={() => dispatchUpdateQuestionStep(Step.Answer)}
         isDisabled={questionStep < Step.Over}
         classname={'DemoDescriptionButton'}
-        label={'正解（最短経路）を見る'}
+        label={ButtonLabel.SEE_CORRECT_ANSWER}
       />
     </div>
   );

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { State, Route, Step } from '../../../state.model';
-import { Dispatches } from '../../demo.model';
+import { Dispatches, RouteLabel } from '../../demo.model';
 import { fetchLatLngFromGMaps } from '../../../utils/functions';
-import { ALPHABETS, ROUTE_MAX_LENGTH } from '../../../utils/constants';
+import * as RouteConst from '../../../constants/route';
+import * as ButtonLabel from '../../../constants/button';
 
 import DemoEditDepartureArrival from './DemoEditDepartureArrival';
 import DemoEditRoutes from './DemoEditRoutes';
@@ -18,18 +19,13 @@ const style = {
   } as React.CSSProperties,
 };
 
-enum Index {
-  Departure = 0,
-  Arrival = 9,
-}
-
 function DemoEdit(props: State & Dispatches): JSX.Element {
   const [departure, setDeparture] = useState(props.departure);
   const [arrival, setArrival] = useState(props.arrival);
   const [routes, setRoutes] = useState(props.routesCache);
   useEffect(() => {
-    if (routes.length < ROUTE_MAX_LENGTH) {
-      const addedRoutes: Route[] = Array(ROUTE_MAX_LENGTH - routes.length)
+    if (routes.length < RouteConst.ROUTE_MAX_LENGTH) {
+      const addedRoutes: Route[] = Array(RouteConst.ROUTE_MAX_LENGTH - routes.length)
         .fill([])
         .map(
           (_, i: number): Route => ({
@@ -48,12 +44,12 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
   function handleChange(event: React.FormEvent<HTMLInputElement>, index: number): void {
     const target = event.currentTarget;
     switch (index) {
-      case Index.Departure:
+      case RouteLabel.Departure:
         if (target.value !== '') {
           setDeparture({ ...departure, title: target.value });
         }
         break;
-      case Index.Arrival:
+      case RouteLabel.Arrival:
         if (target.value !== '') {
           setArrival({ ...arrival, title: target.value });
         }
@@ -126,7 +122,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
         return {
           ...route,
           id: i + 1,
-          label: ALPHABETS[i],
+          label: RouteConst.ALPHABETS[i],
           sortId: 0,
         };
       });
@@ -138,24 +134,28 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
   return (
     <div style={style.demoEdit}>
       <DemoEditDepartureArrival
-        label={'出発地'}
+        label={RouteConst.DEPARTURE}
         title={departure.title}
-        index={0}
+        index={RouteLabel.Departure}
         callback={handleChange}
       />
       <DemoEditRoutes routes={routes} callback={handleChange} />
       <DemoEditDepartureArrival
-        label={'到着地'}
+        label={RouteConst.ARRIVAL}
         title={arrival.title}
-        index={9}
+        index={RouteLabel.Arrival}
         callback={handleChange}
       />
       <DemoButton
         callback={() => props.dispatchUpdateQuestionStep(Step.Initial)}
         isDisabled={false}
-        label={'キャンセル'}
+        label={ButtonLabel.CANCEL}
       />
-      <DemoButton callback={handleClick} isDisabled={routes.length === 0} label={'設定する'} />
+      <DemoButton
+        callback={handleClick}
+        isDisabled={routes.length === 0}
+        label={ButtonLabel.SET_ROUTES}
+      />
     </div>
   );
 }
