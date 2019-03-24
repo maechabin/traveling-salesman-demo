@@ -4,6 +4,7 @@ import { Dispatches } from '../../demo.model';
 import { fetchLatLngFromGMaps } from '../../../utils/functions';
 import { ALPHABETS, ROUTE_MAX_LENGTH } from '../../../utils/constants';
 
+import DemoEditDepartureArrival from './DemoEditDepartureArrival';
 import DemoButton from '../common/DemoButton';
 
 const style = {
@@ -169,30 +170,22 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
 
   return (
     <div style={style.demoEdit}>
-      <label style={{ ...style.label, backgroundColor: '#f75c50' }}>出発地</label>
-      <ul style={style.ul}>
-        <li>
-          <input
-            style={style.input}
-            defaultValue={props.departure.title}
-            onChange={event => handleChange(event, Index.Departure)}
-          />
-        </li>
-      </ul>
+      <DemoEditDepartureArrival
+        label={'出発地'}
+        title={departure.title}
+        index={0}
+        callback={handleChange}
+      />
       <ul style={style.ul}>
         <label style={{ ...style.label, backgroundColor: '#7fbc39' }}>ルート</label>
         {lists}
       </ul>
-      <ul style={style.ul}>
-        <label style={{ ...style.label, backgroundColor: '#f75c50' }}>到着地</label>
-        <li>
-          <input
-            style={style.input}
-            defaultValue={props.arrival.title}
-            onChange={event => handleChange(event, Index.Arrival)}
-          />
-        </li>
-      </ul>
+      <DemoEditDepartureArrival
+        label={'到着地'}
+        title={arrival.title}
+        index={9}
+        callback={handleChange}
+      />
       <DemoButton
         callback={() => props.dispatchUpdateQuestionStep(Step.Initial)}
         isDisabled={false}
