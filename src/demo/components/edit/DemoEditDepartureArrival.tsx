@@ -1,11 +1,10 @@
 import React from 'react';
-import { State, Route, Position, Step } from '../../../state.model';
 
 type PropsTypes = {
   label: string;
   title: string;
   index: number;
-  callback(event: any, index: number): any;
+  callback(event: React.FormEvent<HTMLInputElement>, index: number): any;
 };
 
 const style = {
@@ -33,7 +32,6 @@ const style = {
 
 function DemoEditDepartureArrival({ label, title, index, callback }: PropsTypes): JSX.Element {
   function handleChange(event: React.FormEvent<HTMLInputElement>): void {
-    const target = event.currentTarget;
     callback(event, index);
   }
   return (

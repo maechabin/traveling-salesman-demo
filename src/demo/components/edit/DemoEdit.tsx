@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { State, Route, Position, Step } from '../../../state.model';
+import React, { useState, useEffect } from 'react';
+import { State, Route, Step } from '../../../state.model';
 import { Dispatches } from '../../demo.model';
 import { fetchLatLngFromGMaps } from '../../../utils/functions';
 import { ALPHABETS, ROUTE_MAX_LENGTH } from '../../../utils/constants';
 
 import DemoEditDepartureArrival from './DemoEditDepartureArrival';
+import DemoEditRoutes from './DemoEditRoutes';
 import DemoButton from '../common/DemoButton';
 
 const style = {
@@ -14,26 +15,6 @@ const style = {
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
-  } as React.CSSProperties,
-  label: {
-    color: '#fff',
-    padding: '4px',
-    boxSizing: 'border-box',
-    textAlign: 'center',
-    display: 'block',
-    width: '320px',
-  } as React.CSSProperties,
-  ul: {
-    listStyleType: 'none',
-    margin: '0 0 16px 0',
-    padding: 0,
-  } as React.CSSProperties,
-  input: {
-    width: '320px',
-    boxSizing: 'border-box',
-    padding: '6px 4px',
-    fontSize: '16px',
-    imeMode: 'active',
   } as React.CSSProperties,
 };
 
@@ -93,8 +74,6 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
         break;
     }
   }
-
-  const callback = useCallback(() => {}, []);
 
   async function handleClick(): Promise<void> {
     let newDeparture = departure;
@@ -156,18 +135,6 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     props.dispatchUpdateQuestionStep(Step.Initial);
   }
 
-  const lists = routes.map((route: Route, index: number) => {
-    return (
-      <li>
-        <input
-          style={style.input}
-          defaultValue={route.title}
-          onChange={event => handleChange(event, index + 1)}
-        />
-      </li>
-    );
-  });
-
   return (
     <div style={style.demoEdit}>
       <DemoEditDepartureArrival
@@ -176,10 +143,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
         index={0}
         callback={handleChange}
       />
-      <ul style={style.ul}>
-        <label style={{ ...style.label, backgroundColor: '#7fbc39' }}>ルート</label>
-        {lists}
-      </ul>
+      <DemoEditRoutes routes={routes} callback={handleChange} />
       <DemoEditDepartureArrival
         label={'到着地'}
         title={arrival.title}
