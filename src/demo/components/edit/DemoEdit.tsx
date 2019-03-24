@@ -193,6 +193,11 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
           />
         </li>
       </ul>
+      <DemoButton
+        callback={() => props.dispatchUpdateQuestionStep(Step.Initial)}
+        isDisabled={false}
+        label={'キャンセル'}
+      />
       <DemoButton callback={handleClick} isDisabled={routes.length === 0} label={'設定する'} />
     </div>
   );
