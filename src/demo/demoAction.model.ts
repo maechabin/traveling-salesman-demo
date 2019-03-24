@@ -12,9 +12,9 @@ export enum ActionType {
   UPDATE_GROSS,
   UPDATE_ANSWER_DATA,
   UPDATE_ROUTES,
-  CHANGE_FORM_VALUE,
-  RESET_DEMO,
-  CHANGE_QUESTION_STEP,
+  UPDATE_QUESTION_OPTION,
+  INITIALIZE_DEMO,
+  UPDATE_QUESTION_STEP,
 }
 
 /** 答えのデータ */
@@ -24,7 +24,7 @@ export interface AnswerData {
 }
 
 /** 移動手段フォームで選択肢た値 */
-export interface SelectedFormValue {
+export interface SelectedOption {
   name: string;
   value: string;
 }

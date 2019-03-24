@@ -1,5 +1,5 @@
 import { Gross, Position, Route, Step } from '../state.model';
-import { Action, ActionType, AnswerData, SelectedFormValue } from './demoAction.model';
+import { Action, ActionType, AnswerData, SelectedOption } from './demoAction.model';
 
 /**
  * 経路リストを並び替える
@@ -57,9 +57,9 @@ export function updateRoutes(payload: {
  * 移動手段フォームでの選択状態を変更する
  * @param payload
  */
-export function updateQuestionOption(payload: SelectedFormValue): Action<SelectedFormValue> {
+export function updateQuestionOption(payload: SelectedOption): Action<SelectedOption> {
   return {
-    type: ActionType.CHANGE_FORM_VALUE,
+    type: ActionType.UPDATE_QUESTION_OPTION,
     payload,
   };
 }
@@ -69,7 +69,7 @@ export function updateQuestionOption(payload: SelectedFormValue): Action<Selecte
  */
 export function initializeDemo(): Action<never> {
   return {
-    type: ActionType.RESET_DEMO,
+    type: ActionType.INITIALIZE_DEMO,
   };
 }
 
@@ -79,7 +79,7 @@ export function initializeDemo(): Action<never> {
  */
 export function updateQuestionStep(payload: Step): Action<Step> {
   return {
-    type: ActionType.CHANGE_QUESTION_STEP,
+    type: ActionType.UPDATE_QUESTION_STEP,
     payload,
   };
 }

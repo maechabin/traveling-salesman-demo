@@ -41,17 +41,17 @@ const demoReducer = (state: State = initialState, action: Action): State => {
         routesCache: getRoutesCache(action.payload.routes),
         currentSortId: action.payload.routes.length,
       };
-    case ActionType.CHANGE_QUESTION_STEP:
+    case ActionType.UPDATE_QUESTION_STEP:
       return {
         ...state,
         questionStep: action.payload,
       };
-    case ActionType.CHANGE_FORM_VALUE:
+    case ActionType.UPDATE_QUESTION_OPTION:
       return {
         ...state,
         [action.payload.name]: action.payload.value,
       };
-    case ActionType.RESET_DEMO:
+    case ActionType.INITIALIZE_DEMO:
       return {
         ...state,
         departure: JSON.parse(JSON.stringify(state.departure)),
