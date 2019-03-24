@@ -1,5 +1,5 @@
 import { State, Position, Route, Step, Transport, Traffic, Expressway } from './state.model';
-import { getRoutesCache } from './utils/functions';
+import { copyArrayWithObject } from './utils/functions';
 
 const departure: Position = {
   title: '山王パークタワー',
@@ -85,8 +85,8 @@ const defaultRoute: Route[] = [
 export const state: State = {
   departure: JSON.parse(JSON.stringify(departure)),
   arrival: JSON.parse(JSON.stringify(arrival)),
-  routes: getRoutesCache(defaultRoute.concat()),
-  routesCache: getRoutesCache(defaultRoute.concat()),
+  routes: copyArrayWithObject(defaultRoute.concat()),
+  routesCache: copyArrayWithObject(defaultRoute.concat()),
   questionStep: Step.Initial,
   currentSortId: defaultRoute.length, // routes（経路）の要素数を指定する
   transport: Transport.Car,

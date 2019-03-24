@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { State, Route, Position, Step } from '../../../state.model';
 import { Dispatches } from '../../demo.model';
-import { fetchLatLng } from '../../../utils/functions';
+import { fetchLatLngFromGMaps } from '../../../utils/functions';
 import { ALPHABETS, ROUTE_MAX_LENGTH } from '../../../utils/constants';
 
 import DemoButton from '../common/DemoButton';
@@ -98,7 +98,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
   async function handleClick(): Promise<void> {
     let newDeparture = departure;
     if (props.departure.title !== departure.title) {
-      const departureLatlng = await fetchLatLng(departure.title);
+      const departureLatlng = await fetchLatLngFromGMaps(departure.title);
       newDeparture = {
         ...departure,
         ...departureLatlng,
@@ -107,7 +107,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
 
     let newArrival = arrival;
     if (props.arrival.title !== arrival.title) {
-      const arrivalLatlng = await fetchLatLng(arrival.title);
+      const arrivalLatlng = await fetchLatLngFromGMaps(arrival.title);
       newArrival = {
         ...arrival,
         ...arrivalLatlng,
@@ -121,7 +121,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
           (props.routesCache[i] == null || route.title !== props.routesCache[i].title)
         ) {
           try {
-            const latlng = await fetchLatLng(route.title);
+            const latlng = await fetchLatLngFromGMaps(route.title);
             return {
               ...route,
               ...latlng,
