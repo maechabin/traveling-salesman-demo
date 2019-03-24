@@ -11,7 +11,7 @@ import DemoButton from '../common/DemoButton';
 import '../../styles/DemoAnswer.css';
 
 function DemoAnswer(props: State & Dispatches): JSX.Element {
-  const { answerGross, answerWaypointOrder, routes, handleResetClick, questionStep } = props;
+  const { answerGross, answerWaypointOrder, routes, dispatchInitializeDemo, questionStep } = props;
   return (
     <div className="DemoAnswer">
       <h2>Google Mapsが選んだ経路</h2>
@@ -25,7 +25,7 @@ function DemoAnswer(props: State & Dispatches): JSX.Element {
             answerWaypointOrder={answerWaypointOrder}
           />
           <DemoButton
-            callback={handleResetClick}
+            callback={dispatchInitializeDemo}
             isDisabled={props.questionStep !== Step.Answer}
             classname={'DemoQuestionButton'}
             label={'やり直す'}

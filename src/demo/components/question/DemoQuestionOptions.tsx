@@ -7,7 +7,7 @@ type PropsType = {
   expressway: Expressway;
   traffic: Traffic;
   questionStep: Step;
-  handleFormChange: (value: { name: string; value: string }) => Action;
+  dispatchUpdateQuestionOption: (value: { name: string; value: string }) => Action;
 };
 
 function DemoQuestionOptions({
@@ -15,11 +15,11 @@ function DemoQuestionOptions({
   expressway,
   traffic,
   questionStep,
-  handleFormChange,
+  dispatchUpdateQuestionOption,
 }: PropsType): JSX.Element {
   const isDisabled = questionStep >= Step.Select;
   function handleChange(event: React.FormEvent<HTMLInputElement>): void {
-    handleFormChange({
+    dispatchUpdateQuestionOption({
       name: event.currentTarget.name,
       value: event.currentTarget.value,
     });

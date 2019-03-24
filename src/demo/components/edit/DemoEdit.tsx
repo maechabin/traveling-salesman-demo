@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { State, Route, Position, Step } from '../../../state.model';
 import { Dispatches } from '../../demo.model';
 import { fetchLatLng } from '../../../utils/functions';
+import { ALPHABETS, ROUTE_MAX_LENGTH } from '../../../utils/constants';
 
 import DemoButton from '../common/DemoButton';
 
@@ -35,18 +36,21 @@ const style = {
   } as React.CSSProperties,
 };
 
+enum Index {
+  Departure = 0,
+  Arrival = 9,
+}
+
 function DemoEdit(props: State & Dispatches): JSX.Element {
-  const ALPHABETS: string[] = 'ABCDEFGH'.split('');
-  const ROUTE_LENGTH: number = 8;
   const [departure, setDeparture] = useState(props.departure);
   const [arrival, setArrival] = useState(props.arrival);
   const [routes, setRoutes] = useState(props.routesCache);
   useEffect(() => {
-    if (routes.length < ROUTE_LENGTH) {
-      const addedRoutes: Route[] = Array(ROUTE_LENGTH - routes.length)
+    if (routes.length < ROUTE_MAX_LENGTH) {
+      const addedRoutes: Route[] = Array(ROUTE_MAX_LENGTH - routes.length)
         .fill([])
         .map(
-          (_, i): Route => ({
+          (_, i: number): Route => ({
             id: routes.length + 1 + i,
             title: '',
             lat: NaN,
@@ -57,17 +61,17 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
         );
       setRoutes([...routes, ...addedRoutes]);
     }
-  }, []);
+  }, [routes]);
 
   function handleChange(event: React.FormEvent<HTMLInputElement>, index: number): void {
     const target = event.currentTarget;
     switch (index) {
-      case 0:
+      case Index.Departure:
         if (target.value !== '') {
           setDeparture({ ...departure, title: target.value });
         }
         break;
-      case 9:
+      case Index.Arrival:
         if (target.value !== '') {
           setArrival({ ...arrival, title: target.value });
         }
@@ -89,25 +93,9 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     }
   }
 
-  const callback = useCallback((event: React.FormEvent<HTMLInputElement>, index: number) => {
-    const target = event.currentTarget;
-    const newRoutes = routes.map(
-      (route: Route): Route => {
-        if (route.id === index) {
-          return {
-            ...route,
-            title: target.value,
-          };
-        }
-        return route;
-      },
-    );
-    setRoutes(prevState => {
-      return newRoutes;
-    });
-  }, []);
+  const callback = useCallback(() => {}, []);
 
-  async function handleClick() {
+  async function handleClick(): Promise<void> {
     let newDeparture = departure;
     if (props.departure.title !== departure.title) {
       const departureLatlng = await fetchLatLng(departure.title);
@@ -129,7 +117,6 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     const updatedLatLngRoutes = await Promise.all(
       routes.map(async (route: Route, i: number) => {
         if (
-          route.title != null &&
           route.title !== '' &&
           (props.routesCache[i] == null || route.title !== props.routesCache[i].title)
         ) {
@@ -140,6 +127,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
               ...latlng,
             };
           } catch (e) {
+            console.error(e);
             return {
               ...route,
               title: '',
@@ -163,8 +151,8 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
         };
       });
 
-    props.handleUpdateRoutes(newDeparture, newArrival, newRoutes);
-    props.handleChangeQuestionStep(Step.Initial);
+    props.dispatchUpdateRoutes(newDeparture, newArrival, newRoutes);
+    props.dispatchUpdateQuestionStep(Step.Initial);
   }
 
   const lists = routes.map((route: Route, index: number) => {
@@ -187,7 +175,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
           <input
             style={style.input}
             defaultValue={props.departure.title}
-            onChange={event => handleChange(event, 0)}
+            onChange={event => handleChange(event, Index.Departure)}
           />
         </li>
       </ul>
@@ -201,7 +189,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
           <input
             style={style.input}
             defaultValue={props.arrival.title}
-            onChange={event => handleChange(event, 9)}
+            onChange={event => handleChange(event, Index.Arrival)}
           />
         </li>
       </ul>

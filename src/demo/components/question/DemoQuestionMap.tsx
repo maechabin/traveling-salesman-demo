@@ -13,7 +13,7 @@ class DemoQuestionMap extends React.Component<State & Dispatches, never> {
 
   componentDidMount() {
     this.init();
-    this.props.handleChangeQuestionStep(Step.Start);
+    this.props.dispatchUpdateQuestionStep(Step.Start);
   }
 
   shouldComponentUpdate(nextProps: State & Dispatches) {
@@ -27,7 +27,7 @@ class DemoQuestionMap extends React.Component<State & Dispatches, never> {
     switch (this.props.questionStep) {
       case Step.Initial:
         this.init();
-        this.props.handleChangeQuestionStep(Step.Start);
+        this.props.dispatchUpdateQuestionStep(Step.Start);
         break;
       case Step.Edit:
         this.init();

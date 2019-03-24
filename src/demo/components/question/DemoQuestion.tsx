@@ -11,7 +11,7 @@ import DemoButton from '../common/DemoButton';
 import '../../styles/DemoQuestion.css';
 
 function DemoQuestion(props: State & Dispatches): JSX.Element {
-  const { gross, handleResetClick, ...rest } = props;
+  const { gross, dispatchInitializeDemo, ...rest } = props;
   return (
     <div className="DemoQuestion">
       <h2>あなたが選んだ経路</h2>
@@ -24,7 +24,7 @@ function DemoQuestion(props: State & Dispatches): JSX.Element {
           <DemoQuestionOption {...rest} />
           <DemoQuestionList {...rest} />
           <DemoButton
-            callback={handleResetClick}
+            callback={dispatchInitializeDemo}
             isDisabled={props.questionStep === Step.Answer}
             classname={'DemoQuestionButton'}
             label={'やり直す'}

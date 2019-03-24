@@ -7,7 +7,11 @@ type MarkerProps = {
   routes: Route[];
   questionStep: Step;
   currentSortId: number;
-  handleMarkerClick: (routeid: number, questionStep: Step, currentSortId: number) => Action[];
+  dispatchMarkerClickActions: (
+    routeid: number,
+    questionStep: Step,
+    currentSortId: number,
+  ) => Action[];
 };
 
 type PolilineProps = {
@@ -18,7 +22,7 @@ type PolilineProps = {
   arrival: Position;
   expressway: Expressway;
   departureTime: Date;
-  handleUpdateGross: (gross: Gross) => Action;
+  dispatchUpdateGross: (gross: Gross) => Action;
 };
 
 type AnswerPolilineProps = {
@@ -29,7 +33,7 @@ type AnswerPolilineProps = {
   arrival: Position;
   expressway: Expressway;
   departureTime: Date;
-  handleUpdateAnswerData: (gross: Gross, waypointOrder: number[]) => Action;
+  dispatchUpdateAnswerData: (gross: Gross, waypointOrder: number[]) => Action;
 };
 
 class Maps {
@@ -62,7 +66,14 @@ class Maps {
    * Map上にマーカーを表示する
    */
   public initMarker(props: MarkerProps): void {
-    const { departure, arrival, routes, questionStep, currentSortId, handleMarkerClick } = props;
+    const {
+      departure,
+      arrival,
+      routes,
+      questionStep,
+      currentSortId,
+      dispatchMarkerClickActions,
+    } = props;
     let marker;
     /** 範囲（境界）のインスタンスを作成するクラス */
     const bounds = new google.maps.LatLngBounds();
@@ -117,7 +128,7 @@ class Maps {
       /** クリック時の処理（吹き出し表示） */
       marker.addListener('click', () => {
         if (route.sortId === 0) {
-          handleMarkerClick(route.id, questionStep, currentSortId);
+          dispatchMarkerClickActions(route.id, questionStep, currentSortId);
         }
       });
       return marker;
@@ -141,7 +152,7 @@ class Maps {
       arrival,
       expressway,
       departureTime,
-      handleUpdateGross,
+      dispatchUpdateGross,
     } = props;
 
     /**
@@ -224,7 +235,7 @@ class Maps {
           };
           return [
             directionsRenderer.setMap(this.map), // polylineを地図に表示
-            handleUpdateGross(gross),
+            dispatchUpdateGross(gross),
           ];
         }
         return `error: ${status}`;
@@ -244,7 +255,7 @@ class Maps {
       arrival,
       expressway,
       departureTime,
-      handleUpdateAnswerData,
+      dispatchUpdateAnswerData,
     } = props;
     const directionsService = new google.maps.DirectionsService();
     const directionsRenderer = new google.maps.DirectionsRenderer();
@@ -304,7 +315,7 @@ class Maps {
           };
           return [
             directionsRenderer.setMap(this.map), // polylineを地図に表示
-            handleUpdateAnswerData(gross, response.routes[0].waypoint_order),
+            dispatchUpdateAnswerData(gross, response.routes[0].waypoint_order),
           ];
         }
         return `error: ${status}`;

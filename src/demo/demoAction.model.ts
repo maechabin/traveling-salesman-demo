@@ -8,11 +8,9 @@ export interface Action<T = any> {
 
 /** Actiion Type */
 export enum ActionType {
-  SORT_LIST,
+  UPDATE_ROUTES_SORT,
   UPDATE_GROSS,
   UPDATE_ANSWER_DATA,
-  UPDATE_DEPARTURE,
-  UPDATE_ARRIVAL,
   UPDATE_ROUTES,
   CHANGE_FORM_VALUE,
   RESET_DEMO,

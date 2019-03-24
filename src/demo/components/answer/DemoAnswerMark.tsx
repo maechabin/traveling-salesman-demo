@@ -4,8 +4,7 @@ type PropsType = {
   answerWaypointOrder: number[];
 };
 
-function DemoAnswerMark(props: PropsType): JSX.Element {
-  const { answerWaypointOrder } = props;
+function DemoAnswerMark({ answerWaypointOrder }: PropsType): JSX.Element {
   let answer = <></>;
   if (answerWaypointOrder.length > 0) {
     answer =

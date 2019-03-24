@@ -8,19 +8,19 @@ import '../../styles/DemoDescription.css';
 import { Action } from '../../demoAction.model';
 
 type PropsType = {
-  handleChangeQuestionStep: (step: Step) => Action;
-  handleResetClick: () => Action;
+  dispatchUpdateQuestionStep: (step: Step) => Action;
+  dispatchInitializeDemo: () => Action;
   questionStep: Step;
 };
 
 function DemoDescription({
-  handleChangeQuestionStep,
-  handleResetClick,
+  dispatchUpdateQuestionStep,
+  dispatchInitializeDemo,
   questionStep,
 }: PropsType): JSX.Element {
   function handleClick() {
-    handleResetClick();
-    handleChangeQuestionStep(Step.Edit);
+    dispatchInitializeDemo();
+    dispatchUpdateQuestionStep(Step.Edit);
   }
   return (
     <div className="DemoDescription">
@@ -32,7 +32,7 @@ function DemoDescription({
       />
       <DemoDescriptionText />
       <DemoButton
-        callback={() => handleChangeQuestionStep(Step.Answer)}
+        callback={() => dispatchUpdateQuestionStep(Step.Answer)}
         isDisabled={questionStep < Step.Over}
         classname={'DemoDescriptionButton'}
         label={'正解（最短経路）を見る'}

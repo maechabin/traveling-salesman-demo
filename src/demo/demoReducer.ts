@@ -7,7 +7,7 @@ const initialState: State = { ...state };
 
 const demoReducer = (state: State = initialState, action: Action): State => {
   switch (action.type) {
-    case ActionType.SORT_LIST: {
+    case ActionType.UPDATE_ROUTES_SORT: {
       const routeList = state.routes.map(route => {
         const newRoute = route;
         if (newRoute.id === action.payload) {
@@ -31,16 +31,6 @@ const demoReducer = (state: State = initialState, action: Action): State => {
         ...state,
         answerGross: action.payload.gross,
         answerWaypointOrder: action.payload.waypointOrder,
-      };
-    case ActionType.UPDATE_DEPARTURE:
-      return {
-        ...state,
-        departure: action.payload,
-      };
-    case ActionType.UPDATE_ARRIVAL:
-      return {
-        ...state,
-        arrival: action.payload,
       };
     case ActionType.UPDATE_ROUTES:
       return {
