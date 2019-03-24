@@ -2,8 +2,7 @@ import React from 'react';
 import { Step } from '../../../state.model';
 
 import DemoDescriptionText from './DemoDescriptionText';
-import DemoDescriptionButton from './DemoDescriptionButton';
-import DemoEditButton from '../edit/DemoEditButton';
+import DemoButton from '../common/DemoButton';
 
 import '../../styles/DemoDescription.css';
 import { Action } from '../../demoAction.model';
@@ -19,17 +18,24 @@ function DemoDescription({
   handleResetClick,
   questionStep,
 }: PropsType): JSX.Element {
+  function handleClick() {
+    handleResetClick();
+    handleChangeQuestionStep(Step.Edit);
+  }
   return (
     <div className="DemoDescription">
-      <DemoEditButton
-        handleChangeQuestionStep={handleChangeQuestionStep}
-        handleResetClick={handleResetClick}
-        questionStep={questionStep}
+      <DemoButton
+        callback={handleClick}
+        isDisabled={questionStep >= Step.Select}
+        classname={'DemoEditButton'}
+        label={'ルートを編集する'}
       />
       <DemoDescriptionText />
-      <DemoDescriptionButton
-        handleChangeQuestionStep={handleChangeQuestionStep}
-        questionStep={questionStep}
+      <DemoButton
+        callback={() => handleChangeQuestionStep(Step.Answer)}
+        isDisabled={questionStep < Step.Over}
+        classname={'DemoDescriptionButton'}
+        label={'正解（最短経路）を見る'}
       />
     </div>
   );

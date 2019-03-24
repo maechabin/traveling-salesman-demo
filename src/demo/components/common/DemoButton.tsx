@@ -1,19 +1,19 @@
 import React from 'react';
-import { Action } from 'redux';
-import { Step } from '../../../state.model';
 
 type PropsType = {
-  handleResetClick: () => Action;
+  callback(arg?: any): any;
   isDisabled: boolean;
+  classname?: string;
+  label: string;
 };
 
-function DemoButton({ handleResetClick, isDisabled }: PropsType): JSX.Element {
-  function handleClick() {
-    handleResetClick();
+function DemoButton({ callback, isDisabled, classname, label }: PropsType): JSX.Element {
+  function handleClick(): void {
+    callback();
   }
   return (
-    <button className="DemoQuestionButton" onClick={handleClick} disabled={isDisabled}>
-      やり直す
+    <button className={classname} onClick={handleClick} disabled={isDisabled}>
+      {label}
     </button>
   );
 }

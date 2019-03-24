@@ -25,8 +25,10 @@ function DemoAnswer(props: State & Dispatches): JSX.Element {
             answerWaypointOrder={answerWaypointOrder}
           />
           <DemoButton
-            handleResetClick={handleResetClick}
+            callback={handleResetClick}
             isDisabled={props.questionStep !== Step.Answer}
+            classname={'DemoQuestionButton'}
+            label={'やり直す'}
           />
         </div>
         <div className="DemoAnswerMapArea">

@@ -3,6 +3,8 @@ import { State, Route, Position, Step } from '../../../state.model';
 import { Dispatches } from '../../demo.model';
 import { fetchLatLng } from '../../../utils/functions';
 
+import DemoButton from '../common/DemoButton';
+
 const style = {
   demoEdit: {
     width: '50%',
@@ -203,7 +205,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
           />
         </li>
       </ul>
-      <button onClick={handleClick}>設定する</button>
+      <DemoButton callback={handleClick} isDisabled={routes.length === 0} label={'設定する'} />
     </div>
   );
 }
