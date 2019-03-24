@@ -17,7 +17,7 @@ function DemoQuestionOptions({
   questionStep,
   dispatchUpdateQuestionOption,
 }: PropsType): JSX.Element {
-  const isDisabled = questionStep >= Step.Select;
+  const isDisabled = questionStep >= Step.Edit;
   function handleChange(event: React.FormEvent<HTMLInputElement>): void {
     dispatchUpdateQuestionOption({
       name: event.currentTarget.name,
