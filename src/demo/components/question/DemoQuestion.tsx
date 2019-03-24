@@ -1,30 +1,43 @@
 import React from 'react';
-import { State, Step } from '../../../state.model';
-import { Dispatches } from '../../demo.model';
+import { Route, State, Step } from '../../../state.model';
+import { Dispatches, DisplaySide } from '../../demo.model';
 
 import DemoQuestionMap from './DemoQuestionMap';
-import DemoQuestionList from './DemoQuestionList';
 import DemoQuestionOption from './DemoQuestionOptions';
+import DemoRoutesList from '../common/DemoRoutesList';
 import DemoGross from '../common/DemoGross';
 import DemoButton from '../common/DemoButton';
 
 import '../../styles/DemoQuestion.css';
 
 function DemoQuestion(props: State & Dispatches): JSX.Element {
-  const { gross, dispatchInitializeDemo, ...rest } = props;
+  const sortedList = props.routes.sort((routeA: Route, routeB: Route) => {
+    if (routeA.sortId > routeB.sortId) return -1;
+    if (routeA.sortId < routeB.sortId) return 1;
+    if (routeA.id < routeB.id) return -1;
+    if (routeA.id > routeB.id) return 1;
+    return 0;
+  });
+
   return (
     <div className="DemoQuestion">
       <h2>あなたが選んだ経路</h2>
       <div className="DemoQuestionMain">
         <div className="DemoQuestionMapArea">
           <DemoQuestionMap {...props} />
-          <DemoGross gross={gross} />
+          <DemoGross gross={props.gross} />
         </div>
         <div className="DemoQuestionNavArea">
-          <DemoQuestionOption {...rest} />
-          <DemoQuestionList {...rest} />
+          <DemoQuestionOption {...props} />
+          <DemoRoutesList
+            routes={sortedList}
+            departure={props.departure}
+            arrival={props.arrival}
+            answerWaypointOrder={props.answerWaypointOrder}
+            displaySide={DisplaySide.Question}
+          />
           <DemoButton
-            callback={dispatchInitializeDemo}
+            callback={props.dispatchInitializeDemo}
             isDisabled={props.questionStep === Step.Answer}
             classname={'DemoQuestionButton'}
             label={'やり直す'}

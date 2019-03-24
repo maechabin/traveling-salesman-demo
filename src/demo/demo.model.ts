@@ -10,3 +10,8 @@ export interface Dispatches {
   dispatchUpdateQuestionStep(step: Step): Action;
   dispatchInitializeDemo(): Action;
 }
+
+export enum DisplaySide {
+  Question,
+  Answer,
+}

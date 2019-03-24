@@ -1,31 +1,31 @@
 import React from 'react';
 import { State, Step } from '../../../state.model';
-import { Dispatches } from '../../demo.model';
+import { Dispatches, DisplaySide } from '../../demo.model';
 
-import DemoAnswerList from './DemoAnswerList';
 import DemoAnswerMap from './DemoAnswerMap';
 import DemoAnswerMark from './DemoAnswerMark';
+import DemoRoutesList from '../common/DemoRoutesList';
 import DemoGross from '../common/DemoGross';
 import DemoButton from '../common/DemoButton';
 
 import '../../styles/DemoAnswer.css';
 
 function DemoAnswer(props: State & Dispatches): JSX.Element {
-  const { answerGross, answerWaypointOrder, routes, dispatchInitializeDemo, questionStep } = props;
   return (
     <div className="DemoAnswer">
       <h2>Google Mapsが選んだ経路</h2>
       <div className="DemoAnswerMain">
         <div className="DemoAnswerNavArea">
-          <DemoAnswerMark answerWaypointOrder={answerWaypointOrder} />
-          <DemoAnswerList
+          <DemoAnswerMark answerWaypointOrder={props.answerWaypointOrder} />
+          <DemoRoutesList
             departure={props.departure}
             arrival={props.arrival}
-            routes={routes}
-            answerWaypointOrder={answerWaypointOrder}
+            routes={props.routes}
+            answerWaypointOrder={props.answerWaypointOrder}
+            displaySide={DisplaySide.Answer}
           />
           <DemoButton
-            callback={dispatchInitializeDemo}
+            callback={props.dispatchInitializeDemo}
             isDisabled={props.questionStep !== Step.Answer}
             classname={'DemoQuestionButton'}
             label={'やり直す'}
@@ -33,7 +33,7 @@ function DemoAnswer(props: State & Dispatches): JSX.Element {
         </div>
         <div className="DemoAnswerMapArea">
           <DemoAnswerMap {...props} />
-          <DemoGross gross={answerGross} />
+          <DemoGross gross={props.answerGross} />
         </div>
       </div>
     </div>
