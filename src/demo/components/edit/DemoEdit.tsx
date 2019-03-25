@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { State, Route, Position, Step } from '../../../state.model';
 import { Dispatches, RouteLabel } from '../../demo.model';
-import { fetchLatLngFromGMaps } from '../../../utils/functions';
+import { fetchLatLngFromGMaps } from '../../../utils/shared';
 import * as RouteConst from '../../../constants/route';
 import * as ButtonLabel from '../../../constants/button';
 

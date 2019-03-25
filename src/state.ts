@@ -1,5 +1,5 @@
 import { State, Position, Route, Step, Transport, Traffic, Expressway } from './state.model';
-import { copyArrayWithObject } from './utils/functions';
+import { copyArrayWithObject } from './utils/shared';
 
 const departure: Position = {
   title: '山王パークタワー',
