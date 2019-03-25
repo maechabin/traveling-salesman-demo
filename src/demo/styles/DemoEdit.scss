@@ -1,0 +1,8 @@
+@import './mixin.scss';
+
+.DemoEdit {
+  &Button {
+    @include Button();
+    margin: 0 2px;
+  }
+}

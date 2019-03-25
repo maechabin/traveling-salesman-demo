@@ -1,0 +1,24 @@
+.DemoEditButton {
+  cursor: pointer;
+  outline: none;
+  margin: 24px auto;
+  border: none;
+  border-radius: 2px;
+  padding: 16px;
+  font-size: 16px;
+  max-width: 240px;
+  width: 100%;
+  color: #fff;
+  background-color: #90a4ae;
+  transition: 0.3s;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+  margin: 0 2px; }
+  .DemoEditButton:hover, .DemoEditButton:focus {
+    background: #738c98; }
+  .DemoEditButton:active {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28); }
+  .DemoEditButton:disabled {
+    cursor: not-allowed;
+    box-shadow: none;
+    color: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2); }

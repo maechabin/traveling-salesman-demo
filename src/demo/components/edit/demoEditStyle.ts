@@ -1,10 +1,17 @@
 export const demoEdit = {
-  width: '50%',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  flexDirection: 'column',
-} as React.CSSProperties;
+  wrapper: {
+    width: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+  } as React.CSSProperties,
+  buttons: {
+    display: 'flex',
+    alignItems: 'center',
+    width: '320px',
+  } as React.CSSProperties,
+};
 
 export const demoEditRoute = {
   label: {

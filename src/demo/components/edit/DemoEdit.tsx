@@ -10,6 +10,7 @@ import DemoEditRoutes from './DemoEditRoutes';
 import DemoButton from '../common/DemoButton';
 
 import { demoEdit } from './demoEditStyle';
+import '../../styles/DemoEdit.css';
 
 function DemoEdit(props: State & Dispatches): JSX.Element {
   const [departure, setDeparture] = useState(props.departure);
@@ -129,7 +130,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
   const isDisabled = getIsDisabled();
 
   return (
-    <div style={demoEdit}>
+    <div style={demoEdit.wrapper}>
       <DemoEditDepartureArrival
         label={RouteConst.DEPARTURE}
         title={departure.title}
@@ -143,12 +144,20 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
         index={RouteLabel.Arrival}
         callback={handleChange}
       />
-      <DemoButton
-        callback={() => props.dispatchUpdateQuestionStep(Step.Start)}
-        isDisabled={false}
-        label={ButtonLabel.CANCEL}
-      />
-      <DemoButton callback={handleClick} isDisabled={isDisabled} label={ButtonLabel.SET_ROUTES} />
+      <div style={demoEdit.buttons}>
+        <DemoButton
+          callback={() => props.dispatchUpdateQuestionStep(Step.Start)}
+          isDisabled={false}
+          label={ButtonLabel.CANCEL}
+          classname={'DemoEditButton'}
+        />
+        <DemoButton
+          callback={handleClick}
+          isDisabled={isDisabled}
+          label={ButtonLabel.SET_ROUTES}
+          classname={'DemoEditButton'}
+        />
+      </div>
     </div>
   );
 }

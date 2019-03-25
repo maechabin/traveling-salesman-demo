@@ -28,7 +28,7 @@ function DemoDescription({
       <DemoButton
         callback={handleClick}
         isDisabled={questionStep >= Step.Select}
-        classname={'DemoEditButton'}
+        classname={'DemoQuestionButton'}
         label={ButtonLabel.EDIT_ROUTES}
       />
       <DemoDescriptionText />
