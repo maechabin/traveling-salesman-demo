@@ -119,6 +119,15 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     props.dispatchUpdateQuestionStep(Step.Initial);
   }
 
+  function getIsDisabled(): boolean {
+    const havingTilteRoutes = routes.filter(route => {
+      return route.title !== '';
+    });
+    return havingTilteRoutes.length < 2;
+  }
+
+  const isDisabled = getIsDisabled();
+
   return (
     <div style={demoEdit}>
       <DemoEditDepartureArrival
@@ -139,11 +148,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
         isDisabled={false}
         label={ButtonLabel.CANCEL}
       />
-      <DemoButton
-        callback={handleClick}
-        isDisabled={routes.length === 0}
-        label={ButtonLabel.SET_ROUTES}
-      />
+      <DemoButton callback={handleClick} isDisabled={isDisabled} label={ButtonLabel.SET_ROUTES} />
     </div>
   );
 }
