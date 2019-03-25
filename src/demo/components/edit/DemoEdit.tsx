@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { State, Route, Step } from '../../../state.model';
+import { State, Route, Position, Step } from '../../../state.model';
 import { Dispatches, RouteLabel } from '../../demo.model';
 import { fetchLatLngFromGMaps } from '../../../utils/functions';
 import * as RouteConst from '../../../constants/route';
@@ -71,23 +71,31 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     }
   }
 
+  async function fetchAndMergeLatLng<T extends { title: string }>(route: T): Promise<T> {
+    try {
+      const latlng = await fetchLatLngFromGMaps(route.title);
+      return {
+        ...route,
+        ...latlng,
+      };
+    } catch (e) {
+      console.error(e);
+      return {
+        ...route,
+        title: '',
+      };
+    }
+  }
+
   async function handleClick(): Promise<void> {
     let newDeparture = departure;
     if (props.departure.title !== departure.title) {
-      const departureLatlng = await fetchLatLngFromGMaps(departure.title);
-      newDeparture = {
-        ...departure,
-        ...departureLatlng,
-      };
+      newDeparture = await fetchAndMergeLatLng<Position>(departure);
     }
 
     let newArrival = arrival;
     if (props.arrival.title !== arrival.title) {
-      const arrivalLatlng = await fetchLatLngFromGMaps(arrival.title);
-      newArrival = {
-        ...arrival,
-        ...arrivalLatlng,
-      };
+      newArrival = await fetchAndMergeLatLng<Position>(arrival);
     }
 
     const updatedLatLngRoutes = await Promise.all(
@@ -96,19 +104,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
           route.title !== '' &&
           (props.routesCache[i] == null || route.title !== props.routesCache[i].title)
         ) {
-          try {
-            const latlng = await fetchLatLngFromGMaps(route.title);
-            return {
-              ...route,
-              ...latlng,
-            };
-          } catch (e) {
-            console.error(e);
-            return {
-              ...route,
-              title: '',
-            };
-          }
+          return await fetchAndMergeLatLng<Route>(route);
         }
         return route;
       }),
