@@ -16,7 +16,7 @@ function DemoEditRoutes({ routes, callback }: PropsTypes): JSX.Element {
 
   const lists = routes.map((route: Route, index: number) => {
     return (
-      <li>
+      <li key={index}>
         <input
           style={demoEditRoute.input}
           defaultValue={route.title}

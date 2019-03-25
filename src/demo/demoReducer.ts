@@ -1,5 +1,5 @@
 import { state } from '../state';
-import { State, Route, Step, Traffic, Transport, Expressway } from '../state.model';
+import { State, Step, Traffic, Transport, Expressway } from '../state.model';
 import { ActionType, Action } from './demoAction.model';
 import { copyArrayWithObject } from '../utils/shared';
 

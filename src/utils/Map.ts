@@ -115,6 +115,7 @@ class Maps {
       marker = new google.maps.Marker({
         map: this.map,
         draggable: false, // ドラッグできるか
+        clickable: questionStep !== Step.Edit,
         opacity: 1.0, // 透明度
         position: { lat: route.lat, lng: route.lng },
         title: route.title,

@@ -18,21 +18,25 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
   const [routes, setRoutes] = useState(props.routesCache);
   useEffect(() => {
     if (routes.length < RouteConst.ROUTE_MAX_LENGTH) {
-      const addedRoutes: Route[] = Array(RouteConst.ROUTE_MAX_LENGTH - routes.length)
-        .fill([])
-        .map(
-          (_, i: number): Route => ({
-            id: routes.length + 1 + i,
-            title: '',
-            lat: NaN,
-            lng: NaN,
-            label: '',
-            sortId: 0,
-          }),
-        );
-      setRoutes([...routes, ...addedRoutes]);
+      makeRoutesArrayToBeMaxLength(routes);
     }
   }, [routes]);
+
+  function makeRoutesArrayToBeMaxLength(routes: Route[]) {
+    const addedRoutes: Route[] = Array(RouteConst.ROUTE_MAX_LENGTH - routes.length)
+      .fill([])
+      .map(
+        (_, i: number): Route => ({
+          id: routes.length + 1 + i,
+          title: '',
+          lat: NaN,
+          lng: NaN,
+          label: '',
+          sortId: 0,
+        }),
+      );
+    setRoutes([...routes, ...addedRoutes]);
+  }
 
   function handleChange(event: React.FormEvent<HTMLInputElement>, index: number): void {
     const target = event.currentTarget;
@@ -153,7 +157,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
         />
         <DemoButton
           callback={handleClick}
-          isDisabled={isDisabled}
+          isDisabled={isDisabled || props.questionStep !== Step.Edit}
           label={ButtonLabel.SET_ROUTES}
           classname={'DemoEditButton'}
         />
