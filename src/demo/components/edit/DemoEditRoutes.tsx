@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from '../../../state.model';
 import * as RouteConst from '../../../constants/route';
 
-import { style } from './demoEdit.style';
+import { demoEditRoute } from './demoEditStyle';
 
 type PropsTypes = {
   routes: Route[];
@@ -18,7 +18,7 @@ function DemoEditRoutes({ routes, callback }: PropsTypes): JSX.Element {
     return (
       <li>
         <input
-          style={style.input}
+          style={demoEditRoute.input}
           defaultValue={route.title}
           onChange={event => handleChange(event, index + 1)}
         />
@@ -27,8 +27,10 @@ function DemoEditRoutes({ routes, callback }: PropsTypes): JSX.Element {
   });
 
   return (
-    <ul style={style.ul}>
-      <label style={{ ...style.label, backgroundColor: RouteConst.ROUTES_COLOR }}>ルート</label>
+    <ul style={demoEditRoute.ul}>
+      <label style={{ ...demoEditRoute.label, backgroundColor: RouteConst.ROUTES_COLOR }}>
+        ルート
+      </label>
       {lists}
     </ul>
   );

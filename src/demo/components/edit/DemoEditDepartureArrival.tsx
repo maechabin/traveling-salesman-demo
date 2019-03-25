@@ -1,7 +1,7 @@
 import React from 'react';
 import * as RouteConst from '../../../constants/route';
 
-import { style } from './demoEdit.style';
+import { demoEditRoute } from './demoEditStyle';
 
 type PropsTypes = {
   label: string;
@@ -16,12 +16,17 @@ function DemoEditDepartureArrival({ label, title, index, callback }: PropsTypes)
   }
   return (
     <>
-      <label style={{ ...style.label, backgroundColor: RouteConst.DEPARTURE_ARRIVAL_COLOR }}>
+      <label
+        style={{ ...demoEditRoute.label, backgroundColor: RouteConst.DEPARTURE_ARRIVAL_COLOR }}>
         {label}
       </label>
-      <ul style={style.ul}>
+      <ul style={demoEditRoute.ul}>
         <li>
-          <input style={style.input} defaultValue={title} onChange={event => handleChange(event)} />
+          <input
+            style={demoEditRoute.input}
+            defaultValue={title}
+            onChange={event => handleChange(event)}
+          />
         </li>
       </ul>
     </>

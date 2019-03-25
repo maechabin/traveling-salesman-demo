@@ -1,4 +1,12 @@
-export const style = {
+export const demoEdit = {
+  width: '50%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column',
+} as React.CSSProperties;
+
+export const demoEditRoute = {
   label: {
     color: '#fff',
     padding: '4px',

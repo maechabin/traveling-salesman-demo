@@ -9,15 +9,7 @@ import DemoEditDepartureArrival from './DemoEditDepartureArrival';
 import DemoEditRoutes from './DemoEditRoutes';
 import DemoButton from '../common/DemoButton';
 
-const style = {
-  demoEdit: {
-    width: '50%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-  } as React.CSSProperties,
-};
+import { demoEdit } from './demoEditStyle';
 
 function DemoEdit(props: State & Dispatches): JSX.Element {
   const [departure, setDeparture] = useState(props.departure);
@@ -128,7 +120,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
   }
 
   return (
-    <div style={style.demoEdit}>
+    <div style={demoEdit}>
       <DemoEditDepartureArrival
         label={RouteConst.DEPARTURE}
         title={departure.title}
