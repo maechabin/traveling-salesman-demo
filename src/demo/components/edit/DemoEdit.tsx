@@ -147,7 +147,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
         callback={handleChange}
       />
       <DemoButton
-        callback={() => props.dispatchUpdateQuestionStep(Step.Initial)}
+        callback={() => props.dispatchUpdateQuestionStep(Step.Start)}
         isDisabled={false}
         label={ButtonLabel.CANCEL}
       />
