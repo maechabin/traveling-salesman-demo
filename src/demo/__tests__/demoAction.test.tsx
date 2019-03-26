@@ -1,5 +1,5 @@
 import * as actions from '../demoAction';
-import { Gross, Position, Route, Step } from '../../state.model';
+import { Step } from '../../state.model';
 import { ActionType } from '../demoAction.model';
 
 describe('actions', () => {
@@ -15,7 +15,7 @@ describe('actions', () => {
     const recieved = actions.updateRoutesSort(payload);
 
     // verify
-    expect(recieved).toBe(expected);
+    expect(recieved).toEqual(expected);
   });
 
   it('updateGross', () => {
@@ -57,11 +57,23 @@ describe('actions', () => {
     expect(recieved).toEqual(expected);
   });
 
-  it('オプションをdisabledにするためのactionを作ること', () => {
-    const expectedAction = {
-      type: actions.DISABLED_CHOOSE_OPTIONS,
+  it('updateRoutes', () => {
+    // setup
+    const payload = {
+      departure: { A: 'AAA' } as any,
+      arrival: { B: 'BBB' } as any,
+      routes: ['C', 'D', 'E'] as any,
     };
-    expect(actions.disabledChooseOptions()).toEqual(expectedAction);
+    const expected = {
+      type: ActionType.UPDATE_ROUTES,
+      payload,
+    };
+
+    // exercise
+    const recieved = actions.updateRoutes(payload);
+
+    // verify
+    expect(recieved).toEqual(expected);
   });
 
   it('updateQuestionOption', () => {
