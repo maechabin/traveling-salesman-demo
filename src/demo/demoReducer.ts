@@ -1,5 +1,5 @@
 import { state } from '../state';
-import { State, Step, Traffic, Transport, Expressway } from '../state.model';
+import { State, Step, Route, Traffic, Transport, Expressway } from '../state.model';
 import { ActionType, Action } from './demoAction.model';
 import { copyArrayWithObject } from '../utils/shared';
 
@@ -38,7 +38,7 @@ const demoReducer = (state: State = initialState, action: Action): State => {
         departure: JSON.parse(JSON.stringify(action.payload.departure)),
         arrival: JSON.parse(JSON.stringify(action.payload.arrival)),
         routes: action.payload.routes,
-        routesCache: copyArrayWithObject(action.payload.routes),
+        routesCache: copyArrayWithObject<Route>(action.payload.routes),
         currentSortId: action.payload.routes.length,
       };
     case ActionType.UPDATE_QUESTION_STEP:
@@ -56,7 +56,7 @@ const demoReducer = (state: State = initialState, action: Action): State => {
         ...state,
         departure: JSON.parse(JSON.stringify(state.departure)),
         arrival: JSON.parse(JSON.stringify(state.arrival)),
-        routes: copyArrayWithObject(state.routesCache),
+        routes: copyArrayWithObject<Route>(state.routesCache),
         questionStep: Step.Initial,
         currentSortId: state.routesCache.length, // routes（経路）の要素数を指定する
         transport: Transport.Car,

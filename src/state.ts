@@ -85,8 +85,8 @@ const defaultRoute: Route[] = [
 export const state: State = {
   departure: JSON.parse(JSON.stringify(departure)),
   arrival: JSON.parse(JSON.stringify(arrival)),
-  routes: copyArrayWithObject(defaultRoute.concat()),
-  routesCache: copyArrayWithObject(defaultRoute.concat()),
+  routes: copyArrayWithObject<Route>(defaultRoute.concat()),
+  routesCache: copyArrayWithObject<Route>(defaultRoute.concat()),
   questionStep: Step.Initial,
   currentSortId: defaultRoute.length, // routes（経路）の要素数を指定する
   transport: Transport.Car,
