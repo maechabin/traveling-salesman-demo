@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DemoGross /> propsから受け取った総距離/総時間の値を表示すること 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DemoGross
+    gross={
+      Object {
+        "distance": 300,
+        "duration": 100,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <p>
+        総距離: 
+        <span>
+          300
+        </span>
+        km / 総時間: 
+        <span>
+          100
+        </span>
+        分
+      </p>,
+      "className": "DemoQuestionGross",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          "総距離: ",
+          <span>
+            300
+          </span>,
+          "km / 総時間: ",
+          <span>
+            100
+          </span>,
+          "分",
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        "総距離: ",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": 300,
+          },
+          "ref": null,
+          "rendered": 300,
+          "type": "span",
+        },
+        "km / 総時間: ",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": 100,
+          },
+          "ref": null,
+          "rendered": 100,
+          "type": "span",
+        },
+        "分",
+      ],
+      "type": "p",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <p>
+          総距離: 
+          <span>
+            300
+          </span>
+          km / 総時間: 
+          <span>
+            100
+          </span>
+          分
+        </p>,
+        "className": "DemoQuestionGross",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "総距離: ",
+            <span>
+              300
+            </span>,
+            "km / 総時間: ",
+            <span>
+              100
+            </span>,
+            "分",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "総距離: ",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": 300,
+            },
+            "ref": null,
+            "rendered": 300,
+            "type": "span",
+          },
+          "km / 総時間: ",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": 100,
+            },
+            "ref": null,
+            "rendered": 100,
+            "type": "span",
+          },
+          "分",
+        ],
+        "type": "p",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
