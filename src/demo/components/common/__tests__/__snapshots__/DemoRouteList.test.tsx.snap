@@ -1,0 +1,1329 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DemoRoutesList /> DisplaySide.Question 経路リストの要素が全て表示されること 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DemoRoutesList
+    answerWaypointOrder={Array []}
+    arrival={
+      Object {
+        "label": "着",
+        "lat": 35.6604638,
+        "lng": 139.72924869999997,
+        "title": "六本木ヒルズ森タワー",
+      }
+    }
+    departure={
+      Object {
+        "label": "発",
+        "lat": 35.6731652,
+        "lng": 139.7407961,
+        "title": "山王パークタワー",
+      }
+    }
+    displaySide={0}
+    routes={
+      Array [
+        Object {
+          "id": 1,
+          "label": "A",
+          "lat": 111,
+          "lng": 111,
+          "sortId": 5,
+          "title": "秋葉原駅",
+        },
+        Object {
+          "id": 2,
+          "label": "B",
+          "lat": 222,
+          "lng": 222,
+          "sortId": 4,
+          "title": "文京区役所",
+        },
+        Object {
+          "id": 3,
+          "label": "C",
+          "lat": 333,
+          "lng": 333,
+          "sortId": 1,
+          "title": "明治大学",
+        },
+        Object {
+          "id": 4,
+          "label": "D",
+          "lat": 444,
+          "lng": 444,
+          "sortId": 2,
+          "title": "浜離宮",
+        },
+        Object {
+          "id": 5,
+          "label": "E",
+          "lat": 555,
+          "lng": 555,
+          "sortId": 8,
+          "title": "国会議事堂",
+        },
+        Object {
+          "id": 6,
+          "label": "F",
+          "lat": 666,
+          "lng": 666,
+          "sortId": 3,
+          "title": "東京タワー",
+        },
+        Object {
+          "id": 7,
+          "label": "G",
+          "lat": 777,
+          "lng": 777,
+          "sortId": 7,
+          "title": "上野動物園",
+        },
+        Object {
+          "id": 8,
+          "label": "H",
+          "lat": 888,
+          "lng": 888,
+          "sortId": 6,
+          "title": "東京駅",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <ul
+          className="DemoQuestionListDeparture"
+        >
+          <li>
+            <span>
+              発
+              :
+            </span>
+            山王パークタワー
+          </li>
+        </ul>,
+        <ul
+          className="DemoQuestionListRoutes"
+        >
+          <li
+            className="DemoQuestionListSorted"
+          >
+            <span>
+              A
+              :
+            </span>
+            秋葉原駅
+          </li>
+          <li
+            className="DemoQuestionListSorted"
+          >
+            <span>
+              B
+              :
+            </span>
+            文京区役所
+          </li>
+          <li
+            className="DemoQuestionListSorted"
+          >
+            <span>
+              C
+              :
+            </span>
+            明治大学
+          </li>
+          <li
+            className="DemoQuestionListSorted"
+          >
+            <span>
+              D
+              :
+            </span>
+            浜離宮
+          </li>
+          <li
+            className="DemoQuestionListSorted"
+          >
+            <span>
+              E
+              :
+            </span>
+            国会議事堂
+          </li>
+          <li
+            className="DemoQuestionListSorted"
+          >
+            <span>
+              F
+              :
+            </span>
+            東京タワー
+          </li>
+          <li
+            className="DemoQuestionListSorted"
+          >
+            <span>
+              G
+              :
+            </span>
+            上野動物園
+          </li>
+          <li
+            className="DemoQuestionListSorted"
+          >
+            <span>
+              H
+              :
+            </span>
+            東京駅
+          </li>
+        </ul>,
+        <ul
+          className="DemoQuestionListArrival"
+        >
+          <li>
+            <span>
+              着
+              :
+            </span>
+            六本木ヒルズ森タワー
+          </li>
+        </ul>,
+      ],
+      "className": "DemoQuestionList",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <li>
+            <span>
+              発
+              :
+            </span>
+            山王パークタワー
+          </li>,
+          "className": "DemoQuestionListDeparture",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": "山王パークタワー",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <span>
+                発
+                :
+              </span>,
+              "山王パークタワー",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "発",
+                  ":",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "発",
+                ":",
+              ],
+              "type": "span",
+            },
+            "山王パークタワー",
+          ],
+          "type": "li",
+        },
+        "type": "ul",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <li
+              className="DemoQuestionListSorted"
+            >
+              <span>
+                A
+                :
+              </span>
+              秋葉原駅
+            </li>,
+            <li
+              className="DemoQuestionListSorted"
+            >
+              <span>
+                B
+                :
+              </span>
+              文京区役所
+            </li>,
+            <li
+              className="DemoQuestionListSorted"
+            >
+              <span>
+                C
+                :
+              </span>
+              明治大学
+            </li>,
+            <li
+              className="DemoQuestionListSorted"
+            >
+              <span>
+                D
+                :
+              </span>
+              浜離宮
+            </li>,
+            <li
+              className="DemoQuestionListSorted"
+            >
+              <span>
+                E
+                :
+              </span>
+              国会議事堂
+            </li>,
+            <li
+              className="DemoQuestionListSorted"
+            >
+              <span>
+                F
+                :
+              </span>
+              東京タワー
+            </li>,
+            <li
+              className="DemoQuestionListSorted"
+            >
+              <span>
+                G
+                :
+              </span>
+              上野動物園
+            </li>,
+            <li
+              className="DemoQuestionListSorted"
+            >
+              <span>
+                H
+                :
+              </span>
+              東京駅
+            </li>,
+          ],
+          "className": "DemoQuestionListRoutes",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "1",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span>
+                  A
+                  :
+                </span>,
+                "秋葉原駅",
+              ],
+              "className": "DemoQuestionListSorted",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "A",
+                    ":",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "A",
+                  ":",
+                ],
+                "type": "span",
+              },
+              "秋葉原駅",
+            ],
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": "2",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span>
+                  B
+                  :
+                </span>,
+                "文京区役所",
+              ],
+              "className": "DemoQuestionListSorted",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "B",
+                    ":",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "B",
+                  ":",
+                ],
+                "type": "span",
+              },
+              "文京区役所",
+            ],
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": "3",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span>
+                  C
+                  :
+                </span>,
+                "明治大学",
+              ],
+              "className": "DemoQuestionListSorted",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "C",
+                    ":",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "C",
+                  ":",
+                ],
+                "type": "span",
+              },
+              "明治大学",
+            ],
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": "4",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span>
+                  D
+                  :
+                </span>,
+                "浜離宮",
+              ],
+              "className": "DemoQuestionListSorted",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "D",
+                    ":",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "D",
+                  ":",
+                ],
+                "type": "span",
+              },
+              "浜離宮",
+            ],
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": "5",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span>
+                  E
+                  :
+                </span>,
+                "国会議事堂",
+              ],
+              "className": "DemoQuestionListSorted",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "E",
+                    ":",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "E",
+                  ":",
+                ],
+                "type": "span",
+              },
+              "国会議事堂",
+            ],
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": "6",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span>
+                  F
+                  :
+                </span>,
+                "東京タワー",
+              ],
+              "className": "DemoQuestionListSorted",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "F",
+                    ":",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "F",
+                  ":",
+                ],
+                "type": "span",
+              },
+              "東京タワー",
+            ],
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": "7",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span>
+                  G
+                  :
+                </span>,
+                "上野動物園",
+              ],
+              "className": "DemoQuestionListSorted",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "G",
+                    ":",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "G",
+                  ":",
+                ],
+                "type": "span",
+              },
+              "上野動物園",
+            ],
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": "8",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span>
+                  H
+                  :
+                </span>,
+                "東京駅",
+              ],
+              "className": "DemoQuestionListSorted",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "H",
+                    ":",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "H",
+                  ":",
+                ],
+                "type": "span",
+              },
+              "東京駅",
+            ],
+            "type": "li",
+          },
+        ],
+        "type": "ul",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <li>
+            <span>
+              着
+              :
+            </span>
+            六本木ヒルズ森タワー
+          </li>,
+          "className": "DemoQuestionListArrival",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": "六本木ヒルズ森タワー",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <span>
+                着
+                :
+              </span>,
+              "六本木ヒルズ森タワー",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "着",
+                  ":",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "着",
+                ":",
+              ],
+              "type": "span",
+            },
+            "六本木ヒルズ森タワー",
+          ],
+          "type": "li",
+        },
+        "type": "ul",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <ul
+            className="DemoQuestionListDeparture"
+          >
+            <li>
+              <span>
+                発
+                :
+              </span>
+              山王パークタワー
+            </li>
+          </ul>,
+          <ul
+            className="DemoQuestionListRoutes"
+          >
+            <li
+              className="DemoQuestionListSorted"
+            >
+              <span>
+                A
+                :
+              </span>
+              秋葉原駅
+            </li>
+            <li
+              className="DemoQuestionListSorted"
+            >
+              <span>
+                B
+                :
+              </span>
+              文京区役所
+            </li>
+            <li
+              className="DemoQuestionListSorted"
+            >
+              <span>
+                C
+                :
+              </span>
+              明治大学
+            </li>
+            <li
+              className="DemoQuestionListSorted"
+            >
+              <span>
+                D
+                :
+              </span>
+              浜離宮
+            </li>
+            <li
+              className="DemoQuestionListSorted"
+            >
+              <span>
+                E
+                :
+              </span>
+              国会議事堂
+            </li>
+            <li
+              className="DemoQuestionListSorted"
+            >
+              <span>
+                F
+                :
+              </span>
+              東京タワー
+            </li>
+            <li
+              className="DemoQuestionListSorted"
+            >
+              <span>
+                G
+                :
+              </span>
+              上野動物園
+            </li>
+            <li
+              className="DemoQuestionListSorted"
+            >
+              <span>
+                H
+                :
+              </span>
+              東京駅
+            </li>
+          </ul>,
+          <ul
+            className="DemoQuestionListArrival"
+          >
+            <li>
+              <span>
+                着
+                :
+              </span>
+              六本木ヒルズ森タワー
+            </li>
+          </ul>,
+        ],
+        "className": "DemoQuestionList",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <li>
+              <span>
+                発
+                :
+              </span>
+              山王パークタワー
+            </li>,
+            "className": "DemoQuestionListDeparture",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": "山王パークタワー",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span>
+                  発
+                  :
+                </span>,
+                "山王パークタワー",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "発",
+                    ":",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "発",
+                  ":",
+                ],
+                "type": "span",
+              },
+              "山王パークタワー",
+            ],
+            "type": "li",
+          },
+          "type": "ul",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <li
+                className="DemoQuestionListSorted"
+              >
+                <span>
+                  A
+                  :
+                </span>
+                秋葉原駅
+              </li>,
+              <li
+                className="DemoQuestionListSorted"
+              >
+                <span>
+                  B
+                  :
+                </span>
+                文京区役所
+              </li>,
+              <li
+                className="DemoQuestionListSorted"
+              >
+                <span>
+                  C
+                  :
+                </span>
+                明治大学
+              </li>,
+              <li
+                className="DemoQuestionListSorted"
+              >
+                <span>
+                  D
+                  :
+                </span>
+                浜離宮
+              </li>,
+              <li
+                className="DemoQuestionListSorted"
+              >
+                <span>
+                  E
+                  :
+                </span>
+                国会議事堂
+              </li>,
+              <li
+                className="DemoQuestionListSorted"
+              >
+                <span>
+                  F
+                  :
+                </span>
+                東京タワー
+              </li>,
+              <li
+                className="DemoQuestionListSorted"
+              >
+                <span>
+                  G
+                  :
+                </span>
+                上野動物園
+              </li>,
+              <li
+                className="DemoQuestionListSorted"
+              >
+                <span>
+                  H
+                  :
+                </span>
+                東京駅
+              </li>,
+            ],
+            "className": "DemoQuestionListRoutes",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "1",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span>
+                    A
+                    :
+                  </span>,
+                  "秋葉原駅",
+                ],
+                "className": "DemoQuestionListSorted",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "A",
+                      ":",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "A",
+                    ":",
+                  ],
+                  "type": "span",
+                },
+                "秋葉原駅",
+              ],
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": "2",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span>
+                    B
+                    :
+                  </span>,
+                  "文京区役所",
+                ],
+                "className": "DemoQuestionListSorted",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "B",
+                      ":",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "B",
+                    ":",
+                  ],
+                  "type": "span",
+                },
+                "文京区役所",
+              ],
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": "3",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span>
+                    C
+                    :
+                  </span>,
+                  "明治大学",
+                ],
+                "className": "DemoQuestionListSorted",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "C",
+                      ":",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "C",
+                    ":",
+                  ],
+                  "type": "span",
+                },
+                "明治大学",
+              ],
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": "4",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span>
+                    D
+                    :
+                  </span>,
+                  "浜離宮",
+                ],
+                "className": "DemoQuestionListSorted",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "D",
+                      ":",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "D",
+                    ":",
+                  ],
+                  "type": "span",
+                },
+                "浜離宮",
+              ],
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": "5",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span>
+                    E
+                    :
+                  </span>,
+                  "国会議事堂",
+                ],
+                "className": "DemoQuestionListSorted",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "E",
+                      ":",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "E",
+                    ":",
+                  ],
+                  "type": "span",
+                },
+                "国会議事堂",
+              ],
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": "6",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span>
+                    F
+                    :
+                  </span>,
+                  "東京タワー",
+                ],
+                "className": "DemoQuestionListSorted",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "F",
+                      ":",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "F",
+                    ":",
+                  ],
+                  "type": "span",
+                },
+                "東京タワー",
+              ],
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": "7",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span>
+                    G
+                    :
+                  </span>,
+                  "上野動物園",
+                ],
+                "className": "DemoQuestionListSorted",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "G",
+                      ":",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "G",
+                    ":",
+                  ],
+                  "type": "span",
+                },
+                "上野動物園",
+              ],
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": "8",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span>
+                    H
+                    :
+                  </span>,
+                  "東京駅",
+                ],
+                "className": "DemoQuestionListSorted",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "H",
+                      ":",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "H",
+                    ":",
+                  ],
+                  "type": "span",
+                },
+                "東京駅",
+              ],
+              "type": "li",
+            },
+          ],
+          "type": "ul",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <li>
+              <span>
+                着
+                :
+              </span>
+              六本木ヒルズ森タワー
+            </li>,
+            "className": "DemoQuestionListArrival",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": "六本木ヒルズ森タワー",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span>
+                  着
+                  :
+                </span>,
+                "六本木ヒルズ森タワー",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "着",
+                    ":",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "着",
+                  ":",
+                ],
+                "type": "span",
+              },
+              "六本木ヒルズ森タワー",
+            ],
+            "type": "li",
+          },
+          "type": "ul",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
