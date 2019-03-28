@@ -7,7 +7,7 @@ describe('<DemoAnswerMark />', () => {
   it('answerWaypointOrderが空の場合、何も表示されないこと', () => {
     // setup
     const props = {
-      answerWaypointOrder: []
+      answerWaypointOrder: [],
     };
     const expected = '';
 
@@ -34,7 +34,7 @@ describe('<DemoAnswerMark />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('answerWaypointOrderがs[0, 1, 2, 3, 4, 5, 6, 7]でない場合、「残 念」が表示されること', () => {
+  it('answerWaypointOrderが[0, 1, 2, 3, 4, 5, 6, 7]でない場合、「残 念」が表示されること', () => {
     // setup
     const props = {
       answerWaypointOrder: [1, 0, 3, 4, 7, 2, 5, 6],
