@@ -1,0 +1,408 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DemoAnswer /> 子コンポーネントをレンダリングすること 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DemoAnswer />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h2>
+          Google Mapsが選んだ経路
+        </h2>,
+        <div
+          className="DemoAnswerMain"
+        >
+          <div
+            className="DemoAnswerNavArea"
+          >
+            <DemoAnswerMark />
+            <DemoRoutesList
+              displaySide={1}
+            />
+            <DemoButton
+              classname="DemoQuestionButton"
+              isDisabled={true}
+              label="やり直す"
+            />
+          </div>
+          <div
+            className="DemoAnswerMapArea"
+          >
+            <DemoAnswerMap />
+            <DemoGross />
+          </div>
+        </div>,
+      ],
+      "className": "DemoAnswer",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Google Mapsが選んだ経路",
+        },
+        "ref": null,
+        "rendered": "Google Mapsが選んだ経路",
+        "type": "h2",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="DemoAnswerNavArea"
+            >
+              <DemoAnswerMark />
+              <DemoRoutesList
+                displaySide={1}
+              />
+              <DemoButton
+                classname="DemoQuestionButton"
+                isDisabled={true}
+                label="やり直す"
+              />
+            </div>,
+            <div
+              className="DemoAnswerMapArea"
+            >
+              <DemoAnswerMap />
+              <DemoGross />
+            </div>,
+          ],
+          "className": "DemoAnswerMain",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <DemoAnswerMark />,
+                <DemoRoutesList
+                  displaySide={1}
+                />,
+                <DemoButton
+                  classname="DemoQuestionButton"
+                  isDisabled={true}
+                  label="やり直す"
+                />,
+              ],
+              "className": "DemoAnswerNavArea",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "answerWaypointOrder": undefined,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "answerWaypointOrder": undefined,
+                  "arrival": undefined,
+                  "departure": undefined,
+                  "displaySide": 1,
+                  "routes": undefined,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "callback": undefined,
+                  "classname": "DemoQuestionButton",
+                  "isDisabled": true,
+                  "label": "やり直す",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <DemoAnswerMap />,
+                <DemoGross />,
+              ],
+              "className": "DemoAnswerMapArea",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "gross": undefined,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h2>
+            Google Mapsが選んだ経路
+          </h2>,
+          <div
+            className="DemoAnswerMain"
+          >
+            <div
+              className="DemoAnswerNavArea"
+            >
+              <DemoAnswerMark />
+              <DemoRoutesList
+                displaySide={1}
+              />
+              <DemoButton
+                classname="DemoQuestionButton"
+                isDisabled={true}
+                label="やり直す"
+              />
+            </div>
+            <div
+              className="DemoAnswerMapArea"
+            >
+              <DemoAnswerMap />
+              <DemoGross />
+            </div>
+          </div>,
+        ],
+        "className": "DemoAnswer",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Google Mapsが選んだ経路",
+          },
+          "ref": null,
+          "rendered": "Google Mapsが選んだ経路",
+          "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="DemoAnswerNavArea"
+              >
+                <DemoAnswerMark />
+                <DemoRoutesList
+                  displaySide={1}
+                />
+                <DemoButton
+                  classname="DemoQuestionButton"
+                  isDisabled={true}
+                  label="やり直す"
+                />
+              </div>,
+              <div
+                className="DemoAnswerMapArea"
+              >
+                <DemoAnswerMap />
+                <DemoGross />
+              </div>,
+            ],
+            "className": "DemoAnswerMain",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <DemoAnswerMark />,
+                  <DemoRoutesList
+                    displaySide={1}
+                  />,
+                  <DemoButton
+                    classname="DemoQuestionButton"
+                    isDisabled={true}
+                    label="やり直す"
+                  />,
+                ],
+                "className": "DemoAnswerNavArea",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "answerWaypointOrder": undefined,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "answerWaypointOrder": undefined,
+                    "arrival": undefined,
+                    "departure": undefined,
+                    "displaySide": 1,
+                    "routes": undefined,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "callback": undefined,
+                    "classname": "DemoQuestionButton",
+                    "isDisabled": true,
+                    "label": "やり直す",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <DemoAnswerMap />,
+                  <DemoGross />,
+                ],
+                "className": "DemoAnswerMapArea",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "gross": undefined,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
