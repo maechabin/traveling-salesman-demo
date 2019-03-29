@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
+
 import { State, Route, Position, Step } from '../../../state.model';
 import { Dispatches, RouteLabel } from '../../demo.model';
 import { fetchLatLngFromGMaps } from '../../../utils/shared';
 import * as RouteConst from '../../../constants/route';
 import * as ButtonLabel from '../../../constants/button';
-
 import DemoEditDepartureArrival from './DemoEditDepartureArrival';
 import DemoEditRoutes from './DemoEditRoutes';
 import DemoButton from '../common/DemoButton';
-
-import { demoEdit } from './demoEditStyle';
+import { demoEdit } from './demoEdit.style';
 import '../../styles/DemoEdit.css';
 
 function DemoEdit(props: State & Dispatches): JSX.Element {
