@@ -1,5 +1,7 @@
 import React from 'react';
 import { Action } from 'redux';
+
+import * as Option from '../../../constants/option';
 import { Expressway, Traffic, Transport, Step } from '../../../state.model';
 
 type PropsType = {
@@ -31,81 +33,81 @@ function DemoQuestionOptions({
       <dd>
         <input
           type="radio"
-          value="car"
-          name="transport"
+          value={Transport.Car}
+          name={Option.TRANSPORT}
           checked={transport === Transport.Car}
           onChange={handleChange}
-          id="transport-car"
+          id={`${Option.TRANSPORT}-${Transport.Car}`}
           disabled={isDisabled}
         />
-        <label htmlFor="transport-car">車</label>
+        <label htmlFor={`${Option.TRANSPORT}-${Transport.Car}`}>車</label>
         <input
           type="radio"
-          value="walk"
-          name="transport"
+          value={Transport.Walk}
+          name={Option.TRANSPORT}
           checked={transport === Transport.Walk}
           onChange={handleChange}
-          id="transport-walk"
+          id={`${Option.TRANSPORT}-${Transport.Walk}`}
           disabled={isDisabled}
         />
-        <label htmlFor="transport-walk">徒歩</label>
+        <label htmlFor={`${Option.TRANSPORT}-${Transport.Walk}`}>徒歩</label>
       </dd>
       <dt>有料道路、高速道路</dt>
       <dd>
         <input
           type="checkbox"
           value={expressway === Expressway.No ? Expressway.Yes : Expressway.No}
-          name="expressway"
+          name={Option.EXPRESSWAY}
           checked={expressway === Expressway.Yes && transport === Transport.Car}
           onChange={handleChange}
-          id="expressway"
+          id={Option.EXPRESSWAY}
           disabled={isDisabled || transport === Transport.Walk}
         />
-        <label htmlFor="expressway">利用する</label>
+        <label htmlFor={Option.EXPRESSWAY}>利用する</label>
       </dd>
       <dt>3日後の交通量で見積もる（参考）</dt>
       <dd>
         <input
           type="radio"
-          value="standard"
-          name="traffic"
+          value={Traffic.Standard}
+          name={Option.TRAFFIC}
           checked={traffic === Traffic.Standard || transport === Transport.Walk}
           onChange={handleChange}
-          id="traffic-standard"
+          id={`${Option.TRAFFIC}-${Traffic.Standard}`}
           disabled={isDisabled || transport === Transport.Walk}
         />
-        <label htmlFor="traffic-standard">見積もらない</label>
+        <label htmlFor={`${Option.TRAFFIC}-${Traffic.Standard}`}>見積もらない</label>
         <br />
         <input
           type="radio"
-          value="bestguess"
-          name="traffic"
+          value={Traffic.Bestguess}
+          name={Option.TRAFFIC}
           checked={traffic === Traffic.Bestguess && transport === Transport.Car}
           onChange={handleChange}
-          id="traffic-bestguess"
+          id={`${Option.TRAFFIC}-${Traffic.Bestguess}`}
           disabled={isDisabled || transport === Transport.Walk}
         />
-        <label htmlFor="traffic-bestguess">正確に</label>
+        <label htmlFor={`${Option.TRAFFIC}-${Traffic.Bestguess}`}>正確に</label>
         <input
           type="radio"
-          value="optimistic"
-          name="traffic"
+          value={Traffic.Optimistic}
+          name={Option.TRAFFIC}
           checked={traffic === Traffic.Optimistic && transport === Transport.Car}
           onChange={handleChange}
-          id="traffic-optimistic"
+          id={`${Option.TRAFFIC}-${Traffic.Optimistic}`}
           disabled={isDisabled || transport === Transport.Walk}
         />
-        <label htmlFor="traffic-optimistic">楽観的に</label>
+        <label htmlFor={`${Option.TRAFFIC}-${Traffic.Optimistic}`}>楽観的に</label>
         <input
           type="radio"
-          value="pessimistic"
-          name="traffic"
+          value={Traffic.Pessimistic}
+          name={Option.TRAFFIC}
           checked={traffic === Traffic.Pessimistic && transport === Transport.Car}
           onChange={handleChange}
-          id="traffic-pessimistic"
+          id={`${Option.TRAFFIC}-${Traffic.Pessimistic}`}
           disabled={isDisabled || transport === Transport.Walk}
         />
-        <label htmlFor="traffic-pessimistic">悲観的に</label>
+        <label htmlFor={`${Option.TRAFFIC}-${Traffic.Pessimistic}`}>悲観的に</label>
       </dd>
     </dl>
   );
