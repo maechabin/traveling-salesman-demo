@@ -1,7 +1,7 @@
 import React from 'react';
-import * as RouteConst from '../../../constants/route';
 
-import { demoEditRoute } from './demoEditStyle';
+import * as RouteConst from '../../../constants/route';
+import { demoEditRoute } from './demoEdit.style';
 
 type PropsTypes = {
   label: string;

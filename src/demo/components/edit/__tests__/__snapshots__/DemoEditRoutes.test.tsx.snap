@@ -1,0 +1,1118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DemoDescription /> snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DemoEditRoutes
+    callback={[MockFunction]}
+    routes={
+      Array [
+        Object {
+          "id": 1,
+          "label": "A",
+          "lat": 111,
+          "lng": 111,
+          "sortId": 5,
+          "title": "秋葉原駅",
+        },
+        Object {
+          "id": 2,
+          "label": "B",
+          "lat": 222,
+          "lng": 222,
+          "sortId": 4,
+          "title": "文京区役所",
+        },
+        Object {
+          "id": 3,
+          "label": "C",
+          "lat": 333,
+          "lng": 333,
+          "sortId": 1,
+          "title": "明治大学",
+        },
+        Object {
+          "id": 4,
+          "label": "D",
+          "lat": 444,
+          "lng": 444,
+          "sortId": 2,
+          "title": "浜離宮",
+        },
+        Object {
+          "id": 5,
+          "label": "E",
+          "lat": 555,
+          "lng": 555,
+          "sortId": 8,
+          "title": "国会議事堂",
+        },
+        Object {
+          "id": 6,
+          "label": "F",
+          "lat": 666,
+          "lng": 666,
+          "sortId": 3,
+          "title": "東京タワー",
+        },
+        Object {
+          "id": 7,
+          "label": "G",
+          "lat": 777,
+          "lng": 777,
+          "sortId": 7,
+          "title": "上野動物園",
+        },
+        Object {
+          "id": 8,
+          "label": "H",
+          "lat": 888,
+          "lng": 888,
+          "sortId": 6,
+          "title": "東京駅",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <label
+          style={
+            Object {
+              "backgroundColor": "#7fbc39",
+              "boxSizing": "border-box",
+              "color": "#fff",
+              "display": "block",
+              "padding": "4px",
+              "textAlign": "center",
+              "width": "320px",
+            }
+          }
+        >
+          ルート
+        </label>,
+        Array [
+          <li>
+            <input
+              defaultValue="秋葉原駅"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "fontSize": "16px",
+                  "imeMode": "active",
+                  "padding": "6px 4px",
+                  "width": "320px",
+                }
+              }
+            />
+          </li>,
+          <li>
+            <input
+              defaultValue="文京区役所"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "fontSize": "16px",
+                  "imeMode": "active",
+                  "padding": "6px 4px",
+                  "width": "320px",
+                }
+              }
+            />
+          </li>,
+          <li>
+            <input
+              defaultValue="明治大学"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "fontSize": "16px",
+                  "imeMode": "active",
+                  "padding": "6px 4px",
+                  "width": "320px",
+                }
+              }
+            />
+          </li>,
+          <li>
+            <input
+              defaultValue="浜離宮"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "fontSize": "16px",
+                  "imeMode": "active",
+                  "padding": "6px 4px",
+                  "width": "320px",
+                }
+              }
+            />
+          </li>,
+          <li>
+            <input
+              defaultValue="国会議事堂"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "fontSize": "16px",
+                  "imeMode": "active",
+                  "padding": "6px 4px",
+                  "width": "320px",
+                }
+              }
+            />
+          </li>,
+          <li>
+            <input
+              defaultValue="東京タワー"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "fontSize": "16px",
+                  "imeMode": "active",
+                  "padding": "6px 4px",
+                  "width": "320px",
+                }
+              }
+            />
+          </li>,
+          <li>
+            <input
+              defaultValue="上野動物園"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "fontSize": "16px",
+                  "imeMode": "active",
+                  "padding": "6px 4px",
+                  "width": "320px",
+                }
+              }
+            />
+          </li>,
+          <li>
+            <input
+              defaultValue="東京駅"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "fontSize": "16px",
+                  "imeMode": "active",
+                  "padding": "6px 4px",
+                  "width": "320px",
+                }
+              }
+            />
+          </li>,
+        ],
+      ],
+      "style": Object {
+        "listStyleType": "none",
+        "margin": "0 0 16px 0",
+        "padding": 0,
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "ルート",
+          "style": Object {
+            "backgroundColor": "#7fbc39",
+            "boxSizing": "border-box",
+            "color": "#fff",
+            "display": "block",
+            "padding": "4px",
+            "textAlign": "center",
+            "width": "320px",
+          },
+        },
+        "ref": null,
+        "rendered": "ルート",
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "host",
+        "props": Object {
+          "children": <input
+            defaultValue="秋葉原駅"
+            onChange={[Function]}
+            style={
+              Object {
+                "boxSizing": "border-box",
+                "fontSize": "16px",
+                "imeMode": "active",
+                "padding": "6px 4px",
+                "width": "320px",
+              }
+            }
+          />,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "defaultValue": "秋葉原駅",
+            "onChange": [Function],
+            "style": Object {
+              "boxSizing": "border-box",
+              "fontSize": "16px",
+              "imeMode": "active",
+              "padding": "6px 4px",
+              "width": "320px",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        "type": "li",
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "host",
+        "props": Object {
+          "children": <input
+            defaultValue="文京区役所"
+            onChange={[Function]}
+            style={
+              Object {
+                "boxSizing": "border-box",
+                "fontSize": "16px",
+                "imeMode": "active",
+                "padding": "6px 4px",
+                "width": "320px",
+              }
+            }
+          />,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "defaultValue": "文京区役所",
+            "onChange": [Function],
+            "style": Object {
+              "boxSizing": "border-box",
+              "fontSize": "16px",
+              "imeMode": "active",
+              "padding": "6px 4px",
+              "width": "320px",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        "type": "li",
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "host",
+        "props": Object {
+          "children": <input
+            defaultValue="明治大学"
+            onChange={[Function]}
+            style={
+              Object {
+                "boxSizing": "border-box",
+                "fontSize": "16px",
+                "imeMode": "active",
+                "padding": "6px 4px",
+                "width": "320px",
+              }
+            }
+          />,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "defaultValue": "明治大学",
+            "onChange": [Function],
+            "style": Object {
+              "boxSizing": "border-box",
+              "fontSize": "16px",
+              "imeMode": "active",
+              "padding": "6px 4px",
+              "width": "320px",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        "type": "li",
+      },
+      Object {
+        "instance": null,
+        "key": "3",
+        "nodeType": "host",
+        "props": Object {
+          "children": <input
+            defaultValue="浜離宮"
+            onChange={[Function]}
+            style={
+              Object {
+                "boxSizing": "border-box",
+                "fontSize": "16px",
+                "imeMode": "active",
+                "padding": "6px 4px",
+                "width": "320px",
+              }
+            }
+          />,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "defaultValue": "浜離宮",
+            "onChange": [Function],
+            "style": Object {
+              "boxSizing": "border-box",
+              "fontSize": "16px",
+              "imeMode": "active",
+              "padding": "6px 4px",
+              "width": "320px",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        "type": "li",
+      },
+      Object {
+        "instance": null,
+        "key": "4",
+        "nodeType": "host",
+        "props": Object {
+          "children": <input
+            defaultValue="国会議事堂"
+            onChange={[Function]}
+            style={
+              Object {
+                "boxSizing": "border-box",
+                "fontSize": "16px",
+                "imeMode": "active",
+                "padding": "6px 4px",
+                "width": "320px",
+              }
+            }
+          />,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "defaultValue": "国会議事堂",
+            "onChange": [Function],
+            "style": Object {
+              "boxSizing": "border-box",
+              "fontSize": "16px",
+              "imeMode": "active",
+              "padding": "6px 4px",
+              "width": "320px",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        "type": "li",
+      },
+      Object {
+        "instance": null,
+        "key": "5",
+        "nodeType": "host",
+        "props": Object {
+          "children": <input
+            defaultValue="東京タワー"
+            onChange={[Function]}
+            style={
+              Object {
+                "boxSizing": "border-box",
+                "fontSize": "16px",
+                "imeMode": "active",
+                "padding": "6px 4px",
+                "width": "320px",
+              }
+            }
+          />,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "defaultValue": "東京タワー",
+            "onChange": [Function],
+            "style": Object {
+              "boxSizing": "border-box",
+              "fontSize": "16px",
+              "imeMode": "active",
+              "padding": "6px 4px",
+              "width": "320px",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        "type": "li",
+      },
+      Object {
+        "instance": null,
+        "key": "6",
+        "nodeType": "host",
+        "props": Object {
+          "children": <input
+            defaultValue="上野動物園"
+            onChange={[Function]}
+            style={
+              Object {
+                "boxSizing": "border-box",
+                "fontSize": "16px",
+                "imeMode": "active",
+                "padding": "6px 4px",
+                "width": "320px",
+              }
+            }
+          />,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "defaultValue": "上野動物園",
+            "onChange": [Function],
+            "style": Object {
+              "boxSizing": "border-box",
+              "fontSize": "16px",
+              "imeMode": "active",
+              "padding": "6px 4px",
+              "width": "320px",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        "type": "li",
+      },
+      Object {
+        "instance": null,
+        "key": "7",
+        "nodeType": "host",
+        "props": Object {
+          "children": <input
+            defaultValue="東京駅"
+            onChange={[Function]}
+            style={
+              Object {
+                "boxSizing": "border-box",
+                "fontSize": "16px",
+                "imeMode": "active",
+                "padding": "6px 4px",
+                "width": "320px",
+              }
+            }
+          />,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "defaultValue": "東京駅",
+            "onChange": [Function],
+            "style": Object {
+              "boxSizing": "border-box",
+              "fontSize": "16px",
+              "imeMode": "active",
+              "padding": "6px 4px",
+              "width": "320px",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        "type": "li",
+      },
+    ],
+    "type": "ul",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <label
+            style={
+              Object {
+                "backgroundColor": "#7fbc39",
+                "boxSizing": "border-box",
+                "color": "#fff",
+                "display": "block",
+                "padding": "4px",
+                "textAlign": "center",
+                "width": "320px",
+              }
+            }
+          >
+            ルート
+          </label>,
+          Array [
+            <li>
+              <input
+                defaultValue="秋葉原駅"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "boxSizing": "border-box",
+                    "fontSize": "16px",
+                    "imeMode": "active",
+                    "padding": "6px 4px",
+                    "width": "320px",
+                  }
+                }
+              />
+            </li>,
+            <li>
+              <input
+                defaultValue="文京区役所"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "boxSizing": "border-box",
+                    "fontSize": "16px",
+                    "imeMode": "active",
+                    "padding": "6px 4px",
+                    "width": "320px",
+                  }
+                }
+              />
+            </li>,
+            <li>
+              <input
+                defaultValue="明治大学"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "boxSizing": "border-box",
+                    "fontSize": "16px",
+                    "imeMode": "active",
+                    "padding": "6px 4px",
+                    "width": "320px",
+                  }
+                }
+              />
+            </li>,
+            <li>
+              <input
+                defaultValue="浜離宮"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "boxSizing": "border-box",
+                    "fontSize": "16px",
+                    "imeMode": "active",
+                    "padding": "6px 4px",
+                    "width": "320px",
+                  }
+                }
+              />
+            </li>,
+            <li>
+              <input
+                defaultValue="国会議事堂"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "boxSizing": "border-box",
+                    "fontSize": "16px",
+                    "imeMode": "active",
+                    "padding": "6px 4px",
+                    "width": "320px",
+                  }
+                }
+              />
+            </li>,
+            <li>
+              <input
+                defaultValue="東京タワー"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "boxSizing": "border-box",
+                    "fontSize": "16px",
+                    "imeMode": "active",
+                    "padding": "6px 4px",
+                    "width": "320px",
+                  }
+                }
+              />
+            </li>,
+            <li>
+              <input
+                defaultValue="上野動物園"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "boxSizing": "border-box",
+                    "fontSize": "16px",
+                    "imeMode": "active",
+                    "padding": "6px 4px",
+                    "width": "320px",
+                  }
+                }
+              />
+            </li>,
+            <li>
+              <input
+                defaultValue="東京駅"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "boxSizing": "border-box",
+                    "fontSize": "16px",
+                    "imeMode": "active",
+                    "padding": "6px 4px",
+                    "width": "320px",
+                  }
+                }
+              />
+            </li>,
+          ],
+        ],
+        "style": Object {
+          "listStyleType": "none",
+          "margin": "0 0 16px 0",
+          "padding": 0,
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "ルート",
+            "style": Object {
+              "backgroundColor": "#7fbc39",
+              "boxSizing": "border-box",
+              "color": "#fff",
+              "display": "block",
+              "padding": "4px",
+              "textAlign": "center",
+              "width": "320px",
+            },
+          },
+          "ref": null,
+          "rendered": "ルート",
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "host",
+          "props": Object {
+            "children": <input
+              defaultValue="秋葉原駅"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "fontSize": "16px",
+                  "imeMode": "active",
+                  "padding": "6px 4px",
+                  "width": "320px",
+                }
+              }
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "defaultValue": "秋葉原駅",
+              "onChange": [Function],
+              "style": Object {
+                "boxSizing": "border-box",
+                "fontSize": "16px",
+                "imeMode": "active",
+                "padding": "6px 4px",
+                "width": "320px",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          "type": "li",
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "host",
+          "props": Object {
+            "children": <input
+              defaultValue="文京区役所"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "fontSize": "16px",
+                  "imeMode": "active",
+                  "padding": "6px 4px",
+                  "width": "320px",
+                }
+              }
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "defaultValue": "文京区役所",
+              "onChange": [Function],
+              "style": Object {
+                "boxSizing": "border-box",
+                "fontSize": "16px",
+                "imeMode": "active",
+                "padding": "6px 4px",
+                "width": "320px",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          "type": "li",
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "host",
+          "props": Object {
+            "children": <input
+              defaultValue="明治大学"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "fontSize": "16px",
+                  "imeMode": "active",
+                  "padding": "6px 4px",
+                  "width": "320px",
+                }
+              }
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "defaultValue": "明治大学",
+              "onChange": [Function],
+              "style": Object {
+                "boxSizing": "border-box",
+                "fontSize": "16px",
+                "imeMode": "active",
+                "padding": "6px 4px",
+                "width": "320px",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          "type": "li",
+        },
+        Object {
+          "instance": null,
+          "key": "3",
+          "nodeType": "host",
+          "props": Object {
+            "children": <input
+              defaultValue="浜離宮"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "fontSize": "16px",
+                  "imeMode": "active",
+                  "padding": "6px 4px",
+                  "width": "320px",
+                }
+              }
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "defaultValue": "浜離宮",
+              "onChange": [Function],
+              "style": Object {
+                "boxSizing": "border-box",
+                "fontSize": "16px",
+                "imeMode": "active",
+                "padding": "6px 4px",
+                "width": "320px",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          "type": "li",
+        },
+        Object {
+          "instance": null,
+          "key": "4",
+          "nodeType": "host",
+          "props": Object {
+            "children": <input
+              defaultValue="国会議事堂"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "fontSize": "16px",
+                  "imeMode": "active",
+                  "padding": "6px 4px",
+                  "width": "320px",
+                }
+              }
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "defaultValue": "国会議事堂",
+              "onChange": [Function],
+              "style": Object {
+                "boxSizing": "border-box",
+                "fontSize": "16px",
+                "imeMode": "active",
+                "padding": "6px 4px",
+                "width": "320px",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          "type": "li",
+        },
+        Object {
+          "instance": null,
+          "key": "5",
+          "nodeType": "host",
+          "props": Object {
+            "children": <input
+              defaultValue="東京タワー"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "fontSize": "16px",
+                  "imeMode": "active",
+                  "padding": "6px 4px",
+                  "width": "320px",
+                }
+              }
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "defaultValue": "東京タワー",
+              "onChange": [Function],
+              "style": Object {
+                "boxSizing": "border-box",
+                "fontSize": "16px",
+                "imeMode": "active",
+                "padding": "6px 4px",
+                "width": "320px",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          "type": "li",
+        },
+        Object {
+          "instance": null,
+          "key": "6",
+          "nodeType": "host",
+          "props": Object {
+            "children": <input
+              defaultValue="上野動物園"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "fontSize": "16px",
+                  "imeMode": "active",
+                  "padding": "6px 4px",
+                  "width": "320px",
+                }
+              }
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "defaultValue": "上野動物園",
+              "onChange": [Function],
+              "style": Object {
+                "boxSizing": "border-box",
+                "fontSize": "16px",
+                "imeMode": "active",
+                "padding": "6px 4px",
+                "width": "320px",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          "type": "li",
+        },
+        Object {
+          "instance": null,
+          "key": "7",
+          "nodeType": "host",
+          "props": Object {
+            "children": <input
+              defaultValue="東京駅"
+              onChange={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "fontSize": "16px",
+                  "imeMode": "active",
+                  "padding": "6px 4px",
+                  "width": "320px",
+                }
+              }
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "defaultValue": "東京駅",
+              "onChange": [Function],
+              "style": Object {
+                "boxSizing": "border-box",
+                "fontSize": "16px",
+                "imeMode": "active",
+                "padding": "6px 4px",
+                "width": "320px",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          "type": "li",
+        },
+      ],
+      "type": "ul",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
