@@ -1,11 +1,10 @@
 import React from 'react';
+
 import { Step } from '../../../state.model';
 import { Action } from '../../demoAction.model';
 import * as ButtonLabel from '../../../constants/button';
-
-import DemoDescriptionText from './DemoDescriptionText';
 import DemoButton from '../common/DemoButton';
-
+import DemoDescriptionText from './DemoDescriptionText';
 import '../../styles/DemoDescription.css';
 
 type PropsType = {
