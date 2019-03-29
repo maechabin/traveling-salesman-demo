@@ -1,0 +1,1069 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DemoQuestionOptions /> init - snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DemoQuestionOptions
+    expressway="yes"
+    questionStep={0}
+    traffic="standard"
+    transport="car"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <dt>
+          移動手段
+        </dt>,
+        <dd>
+          <input
+            checked={true}
+            disabled={false}
+            id="transport-car"
+            name="transport"
+            onChange={[Function]}
+            type="radio"
+            value="car"
+          />
+          <label
+            htmlFor="transport-car"
+          >
+            車
+          </label>
+          <input
+            checked={false}
+            disabled={false}
+            id="transport-walk"
+            name="transport"
+            onChange={[Function]}
+            type="radio"
+            value="walk"
+          />
+          <label
+            htmlFor="transport-walk"
+          >
+            徒歩
+          </label>
+        </dd>,
+        <dt>
+          有料道路、高速道路
+        </dt>,
+        <dd>
+          <input
+            checked={true}
+            disabled={false}
+            id="expressway"
+            name="expressway"
+            onChange={[Function]}
+            type="checkbox"
+            value="no"
+          />
+          <label
+            htmlFor="expressway"
+          >
+            利用する
+          </label>
+        </dd>,
+        <dt>
+          3日後の交通量で見積もる（参考）
+        </dt>,
+        <dd>
+          <input
+            checked={true}
+            disabled={false}
+            id="traffic-standard"
+            name="traffic"
+            onChange={[Function]}
+            type="radio"
+            value="standard"
+          />
+          <label
+            htmlFor="traffic-standard"
+          >
+            見積もらない
+          </label>
+          <br />
+          <input
+            checked={false}
+            disabled={false}
+            id="traffic-bestguess"
+            name="traffic"
+            onChange={[Function]}
+            type="radio"
+            value="bestguess"
+          />
+          <label
+            htmlFor="traffic-bestguess"
+          >
+            正確に
+          </label>
+          <input
+            checked={false}
+            disabled={false}
+            id="traffic-optimistic"
+            name="traffic"
+            onChange={[Function]}
+            type="radio"
+            value="optimistic"
+          />
+          <label
+            htmlFor="traffic-optimistic"
+          >
+            楽観的に
+          </label>
+          <input
+            checked={false}
+            disabled={false}
+            id="traffic-pessimistic"
+            name="traffic"
+            onChange={[Function]}
+            type="radio"
+            value="pessimistic"
+          />
+          <label
+            htmlFor="traffic-pessimistic"
+          >
+            悲観的に
+          </label>
+        </dd>,
+      ],
+      "className": "DemoQuestionOptions",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "移動手段",
+        },
+        "ref": null,
+        "rendered": "移動手段",
+        "type": "dt",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              checked={true}
+              disabled={false}
+              id="transport-car"
+              name="transport"
+              onChange={[Function]}
+              type="radio"
+              value="car"
+            />,
+            <label
+              htmlFor="transport-car"
+            >
+              車
+            </label>,
+            <input
+              checked={false}
+              disabled={false}
+              id="transport-walk"
+              name="transport"
+              onChange={[Function]}
+              type="radio"
+              value="walk"
+            />,
+            <label
+              htmlFor="transport-walk"
+            >
+              徒歩
+            </label>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "checked": true,
+              "disabled": false,
+              "id": "transport-car",
+              "name": "transport",
+              "onChange": [Function],
+              "type": "radio",
+              "value": "car",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "車",
+              "htmlFor": "transport-car",
+            },
+            "ref": null,
+            "rendered": "車",
+            "type": "label",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "checked": false,
+              "disabled": false,
+              "id": "transport-walk",
+              "name": "transport",
+              "onChange": [Function],
+              "type": "radio",
+              "value": "walk",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "徒歩",
+              "htmlFor": "transport-walk",
+            },
+            "ref": null,
+            "rendered": "徒歩",
+            "type": "label",
+          },
+        ],
+        "type": "dd",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "有料道路、高速道路",
+        },
+        "ref": null,
+        "rendered": "有料道路、高速道路",
+        "type": "dt",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              checked={true}
+              disabled={false}
+              id="expressway"
+              name="expressway"
+              onChange={[Function]}
+              type="checkbox"
+              value="no"
+            />,
+            <label
+              htmlFor="expressway"
+            >
+              利用する
+            </label>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "checked": true,
+              "disabled": false,
+              "id": "expressway",
+              "name": "expressway",
+              "onChange": [Function],
+              "type": "checkbox",
+              "value": "no",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "利用する",
+              "htmlFor": "expressway",
+            },
+            "ref": null,
+            "rendered": "利用する",
+            "type": "label",
+          },
+        ],
+        "type": "dd",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "3日後の交通量で見積もる（参考）",
+        },
+        "ref": null,
+        "rendered": "3日後の交通量で見積もる（参考）",
+        "type": "dt",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              checked={true}
+              disabled={false}
+              id="traffic-standard"
+              name="traffic"
+              onChange={[Function]}
+              type="radio"
+              value="standard"
+            />,
+            <label
+              htmlFor="traffic-standard"
+            >
+              見積もらない
+            </label>,
+            <br />,
+            <input
+              checked={false}
+              disabled={false}
+              id="traffic-bestguess"
+              name="traffic"
+              onChange={[Function]}
+              type="radio"
+              value="bestguess"
+            />,
+            <label
+              htmlFor="traffic-bestguess"
+            >
+              正確に
+            </label>,
+            <input
+              checked={false}
+              disabled={false}
+              id="traffic-optimistic"
+              name="traffic"
+              onChange={[Function]}
+              type="radio"
+              value="optimistic"
+            />,
+            <label
+              htmlFor="traffic-optimistic"
+            >
+              楽観的に
+            </label>,
+            <input
+              checked={false}
+              disabled={false}
+              id="traffic-pessimistic"
+              name="traffic"
+              onChange={[Function]}
+              type="radio"
+              value="pessimistic"
+            />,
+            <label
+              htmlFor="traffic-pessimistic"
+            >
+              悲観的に
+            </label>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "checked": true,
+              "disabled": false,
+              "id": "traffic-standard",
+              "name": "traffic",
+              "onChange": [Function],
+              "type": "radio",
+              "value": "standard",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "見積もらない",
+              "htmlFor": "traffic-standard",
+            },
+            "ref": null,
+            "rendered": "見積もらない",
+            "type": "label",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "checked": false,
+              "disabled": false,
+              "id": "traffic-bestguess",
+              "name": "traffic",
+              "onChange": [Function],
+              "type": "radio",
+              "value": "bestguess",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "正確に",
+              "htmlFor": "traffic-bestguess",
+            },
+            "ref": null,
+            "rendered": "正確に",
+            "type": "label",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "checked": false,
+              "disabled": false,
+              "id": "traffic-optimistic",
+              "name": "traffic",
+              "onChange": [Function],
+              "type": "radio",
+              "value": "optimistic",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "楽観的に",
+              "htmlFor": "traffic-optimistic",
+            },
+            "ref": null,
+            "rendered": "楽観的に",
+            "type": "label",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "checked": false,
+              "disabled": false,
+              "id": "traffic-pessimistic",
+              "name": "traffic",
+              "onChange": [Function],
+              "type": "radio",
+              "value": "pessimistic",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "悲観的に",
+              "htmlFor": "traffic-pessimistic",
+            },
+            "ref": null,
+            "rendered": "悲観的に",
+            "type": "label",
+          },
+        ],
+        "type": "dd",
+      },
+    ],
+    "type": "dl",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <dt>
+            移動手段
+          </dt>,
+          <dd>
+            <input
+              checked={true}
+              disabled={false}
+              id="transport-car"
+              name="transport"
+              onChange={[Function]}
+              type="radio"
+              value="car"
+            />
+            <label
+              htmlFor="transport-car"
+            >
+              車
+            </label>
+            <input
+              checked={false}
+              disabled={false}
+              id="transport-walk"
+              name="transport"
+              onChange={[Function]}
+              type="radio"
+              value="walk"
+            />
+            <label
+              htmlFor="transport-walk"
+            >
+              徒歩
+            </label>
+          </dd>,
+          <dt>
+            有料道路、高速道路
+          </dt>,
+          <dd>
+            <input
+              checked={true}
+              disabled={false}
+              id="expressway"
+              name="expressway"
+              onChange={[Function]}
+              type="checkbox"
+              value="no"
+            />
+            <label
+              htmlFor="expressway"
+            >
+              利用する
+            </label>
+          </dd>,
+          <dt>
+            3日後の交通量で見積もる（参考）
+          </dt>,
+          <dd>
+            <input
+              checked={true}
+              disabled={false}
+              id="traffic-standard"
+              name="traffic"
+              onChange={[Function]}
+              type="radio"
+              value="standard"
+            />
+            <label
+              htmlFor="traffic-standard"
+            >
+              見積もらない
+            </label>
+            <br />
+            <input
+              checked={false}
+              disabled={false}
+              id="traffic-bestguess"
+              name="traffic"
+              onChange={[Function]}
+              type="radio"
+              value="bestguess"
+            />
+            <label
+              htmlFor="traffic-bestguess"
+            >
+              正確に
+            </label>
+            <input
+              checked={false}
+              disabled={false}
+              id="traffic-optimistic"
+              name="traffic"
+              onChange={[Function]}
+              type="radio"
+              value="optimistic"
+            />
+            <label
+              htmlFor="traffic-optimistic"
+            >
+              楽観的に
+            </label>
+            <input
+              checked={false}
+              disabled={false}
+              id="traffic-pessimistic"
+              name="traffic"
+              onChange={[Function]}
+              type="radio"
+              value="pessimistic"
+            />
+            <label
+              htmlFor="traffic-pessimistic"
+            >
+              悲観的に
+            </label>
+          </dd>,
+        ],
+        "className": "DemoQuestionOptions",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "移動手段",
+          },
+          "ref": null,
+          "rendered": "移動手段",
+          "type": "dt",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                checked={true}
+                disabled={false}
+                id="transport-car"
+                name="transport"
+                onChange={[Function]}
+                type="radio"
+                value="car"
+              />,
+              <label
+                htmlFor="transport-car"
+              >
+                車
+              </label>,
+              <input
+                checked={false}
+                disabled={false}
+                id="transport-walk"
+                name="transport"
+                onChange={[Function]}
+                type="radio"
+                value="walk"
+              />,
+              <label
+                htmlFor="transport-walk"
+              >
+                徒歩
+              </label>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "checked": true,
+                "disabled": false,
+                "id": "transport-car",
+                "name": "transport",
+                "onChange": [Function],
+                "type": "radio",
+                "value": "car",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "車",
+                "htmlFor": "transport-car",
+              },
+              "ref": null,
+              "rendered": "車",
+              "type": "label",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "checked": false,
+                "disabled": false,
+                "id": "transport-walk",
+                "name": "transport",
+                "onChange": [Function],
+                "type": "radio",
+                "value": "walk",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "徒歩",
+                "htmlFor": "transport-walk",
+              },
+              "ref": null,
+              "rendered": "徒歩",
+              "type": "label",
+            },
+          ],
+          "type": "dd",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "有料道路、高速道路",
+          },
+          "ref": null,
+          "rendered": "有料道路、高速道路",
+          "type": "dt",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                checked={true}
+                disabled={false}
+                id="expressway"
+                name="expressway"
+                onChange={[Function]}
+                type="checkbox"
+                value="no"
+              />,
+              <label
+                htmlFor="expressway"
+              >
+                利用する
+              </label>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "checked": true,
+                "disabled": false,
+                "id": "expressway",
+                "name": "expressway",
+                "onChange": [Function],
+                "type": "checkbox",
+                "value": "no",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "利用する",
+                "htmlFor": "expressway",
+              },
+              "ref": null,
+              "rendered": "利用する",
+              "type": "label",
+            },
+          ],
+          "type": "dd",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "3日後の交通量で見積もる（参考）",
+          },
+          "ref": null,
+          "rendered": "3日後の交通量で見積もる（参考）",
+          "type": "dt",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                checked={true}
+                disabled={false}
+                id="traffic-standard"
+                name="traffic"
+                onChange={[Function]}
+                type="radio"
+                value="standard"
+              />,
+              <label
+                htmlFor="traffic-standard"
+              >
+                見積もらない
+              </label>,
+              <br />,
+              <input
+                checked={false}
+                disabled={false}
+                id="traffic-bestguess"
+                name="traffic"
+                onChange={[Function]}
+                type="radio"
+                value="bestguess"
+              />,
+              <label
+                htmlFor="traffic-bestguess"
+              >
+                正確に
+              </label>,
+              <input
+                checked={false}
+                disabled={false}
+                id="traffic-optimistic"
+                name="traffic"
+                onChange={[Function]}
+                type="radio"
+                value="optimistic"
+              />,
+              <label
+                htmlFor="traffic-optimistic"
+              >
+                楽観的に
+              </label>,
+              <input
+                checked={false}
+                disabled={false}
+                id="traffic-pessimistic"
+                name="traffic"
+                onChange={[Function]}
+                type="radio"
+                value="pessimistic"
+              />,
+              <label
+                htmlFor="traffic-pessimistic"
+              >
+                悲観的に
+              </label>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "checked": true,
+                "disabled": false,
+                "id": "traffic-standard",
+                "name": "traffic",
+                "onChange": [Function],
+                "type": "radio",
+                "value": "standard",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "見積もらない",
+                "htmlFor": "traffic-standard",
+              },
+              "ref": null,
+              "rendered": "見積もらない",
+              "type": "label",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "br",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "checked": false,
+                "disabled": false,
+                "id": "traffic-bestguess",
+                "name": "traffic",
+                "onChange": [Function],
+                "type": "radio",
+                "value": "bestguess",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "正確に",
+                "htmlFor": "traffic-bestguess",
+              },
+              "ref": null,
+              "rendered": "正確に",
+              "type": "label",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "checked": false,
+                "disabled": false,
+                "id": "traffic-optimistic",
+                "name": "traffic",
+                "onChange": [Function],
+                "type": "radio",
+                "value": "optimistic",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "楽観的に",
+                "htmlFor": "traffic-optimistic",
+              },
+              "ref": null,
+              "rendered": "楽観的に",
+              "type": "label",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "checked": false,
+                "disabled": false,
+                "id": "traffic-pessimistic",
+                "name": "traffic",
+                "onChange": [Function],
+                "type": "radio",
+                "value": "pessimistic",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "悲観的に",
+                "htmlFor": "traffic-pessimistic",
+              },
+              "ref": null,
+              "rendered": "悲観的に",
+              "type": "label",
+            },
+          ],
+          "type": "dd",
+        },
+      ],
+      "type": "dl",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
