@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DemoDescription /> 子コンポーネントをレンダリングすること 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DemoDescriptionText />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <p>
+          地図上の経路をどの順番で辿れば、出発地から到着地まで最短で行けるでしょうか？
+        </p>,
+        <p>
+          辿る順番に地図上の経路のマーカーをクリックしてください。
+        </p>,
+        <p>
+          正解を確認するには、以下のボタンをクリックしてください。
+        </p>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "地図上の経路をどの順番で辿れば、出発地から到着地まで最短で行けるでしょうか？",
+        },
+        "ref": null,
+        "rendered": "地図上の経路をどの順番で辿れば、出発地から到着地まで最短で行けるでしょうか？",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "辿る順番に地図上の経路のマーカーをクリックしてください。",
+        },
+        "ref": null,
+        "rendered": "辿る順番に地図上の経路のマーカーをクリックしてください。",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "正解を確認するには、以下のボタンをクリックしてください。",
+        },
+        "ref": null,
+        "rendered": "正解を確認するには、以下のボタンをクリックしてください。",
+        "type": "p",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <p>
+            地図上の経路をどの順番で辿れば、出発地から到着地まで最短で行けるでしょうか？
+          </p>,
+          <p>
+            辿る順番に地図上の経路のマーカーをクリックしてください。
+          </p>,
+          <p>
+            正解を確認するには、以下のボタンをクリックしてください。
+          </p>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "地図上の経路をどの順番で辿れば、出発地から到着地まで最短で行けるでしょうか？",
+          },
+          "ref": null,
+          "rendered": "地図上の経路をどの順番で辿れば、出発地から到着地まで最短で行けるでしょうか？",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "辿る順番に地図上の経路のマーカーをクリックしてください。",
+          },
+          "ref": null,
+          "rendered": "辿る順番に地図上の経路のマーカーをクリックしてください。",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "正解を確認するには、以下のボタンをクリックしてください。",
+          },
+          "ref": null,
+          "rendered": "正解を確認するには、以下のボタンをクリックしてください。",
+          "type": "p",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
