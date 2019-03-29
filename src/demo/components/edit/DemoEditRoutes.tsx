@@ -1,8 +1,8 @@
 import React from 'react';
+
 import { Route } from '../../../state.model';
 import * as RouteConst from '../../../constants/route';
-
-import { demoEditRoute } from './demoEditStyle';
+import { demoEditRoute } from './demoEdit.style';
 
 type PropsTypes = {
   routes: Route[];
