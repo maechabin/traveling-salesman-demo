@@ -5,9 +5,9 @@ import * as ButtonLabel from '../../../constants/button';
 
 import DemoAnswerMap from './DemoAnswerMap';
 import DemoAnswerMark from './DemoAnswerMark';
-import DemoRoutesList from '../common/DemoRoutesList';
-import DemoGross from '../common/DemoGross';
-import DemoButton from '../common/DemoButton';
+import DemoRoutesList from '../shared/DemoRoutesList';
+import DemoGross from '../shared/DemoGross';
+import DemoButton from '../shared/DemoButton';
 
 import '../../styles/DemoAnswer.css';
 

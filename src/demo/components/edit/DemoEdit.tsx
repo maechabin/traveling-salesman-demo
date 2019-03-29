@@ -7,7 +7,7 @@ import * as RouteConst from '../../../constants/route';
 import * as ButtonLabel from '../../../constants/button';
 import DemoEditDepartureArrival from './DemoEditDepartureArrival';
 import DemoEditRoutes from './DemoEditRoutes';
-import DemoButton from '../common/DemoButton';
+import DemoButton from '../shared/DemoButton';
 import { demoEdit } from './demoEdit.style';
 import '../../styles/DemoEdit.css';
 
