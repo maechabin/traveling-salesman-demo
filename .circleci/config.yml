@@ -27,7 +27,7 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               echo "Deploy Master"
               npm run build
-              npm run deploy
+              npm run deploy:ci
             else
               echo "Not master branch so not deploying"
             fi

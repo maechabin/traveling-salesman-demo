@@ -1,13 +1,6 @@
 {
   "short_name": "巡回サラリーマン問題",
   "name": "巡回サラリーマン問題",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "48x48",
-      "type": "image/png"
-    }
-  ],
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",
