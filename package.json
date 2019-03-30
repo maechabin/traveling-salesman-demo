@@ -36,7 +36,8 @@
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "netlify deploy --site ${DEV_SITE_ID} --dir build/ --auth ${NETLIFY_TOKEN}"
   },
   "devDependencies": {
     "@types/jest": "^24.0.11",
