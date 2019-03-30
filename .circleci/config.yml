@@ -4,12 +4,15 @@ jobs:
     docker:
       - image: circleci/node:8.11.3
     working_directory: ~/repo
+    branches:
+      only:
+        - master
     steps:
       - checkout
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
       - run: npm install
       - save_cache:
           paths:
@@ -18,3 +21,16 @@ jobs:
       - run:
           name: Running tests
           command: npm test
+      - run:
+          name: Deploy
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              echo "Deploy Master"
+              npm run build
+              ./node_modules/netlify-cli/bin/cli.js deploy -d \
+                --site-id ${DEV_SITE_ID} \
+                -p build/ \
+                --access-token ${NETLIFY_TOKEN}
+            else
+              echo "Not master branch so not deploying"
+            fi

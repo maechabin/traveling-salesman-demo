@@ -7,7 +7,6 @@ import thunk from 'redux-thunk';
 import configureStore from './store';
 import demoReducer from './demo/demoReducer';
 import { state } from './state';
-
 import './index.css';
 import DemoContainer from './demo/DemoContainer';
 import registerServiceWorker from './registerServiceWorker';

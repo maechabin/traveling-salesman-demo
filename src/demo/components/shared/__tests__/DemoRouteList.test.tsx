@@ -1,15 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import {
-  State,
-  Position,
-  Route,
-  Step,
-  Transport,
-  Traffic,
-  Expressway,
-} from '../../../../state.model';
+import { Position, Route } from '../../../../state.model';
 import { DisplaySide } from '../../../demo.model';
 import DemoRoutesList from '../DemoRoutesList';
 

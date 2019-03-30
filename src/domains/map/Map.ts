@@ -1,40 +1,5 @@
-import { Gross, Position, Route, Traffic, Transport, Expressway, Step } from '../state.model';
-import { Action } from '../demo/demoAction.model';
-
-type MarkerProps = {
-  departure: Position;
-  arrival: Position;
-  routes: Route[];
-  questionStep: Step;
-  currentSortId: number;
-  dispatchMarkerClickActions: (
-    routeid: number,
-    questionStep: Step,
-    currentSortId: number,
-  ) => Action[];
-};
-
-type PolilineProps = {
-  routes: Route[];
-  traffic: Traffic;
-  transport: Transport;
-  departure: Position;
-  arrival: Position;
-  expressway: Expressway;
-  departureTime: Date;
-  dispatchUpdateGross: (gross: Gross) => Action;
-};
-
-type AnswerPolilineProps = {
-  routes: Route[];
-  traffic: Traffic;
-  transport: Transport;
-  departure: Position;
-  arrival: Position;
-  expressway: Expressway;
-  departureTime: Date;
-  dispatchUpdateAnswerData: (gross: Gross, waypointOrder: number[]) => Action;
-};
+import { Position, Route, Traffic, Transport, Expressway, Step } from '../../state.model';
+import { MarkerProps, PolilineProps, UpdateGross, UpdateAnswerData } from './map.model';
 
 class Maps {
   map!: google.maps.Map;
@@ -144,7 +109,7 @@ class Maps {
   /**
    * Map上にポリラインを表示する
    */
-  public initPolyLine(props: PolilineProps): void {
+  public initPolyLine(props: PolilineProps & UpdateGross): void {
     const {
       routes,
       traffic,
@@ -247,7 +212,7 @@ class Maps {
   /**
    * propsから出発地、到着地、経路、オプションを取得して、マーカーを結ぶ線（polyline）を地図に表示する
    */
-  public initAnswerPolyLine(props: AnswerPolilineProps): void {
+  public initAnswerPolyLine(props: PolilineProps & UpdateAnswerData): void {
     const {
       routes,
       traffic,
