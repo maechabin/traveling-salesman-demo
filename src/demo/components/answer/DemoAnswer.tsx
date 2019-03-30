@@ -1,8 +1,8 @@
 import React from 'react';
+
 import { State, Step } from '../../../state.model';
 import { Dispatches, DisplaySide } from '../../demo.model';
 import * as ButtonLabel from '../../../constants/button';
-
 import DemoAnswerMap from './DemoAnswerMap';
 import DemoAnswerMark from './DemoAnswerMark';
 import DemoRoutesList from '../shared/DemoRoutesList';
