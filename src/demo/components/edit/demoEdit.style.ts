@@ -1,6 +1,10 @@
 export const demoEdit = {
   wrapper: {
     width: '50%',
+    overflow: 'scroll',
+    height: 'calc(100vh - 40px)',
+    padding: '32px 16px',
+    boxSizing: 'border-box',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',

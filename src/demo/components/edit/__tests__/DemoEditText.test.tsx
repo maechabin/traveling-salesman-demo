@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import DemoDescriptionText from '../DemoDescriptionText';
+import DemoEditText from '../DemoEditText';
 
-describe('<DemoDescriptionText />', () => {
+describe('<DemoEditText />', () => {
   it('子コンポーネントをレンダリングすること', () => {
     // setup
-    const wrapper = shallow(<DemoDescriptionText />);
+    const wrapper = shallow(<DemoEditText />);
 
     // snapshot
     expect(wrapper).toMatchSnapshot();
