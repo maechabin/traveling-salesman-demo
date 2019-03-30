@@ -70,22 +70,6 @@ describe('<DemoQuestionMap />', () => {
       expect(dispatchUpdateQuestionStepSpy).toHaveBeenCalledWith(Step.Start);
     });
 
-    it('Step.Edit', () => {
-      // setup
-      const props = {
-        questionStep: Step.Edit,
-        dispatchUpdateQuestionStep: () => jest.fn(),
-      } as any;
-      const demoQuestionMap = new DemoQuestionMap(props);
-      const initSpy = jest.spyOn(demoQuestionMap, 'init');
-
-      // exercise
-      demoQuestionMap.componentDidUpdate();
-
-      // verify
-      expect(initSpy).toHaveBeenCalled();
-    });
-
     it('Step.Select', () => {
       // setup
       const props = {

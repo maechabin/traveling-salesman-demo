@@ -29,9 +29,6 @@ class DemoQuestionMap extends React.Component<State & Dispatches, never> {
         this.init();
         this.props.dispatchUpdateQuestionStep(Step.Start);
         break;
-      case Step.Edit:
-        this.init();
-        break;
       case Step.Select:
         this.map.initPolyLine(this.props);
         this.map.initMarker(this.props);
