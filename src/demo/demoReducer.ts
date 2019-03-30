@@ -1,7 +1,7 @@
 import { state } from '../state';
 import { State, Step, Route, Traffic, Transport, Expressway } from '../state.model';
 import { ActionType, Action } from './demoAction.model';
-import { copyArrayWithObject } from '../utils/shared';
+import { copyArrayWithObject } from '../utils/array';
 
 const initialState: State = { ...state };
 
