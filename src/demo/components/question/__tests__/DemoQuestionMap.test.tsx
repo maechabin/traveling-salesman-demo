@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import { Step } from '../../../../state.model';
 import DemoQuestionMap from '../DemoQuestionMap';
 
-jest.mock('../../../../utils/Map', () => {
+jest.mock('../../../../domains/map/Map', () => {
   return jest.fn().mockImplementation(() => {
     return {
       initMap: jest.fn(),

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import DemoAnswerMap from '../DemoAnswerMap';
 
-jest.mock('../../../../utils/Map', () => {
+jest.mock('../../../../domains/map/Map', () => {
   return jest.fn().mockImplementation(() => {
     return {
       initMap: jest.fn(),
