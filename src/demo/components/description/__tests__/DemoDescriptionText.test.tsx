@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import DemoDescriptionText from '../DemoDescriptionText';
 
-describe('<DemoDescription />', () => {
+describe('<DemoDescriptionText />', () => {
   it('子コンポーネントをレンダリングすること', () => {
     // setup
     const wrapper = shallow(<DemoDescriptionText />);
