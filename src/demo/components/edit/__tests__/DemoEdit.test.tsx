@@ -39,6 +39,7 @@ describe('<DemoEdit />', () => {
     const wrapper = shallow(<DemoEdit {...props} />);
 
     // verify
+    expect(wrapper.find('DemoEditText').length).toBe(1);
     expect(wrapper.find('DemoEditDepartureArrival').length).toBe(2);
     expect(wrapper.find('DemoEditRoutes').length).toBe(1);
     expect(wrapper.find('DemoButton').length).toBe(2);

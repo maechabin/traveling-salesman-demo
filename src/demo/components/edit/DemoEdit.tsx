@@ -4,6 +4,7 @@ import { State, Route, Position, Step } from '../../../state.model';
 import { Dispatches, RouteLabel } from '../../demo.model';
 import { fetchLatLng } from '../../../domains/map/fetchLatLng';
 import * as Const from '../../../constants/index';
+import DemoEditText from './DemoEditText';
 import DemoEditDepartureArrival from './DemoEditDepartureArrival';
 import DemoEditRoutes from './DemoEditRoutes';
 import DemoButton from '../shared/DemoButton';
@@ -133,6 +134,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
 
   return (
     <div style={demoEdit.wrapper}>
+      <DemoEditText />
       <DemoEditDepartureArrival
         label={Const.DEPARTURE}
         title={departure.title}

@@ -104,6 +104,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
+        <DemoEditText />,
         <DemoEditDepartureArrival
           callback={[Function]}
           index={0}
@@ -212,14 +213,27 @@ ShallowWrapper {
       ],
       "style": Object {
         "alignItems": "center",
+        "boxSizing": "border-box",
         "display": "flex",
         "flexDirection": "column",
+        "height": "calc(100vh - 40px)",
         "justifyContent": "center",
+        "overflow": "scroll",
+        "padding": "32px 16px",
         "width": "50%",
       },
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -393,6 +407,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <DemoEditText />,
           <DemoEditDepartureArrival
             callback={[Function]}
             index={0}
@@ -501,14 +516,27 @@ ShallowWrapper {
         ],
         "style": Object {
           "alignItems": "center",
+          "boxSizing": "border-box",
           "display": "flex",
           "flexDirection": "column",
+          "height": "calc(100vh - 40px)",
           "justifyContent": "center",
+          "overflow": "scroll",
+          "padding": "32px 16px",
           "width": "50%",
         },
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,
