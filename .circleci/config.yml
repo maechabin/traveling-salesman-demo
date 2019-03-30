@@ -27,7 +27,7 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               echo "Deploy Master"
               npm run build
-              ./node_modules/netlify-cli/bin/cli.js deploy -d \
+              ./node_modules/netlify-cli/bin/run deploy -d \
                 --site-id ${DEV_SITE_ID} \
                 -p build/ \
                 --access-token ${NETLIFY_TOKEN}
