@@ -7,24 +7,14 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "types": [
-      "googlemaps",
-      "node",
-      "jest"
-    ],
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ]
+    "types": ["googlemaps", "node", "jest"],
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }
