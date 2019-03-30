@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 import { State, Route, Position, Step } from '../../../state.model';
 import { Dispatches, RouteLabel } from '../../demo.model';
-import { fetchLatLngFromGMaps } from '../../../utils/shared';
-import * as RouteConst from '../../../constants/route';
-import * as ButtonLabel from '../../../constants/button';
+import { fetchLatLng } from '../../../domains/map/fetchLatLng';
+import * as Const from '../../../constants/index';
 import DemoEditDepartureArrival from './DemoEditDepartureArrival';
 import DemoEditRoutes from './DemoEditRoutes';
-import DemoButton from '../common/DemoButton';
+import DemoButton from '../shared/DemoButton';
 import { demoEdit } from './demoEdit.style';
 import '../../styles/DemoEdit.css';
 
@@ -16,13 +15,13 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
   const [arrival, setArrival] = useState(props.arrival);
   const [routes, setRoutes] = useState(props.routesCache);
   useEffect(() => {
-    if (routes.length < RouteConst.ROUTE_MAX_LENGTH) {
+    if (routes.length < Const.ROUTE_MAX_LENGTH) {
       makeRoutesArrayToBeMaxLength(routes);
     }
   }, [routes]);
 
   function makeRoutesArrayToBeMaxLength(routes: Route[]) {
-    const addedRoutes: Route[] = Array(RouteConst.ROUTE_MAX_LENGTH - routes.length)
+    const addedRoutes: Route[] = Array(Const.ROUTE_MAX_LENGTH - routes.length)
       .fill([])
       .map(
         (_, i: number): Route => ({
@@ -69,7 +68,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
 
   async function fetchAndMergeLatLng<T extends { title: string }>(route: T): Promise<T> {
     try {
-      const latlng = await fetchLatLngFromGMaps(route.title);
+      const latlng = await fetchLatLng(route.title);
       return {
         ...route,
         ...latlng,
@@ -114,7 +113,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
         return {
           ...route,
           id: i + 1,
-          label: RouteConst.ALPHABETS[i],
+          label: Const.ALPHABETS[i],
           sortId: 0,
         };
       });
@@ -135,14 +134,14 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
   return (
     <div style={demoEdit.wrapper}>
       <DemoEditDepartureArrival
-        label={RouteConst.DEPARTURE}
+        label={Const.DEPARTURE}
         title={departure.title}
         index={RouteLabel.Departure}
         callback={handleChange}
       />
       <DemoEditRoutes routes={routes} callback={handleChange} />
       <DemoEditDepartureArrival
-        label={RouteConst.ARRIVAL}
+        label={Const.ARRIVAL}
         title={arrival.title}
         index={RouteLabel.Arrival}
         callback={handleChange}
@@ -151,13 +150,13 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
         <DemoButton
           callback={() => props.dispatchUpdateQuestionStep(Step.Start)}
           isDisabled={false}
-          label={ButtonLabel.CANCEL}
+          label={Const.CANCEL}
           classname={'DemoEditButton'}
         />
         <DemoButton
           callback={handleClick}
           isDisabled={isDisabled || props.questionStep !== Step.Edit}
-          label={ButtonLabel.SET_ROUTES}
+          label={Const.SET_ROUTES}
           classname={'DemoEditButton'}
         />
       </div>

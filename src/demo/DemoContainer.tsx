@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch, Action } from 'redux';
-import { Dispatches } from './demo.model';
 
+import { Dispatches } from './demo.model';
 import { State, Gross, Position, Route, Step } from '../state.model';
 
 import {

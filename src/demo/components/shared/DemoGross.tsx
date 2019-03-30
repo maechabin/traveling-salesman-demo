@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Gross } from '../../../state.model';
 
 type PropsType = {

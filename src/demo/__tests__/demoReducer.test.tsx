@@ -2,7 +2,7 @@ import reducer from '../demoReducer';
 import { ActionType } from '../demoAction.model';
 import { state } from '../../state';
 import { Step, Traffic, Transport, Expressway } from '../../state.model';
-import { copyArrayWithObject } from '../../utils/shared';
+import { copyArrayWithObject } from '../../utils/array';
 
 describe('demoReducer', () => {
   const initialState = state;

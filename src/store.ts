@@ -1,4 +1,5 @@
 import { createStore, Reducer, DeepPartial, StoreEnhancer, Store } from 'redux';
+
 import { State } from './state.model';
 
 const configureStore = (

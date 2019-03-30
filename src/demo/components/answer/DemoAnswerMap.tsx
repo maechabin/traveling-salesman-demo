@@ -1,6 +1,6 @@
 import React from 'react';
-import Map from '../../../utils/Map';
 
+import Map from '../../../domains/map/Map';
 import { State } from '../../../state.model';
 import { Dispatches } from '../../demo.model';
 

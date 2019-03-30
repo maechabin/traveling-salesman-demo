@@ -1,6 +1,6 @@
 import React from 'react';
-import { Action } from 'redux';
 
+import { Action } from '../../demoAction.model';
 import * as Option from '../../../constants/option';
 import { Expressway, Traffic, Transport, Step } from '../../../state.model';
 

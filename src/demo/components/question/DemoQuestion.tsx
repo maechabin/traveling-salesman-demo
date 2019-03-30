@@ -5,9 +5,9 @@ import { Dispatches, DisplaySide } from '../../demo.model';
 import * as ButtonLabel from '../../../constants/button';
 import DemoQuestionMap from './DemoQuestionMap';
 import DemoQuestionOptions from './DemoQuestionOptions';
-import DemoRoutesList from '../common/DemoRoutesList';
-import DemoGross from '../common/DemoGross';
-import DemoButton from '../common/DemoButton';
+import DemoRoutesList from '../shared/DemoRoutesList';
+import DemoGross from '../shared/DemoGross';
+import DemoButton from '../shared/DemoButton';
 import '../../styles/DemoQuestion.css';
 
 function DemoQuestion(props: State & Dispatches): JSX.Element {

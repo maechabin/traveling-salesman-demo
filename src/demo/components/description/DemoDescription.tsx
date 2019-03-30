@@ -3,7 +3,7 @@ import React from 'react';
 import { Step } from '../../../state.model';
 import { Action } from '../../demoAction.model';
 import * as ButtonLabel from '../../../constants/button';
-import DemoButton from '../common/DemoButton';
+import DemoButton from '../shared/DemoButton';
 import DemoDescriptionText from './DemoDescriptionText';
 import '../../styles/DemoDescription.css';
 
