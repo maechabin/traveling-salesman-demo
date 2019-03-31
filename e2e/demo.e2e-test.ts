@@ -70,6 +70,9 @@ import puppeteer from 'puppeteer';
     '.DemoQuestionMap > div > div > div:nth-child(1) > div:nth-child(3) > div > div:nth-child(3) > div:nth-child(5) > img',
   );
 
+  /** 1秒待つ */
+  await page.waitFor(1000);
+
   /** スクリーンショットを撮る */
   await page.screenshot({ path: './e2e/screenshots/2_over.png' });
 
@@ -110,13 +113,13 @@ import puppeteer from 'puppeteer';
     await route7.type('品川駅');
   }
 
-  /** ルート8を空にする */
+  /** ルート8をスペースで空にする */
   const route8 = await page.$(
     'main > div:nth-child(2) > ul:nth-child(4) > li:nth-child(9) > input',
   );
   if (route8) {
     await route8.click({ clickCount: 3 });
-    await route8.type('渋谷ヒカリエ');
+    await route8.type(' ');
   }
 
   /** 到着地を「東京スカイツリー」と入力 */
@@ -133,7 +136,7 @@ import puppeteer from 'puppeteer';
   await page.click('main > div:nth-child(2) > div:nth-child(7) > button:nth-child(2)');
 
   /** 1秒待つ */
-  await page.waitFor(3000);
+  await page.waitFor(5000);
 
   /** スクリーンショットを撮る */
   await page.screenshot({ path: './e2e/screenshots/7_initial.png' });
