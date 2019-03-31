@@ -10,10 +10,6 @@ jobs:
     steps:
       - checkout
 
-      - add_ssh_keys:
-          fingerprints:
-            - '3d:3a:c9:b6:32:24:12:46:3a:44:a5:ee:88:50:36:01'
-
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
@@ -26,6 +22,9 @@ jobs:
       - run:
           name: Running tests
           command: npm test
+      - run:
+          name: Chmod permissions
+          command: chmod +x netlify
       - run:
           name: Deploy
           command: |
