@@ -11,9 +11,59 @@ import DemoButton from '../shared/DemoButton';
 import { demoEdit } from './demoEdit.style';
 import '../../styles/DemoEdit.css';
 
+async function fetchAndMergeLatLng<T extends { title: string }>(route: T): Promise<T> {
+  try {
+    const latlng = await fetchLatLng(route.title);
+    return {
+      ...route,
+      ...latlng,
+    };
+  } catch (e) {
+    console.error(e);
+    return {
+      ...route,
+      title: '',
+    };
+  }
+}
+
+/**
+ * 出発地または到着地の状態を管理するカスタムフック
+ * @param initialPosition 出発地または到着地の初期値
+ */
+function usePosition(
+  initialPosition: Position,
+): { position: Position; updateTitle: (title: string) => void; updateLatLng: () => Promise<void> } {
+  const [position, setPosition] = useState(initialPosition);
+
+  function updateTitle(title: string) {
+    if (title !== '') {
+      setPosition({ ...position, title: title.trim() });
+    }
+  }
+
+  async function updateLatLng(): Promise<void> {
+    if (initialPosition.title !== position.title) {
+      const newPosition = await fetchAndMergeLatLng<Position>(position);
+      setPosition(newPosition);
+    }
+  }
+
+  return {
+    position,
+    updateTitle,
+    updateLatLng,
+  };
+}
+
+/**
+ * DemoEditコンポーネント
+ * @param props 全state & dispatch
+ */
 function DemoEdit(props: State & Dispatches): JSX.Element {
-  const [departure, setDeparture] = useState(props.departure);
-  const [arrival, setArrival] = useState(props.arrival);
+  const departure = usePosition(props.departure);
+  const arrival = usePosition(props.arrival);
+
   const [routes, setRoutes] = useState(props.routesCache);
   useEffect(() => {
     if (routes.length < Const.ROUTE_MAX_LENGTH) {
@@ -21,7 +71,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     }
   }, [routes]);
 
-  function makeRoutesArrayToBeMaxLength(routes: Route[]) {
+  function makeRoutesArrayToBeMaxLength(routes: Route[]): void {
     const addedRoutes: Route[] = Array(Const.ROUTE_MAX_LENGTH - routes.length)
       .fill([])
       .map(
@@ -41,14 +91,10 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     const target = event.currentTarget;
     switch (index) {
       case RouteLabel.Departure:
-        if (target.value !== '') {
-          setDeparture({ ...departure, title: target.value.trim() });
-        }
+        departure.updateTitle(target.value);
         break;
       case RouteLabel.Arrival:
-        if (target.value !== '') {
-          setArrival({ ...arrival, title: target.value.trim() });
-        }
+        arrival.updateTitle(target.value);
         break;
       default:
         const newRoutes = routes.map(
@@ -67,32 +113,9 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     }
   }
 
-  async function fetchAndMergeLatLng<T extends { title: string }>(route: T): Promise<T> {
-    try {
-      const latlng = await fetchLatLng(route.title);
-      return {
-        ...route,
-        ...latlng,
-      };
-    } catch (e) {
-      console.error(e);
-      return {
-        ...route,
-        title: '',
-      };
-    }
-  }
-
   async function handleClick(): Promise<void> {
-    let newDeparture = departure;
-    if (props.departure.title !== departure.title) {
-      newDeparture = await fetchAndMergeLatLng<Position>(departure);
-    }
-
-    let newArrival = arrival;
-    if (props.arrival.title !== arrival.title) {
-      newArrival = await fetchAndMergeLatLng<Position>(arrival);
-    }
+    departure.updateLatLng();
+    arrival.updateLatLng();
 
     const updatedLatLngRoutes = await Promise.all(
       routes.map(async (route: Route, i: number) => {
@@ -119,7 +142,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
         };
       });
 
-    props.dispatchUpdateRoutes(newDeparture, newArrival, newRoutes);
+    props.dispatchUpdateRoutes(departure.position, arrival.position, newRoutes);
     props.dispatchUpdateQuestionStep(Step.Initial);
   }
 
@@ -137,14 +160,14 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
       <DemoEditText />
       <DemoEditDepartureArrival
         label={Const.DEPARTURE}
-        title={departure.title}
+        title={departure.position.title}
         index={RouteLabel.Departure}
         callback={handleChange}
       />
       <DemoEditRoutes routes={routes} callback={handleChange} />
       <DemoEditDepartureArrival
         label={Const.ARRIVAL}
-        title={arrival.title}
+        title={arrival.position.title}
         index={RouteLabel.Arrival}
         callback={handleChange}
       />
