@@ -1,11 +1,5 @@
 import puppeteer from 'puppeteer';
 
-async function clear(page: puppeteer.Page, selector: string) {
-  await page.evaluate(selector => {
-    document.querySelector(selector).value = '';
-  }, selector);
-}
-
 (async () => {
   /** 自動操作したいページのURL */
   const TARGET_URL = 'http://localhost:3000';
