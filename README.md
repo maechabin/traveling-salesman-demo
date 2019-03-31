@@ -26,3 +26,9 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](#deployment) for more information.
+
+## CI Status
+
+**CircleCI**<br>[![CircleCI](https://circleci.com/gh/maechabin/traveling-salesman-demo/tree/master.svg?style=svg)](https://circleci.com/gh/maechabin/traveling-salesman-demo/tree/master)
+
+**Netlify**<br>[![Netlify Status](https://api.netlify.com/api/v1/badges/d74a2cd8-121e-4b67-9f96-cf8d0f7c9853/deploy-status)](https://app.netlify.com/sites/traveling-salesman/deploys)
