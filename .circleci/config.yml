@@ -24,7 +24,7 @@ jobs:
           command: npm test
       - run:
           name: Chmod permissions
-          command: chmod +x netlify
+          command: chmod +x ./node_modules/netlify-cli/bin/run
       - run:
           name: Deploy
           command: |

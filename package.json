@@ -38,7 +38,7 @@
     "e2e": "ts-node --project ./e2e/tsconfig.e2e.json ./e2e/demo.e2e-test.ts",
     "eject": "react-scripts eject",
     "deploy": "netlify deploy --dir ./build",
-    "deploy:ci": "netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir ./build"
+    "deploy:ci": "./node_modules/netlify-cli/bin/run deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir ./build"
   },
   "devDependencies": {
     "@types/jest": "^24.0.11",
