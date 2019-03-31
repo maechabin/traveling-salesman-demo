@@ -42,12 +42,12 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     switch (index) {
       case RouteLabel.Departure:
         if (target.value !== '') {
-          setDeparture({ ...departure, title: target.value });
+          setDeparture({ ...departure, title: target.value.trim() });
         }
         break;
       case RouteLabel.Arrival:
         if (target.value !== '') {
-          setArrival({ ...arrival, title: target.value });
+          setArrival({ ...arrival, title: target.value.trim() });
         }
         break;
       default:
@@ -56,7 +56,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
             if (route.id === index) {
               return {
                 ...route,
-                title: target.value,
+                title: target.value.trim(),
               };
             }
             return route;
