@@ -288,6 +288,146 @@ ShallowWrapper {
 }
 `;
 
+exports[`<DemoAnswerMark /> answerWaypointOrderが[0, 1, 2, 3]の場合、「正 解」が表示されること 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DemoAnswerMark
+    answerWaypointOrder={
+      Array [
+        0,
+        1,
+        2,
+        3,
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <React.Fragment>
+        😃
+        <span>
+          正 解
+        </span>
+      </React.Fragment>,
+      "className": "DemoAnswerMark",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          "😃",
+          <span>
+            正 解
+          </span>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        "😃",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "正 解",
+          },
+          "ref": null,
+          "rendered": "正 解",
+          "type": "span",
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <React.Fragment>
+          😃
+          <span>
+            正 解
+          </span>
+        </React.Fragment>,
+        "className": "DemoAnswerMark",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            "😃",
+            <span>
+              正 解
+            </span>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "😃",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "正 解",
+            },
+            "ref": null,
+            "rendered": "正 解",
+            "type": "span",
+          },
+        ],
+        "type": Symbol(react.fragment),
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
 exports[`<DemoAnswerMark /> answerWaypointOrderが空の場合、何も表示されないこと 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],

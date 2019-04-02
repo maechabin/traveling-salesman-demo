@@ -34,6 +34,21 @@ describe('<DemoAnswerMark />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('answerWaypointOrderが[0, 1, 2, 3]の場合、「正 解」が表示されること', () => {
+    // setup
+    const props = {
+      answerWaypointOrder: [0, 1, 2, 3],
+    };
+    const expected = '😃正 解';
+
+    // exercise
+    const wrapper = shallow(<DemoAnswerMark {...props} />);
+
+    // verify
+    expect(wrapper.find('.DemoAnswerMark').text()).toBe(expected);
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('answerWaypointOrderが[0, 1, 2, 3, 4, 5, 6, 7]でない場合、「残 念」が表示されること', () => {
     // setup
     const props = {
