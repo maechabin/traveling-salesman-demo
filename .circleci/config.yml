@@ -25,6 +25,9 @@ jobs:
           name: Running tests
           command: npm test
       - run:
+          name: Running lint
+          command: npm run lint
+      - run:
           name: Chmod permissions
           command: chmod +x ./node_modules/netlify-cli/bin/run
       - run:
