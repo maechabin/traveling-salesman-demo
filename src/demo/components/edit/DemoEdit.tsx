@@ -89,6 +89,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
 
   function handleChange(event: React.FormEvent<HTMLInputElement>, index: number): void {
     const target = event.currentTarget;
+    let newRoutes: Route[] = [];
     switch (index) {
       case RouteLabel.Departure:
         departure.updateTitle(target.value);
@@ -97,7 +98,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
         arrival.updateTitle(target.value);
         break;
       default:
-        const newRoutes = routes.map(
+        newRoutes = routes.map(
           (route: Route): Route => {
             if (route.id === index) {
               return {

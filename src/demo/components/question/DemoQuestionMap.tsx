@@ -33,6 +33,8 @@ class DemoQuestionMap extends React.Component<State & Dispatches, never> {
         this.map.initPolyLine(this.props);
         this.map.initMarker(this.props);
         break;
+      default:
+        break;
     }
   }
 

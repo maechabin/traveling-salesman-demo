@@ -1,9 +1,9 @@
-import { state } from '../state';
+import { state as demoState } from '../state';
 import { State, Step, Route, Traffic, Transport, Expressway } from '../state.model';
 import { ActionType, Action } from './demoAction.model';
 import { copyArrayWithObject } from '../utils/array';
 
-const initialState: State = { ...state };
+const initialState: State = { ...demoState };
 
 const demoReducer = (state: State = initialState, action: Action): State => {
   switch (action.type) {

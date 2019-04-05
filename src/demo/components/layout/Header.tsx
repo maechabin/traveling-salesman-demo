@@ -35,6 +35,7 @@ function Header(): JSX.Element {
         <a
           style={style.link}
           href="https://github.com/maechabin/traveling-salesman-demo"
+          rel="noopener noreferrer"
           target="_blank">
           GitHub
         </a>

@@ -26,6 +26,7 @@ describe('<DemoDescription />', () => {
     );
 
     // verify
-    expect(wrapper.props().children).toEqual([<Header />, <div>AAA</div>]);
+    expect(wrapper.props().children[0]).toEqual(<Header />);
+    expect(wrapper.props().children[1]).toEqual(<div>AAA</div>);
   });
 });

@@ -43,6 +43,7 @@ ShallowWrapper {
         >
           <a
             href="https://github.com/maechabin/traveling-salesman-demo"
+            rel="noopener noreferrer"
             style={
               Object {
                 "color": "#fff",
@@ -89,6 +90,7 @@ ShallowWrapper {
         "props": Object {
           "children": <a
             href="https://github.com/maechabin/traveling-salesman-demo"
+            rel="noopener noreferrer"
             style={
               Object {
                 "color": "#fff",
@@ -114,6 +116,7 @@ ShallowWrapper {
           "props": Object {
             "children": "GitHub",
             "href": "https://github.com/maechabin/traveling-salesman-demo",
+            "rel": "noopener noreferrer",
             "style": Object {
               "color": "#fff",
             },
@@ -159,6 +162,7 @@ ShallowWrapper {
           >
             <a
               href="https://github.com/maechabin/traveling-salesman-demo"
+              rel="noopener noreferrer"
               style={
                 Object {
                   "color": "#fff",
@@ -205,6 +209,7 @@ ShallowWrapper {
           "props": Object {
             "children": <a
               href="https://github.com/maechabin/traveling-salesman-demo"
+              rel="noopener noreferrer"
               style={
                 Object {
                   "color": "#fff",
@@ -230,6 +235,7 @@ ShallowWrapper {
             "props": Object {
               "children": "GitHub",
               "href": "https://github.com/maechabin/traveling-salesman-demo",
+              "rel": "noopener noreferrer",
               "style": Object {
                 "color": "#fff",
               },

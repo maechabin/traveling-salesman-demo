@@ -44,6 +44,9 @@ function DemoRoutesList({
         </li>
       ));
       break;
+
+    default:
+      break;
   }
 
   return (
