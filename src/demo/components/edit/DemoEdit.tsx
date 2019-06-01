@@ -127,7 +127,20 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
   const [isClicked, setIsClicked] = useState(false);
   useEffect(() => {
     if (isClicked) {
-      props.dispatchUpdateRoutes(departure.position, arrival.position, routes);
+      /** タイトルのない中継地点を取り除く */
+      const newRoutes = routes
+        .filter((route: Route) => {
+          return route.title === '' ? false : true;
+        })
+        .map((route: Route, i: number) => {
+          return {
+            ...route,
+            id: i + 1,
+            label: Const.ALPHABETS[i],
+            sortId: 0,
+          };
+        });
+      props.dispatchUpdateRoutes(departure.position, arrival.position, newRoutes);
       props.dispatchUpdateQuestionStep(Step.Initial);
     }
   }, [isClicked]);
@@ -152,20 +165,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
       }),
     );
 
-    /** タイトルのない中継地点を取り除く */
-    const newRoutes = updatedLatLngRoutes
-      .filter((route: Route) => {
-        return route.title === '' ? false : true;
-      })
-      .map((route: Route, i: number) => {
-        return {
-          ...route,
-          id: i + 1,
-          label: Const.ALPHABETS[i],
-          sortId: 0,
-        };
-      });
-    setRoutes(newRoutes);
+    setRoutes(updatedLatLngRoutes);
     setIsClicked(true);
   }
 
