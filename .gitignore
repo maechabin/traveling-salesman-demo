@@ -22,3 +22,6 @@ yarn-error.log*
 
 #config
 .netlify
+
+#environment
+.env
