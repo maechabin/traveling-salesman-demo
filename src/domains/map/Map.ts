@@ -8,8 +8,10 @@ class Maps {
   line: google.maps.Polyline | null = null;
 
   /**
-   * Mapを任意の要素に表示する
+   * Mapを任意の要素に表示する（初期化する）
    * @param mapDiv Mapを表示する要素
+   * @param departure 出発地点
+   *
    */
   public initMap(mapDiv: HTMLDivElement | null, departure: Position): void {
     /**
