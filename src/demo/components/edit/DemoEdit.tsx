@@ -11,19 +11,17 @@ import DemoButton from '../shared/DemoButton';
 import { demoEdit } from './demoEdit.style';
 import '../../styles/DemoEdit.css';
 
+/**
+ * 位置情報を取得＆マージして返す
+ * @param route
+ */
 async function fetchAndMergeLatLng<T extends { title: string }>(route: T): Promise<T> {
   try {
     const latlng = await fetchLatLng(route.title);
-    return {
-      ...route,
-      ...latlng,
-    };
+    return { ...route, ...latlng };
   } catch (e) {
     console.error(e);
-    return {
-      ...route,
-      title: '',
-    };
+    return { ...route, title: '' };
   }
 }
 
@@ -33,19 +31,30 @@ async function fetchAndMergeLatLng<T extends { title: string }>(route: T): Promi
  */
 function usePosition(
   initialPosition: Position,
-): { position: Position; updateTitle: (title: string) => void; updateLatLng: () => Promise<void> } {
+): {
+  position: Position;
+  updateTitle: (title: string) => void;
+  updateLatLng: () => Promise<void>;
+} {
   const [position, setPosition] = useState(initialPosition);
 
-  function updateTitle(title: string) {
+  /**
+   * 出発地名/到着地名を更新する
+   * @param title 出発地名/到着地名
+   */
+  function updateTitle(title: string): void {
     if (title !== '') {
       setPosition({ ...position, title: title.trim() });
     }
   }
 
+  /**
+   * 出発地/到着地の位置情報を更新する
+   */
   async function updateLatLng(): Promise<void> {
     if (initialPosition.title !== position.title) {
       const newPosition = await fetchAndMergeLatLng<Position>(position);
-      setPosition(newPosition);
+      setPosition({ ...newPosition });
     }
   }
 
@@ -114,10 +123,36 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     }
   }
 
-  async function handleClick(): Promise<void> {
-    departure.updateLatLng();
-    arrival.updateLatLng();
+  /** 設定するボタンの状態 */
+  const [isClicked, setIsClicked] = useState(false);
+  useEffect(() => {
+    if (isClicked) {
+      /** タイトルのない中継地点を取り除く */
+      const newRoutes = routes
+        .filter((route: Route) => {
+          return route.title === '' ? false : true;
+        })
+        .map((route: Route, i: number) => {
+          return {
+            ...route,
+            id: i + 1,
+            label: Const.ALPHABETS[i],
+            sortId: 0,
+          };
+        });
+      props.dispatchUpdateRoutes(departure.position, arrival.position, newRoutes);
+      props.dispatchUpdateQuestionStep(Step.Initial);
+    }
+  }, [isClicked]);
 
+  async function handleClick(): Promise<void> {
+    /** 出発地の位置情報を更新 */
+    await departure.updateLatLng();
+
+    /** 到着地の位置情報を更新 */
+    await arrival.updateLatLng();
+
+    /** 中継地点の位置情報を更新 */
     const updatedLatLngRoutes = await Promise.all(
       routes.map(async (route: Route, i: number) => {
         if (
@@ -130,21 +165,8 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
       }),
     );
 
-    const newRoutes = updatedLatLngRoutes
-      .filter((route: Route) => {
-        return route.title === '' ? false : true;
-      })
-      .map((route: Route, i: number) => {
-        return {
-          ...route,
-          id: i + 1,
-          label: Const.ALPHABETS[i],
-          sortId: 0,
-        };
-      });
-
-    props.dispatchUpdateRoutes(departure.position, arrival.position, newRoutes);
-    props.dispatchUpdateQuestionStep(Step.Initial);
+    setRoutes(updatedLatLngRoutes);
+    setIsClicked(true);
   }
 
   function getIsDisabled(): boolean {
