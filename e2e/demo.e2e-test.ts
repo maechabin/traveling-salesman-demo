@@ -135,7 +135,7 @@ import puppeteer from 'puppeteer';
   /** 「ルートを編集」ボタンをクリック */
   await page.click('main > div:nth-child(2) > div:nth-child(7) > button:nth-child(2)');
 
-  /** 1秒待つ */
+  /** 5秒待つ */
   await page.waitFor(5000);
 
   /** スクリーンショットを撮る */
