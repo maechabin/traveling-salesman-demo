@@ -4,12 +4,12 @@ import { Route } from '../../../state.model';
 import * as RouteConst from '../../../constants/route';
 import { demoEditRoute } from './demoEdit.style';
 
-type PropsTypes = {
+type PropsType = {
   routes: Route[];
   callback(event: React.FormEvent<HTMLInputElement>, index: number): any;
 };
 
-function DemoEditRoutes({ routes, callback }: PropsTypes): JSX.Element {
+function DemoEditRoutes({ routes, callback }: PropsType): JSX.Element {
   function handleChange(event: React.FormEvent<HTMLInputElement>, index: number): void {
     callback(event, index);
   }

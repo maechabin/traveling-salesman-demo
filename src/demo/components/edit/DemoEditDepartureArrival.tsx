@@ -3,14 +3,14 @@ import React from 'react';
 import * as RouteConst from '../../../constants/route';
 import { demoEditRoute } from './demoEdit.style';
 
-type PropsTypes = {
+type PropsType = {
   label: string;
   title: string;
   index: number;
   callback(event: React.FormEvent<HTMLInputElement>, index: number): any;
 };
 
-function DemoEditDepartureArrival({ label, title, index, callback }: PropsTypes): JSX.Element {
+function DemoEditDepartureArrival({ label, title, index, callback }: PropsType): JSX.Element {
   function handleChange(event: React.FormEvent<HTMLInputElement>): void {
     callback(event, index);
   }
