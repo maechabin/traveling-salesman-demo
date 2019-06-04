@@ -83,6 +83,10 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     }
   }, [routes]);
 
+  /**
+   * ルート配列の要素数を入力フォームの数に合わせる
+   * @param routes ルート
+   */
   function makeRoutesArrayToBeMaxLength(routes: Route[]): void {
     const addedRoutes: Route[] = Array(Const.ROUTE_MAX_LENGTH - routes.length)
       .fill([])
@@ -99,6 +103,11 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     setRoutes([...routes, ...addedRoutes]);
   }
 
+  /**
+   * フォームの入力が変更された時の処理
+   * @param event 入力イベント
+   * @param index 入力したフォームのindex数
+   */
   function handleChange(event: React.FormEvent<HTMLInputElement>, index: number): void {
     const target = event.currentTarget;
     let newRoutes: Route[] = [];
@@ -126,7 +135,7 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     }
   }
 
-  /** 設定するボタンの状態 */
+  /** 「設定する」ボタンの状態 */
   const [isClicked, setIsClicked] = useState(false);
   useEffect(() => {
     if (isClicked) {
@@ -148,6 +157,9 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
     }
   }, [isClicked]);
 
+  /**
+   * 「設定する」ボタンをクリックした時の処理
+   */
   async function handleClick(): Promise<void> {
     /** 出発地の位置情報を更新 */
     await departure.updateLatLng();
