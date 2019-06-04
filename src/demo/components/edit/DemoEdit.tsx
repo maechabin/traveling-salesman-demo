@@ -15,13 +15,12 @@ import '../../styles/DemoEdit.css';
  * 位置情報を取得＆マージして返す
  * @param route
  */
-async function fetchAndMergeLatLng<T extends { title: string }>(route: T): Promise<T> {
+async function fetchAndMergeLatLng<T extends { title: string }>(route: T): Promise<T | null> {
   try {
     const latlng = await fetchLatLng(route.title);
     return { ...route, ...latlng };
-  } catch (e) {
-    console.error(e);
-    return { ...route, title: '' };
+  } catch (error) {
+    return null;
   }
 }
 
@@ -54,7 +53,11 @@ function usePosition(
   async function updateLatLng(): Promise<void> {
     if (initialPosition.title !== position.title) {
       const newPosition = await fetchAndMergeLatLng<Position>(position);
-      setPosition({ ...newPosition });
+      if (newPosition) {
+        setPosition({ ...newPosition });
+      } else {
+        setPosition({ ...initialPosition });
+      }
     }
   }
 
@@ -165,10 +168,13 @@ function DemoEdit(props: State & Dispatches): JSX.Element {
       }),
     );
 
-    setRoutes(updatedLatLngRoutes);
+    const filteredRoutes = updatedLatLngRoutes.filter(route => route != null);
+
+    setRoutes(filteredRoutes as any);
     setIsClicked(true);
   }
 
+  /** ボタンが押せないか取得する */
   function getIsDisabled(): boolean {
     const havingTilteRoutes = routes.filter(route => {
       return route.title !== '';
