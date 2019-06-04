@@ -20,6 +20,7 @@ async function fetchAndMergeLatLng<T extends { title: string }>(route: T): Promi
     const latlng = await fetchLatLng(route.title);
     return { ...route, ...latlng };
   } catch (error) {
+    console.error(error);
     return null;
   }
 }
